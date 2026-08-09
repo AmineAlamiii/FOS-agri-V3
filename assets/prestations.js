@@ -1882,12 +1882,12 @@
         groups: [{ title: 'Organismes d’assurances partenaires', items: projetsAssurancesItemsFor('Confirmé', 'Télécharger l’offre', 'Avantages de l’offre', 'Conseils pratiques') }] },
       { navIndex: 2, icon: 'fa-utensils', badge: 'Prestataires de restauration', title: 'Prestataires de restauration',
         intro: [
-          'La FOS-Agri assure un service de restauration collective au profit du personnel des directions centrales, régionales et provinciales lors de leurs déplacements à Rabat, au niveau de deux restaurants : celui de la station Dbagh et celui du siège du Ministère.',
+          'La FOS-Agri assure un service de restauration collective au profit du personnel des directions centrales, régionales et provinciales lors de leurs déplacements à Rabat, au niveau de trois restaurants : celui de la station Dbagh, celui du club de l’Agriculture et celui du siège de l’ONSSA.',
           'Les repas servis sont subventionnés par la Fondation. La prestation est assurée dans le respect des normes d’hygiène et de qualité, sous le contrôle d’un organisme habilité. Pour garantir la fluidité de l’accès, les restaurants sont équipés de dispositifs d’identification nécessitant une carte d’accès.'
         ],
         beneficiariesTitle: 'Bénéficiaires',
         beneficiaries: [{ number: '01', text: 'Tous les adhérents de la FOS-Agri disposant de leur carte d’adhésion (nécessaire pour le pointage).' }],
-        blocks: [{ icon: 'fa-location-dot', title: 'Restaurants disponibles', items: [{ title: 'Deux sites à Rabat', bullets: ['Restaurant de la station Dbagh', 'Restaurant du siège du Ministère'] }] }] },
+        blocks: [{ icon: 'fa-location-dot', title: 'Restaurants disponibles', items: [{ title: 'Trois sites à Rabat', bullets: ['Restaurant de la station Dbagh', 'Restaurant du club de l’Agriculture', 'Restaurant du siège de l’ONSSA'] }] }] },
       { navIndex: 3, type: 'culturePartners', icon: 'fa-couch', badge: 'Organismes d’ameublement', title: 'Organismes d’ameublement',
         intro: [
           'La FOS-Agri a conclu des conventions de partenariat avec des organismes d’ameublement, offrant à ses adhérents des taux de remise avantageux sur leurs achats.',
@@ -1920,12 +1920,12 @@
         groups: [{ title: 'مؤسسات التأمين الشريكة', items: projetsAssurancesItemsFor('مؤكد', 'تحميل العرض', 'مزايا العرض', 'نصائح عملية') }] },
       { navIndex: 2, icon: 'fa-utensils', badge: 'مقدمو خدمات الإطعام', title: 'مقدمو خدمات الإطعام',
         intro: [
-          'تضمن FOS-Agri خدمة الإطعام الجماعي لفائدة موظفي المصالح المركزية والجهوية والإقليمية خلال تنقلاتهم إلى الرباط، وذلك على مستوى مطعمين: مطعم محطة الدباغ ومطعم مقر الوزارة.',
-          'الوجبات المقدمة مدعمة من طرف المؤسسة. وتُقدَّم هذه الخدمة وفق معايير النظافة والجودة، تحت مراقبة هيئة مؤهلة. ولضمان سلاسة الولوج، تم تجهيز المطعمين بأجهزة تعريف تتطلب بطاقة ولوج.'
+          'تضمن FOS-Agri خدمة الإطعام الجماعي لفائدة موظفي المصالح المركزية والجهوية والإقليمية خلال تنقلاتهم إلى الرباط، وذلك على مستوى ثلاثة مطاعم: مطعم محطة الدباغ، ومطعم نادي الفلاحة، ومطعم مقر ONSSA.',
+          'الوجبات المقدمة مدعمة من طرف المؤسسة. وتُقدَّم هذه الخدمة وفق معايير النظافة والجودة، تحت مراقبة هيئة مؤهلة. ولضمان سلاسة الولوج، تم تجهيز المطاعم بأجهزة تعريف تتطلب بطاقة ولوج.'
         ],
         beneficiariesTitle: 'المستفيدون',
         beneficiaries: [{ number: '01', text: 'جميع منخرطي FOS-Agri الحاملين لبطاقة الانخراط (ضرورية لتسجيل الحضور).' }],
-        blocks: [{ icon: 'fa-location-dot', title: 'المطاعم المتوفرة', items: [{ title: 'موقعان بالرباط', bullets: ['مطعم محطة الدباغ', 'مطعم مقر الوزارة'] }] }] },
+        blocks: [{ icon: 'fa-location-dot', title: 'المطاعم المتوفرة', items: [{ title: 'ثلاثة مواقع بالرباط', bullets: ['مطعم محطة الدباغ', 'مطعم نادي الفلاحة', 'مطعم مقر ONSSA'] }] }] },
       { navIndex: 3, type: 'culturePartners', icon: 'fa-couch', badge: 'مؤسسات التأثيث', title: 'مؤسسات التأثيث',
         intro: [
           'أبرمت FOS-Agri اتفاقيات شراكة مع مؤسسات التأثيث، تخول لمنخرطيها نسب تخفيض مهمة على مشترياتهم.',
@@ -1958,12 +1958,12 @@
         groups: [{ title: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵜⵏⴰⵎⵎⴰⵍⵜ ⵉⵣⴷⵉⵏ', items: projetsAssurancesItemsFor('ⵢⵜⵜⵓⵙⵙⵏ', 'ⵙⵉⴷⵔ ⴰⴼⵔⴰⵏ', 'ⵜⵉⵡⵜⵜⴰⵙ ⵏ ⵓⴼⵔⴰⵏ', 'ⵉⵡⵉⵙⵉⵏ') }] },
       { navIndex: 2, icon: 'fa-utensils', badge: 'ⵉⵎⴰⵜⵜⴰⵢⵏ ⵏ ⵓⵙⵓⵎⵎⵓ', title: 'ⵉⵎⴰⵜⵜⴰⵢⵏ ⵏ ⵓⵙⵓⵎⵎⵓ',
         intro: [
-          'ⵜⵙⴽⴰ FOS-Agri ⴰⵙⵓⵎⵎⵓ ⴰⴳⵔⴰⵡⴰⵏ ⵉ ⵉⵎⵣⵡⴰⵔⴰ ⵏ ⵜⵎⵙⵙⵓⵔⵉⵏ ⵜⵉⵏⴰⵎⵎⴰⵙⵉⵏ ⴷ ⵜⵉⵏⴰⵎⵓⵔⵉⵏ ⴳ ⵜⵉⵔⵣⴰ ⵏⵏⵙⵏ ⵖⵔ ⵕⵕⴱⴰⵟ, ⴳ ⵙⵉⵏ ⵉⵎⴰⵜⵜⴰⵢⵏ.',
+          'ⵜⵙⴽⴰ FOS-Agri ⴰⵙⵓⵎⵎⵓ ⴰⴳⵔⴰⵡⴰⵏ ⵉ ⵉⵎⵣⵡⴰⵔⴰ ⵏ ⵜⵎⵙⵙⵓⵔⵉⵏ ⵜⵉⵏⴰⵎⵎⴰⵙⵉⵏ ⴷ ⵜⵉⵏⴰⵎⵓⵔⵉⵏ ⴳ ⵜⵉⵔⵣⴰ ⵏⵏⵙⵏ ⵖⵔ ⵕⵕⴱⴰⵟ, ⴳ ⴽⵕⴰⴹ ⵉⵎⴰⵜⵜⴰⵢⵏ: ⴰⵎⴰⵜⵜⴰⵢ ⵏ ⵜⴳⴰⵔⴰ Dbagh, ⴰⵎⴰⵜⵜⴰⵢ ⵏ ⴽⵍⵓⴱ ⵏ ⵜⴼⵍⴰⵃⵜ, ⴷ ⴰⵎⴰⵜⵜⴰⵢ ⵏ ONSSA.',
           'ⵜⵉⵎⴻⵏⵙⵉⵡⵉⵏ ⵜⵜⵓⴷⵄⵎⵏⵜ ⵙ ⵜⵎⴰⵡⴰⵙⵜ.'
         ],
         beneficiariesTitle: 'ⵉⵎⵙⵜⴼⵉⴷⵏ',
         beneficiaries: [{ number: '01', text: 'ⵎⵔⵔⴰ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ FOS-Agri ⵢⵓⵙⵏⵉⵏ ⵜⴰⴽⴰⵔⴹⴰ ⵏ ⵓⵎⵓⵏ.' }],
-        blocks: [{ icon: 'fa-location-dot', title: 'ⵉⵎⴰⵜⵜⴰⵢⵏ ⵢⵍⵍⴰⵏ', items: [{ title: 'ⵙⵉⵏ ⵉⵙⵓⴳⴰⵎ ⴳ ⵕⵕⴱⴰⵟ', bullets: ['ⴰⵎⴰⵜⵜⴰⵢ ⵏ ⵜⴳⴰⵔⴰ Dbagh', 'ⴰⵎⴰⵜⵜⴰⵢ ⵏ ⵓⵙⵉⴳⵍ ⵏ ⵜⵎⴰⵡⴰⵙⵜ'] }] }] },
+        blocks: [{ icon: 'fa-location-dot', title: 'ⵉⵎⴰⵜⵜⴰⵢⵏ ⵢⵍⵍⴰⵏ', items: [{ title: 'ⴽⵕⴰⴹ ⵉⵙⵓⴳⴰⵎ ⴳ ⵕⵕⴱⴰⵟ', bullets: ['ⴰⵎⴰⵜⵜⴰⵢ ⵏ ⵜⴳⴰⵔⴰ Dbagh', 'ⴰⵎⴰⵜⵜⴰⵢ ⵏ ⴽⵍⵓⴱ ⵏ ⵜⴼⵍⴰⵃⵜ', 'ⴰⵎⴰⵜⵜⴰⵢ ⵏ ONSSA'] }] }] },
       { navIndex: 3, type: 'culturePartners', icon: 'fa-couch', badge: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ', title: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ',
         intro: [
           'ⵜⵙⴽⴰ FOS-Agri ⵉⵎⵙⴰⵡⴰⴹⵏ ⴷ ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ, ⵢⴰⴽⴼⵏ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⴰⵢⵏ.',
