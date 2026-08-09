@@ -1010,7 +1010,7 @@
               title: 'AMC',
               body: [
                 'La FOS-Agri soutient ses adhérents face aux aléas de la santé à travers l’Assurance Maladie Complémentaire permettant le bénéfice d’une large couverture familiale des soins de santé.',
-                'La convention conclue avec la compagnie SAHAM Assurance garantit aux adhérents :'
+                'La convention conclue avec la compagnie SANLAM garantit aux adhérents :'
               ],
               bullets: [
                 'Le remboursement ou la prise en charge de santé de 100% du ticket modérateur, et ce, en complément des régimes de base (AMO/Mutuelle).',
@@ -1068,7 +1068,7 @@
               title: 'AMC',
               body: [
                 'تدعم FOS-Agri منخرطيها في مواجهة تقلبات الوضع الصحي عبر التأمين الصحي التكميلي، بما يتيح الاستفادة من تغطية عائلية واسعة للعلاجات الصحية.',
-                'تضمن الاتفاقية المبرمة مع شركة SAHAM Assurance للمنخرطين:'
+                'تضمن الاتفاقية المبرمة مع شركة SANLAM للمنخرطين:'
               ],
               bullets: [
                 'تعويض أو تحمل صحي بنسبة 100% من التذكرة التعديلية، وذلك تكميلا لأنظمة التغطية الأساسية (AMO/Mutuelle).',
@@ -1126,7 +1126,7 @@
               title: 'AMC',
               body: [
                 'FOS-Agri ⵜⴻⵜⵜⴰⵍⵍⴰⵍ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴳ ⵉⵎⵓⵔⴰⵏ ⵏ ⵜⴰⴷⵓⵙⵉ ⵙ AMC ⵉ ⵓⵙⵖⵉⵎ ⵏ ⵜⴳⵯⵎⵉ ⵜⴰⴷⵓⵙⴰⵏⵜ ⵏ ⵜⵡⴰⵛⵓⵍⵜ.',
-                'ⴰⵎⵙⴰⵡⴰⴹ ⴷ SAHAM Assurance ⵉⵜⵜⴰⵡⵙ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ:'
+                'ⴰⵎⵙⴰⵡⴰⴹ ⴷ SANLAM ⵉⵜⵜⴰⵡⵙ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ:'
               ],
               bullets: [
                 'ⴰⵔⴰⵔⵓ ⵏ 100% ⵏ ⵓⴼⵔⴰⴳ ⵉⵜⵜⴳⴰⵏ ⵅⴼ ⵓⵎⵏⵅⵔⴰⵟ ⵙ ⵓⵙⵎⵔⵙ ⵏ AMO/Mutuelle.',
