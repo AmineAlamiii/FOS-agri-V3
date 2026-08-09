@@ -12,6 +12,70 @@
   let footerTemplatePromise = null;
   let actualitesCurrentPage = 1;
   const actualitesPerPage = 6;
+  const arabicNumberPattern = /\d[\d\s.,:/+()-]*\d%?|\d%?/g;
+
+  function restoreArabicNumberIsolation(scope = body) {
+    scope.querySelectorAll?.('.ar-number-ltr').forEach((node) => {
+      node.replaceWith(document.createTextNode(node.textContent || ''));
+    });
+    scope.normalize?.();
+  }
+
+  function isolateArabicNumbers(scope = body) {
+    if (lang !== 'ar') {
+      restoreArabicNumberIsolation(scope);
+      return;
+    }
+    const walker = document.createTreeWalker(scope, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        const parent = node.parentElement;
+        if (!parent || !node.nodeValue?.trim()) return NodeFilter.FILTER_REJECT;
+        if (parent.closest('script, style, noscript, textarea, select, option, input, svg, canvas, .ar-number-ltr, [data-no-number-ltr]')) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        arabicNumberPattern.lastIndex = 0;
+        return arabicNumberPattern.test(node.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    const nodes = [];
+    let textNode;
+    while ((textNode = walker.nextNode())) nodes.push(textNode);
+    nodes.forEach((node) => {
+      const fragment = document.createDocumentFragment();
+      const text = node.nodeValue || '';
+      let lastIndex = 0;
+      arabicNumberPattern.lastIndex = 0;
+      text.replace(arabicNumberPattern, (match, offset) => {
+        if (offset > lastIndex) fragment.append(document.createTextNode(text.slice(lastIndex, offset)));
+        const span = document.createElement('span');
+        span.className = 'ar-number-ltr';
+        span.dir = 'ltr';
+        span.textContent = match;
+        fragment.append(span);
+        lastIndex = offset + match.length;
+        return match;
+      });
+      if (lastIndex < text.length) fragment.append(document.createTextNode(text.slice(lastIndex)));
+      node.parentNode?.replaceChild(fragment, node);
+    });
+  }
+
+  function initArabicNumberIsolationObserver() {
+    let queued = false;
+    const queue = () => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(() => {
+        queued = false;
+        isolateArabicNumbers();
+      });
+    };
+    const observer = new MutationObserver((mutations) => {
+      if (!mutations.some((mutation) => mutation.addedNodes.length)) return;
+      queue();
+    });
+    observer.observe(body, { childList: true, subtree: true });
+  }
 
   const nav = {
     fr: {
@@ -1282,6 +1346,7 @@
     try {
       window.dispatchEvent(new CustomEvent('fosagri:lang-change', { detail: { lang } }));
     } catch (_) { /* old browsers — MutationObserver covers them */ }
+    isolateArabicNumbers();
   }
 
   function initLanguage() {
@@ -1586,6 +1651,7 @@
   }
 
   initPageEnter();
+  initArabicNumberIsolationObserver();
   applyStaticLanguage();
   initScrollHeader();
   initSearchModal();

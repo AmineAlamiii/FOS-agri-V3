@@ -73,6 +73,13 @@ a[href^="tel:"] span,
   display: inline-block;
 }
 
+.ar-number-ltr {
+  direction: ltr;
+  unicode-bidi: isolate;
+  display: inline-block;
+  white-space: nowrap;
+}
+
 a {
   color: inherit;
   text-decoration: none;

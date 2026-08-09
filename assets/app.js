@@ -44,6 +44,54 @@ function escapeHtml(value) {
   }[char]));
 }
 
+const ARABIC_NUMBER_PATTERN = /\d[\d\s.,:/+()-]*\d%?|\d%?/g;
+
+function restoreArabicNumberIsolation(scope = body) {
+  scope.querySelectorAll?.(".ar-number-ltr").forEach((node) => {
+    node.replaceWith(document.createTextNode(node.textContent || ""));
+  });
+  scope.normalize?.();
+}
+
+function isolateArabicNumbers(scope = body) {
+  if (currentLang !== "ar") {
+    restoreArabicNumberIsolation(scope);
+    return;
+  }
+  const walker = document.createTreeWalker(scope, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      const parent = node.parentElement;
+      if (!parent || !node.nodeValue?.trim()) return NodeFilter.FILTER_REJECT;
+      if (parent.closest("script, style, noscript, textarea, select, option, input, svg, canvas, .ar-number-ltr, [data-no-number-ltr]")) {
+        return NodeFilter.FILTER_REJECT;
+      }
+      ARABIC_NUMBER_PATTERN.lastIndex = 0;
+      return ARABIC_NUMBER_PATTERN.test(node.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+    }
+  });
+  const nodes = [];
+  let textNode;
+  while ((textNode = walker.nextNode())) nodes.push(textNode);
+  nodes.forEach((node) => {
+    const fragment = document.createDocumentFragment();
+    const text = node.nodeValue || "";
+    let lastIndex = 0;
+    ARABIC_NUMBER_PATTERN.lastIndex = 0;
+    text.replace(ARABIC_NUMBER_PATTERN, (match, offset) => {
+      if (offset > lastIndex) fragment.append(document.createTextNode(text.slice(lastIndex, offset)));
+      const span = document.createElement("span");
+      span.className = "ar-number-ltr";
+      span.dir = "ltr";
+      span.textContent = match;
+      fragment.append(span);
+      lastIndex = offset + match.length;
+      return match;
+    });
+    if (lastIndex < text.length) fragment.append(document.createTextNode(text.slice(lastIndex)));
+    node.parentNode?.replaceChild(fragment, node);
+  });
+}
+
 function getNewsArticleUrl(item, index) {
   const slug = item?.slug || `actualite-${index + 1}`;
   return `actualite.html?article=${encodeURIComponent(slug)}`;
@@ -170,6 +218,7 @@ function setLanguage(lang) {
 
   syncLanguageControls();
   renderPage();
+  isolateArabicNumbers();
 }
 
 function renderServices() {
