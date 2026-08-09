@@ -139,7 +139,6 @@
           },
           items: [
             item("Fiche d'adhésion", 'بطاقة الانخراط', 'ⵜⴰⴼⵔⴽⵜ ⵏ ⵓⵎⵓⵏ', 'assets/adhesion/procedure/fiche-adhesion.pdf'),
-            item("Bulletin individuel d'adhésion", 'النشرة الفردية للانخراط', 'ⴰⴱⵓⵍⵜⵉⵏ ⴰⴼⵔⴷⴰⵏ ⵏ ⵓⵎⵓⵏ', 'assets/adhesion/procedure/bulletin-individuel-adhesion.pdf'),
             item('Chèque barré ou RIB', 'شيك مسطر أو RIB', 'ⵛⵉⴽ ⴰⵙⵟⵟⴰⵔ ⵏⵖ RIB'),
             item("Pièces justificatives des enfants et conjoints (copie du livret de famille ou de l'acte de mariage, actes de naissance des enfants)", 'وثائق إثبات الأبناء والأزواج (نسخة من دفتر العائلة أو عقد الزواج، وعقود ازدياد الأبناء)', 'ⵜⵉⴼⵔⴽⵉⵡⵉⵏ ⵏ ⵓⵙⵙⵏⴼⵍ ⵏ ⵜⴰⵔⵡⴰ ⴷ ⵉⵙⵍⴰⵏ')
           ]
@@ -162,7 +161,7 @@
           title: { fr: "Prolongation d'adhésion pour futurs retraités", ar: 'تمديد الانخراط للمقبلين على التقاعد', zgh: 'ⴰⵙⵉⵖⵣⴼ ⵏ ⵓⵎⵓⵏ ⵉ ⵉⵎⴷⴽⴽⵯⴰⵍⵏ ⵉⴷⴷⵓⵙⵏ' },
           items: [
             item("Demande de prolongation d'adhésion après la mise en retraite, précisant le numéro de téléphone et les adresses email et postale", 'طلب تمديد الانخراط بعد الإحالة على التقاعد، مع تحديد رقم الهاتف والعنوان الإلكتروني والبريدي', 'ⴰⵙⵙⵓⵜⵔ ⵏ ⵓⵙⵉⵖⵣⴼ ⵏ ⵓⵎⵓⵏ ⵎⴱⴰⵄⴷ ⵜⴰⴽⵛⵛⵓⵎⵜ ⵖⵔ ⵜⵎⴷⴽⴽⵯⴰⵍⵜ'),
-            item("Autorisation de précompte légalisée, en deux copies, à transmettre via l'administration (bordereau) 3 mois avant la date d'effet de la sortie de service", 'إذن بالاقتطاع مصادق عليه، في نسختين، يرسل عبر الإدارة (بيان إرسال) 3 أشهر قبل تاريخ سريان مغادرة الخدمة', 'ⵜⴰⵙⵔⴰⴳⵜ ⵏ ⵓⵙⵉⵣⴷⴳ ⵜⵜⵓⵙⵙⴷⵖⵔⵜ, ⵙ ⵙⵉⵏ ⵉⵙⵓⵖⴰⵍ, ⴰⴷ ⵜⵜⵓⵣⵏ ⵙ ⵜⵏⴱⴰⴹⵜ 3 ⵉⵢⵢⵓⵔⵏ ⴷⴰⵜ ⵡⴰⵙⵙ ⵏ ⵓⴼⵓⵖ', 'assets/adhesion/procedure/autorisation-precompte.pdf')
+            item("Autorisation de précompte légalisée, en deux copies, à transmettre via l'administration (bordereau) 3 mois avant la date d'effet de la sortie de service", 'إذن بالاقتطاع مصادق عليه، في نسختين، يرسل عبر الإدارة (بيان إرسال) 3 أشهر قبل تاريخ سريان مغادرة الخدمة', 'ⵜⴰⵙⵔⴰⴳⵜ ⵏ ⵓⵙⵉⵣⴷⴳ ⵜⵜⵓⵙⵙⴷⵖⵔⵜ, ⵙ ⵙⵉⵏ ⵉⵙⵓⵖⴰⵍ, ⴰⴷ ⵜⵜⵓⵣⵏ ⵙ ⵜⵏⴱⴰⴹⵜ 3 ⵉⵢⵢⵓⵔⵏ ⴷⴰⵜ ⵡⴰⵙⵙ ⵏ ⵓⴼⵓⵖ', 'assets/adhesion/procedure/autorisation-precompte-avis.pdf')
           ]
         },
         {
@@ -171,7 +170,7 @@
           title: { fr: 'Retraités', ar: 'المتقاعدون', zgh: 'ⵉⵎⴷⴽⴽⵯⴰⵍⵏ' },
           items: [
             item("Demande d'adhésion à la FOS-Agri", 'طلب الانخراط في FOS-Agri', 'ⴰⵙⵙⵓⵜⵔ ⵏ ⵓⵎⵓⵏ ⴳ FOS-Agri'),
-            item("Fiche de demande d'adhésion, précisant le numéro de téléphone et l'adresse email et postale", 'بطاقة طلب الانخراط، مع تحديد رقم الهاتف والعنوان الإلكتروني والبريدي', 'ⵜⴰⴼⵔⴽⵜ ⵏ ⵓⵙⵙⵓⵜⵔ ⵏ ⵓⵎⵓⵏ', 'assets/adhesion/procedure/fiche-adhesion-retraite.pdf'),
+            item("Fiche de demande d'adhésion, précisant le numéro de téléphone et l'adresse email et postale", 'بطاقة طلب الانخراط، مع تحديد رقم الهاتف والعنوان الإلكتروني والبريدي', 'ⵜⴰⴼⵔⴽⵜ ⵏ ⵓⵙⵙⵓⵜⵔ ⵏ ⵓⵎⵓⵏ', 'assets/adhesion/procedure/formulaire-autorisation-retraites.pdf'),
             item('Chèque barré ou attestation de RIB', 'شيك مسطر أو شهادة RIB', 'ⵛⵉⴽ ⴰⵙⵟⵟⴰⵔ ⵏⵖ ⵜⴰⵙⴽⵉⵏⵜ ⵏ RIB'),
             item('Attestation de pension', 'شهادة التقاعد', 'ⵜⴰⵙⴽⵉⵏⵜ ⵏ ⵜⵎⴷⴽⴽⵯⴰⵍⵜ'),
             item('Autorisation de précompte, en deux copies', 'إذن بالاقتطاع، في نسختين', 'ⵜⴰⵙⵔⴰⴳⵜ ⵏ ⵓⵙⵉⵣⴷⴳ, ⵙ ⵙⵉⵏ ⵉⵙⵓⵖⴰⵍ'),
