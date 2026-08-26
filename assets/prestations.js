@@ -3604,6 +3604,60 @@
     return { name: name || raw.trim(), offer };
   }
 
+  function formatMedicalOpeningDate(value) {
+    const raw = String(value || '').trim();
+    if (!raw) return '';
+    const numeric = raw.match(/^(\d{1,2})\/(\d{4})$/);
+    if (numeric) return `${numeric[1].padStart(2, '0')}/${numeric[2]}`;
+    if (/^\d{4}$/.test(raw)) return `01/${raw}`;
+    const normalized = normalizeMedicalValue(raw);
+    const monthMap = {
+      janv: '01',
+      janvier: '01',
+      fevr: '02',
+      fevrier: '02',
+      mars: '03',
+      avr: '04',
+      avril: '04',
+      mai: '05',
+      juin: '06',
+      juil: '07',
+      juillet: '07',
+      aout: '08',
+      sept: '09',
+      septembre: '09',
+      oct: '10',
+      octobre: '10',
+      nov: '11',
+      novembre: '11',
+      dec: '12',
+      decembre: '12'
+    };
+    const monthKey = Object.keys(monthMap).find((key) => normalized.includes(key));
+    const yearMatch = normalized.match(/(?:^|[^0-9])(\d{1,4})(?:$|[^0-9])/);
+    if (!monthKey || !yearMatch) return raw;
+    const token = yearMatch[1];
+    const year = token.length === 4
+      ? token
+      : token.length === 1
+      ? `202${token}`
+      : `${Number(token) > 30 ? '19' : '20'}${token}`;
+    return `${monthMap[monthKey]}/${year}`;
+  }
+
+  function formatMedicalPhoneNumber(value) {
+    const digits = String(value || '').replace(/\D/g, '');
+    const normalized = digits.length === 9 && /^[5-8]/.test(digits) ? `0${digits}` : digits;
+    if (normalized.length !== 10 || !/^0[5-8]/.test(normalized)) return value;
+    return normalized.replace(/(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/, '$1 $2 $3 $4 $5');
+  }
+
+  function formatMedicalContactValue(value) {
+    return String(value || '')
+      .replace(/\d[\d\s]{6,}\d/g, (match) => formatMedicalPhoneNumber(match))
+      .replace(/\s*\/\s*/g, ' / ');
+  }
+
   function renderMedicalPartnerCard(entry) {
     const copy = medicalCopy();
     const rawTitle = entry.organisme || entry.medecin || translateMedicalCategory(entry.categorie) || copy.organization;
@@ -3619,10 +3673,10 @@
         ${offer ? `<p class="medical-offer-badge"><i class="fa-solid fa-tag" aria-hidden="true"></i> ${esc(offer)}</p>` : ''}
         ${entry.medecin ? `<p class="medical-partner-doctor"><strong>${esc(copy.doctor)} :</strong> ${esc(entry.medecin)}</p>` : ''}
         <dl>
-          ${entry.dateOuverture ? `<div><dt>${esc(copy.openingDate)}</dt><dd>${esc(entry.dateOuverture)}</dd></div>` : ''}
+          ${entry.dateOuverture ? `<div><dt>${esc(copy.openingDate)}</dt><dd>${esc(formatMedicalOpeningDate(entry.dateOuverture))}</dd></div>` : ''}
           ${entry.adresse ? `<div><dt>${esc(copy.address)}</dt><dd>${esc(entry.adresse)}</dd></div>` : ''}
-          ${entry.telephone ? `<div><dt>${esc(copy.phone)}</dt><dd>${esc(entry.telephone)}</dd></div>` : ''}
-          ${entry.fax ? `<div><dt>${esc(copy.fax)}</dt><dd>${esc(entry.fax)}</dd></div>` : ''}
+          ${entry.telephone ? `<div><dt>${esc(copy.phone)}</dt><dd>${esc(formatMedicalContactValue(entry.telephone))}</dd></div>` : ''}
+          ${entry.fax ? `<div><dt>${esc(copy.fax)}</dt><dd>${esc(formatMedicalContactValue(entry.fax))}</dd></div>` : ''}
           ${entry.email ? `<div><dt>${esc(copy.email)}</dt><dd>${esc(entry.email)}</dd></div>` : ''}
         </dl>
         ${noticeActions.length ? `<div class="medical-notice-actions">${noticeActions.map((action) => action.href
@@ -3782,7 +3836,17 @@
         if (city && entry.ville !== city) return false;
         if (category && medicalCategoryFilterValue(entry.categorie) !== category) return false;
         if (!query) return true;
-        return normalizeMedicalValue([entry.medecin, entry.organisme, entry.categorie, entry.adresse, entry.ville, entry.dateOuverture, entry.fax, entry.email].join(' ')).includes(query);
+        return normalizeMedicalValue([
+          entry.medecin,
+          entry.organisme,
+          entry.categorie,
+          entry.adresse,
+          entry.ville,
+          formatMedicalOpeningDate(entry.dateOuverture),
+          formatMedicalContactValue(entry.telephone),
+          formatMedicalContactValue(entry.fax),
+          entry.email
+        ].join(' ')).includes(query);
       });
     };
 
