@@ -150,8 +150,11 @@
         downloadContact: 'Télécharger contact',
         downloadUnavailable: 'Avis indisponible',
         status: 'Statut',
+        openingDate: "Date d'ouverture",
         address: 'Adresse',
         phone: 'Téléphone',
+        fax: 'Fax',
+        email: 'Email',
         doctor: 'Médecin',
         organization: 'Organisme',
         selectedRegion: 'Région sélectionnée',
@@ -216,8 +219,11 @@
         downloadContact: 'تحميل جهة الاتصال',
         downloadUnavailable: 'الإشعار غير متوفر',
         status: 'الوضعية',
+        openingDate: 'تاريخ الافتتاح',
         address: 'العنوان',
         phone: 'الهاتف',
+        fax: 'الفاكس',
+        email: 'البريد الإلكتروني',
         doctor: 'الطبيب',
         organization: 'المؤسسة',
         selectedRegion: 'الجهة المختارة',
@@ -282,8 +288,11 @@
         downloadContact: 'ⵙⵉⴷⵔ ⴰⵎⵢⴰⵡⴰⴹ',
         downloadUnavailable: 'ⴰⵙⴰⵍⵉ ⵓⵔ ⵉⵍⵍⵉ',
         status: 'ⴰⴷⴷⴰⴷ',
+        openingDate: 'ⴰⵙⴰⴽⵓⴷ ⵏ ⵓⵍⴷⴰⵢ',
         address: 'ⵜⴰⵏⵙⴰ',
         phone: 'ⵜⵉⵍⵉⴼⵓⵏ',
+        fax: 'ⴼⴰⴽⵙ',
+        email: 'ⵉⵎⴰⵢⵍ',
         doctor: 'ⴰⵎⵙⵙⵉⵊⵊⵉ',
         organization: 'ⴰⵎⴰⵙⵙⴰⵙ',
         selectedRegion: 'ⵜⴰⵎⵏⴰⴹⵜ ⵉⵜⵜⵓⴼⵔⵏ',
@@ -3610,8 +3619,11 @@
         ${offer ? `<p class="medical-offer-badge"><i class="fa-solid fa-tag" aria-hidden="true"></i> ${esc(offer)}</p>` : ''}
         ${entry.medecin ? `<p class="medical-partner-doctor"><strong>${esc(copy.doctor)} :</strong> ${esc(entry.medecin)}</p>` : ''}
         <dl>
+          ${entry.dateOuverture ? `<div><dt>${esc(copy.openingDate)}</dt><dd>${esc(entry.dateOuverture)}</dd></div>` : ''}
           ${entry.adresse ? `<div><dt>${esc(copy.address)}</dt><dd>${esc(entry.adresse)}</dd></div>` : ''}
           ${entry.telephone ? `<div><dt>${esc(copy.phone)}</dt><dd>${esc(entry.telephone)}</dd></div>` : ''}
+          ${entry.fax ? `<div><dt>${esc(copy.fax)}</dt><dd>${esc(entry.fax)}</dd></div>` : ''}
+          ${entry.email ? `<div><dt>${esc(copy.email)}</dt><dd>${esc(entry.email)}</dd></div>` : ''}
         </dl>
         ${noticeActions.length ? `<div class="medical-notice-actions">${noticeActions.map((action) => action.href
           ? `<a class="medical-notice-button" href="${esc(asset(action.href))}" download>${esc(action.label)}</a>`
@@ -3770,7 +3782,7 @@
         if (city && entry.ville !== city) return false;
         if (category && medicalCategoryFilterValue(entry.categorie) !== category) return false;
         if (!query) return true;
-        return normalizeMedicalValue([entry.medecin, entry.organisme, entry.categorie, entry.adresse, entry.ville].join(' ')).includes(query);
+        return normalizeMedicalValue([entry.medecin, entry.organisme, entry.categorie, entry.adresse, entry.ville, entry.dateOuverture, entry.fax, entry.email].join(' ')).includes(query);
       });
     };
 
