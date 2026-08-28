@@ -825,7 +825,7 @@
           icon: 'fa-map-location-dot',
           items: [
             { title: 'Région de Béni Mellal - Khénifra', titleZgh: 'ⵜⴰⵎⵏⴰⴹⵜ ⵏ ⴱⵏⵉ ⵎⵍⵍⴰⵍ - ⵅⵏⵉⴼⵔⴰ', icon: 'fa-location-dot', rows: [['Statut', 'en cours']] },
-            { title: 'Région de Casablanca - Settat', titleZgh: 'ⵜⴰⵎⵏⴰⴹⵜ ⵏ ⴰⵏⴼⴰ - ⵙⵟⴰⵜ', icon: 'fa-location-dot', rows: [['Médecin', 'Docteur MOUFTADI ABDELFATTAH'], ['Adresse', 'Avenue Bir Anzarane N° 16, El Jadida'], ['Prise de RDV', '0523 39 42 03'], ['Relais régional', 'GUADDA MOHAMED'], ['Téléphone du relais', '36 16 83 57 06']] },
+            { title: 'Région de Casablanca - Settat', titleZgh: 'ⵜⴰⵎⵏⴰⴹⵜ ⵏ ⴰⵏⴼⴰ - ⵙⵟⴰⵜ', icon: 'fa-location-dot', rows: [['Médecin', 'Docteur MOUFTADI ABDELFATTAH'], ['Adresse', 'Avenue Bir Anzarane N° 16, El Jadida'], ['Prise de RDV', '0523 39 42 03'], ['Relais régional', 'GUADDA MOHAMED'], ['Téléphone du relais', '06 57 83 16 36']] },
             { title: 'Région de Dakhla - Oued Eddahab', titleZgh: 'ⵜⴰⵎⵏⴰⴹⵜ ⵏ ⴷⴰⵅⵍⴰ - ⴰⵙⵉⴼ ⴷⴰⵀⴰⴱ', icon: 'fa-location-dot', rows: [['Médecin', 'Docteur SADIK YOUNESS'], ['Adresse', 'App N°4, N° 17/1105, rue mosquée, Hay Massira, Dakhla'], ['Prise de RDV', '0528 89 77 05'], ['Relais régional', 'MINA SAAD ALLAH'], ['Téléphone du relais', '0657 83 17 87']] },
             { title: 'Région de Drâa - Tafilalet', titleZgh: 'ⵜⴰⵎⵏⴰⴹⵜ ⵏ ⴷⵔⴰⵄⴰ - ⵜⴰⴼⵉⵍⴰⵍⵜ', icon: 'fa-location-dot', rows: [['Médecin', 'Docteur GHANEME ABDELAZIZ'], ['Adresse', '14, Rue de la mosquée, Errachidia'], ['Prise de RDV', '0535 57 27 76'], ['Relais régional', 'BRITEL ABDESSAMAD'], ['Téléphone du relais', '06 68 90 90 84']] },
             { title: 'Région de Fès - Meknès', titleZgh: 'ⵜⴰⵎⵏⴰⴹⵜ ⵏ ⴼⴰⵙ - ⵎⴽⵏⴰⵙ', icon: 'fa-location-dot', rows: [['Médecin', 'Docteur DBAB Mohamed'], ['Adresse', '4, Rue Omar Ben Chamsi (Ex rue Acora) Hamria, Meknès'], ['Prise de RDV', '0535 52 10 87'], ['Relais régional', 'SAID AIT BERRI'], ['Téléphone du relais', '0657 83 20 37']] },
@@ -892,7 +892,7 @@
           icon: 'fa-map-location-dot',
           items: [
             { title: 'جهة بني ملال - خنيفرة', icon: 'fa-location-dot', rows: [['الحالة', 'قيد الإنجاز']] },
-            { title: 'جهة الدار البيضاء - سطات', icon: 'fa-location-dot', rows: [['الطبيب', 'Docteur MOUFTADI ABDELFATTAH'], ['العنوان', 'Avenue Bir Anzarane N° 16, El Jadida'], ['أخذ الموعد', '0523 39 42 03'], ['المنسق الجهوي', 'GUADDA MOHAMED'], ['هاتف المنسق', '36 16 83 57 06']] },
+            { title: 'جهة الدار البيضاء - سطات', icon: 'fa-location-dot', rows: [['الطبيب', 'Docteur MOUFTADI ABDELFATTAH'], ['العنوان', 'Avenue Bir Anzarane N° 16, El Jadida'], ['أخذ الموعد', '0523 39 42 03'], ['المنسق الجهوي', 'GUADDA MOHAMED'], ['هاتف المنسق', '06 57 83 16 36']] },
             { title: 'جهة الداخلة - وادي الذهب', icon: 'fa-location-dot', rows: [['الطبيب', 'Docteur SADIK YOUNESS'], ['العنوان', 'App N°4, N° 17/1105, rue mosquée, Hay Massira, Dakhla'], ['أخذ الموعد', '0528 89 77 05'], ['المنسق الجهوي', 'MINA SAAD ALLAH'], ['هاتف المنسق', '0657 83 17 87']] },
             { title: 'جهة درعة - تافيلالت', icon: 'fa-location-dot', rows: [['الطبيب', 'Docteur GHANEME ABDELAZIZ'], ['العنوان', '14, Rue de la mosquée, Errachidia'], ['أخذ الموعد', '0535 57 27 76'], ['المنسق الجهوي', 'BRITEL ABDESSAMAD'], ['هاتف المنسق', '06 68 90 90 84']] },
             { title: 'جهة فاس - مكناس', icon: 'fa-location-dot', rows: [['الطبيب', 'Docteur DBAB Mohamed'], ['العنوان', '4, Rue Omar Ben Chamsi (Ex rue Acora) Hamria, Meknès'], ['أخذ الموعد', '0535 52 10 87'], ['المنسق الجهوي', 'SAID AIT BERRI'], ['هاتف المنسق', '0657 83 20 37']] },
