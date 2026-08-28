@@ -799,9 +799,9 @@
       navIndex: 3,
       badge: 'CENTRE MEDICO-SOCIAL',
       title: 'CENTRE MEDICO-SOCIAL',
-      intro: ['La FOS-Agri assure via son centre médico-social :', 'Les consultations données par une équipe médicale spécialisée et performante ;', 'L’accompagnement et le suivi des adhérents en situation de pré ou post hospitalisation ;', 'Le conseil et l’orientation des adhérents.'],
+      intro: ['La FOS-Agri assure via son centre médico-social :', 'Les consultations données par une équipe médicale spécialisée et performante', 'L’accompagnement et le suivi des adhérents en situation de pré ou post hospitalisation', 'Le conseil et l’orientation des adhérents.'],
       beneficiariesTitle: 'Bénéficiaires',
-      beneficiaries: [{ number: '❶', text: "L'adhérent ;" }, { number: '❷', text: "Le(s) conjoint(s) de l'adhérent ;" }, { number: '❸', text: 'Leurs enfants.' }],
+      beneficiaries: [{ number: '01', text: "L'adhérent" }, { number: '02', text: "Le(s) conjoint(s) de l'adhérent" }, { number: '03', text: 'Leurs enfants.' }],
       blocks: [
         {
           title: 'Spécialités au niveau central',
@@ -866,9 +866,9 @@
       navIndex: 3,
       badge: 'المركز الطبي الاجتماعي',
       title: 'المركز الطبي الاجتماعي',
-      intro: ['تضمن FOS-Agri عبر مركزها الطبي الاجتماعي:', 'استشارات تقدمها فرق طبية متخصصة وذات كفاءة؛', 'مواكبة وتتبع المنخرطين قبل أو بعد الاستشفاء؛', 'النصح والتوجيه.'],
+      intro: ['تضمن FOS-Agri عبر مركزها الطبي الاجتماعي:', 'استشارات تقدمها فرق طبية متخصصة وذات كفاءة', 'مواكبة وتتبع المنخرطين قبل أو بعد الاستشفاء', 'النصح والتوجيه.'],
       beneficiariesTitle: 'المستفيدون',
-      beneficiaries: [{ number: '❶', text: 'المنخرط؛' }, { number: '❷', text: 'زوج أو أزواج المنخرط؛' }, { number: '❸', text: 'أبناؤهم.' }],
+      beneficiaries: [{ number: '01', text: 'المنخرط' }, { number: '02', text: 'زوج أو أزواج المنخرط' }, { number: '03', text: 'أبناؤهم.' }],
       blocks: [
         {
           title: 'التخصصات على المستوى المركزي',
@@ -933,9 +933,9 @@
       navIndex: 3,
       badge: 'ⴰⵎⵎⴰⵙ ⴰⴷⵓⵙⴰⵏ ⴰⵏⴰⵎⵓⵏ',
       title: 'ⴰⵎⵎⴰⵙ ⴰⴷⵓⵙⴰⵏ ⴰⵏⴰⵎⵓⵏ',
-      intro: ['FOS-Agri ⵜⴰⵎⵓⴷⴷⵓ ⵙ ⵓⵎⵎⴰⵙ ⴰⴷⵓⵙⴰⵏ ⴰⵏⴰⵎⵓⵏ:', 'ⵜⵉⵔⵣⴰ ⵏ ⵢⴰⵜ ⵜⴰⵔⴱⴰⵄⵜ ⵜⴰⴷⵓⵙⴰⵏⵜ ⵜⵉⵎⵥⵍⵉⵢⵜ;', 'ⴰⵎⵓⴷⴷⵓ ⴷ ⵓⵜⵜⴰⴱⴰⵄ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴷⴰⵜ ⵏⵖ ⴹⴼⵕ ⴰⵙⵉⴱⵉⵜⴰⵍ;', 'ⴰⵙⴷⵓ ⴷ ⵜⵎⵙⵍⵉⵡⵜ.'],
+      intro: ['FOS-Agri ⵜⴰⵎⵓⴷⴷⵓ ⵙ ⵓⵎⵎⴰⵙ ⴰⴷⵓⵙⴰⵏ ⴰⵏⴰⵎⵓⵏ:', 'ⵜⵉⵔⵣⴰ ⵏ ⵢⴰⵜ ⵜⴰⵔⴱⴰⵄⵜ ⵜⴰⴷⵓⵙⴰⵏⵜ ⵜⵉⵎⵥⵍⵉⵢⵜ', 'ⴰⵎⵓⴷⴷⵓ ⴷ ⵓⵜⵜⴰⴱⴰⵄ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴷⴰⵜ ⵏⵖ ⴹⴼⵕ ⴰⵙⵉⴱⵉⵜⴰⵍ', 'ⴰⵙⴷⵓ ⴷ ⵜⵎⵙⵍⵉⵡⵜ.'],
       beneficiariesTitle: 'ⵉⵎⵏⴼⴰⵄⵏ',
-      beneficiaries: [{ number: '❶', text: 'ⴰⵎⵏⵅⵔⴰⵟ;' }, { number: '❷', text: 'ⴰⵙⵍⵉ ⵏ ⵓⵎⵏⵅⵔⴰⵟ;' }, { number: '❸', text: 'ⵉⴼⵔⵅⴰⵏ ⵏⵏⵙⵏ.' }],
+      beneficiaries: [{ number: '01', text: 'ⴰⵎⵏⵅⵔⴰⵟ' }, { number: '02', text: 'ⴰⵙⵍⵉ ⵏ ⵓⵎⵏⵅⵔⴰⵟ' }, { number: '03', text: 'ⵉⴼⵔⵅⴰⵏ ⵏⵏⵙⵏ.' }],
       blocks: [
         {
           title: 'ⵜⵉⵎⵥⵍⵉⵢⵉⵏ ⴳ ⵓⵎⵎⴰⵙ',
