@@ -398,7 +398,7 @@ html[dir='rtl'] .cot-row:focus-within {
 }
 
 .actualite-detail {
-  max-width: 920px;
+  max-width: 1080px;
 }
 
 .actualite-detail-card {
@@ -436,6 +436,156 @@ html[dir='rtl'] .cot-row:focus-within {
 .article-back-link:hover,
 .article-back-link:focus-visible {
   color: #c8a44d;
+}
+
+.article-attachments {
+  margin-top: 2rem;
+  padding-top: 1.8rem;
+  border-top: 1px solid rgba(23, 104, 63, 0.14);
+}
+
+.article-attachments h2 {
+  margin: 0 0 1rem;
+  color: #153f2b;
+  font-size: clamp(1.3rem, 2.8vw, 1.75rem);
+}
+
+.article-attachments-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.article-attachment {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(23, 104, 63, 0.16);
+  border-radius: 18px;
+  background: #f8fbf9;
+}
+
+.article-document summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 3.6rem;
+  padding: 0.9rem 1.1rem;
+  color: #17683f;
+  font-weight: 800;
+  cursor: pointer;
+  list-style: none;
+}
+
+.article-document summary::-webkit-details-marker {
+  display: none;
+}
+
+.article-document summary span,
+.article-document-actions,
+.article-detail-links,
+.article-attachment-image figcaption {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.article-document-chevron {
+  transition: transform 0.2s ease;
+}
+
+.article-document[open] .article-document-chevron {
+  transform: rotate(180deg);
+}
+
+.article-document-actions {
+  flex-wrap: wrap;
+  padding: 0.85rem 1.1rem;
+  border-top: 1px solid rgba(23, 104, 63, 0.12);
+  background: #fff;
+}
+
+.article-document-actions a,
+.article-source-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(23, 104, 63, 0.09);
+  color: #17683f;
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.article-document-actions a:hover,
+.article-document-actions a:focus-visible,
+.article-source-link:hover,
+.article-source-link:focus-visible {
+  background: #17683f;
+  color: #fff;
+}
+
+.article-document iframe {
+  display: block;
+  width: 100%;
+  height: min(68vh, 680px);
+  min-height: 460px;
+  border: 0;
+  border-top: 1px solid rgba(23, 104, 63, 0.12);
+  background: #e9efeb;
+}
+
+.article-document-preview {
+  display: none;
+  width: 100%;
+  height: auto;
+  border-top: 1px solid rgba(23, 104, 63, 0.12);
+  background: #e9efeb;
+}
+
+.article-attachment-image img {
+  display: block;
+  width: 100%;
+  max-height: 760px;
+  object-fit: contain;
+  background: #edf2ef;
+}
+
+.article-attachment-image figcaption {
+  justify-content: space-between;
+  padding: 0.9rem 1.1rem;
+  color: #17683f;
+  font-weight: 800;
+}
+
+.article-attachment-image figcaption a {
+  color: inherit;
+}
+
+.article-detail-links {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 1.6rem;
+}
+
+.article-detail-links .article-back-link {
+  margin-top: 0;
+}
+
+@media (max-width: 640px) {
+  .article-document iframe {
+    display: none;
+  }
+
+  .article-document-preview {
+    display: block;
+  }
+
+  .article-detail-links {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }
 
 /* Shared performance + interaction layer for secondary pages.

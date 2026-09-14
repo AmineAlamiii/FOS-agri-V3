@@ -144,8 +144,8 @@
       med_orgTitle: 'Organisation future',
       med_orgBody: 'Les albums réels pourront être ajoutés après réception des images validées.',
 
-      actualitesKicker: 'Centre d\'information', actualitesTitle: 'Actualités de la Fondation',
-      actualitesBody: 'Toutes les annonces, conventions, campagnes et programmes sociaux de FOS-Agri.',
+      actualitesKicker: 'Centre d\'information', actualitesTitle: 'Actualités 2026 de la Fondation',
+      actualitesBody: 'Toutes les publications officielles FOS-Agri de l\'année 2026, avec leurs images et documents.',
       act_card1Date: 'Programme 2025', act_card1Title: 'Vacances et loisirs',
       act_card1Body: 'Présentation des programmes de vacances, loisirs et accompagnement familial.',
       act_card2Date: 'Convention', act_card2Title: 'Partenariats médicaux',
@@ -164,6 +164,12 @@
       articleKicker: 'Article',
       articleBack: 'Retour aux actualités',
       articleRead: 'Lire l\'article',
+      articleAttachments: 'Documents et pièces jointes',
+      articleDocument: 'Document',
+      articleImage: 'Image',
+      articleOpen: 'Ouvrir',
+      articleDownload: 'Télécharger',
+      articleOfficialSource: 'Voir la publication officielle',
       articleNotFoundTitle: 'Article introuvable',
       articleNotFoundBody: 'Cette actualité n\'est pas disponible ou le lien a été modifié.',
 
@@ -259,8 +265,8 @@
       med_orgTitle: 'التنظيم المستقبلي',
       med_orgBody: 'يمكن إضافة الألبومات الحقيقية بعد توصل الصور المصادق عليها.',
 
-      actualitesKicker: 'مركز المعلومات', actualitesTitle: 'مستجدات المؤسسة',
-      actualitesBody: 'جميع إعلانات واتفاقيات وحملات وبرامج FOS-Agri الاجتماعية.',
+      actualitesKicker: 'مركز المعلومات', actualitesTitle: 'مستجدات المؤسسة لسنة 2026',
+      actualitesBody: 'جميع منشورات FOS-Agri الرسمية لسنة 2026، مرفقة بالصور والوثائق.',
       act_card1Date: 'برنامج 2025', act_card1Title: 'العطل والترفيه',
       act_card1Body: 'تقديم برامج العطل والترفيه ومرافقة الأسر.',
       act_card2Date: 'اتفاقية', act_card2Title: 'الشراكات الطبية',
@@ -279,6 +285,12 @@
       articleKicker: 'مقال',
       articleBack: 'العودة إلى المستجدات',
       articleRead: 'قراءة المقال',
+      articleAttachments: 'الوثائق والمرفقات',
+      articleDocument: 'وثيقة',
+      articleImage: 'صورة',
+      articleOpen: 'فتح',
+      articleDownload: 'تحميل',
+      articleOfficialSource: 'عرض المنشور الرسمي',
       articleNotFoundTitle: 'المقال غير موجود',
       articleNotFoundBody: 'هذا الخبر غير متاح أو تم تغيير الرابط.',
 
@@ -374,8 +386,8 @@
       med_orgTitle: 'ⴰⵙⴻⴳⵎⵉ ⵏ ⵓⵎⴻⴹⴹⵕⵓⵇ',
       med_orgBody: 'ⵉⵍⴱⵓⵎⴰⵜ ⵉⴷⴰⵎⵏⴻⵏ ⴰⴷ ⵜⵜⵓⵙⵙⴽⴰⵏ ⴷⴻⴼⴼⵉⵔ ⵏ ⵓⵙⴻⴼⵙⵉ.',
 
-      actualitesKicker: 'ⵜⴰⵎⴻⵍⵍⴰⵍⵜ ⵏ ⵉⵙⴰⵍⵏ', actualitesTitle: 'ⵉⵙⴰⵍⵏ ⵏ ⵜⵎⵙⵙⵓⵔⵜ',
-      actualitesBody: 'ⴰⴽⴽⵯ ⵉⵙⵉⵡⵍⵏ, ⵉⵎⵢⴰⴽⵏ, ⵜⵉⴽⵍⵉⵡⵉⵏ ⴷ ⵉⵖⴰⵡⴰⵙⵏ ⵉⵏⴰⵎⵓⵏⵏ ⵏ FOS-Agri.',
+      actualitesKicker: 'ⵜⴰⵎⴻⵍⵍⴰⵍⵜ ⵏ ⵉⵙⴰⵍⵏ', actualitesTitle: 'ⵉⵙⴰⵍⵏ ⵏ ⵜⵎⵙⵙⵓⵔⵜ ⵏ 2026',
+      actualitesBody: 'ⴰⴽⴽⵯ ⵉⵙⴰⵍⵏ ⵉⵏⵚⵉⴱⵏ ⵏ FOS-Agri ⴳ 2026, ⵙ ⵜⵉⵡⵍⴰⴼⵉⵏ ⴷ ⵉⵙⵎⵍⵏ ⵏⵏⵙⵏ.',
       act_card1Date: 'ⴰⵖⴰⵡⴰⵙ 2025', act_card1Title: 'ⵜⵉⴽⴽⵉⵏ ⴷ ⵓⵙⴰⵢⵔⴰⵔ',
       act_card1Body: 'ⴰⵙⵏⵓⵍⴼⵓ ⵏ ⵉⵖⴰⵡⴰⵙⵏ ⵏ ⵜⵉⴽⴽⵉⵏ ⴷ ⵓⵙⴰⵢⵔⴰⵔ.',
       act_card2Date: 'ⵉⵎⵢⴰⵏ', act_card2Title: 'ⵉⵎⵢⴰⵏ ⵉⵙⵏⵓⵇⴱⵉⵍⵏ',
@@ -394,6 +406,12 @@
       articleKicker: 'ⴰⵎⴰⴳⵔⴰⴷ',
       articleBack: 'ⵓⵖⵓⵍ ⵖⵔ ⵉⵙⴰⵍⵏ',
       articleRead: 'ⵖⵔ ⴰⵎⴰⴳⵔⴰⴷ',
+      articleAttachments: 'ⵉⵙⵎⵍⵏ ⴷ ⵉⵎⵔⵙⴰⵏ',
+      articleDocument: 'ⴰⵙⵎⵍ',
+      articleImage: 'ⵜⴰⵡⵍⴰⴼⵜ',
+      articleOpen: 'ⵍⴷⵉ',
+      articleDownload: 'ⵙⵙⵉⴷⵔ',
+      articleOfficialSource: 'ⵥⵕ ⴰⵙⴰⵍ ⴰⵏⵚⵉⴱ',
       articleNotFoundTitle: 'ⵓⵔ ⵉⵜⵜⵓⴼ ⵓⵎⴰⴳⵔⴰⴷ',
       articleNotFoundBody: 'ⵓⵔ ⵜⵍⵍⵉ ⵜⵖⴱⴰⵔⵜ ⴰⴷ ⵏⵖ ⵉⵜⵜⵓⴱⴷⴷⵍ ⵓⵙⵖⵏ.',
 
@@ -714,13 +732,13 @@
     if (lang === 'fr') return dateStr;
     const monthMap = lang === 'ar'
       ? {
-        Janvier: 'يناير', Fevrier: 'فبراير', Mars: 'مارس', Avril: 'أبريل',
-        Mai: 'ماي', Juin: 'يونيو', Juillet: 'يوليوز', Aout: 'غشت',
+        Janvier: 'يناير', Fevrier: 'فبراير', Février: 'فبراير', Mars: 'مارس', Avril: 'أبريل',
+        Mai: 'ماي', Juin: 'يونيو', Juillet: 'يوليوز', Aout: 'غشت', Août: 'غشت',
         Septembre: 'شتنبر', Octobre: 'أكتوبر', Novembre: 'نونبر', Decembre: 'دجنبر'
       }
       : {
-        Janvier: 'ⵉⵏⵏⴰⵢⵔ', Fevrier: 'ⴼⵓⵕⴰⵕ', Mars: 'ⵎⴰⵕⵚ', Avril: 'ⵉⴱⵔⵉⵔ',
-        Mai: 'ⵎⴰⵢⵢⵓ', Juin: 'ⵢⵓⵏⵢⵓ', Juillet: 'ⵢⵓⵍⵢⵓⵣ', Aout: 'ⵖⵓⵛⵜ',
+        Janvier: 'ⵉⵏⵏⴰⵢⵔ', Fevrier: 'ⴼⵓⵕⴰⵕ', Février: 'ⴼⵓⵕⴰⵕ', Mars: 'ⵎⴰⵕⵚ', Avril: 'ⵉⴱⵔⵉⵔ',
+        Mai: 'ⵎⴰⵢⵢⵓ', Juin: 'ⵢⵓⵏⵢⵓ', Juillet: 'ⵢⵓⵍⵢⵓⵣ', Aout: 'ⵖⵓⵛⵜ', Août: 'ⵖⵓⵛⵜ',
         Septembre: 'ⵛⵓⵜⴰⵏⴱⵉⵔ', Octobre: 'ⴽⵜⵓⴱⵔ', Novembre: 'ⵏⵓⵡⴰⵏⴱⵉⵔ', Decembre: 'ⴷⵓⵊⴰⵏⴱⵉⵔ'
       };
     const match = (dateStr || '').match(/^(\d{1,2})\s+(.+)\s+(\d{4})$/);
@@ -736,11 +754,13 @@
       zgh: ['ⴰⵙⵓⵍⴰⵏ ⴰⵎⵓⵙⵙⵓ', 'ⴰⵏⴰⴹⴰⵎ', 'ⴰⵙⴳⵎⵉ ⴷ ⵜⵏⴼⵍⵉⵜ', 'ⴰⵙⵏⴼⵍ ⴰⵎⴰⵜⴰⵢ', 'ⴰⵙⵇⵇⵉⵎ ⵏ ⵓⵙⵏⴽⵔ', 'ⵉⵎⴰⵍⴰⵙⵏ ⵉⵎⴷⴰⵏⵏ']
     };
     const activeCategories = categories[lang] || categories.fr;
-    return `${activeCategories[index % activeCategories.length]} • ${localizeNewsDate(item.date)}`;
+    const content = getLocalizedNewsEntry(item);
+    return `${content.category || activeCategories[index % activeCategories.length]} • ${localizeNewsDate(item.date)}`;
   }
 
   function renderActualitesPage() {
     if (body.dataset.page !== 'actualites') return;
+    document.title = `FOS-Agri | ${t('newsTitle')}`;
     const list = document.querySelector('[data-actualites-list]');
     const pagination = document.querySelector('[data-actualites-pagination]');
     const newsItems = window.siteData?.news || [];
@@ -798,6 +818,12 @@
     });
   }
 
+  window.addEventListener('popstate', () => {
+    if (body.dataset.page !== 'actualites') return;
+    actualitesCurrentPage = 1;
+    renderActualitesPage();
+  });
+
   function renderActualiteArticle() {
     const article = document.querySelector('[data-actualite-article]');
     if (!article) return;
@@ -827,17 +853,52 @@
     if (excerpt) excerpt.textContent = content.excerpt || '';
     document.title = `FOS-Agri | ${content.title || t('articleKicker')}`;
 
-    const image = article.querySelector('[data-article-image]');
-    const meta = article.querySelector('[data-article-meta]');
-    const bodyText = article.querySelector('[data-article-body]');
-    const backLink = article.querySelector('.article-back-link');
-    if (image) image.style.backgroundImage = `url("${imageUrl.replace(/"/g, '\\"')}")`;
-    if (meta) meta.textContent = getNewsMeta(index, item);
-    if (bodyText) bodyText.textContent = content.detail || content.excerpt || '';
-    if (backLink) {
-      backLink.href = href('actualites.html');
-      backLink.textContent = t('articleBack');
-    }
+    const attachments = Array.isArray(item.attachments) ? item.attachments : [];
+    const attachmentsHtml = attachments.length ? `
+      <section class="article-attachments" aria-labelledby="article-attachments-title">
+        <h2 id="article-attachments-title">${escapeHtml(t('articleAttachments'))}</h2>
+        <div class="article-attachments-list">
+          ${attachments.map((attachment, attachmentIndex) => {
+            const attachmentUrl = href(attachment.path);
+            const number = attachmentIndex + 1;
+            const label = `${attachment.type === 'image' ? t('articleImage') : t('articleDocument')} ${number}`;
+            if (attachment.type === 'image') {
+              return `
+                <figure class="article-attachment article-attachment-image">
+                  <img src="${escapeHtml(attachmentUrl)}" alt="${escapeHtml(`${label} — ${content.title}`)}" loading="lazy">
+                  <figcaption>
+                    <span><i class="fa-regular fa-image" aria-hidden="true"></i> ${escapeHtml(label)}</span>
+                    <a href="${escapeHtml(attachmentUrl)}" target="_blank" rel="noopener">${escapeHtml(t('articleOpen'))}</a>
+                  </figcaption>
+                </figure>`;
+            }
+            return `
+              <details class="article-attachment article-document"${attachmentIndex === 0 ? ' open' : ''}>
+                <summary><span><i class="fa-regular fa-file-pdf" aria-hidden="true"></i> ${escapeHtml(label)}</span><i class="fa-solid fa-chevron-down article-document-chevron" aria-hidden="true"></i></summary>
+                <div class="article-document-actions">
+                  <a href="${escapeHtml(attachmentUrl)}" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> ${escapeHtml(t('articleOpen'))}</a>
+                  <a href="${escapeHtml(attachmentUrl)}" download><i class="fa-solid fa-download" aria-hidden="true"></i> ${escapeHtml(t('articleDownload'))}</a>
+                </div>
+                <img class="article-document-preview" src="${escapeHtml(href(attachment.preview))}" alt="${escapeHtml(`${label} — ${content.title}`)}" loading="lazy">
+                <iframe src="${escapeHtml(attachmentUrl)}#view=FitH" title="${escapeHtml(`${label} — ${content.title}`)}" loading="lazy"></iframe>
+              </details>`;
+          }).join('')}
+        </div>
+      </section>` : '';
+
+    article.innerHTML = `
+      <div class="page-card actualite-detail-card">
+        <div class="actualite-detail-media" style="background-image:url(&quot;${escapeHtml(imageUrl)}&quot;)" aria-hidden="true"></div>
+        <div class="actualite-detail-content">
+          <span class="page-date">${escapeHtml(getNewsMeta(index, item))}</span>
+          <p>${escapeHtml(content.detail || content.excerpt || '')}</p>
+          ${attachmentsHtml}
+          <div class="article-detail-links">
+            <a class="article-source-link" href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> ${escapeHtml(t('articleOfficialSource'))}</a>
+            <a class="article-back-link" href="${href('actualites.html')}">${escapeHtml(t('articleBack'))}</a>
+          </div>
+        </div>
+      </div>`;
   }
 
   function goToSearchPage(query) {

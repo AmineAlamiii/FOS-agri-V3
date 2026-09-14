@@ -278,12 +278,14 @@ function renderNews() {
       ? {
         Janvier: "يناير",
         Fevrier: "فبراير",
+        Février: "فبراير",
         Mars: "مارس",
         Avril: "أبريل",
         Mai: "ماي",
         Juin: "يونيو",
         Juillet: "يوليوز",
         Aout: "غشت",
+        Août: "غشت",
         Septembre: "شتنبر",
         Octobre: "أكتوبر",
         Novembre: "نونبر",
@@ -292,12 +294,14 @@ function renderNews() {
       : {
         Janvier: "ⵉⵏⵏⴰⵢⵔ",
         Fevrier: "ⴼⵓⵕⴰⵕ",
+        Février: "ⴼⵓⵕⴰⵕ",
         Mars: "ⵎⴰⵕⵚ",
         Avril: "ⵉⴱⵔⵉⵔ",
         Mai: "ⵎⴰⵢⵢⵓ",
         Juin: "ⵢⵓⵏⵢⵓ",
         Juillet: "ⵢⵓⵍⵢⵓⵣ",
         Aout: "ⵖⵓⵛⵜ",
+        Août: "ⵖⵓⵛⵜ",
         Septembre: "ⵛⵓⵜⴰⵏⴱⵉⵔ",
         Octobre: "ⴽⵜⵓⴱⵔ",
         Novembre: "ⵏⵓⵡⴰⵏⴱⵉⵔ",
@@ -311,7 +315,8 @@ function renderNews() {
 
   const getMeta = (index, item) => {
     const activeCategories = categories[currentLang] || categories.fr;
-    const cat = activeCategories[index % activeCategories.length];
+    const content = getLocalizedEntry(item);
+    const cat = content?.category || activeCategories[index % activeCategories.length];
     return `${cat} • ${localizeNewsDate(item.date)}`;
   };
 
