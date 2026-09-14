@@ -144,8 +144,8 @@
       med_orgTitle: 'Organisation future',
       med_orgBody: 'Les albums réels pourront être ajoutés après réception des images validées.',
 
-      actualitesKicker: 'Centre d\'information', actualitesTitle: 'Actualités 2026 de la Fondation',
-      actualitesBody: 'Toutes les publications officielles FOS-Agri de l\'année 2026, avec leurs images et documents.',
+      actualitesKicker: 'Centre d\'information', actualitesTitle: 'Actualités de la Fondation',
+      actualitesBody: 'Retrouvez toutes les publications officielles de FOS-Agri, avec leurs images et documents.',
       act_card1Date: 'Programme 2025', act_card1Title: 'Vacances et loisirs',
       act_card1Body: 'Présentation des programmes de vacances, loisirs et accompagnement familial.',
       act_card2Date: 'Convention', act_card2Title: 'Partenariats médicaux',
@@ -264,8 +264,8 @@
       med_orgTitle: 'التنظيم المستقبلي',
       med_orgBody: 'يمكن إضافة الألبومات الحقيقية بعد توصل الصور المصادق عليها.',
 
-      actualitesKicker: 'مركز المعلومات', actualitesTitle: 'مستجدات المؤسسة لسنة 2026',
-      actualitesBody: 'جميع منشورات FOS-Agri الرسمية لسنة 2026، مرفقة بالصور والوثائق.',
+      actualitesKicker: 'مركز المعلومات', actualitesTitle: 'مستجدات المؤسسة',
+      actualitesBody: 'اطلعوا على جميع المنشورات الرسمية لمؤسسة FOS-Agri، مرفقة بالصور والوثائق.',
       act_card1Date: 'برنامج 2025', act_card1Title: 'العطل والترفيه',
       act_card1Body: 'تقديم برامج العطل والترفيه ومرافقة الأسر.',
       act_card2Date: 'اتفاقية', act_card2Title: 'الشراكات الطبية',
@@ -384,8 +384,8 @@
       med_orgTitle: 'ⴰⵙⴻⴳⵎⵉ ⵏ ⵓⵎⴻⴹⴹⵕⵓⵇ',
       med_orgBody: 'ⵉⵍⴱⵓⵎⴰⵜ ⵉⴷⴰⵎⵏⴻⵏ ⴰⴷ ⵜⵜⵓⵙⵙⴽⴰⵏ ⴷⴻⴼⴼⵉⵔ ⵏ ⵓⵙⴻⴼⵙⵉ.',
 
-      actualitesKicker: 'ⵜⴰⵎⴻⵍⵍⴰⵍⵜ ⵏ ⵉⵙⴰⵍⵏ', actualitesTitle: 'ⵉⵙⴰⵍⵏ ⵏ ⵜⵎⵙⵙⵓⵔⵜ ⵏ 2026',
-      actualitesBody: 'ⴰⴽⴽⵯ ⵉⵙⴰⵍⵏ ⵉⵏⵚⵉⴱⵏ ⵏ FOS-Agri ⴳ 2026, ⵙ ⵜⵉⵡⵍⴰⴼⵉⵏ ⴷ ⵉⵙⵎⵍⵏ ⵏⵏⵙⵏ.',
+      actualitesKicker: 'ⵜⴰⵎⴻⵍⵍⴰⵍⵜ ⵏ ⵉⵙⴰⵍⵏ', actualitesTitle: 'ⵉⵙⴰⵍⵏ ⵏ ⵜⵎⵙⵙⵓⵔⵜ',
+      actualitesBody: 'ⵥⵕ ⴰⴽⴽⵯ ⵉⵙⴰⵍⵏ ⵉⵏⵚⵉⴱⵏ ⵏ FOS-Agri, ⵙ ⵜⵉⵡⵍⴰⴼⵉⵏ ⴷ ⵉⵙⵎⵍⵏ ⵏⵏⵙⵏ.',
       act_card1Date: 'ⴰⵖⴰⵡⴰⵙ 2025', act_card1Title: 'ⵜⵉⴽⴽⵉⵏ ⴷ ⵓⵙⴰⵢⵔⴰⵔ',
       act_card1Body: 'ⴰⵙⵏⵓⵍⴼⵓ ⵏ ⵉⵖⴰⵡⴰⵙⵏ ⵏ ⵜⵉⴽⴽⵉⵏ ⴷ ⵓⵙⴰⵢⵔⴰⵔ.',
       act_card2Date: 'ⵉⵎⵢⴰⵏ', act_card2Title: 'ⵉⵎⵢⴰⵏ ⵉⵙⵏⵓⵇⴱⵉⵍⵏ',
