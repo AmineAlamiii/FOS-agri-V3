@@ -504,8 +504,7 @@ html[dir='rtl'] .cot-row:focus-within {
   background: #fff;
 }
 
-.article-document-actions a,
-.article-source-link {
+.article-document-actions a {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
@@ -519,9 +518,7 @@ html[dir='rtl'] .cot-row:focus-within {
 }
 
 .article-document-actions a:hover,
-.article-document-actions a:focus-visible,
-.article-source-link:hover,
-.article-source-link:focus-visible {
+.article-document-actions a:focus-visible {
   background: #17683f;
   color: #fff;
 }

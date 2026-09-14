@@ -27,7 +27,6 @@
       date,
       year: 2026,
       image: `assets/news/2026/images/${id}-cover.${coverExtension}`,
-      sourceUrl: `https://fos-agri.ma/blog-details.html?varname=${id}`,
       attachments: attachmentExtensions.map((extension, index) => ({
         type: extension === "pdf" ? "pdf" : "image",
         path: `assets/news/2026/${extension === "pdf" ? "documents" : "images"}/${id}-${extension === "pdf" ? "document" : "attachment"}-${index + 1}.${extension}`,

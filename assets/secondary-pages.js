@@ -169,7 +169,6 @@
       articleImage: 'Image',
       articleOpen: 'Ouvrir',
       articleDownload: 'Télécharger',
-      articleOfficialSource: 'Voir la publication officielle',
       articleNotFoundTitle: 'Article introuvable',
       articleNotFoundBody: 'Cette actualité n\'est pas disponible ou le lien a été modifié.',
 
@@ -290,7 +289,6 @@
       articleImage: 'صورة',
       articleOpen: 'فتح',
       articleDownload: 'تحميل',
-      articleOfficialSource: 'عرض المنشور الرسمي',
       articleNotFoundTitle: 'المقال غير موجود',
       articleNotFoundBody: 'هذا الخبر غير متاح أو تم تغيير الرابط.',
 
@@ -411,7 +409,6 @@
       articleImage: 'ⵜⴰⵡⵍⴰⴼⵜ',
       articleOpen: 'ⵍⴷⵉ',
       articleDownload: 'ⵙⵙⵉⴷⵔ',
-      articleOfficialSource: 'ⵥⵕ ⴰⵙⴰⵍ ⴰⵏⵚⵉⴱ',
       articleNotFoundTitle: 'ⵓⵔ ⵉⵜⵜⵓⴼ ⵓⵎⴰⴳⵔⴰⴷ',
       articleNotFoundBody: 'ⵓⵔ ⵜⵍⵍⵉ ⵜⵖⴱⴰⵔⵜ ⴰⴷ ⵏⵖ ⵉⵜⵜⵓⴱⴷⴷⵍ ⵓⵙⵖⵏ.',
 
@@ -894,7 +891,6 @@
           <p>${escapeHtml(content.detail || content.excerpt || '')}</p>
           ${attachmentsHtml}
           <div class="article-detail-links">
-            <a class="article-source-link" href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> ${escapeHtml(t('articleOfficialSource'))}</a>
             <a class="article-back-link" href="${href('actualites.html')}">${escapeHtml(t('articleBack'))}</a>
           </div>
         </div>
