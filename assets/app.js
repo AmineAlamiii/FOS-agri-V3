@@ -1074,9 +1074,35 @@ function initForm() {
 
 function initHeroSlider() {
   if (heroSliderStarted) return;
-  const slides = qsa(".hero-slide");
+  const slidesHost = qs("#hero-slides");
   const dotsHost = qs("#hero-dots");
-  if (!slides.length || !dotsHost) return;
+  if (!slidesHost || !dotsHost) return;
+
+  const mediaConfig = siteData.heroMedia || {};
+  const displayMode = ["video", "images", "both"].includes(mediaConfig.displayMode)
+    ? mediaConfig.displayMode
+    : "video";
+  const configuredSlides = Array.isArray(mediaConfig.slides) ? mediaConfig.slides : [];
+  const visibleSlides = configuredSlides.filter((slide) => {
+    if (displayMode === "both") return slide.type === "video" || slide.type === "image";
+    if (displayMode === "images") return slide.type === "image";
+    return slide.type === "video";
+  });
+
+  slidesHost.innerHTML = visibleSlides.map((slide, index) => {
+    const activeClass = index === 0 ? " is-active" : "";
+    if (slide.type === "video") {
+      return `<div class="hero-slide${activeClass}" data-type="video" data-slide-id="${escapeHtml(slide.id)}">
+        <video class="hero-video" muted playsinline preload="auto">
+          <source src="${escapeHtml(slide.src)}" type="${escapeHtml(slide.mimeType || "video/mp4")}">
+        </video>
+      </div>`;
+    }
+    return `<div class="hero-slide${activeClass}" data-image="${escapeHtml(slide.src)}" data-slide-id="${escapeHtml(slide.id)}"></div>`;
+  }).join("");
+
+  const slides = qsa(".hero-slide");
+  if (!slides.length) return;
 
   slides.forEach((slide) => {
     const image = slide.dataset.image;
@@ -1086,18 +1112,21 @@ function initHeroSlider() {
   });
 
   let activeIndex = 0;
-  dotsHost.innerHTML = slides
-    .map(
-      (_, index) => `
-        <button
-          class="hero-dot ${index === 0 ? "is-active" : ""}"
-          type="button"
-          data-slide-index="${index}"
-          aria-label="Slide ${index + 1}"
-        ></button>
-      `
-    )
-    .join("");
+  dotsHost.innerHTML = slides.length > 1
+    ? slides
+      .map(
+        (_, index) => `
+          <button
+            class="hero-dot ${index === 0 ? "is-active" : ""}"
+            type="button"
+            data-slide-index="${index}"
+            aria-label="Slide ${index + 1}"
+          ></button>
+        `
+      )
+      .join("")
+    : "";
+  dotsHost.hidden = slides.length <= 1;
 
   const dots = qsa(".hero-dot");
   let slideTimeout;
@@ -1126,10 +1155,10 @@ function initHeroSlider() {
       const video = slide.querySelector("video");
       if (video) {
         if (isActive) {
-          video.loop = false;
+          video.loop = slides.length === 1;
           video.currentTime = 0;
           video.play().catch(() => { });
-          video.onended = nextSlide;
+          video.onended = slides.length > 1 ? nextSlide : null;
         } else {
           video.pause();
           video.onended = null;

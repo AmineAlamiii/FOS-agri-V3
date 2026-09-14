@@ -1,4 +1,15 @@
 window.siteData = {
+  // Hero media can be switched to "video", "images", or "both" by the future CMS.
+  heroMedia: {
+    displayMode: "video",
+    slides: [
+      { id: "hero-video", type: "video", src: "Fos-Agri.mp4", mimeType: "video/mp4" },
+      { id: "hero-image-1", type: "image", src: "assets/images/hero-1.jpg" },
+      { id: "hero-image-2", type: "image", src: "assets/images/hero-2.jpg" },
+      { id: "hero-image-3", type: "image", src: "assets/images/hero-3.webp" },
+      { id: "hero-image-4", type: "image", src: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1600&q=80" }
+    ]
+  },
   translations: {
     fr: {
       nav: {
