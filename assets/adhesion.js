@@ -93,11 +93,11 @@
       },
       cards: [
         card('active', 'fa-user-check', 'Personnel en activité', 'الموظفون العاملون', 'ⵉⵎⵙⵡⵓⵔⵉⵢⵏ',
-          "Adhérent d'office : tout le personnel actif du Département de l'Agriculture, ainsi que leurs conjoints et enfants.",
+          "Adhésion d'office : tout le personnel actif du Département de l'Agriculture, ainsi que les conjoints et les enfants.",
           'منخرطون تلقائيا: كل موظفي قطاع الفلاحة العاملين، إضافة إلى الأزواج والأبناء.',
           'ⴰⵎⵓⵏ ⴰⵡⵔⵎⴰⵏ: ⴽⵓ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ ⵏ ⵓⴳⵣⵣⵓⵎ ⵏ ⵜⴼⵍⴰⵃⵜ, ⴷ ⵉⵙⵍⴰⵏ ⴷ ⵜⴰⵔⵡⴰ ⵏⵏⵙⵏ.'),
         card('tutelle', 'fa-building-user', 'Organismes sous tutelle', 'المؤسسات تحت الوصاية', 'ⵜⵉⵎⵙⵙⵉⵡⵉⵏ ⴷⴷⴰⵡ ⵓⵙⵏⴼⵍ',
-          "Adhésion au choix et sur demande pour le personnel des établissements sous tutelle du Département, leurs conjoints et enfants, après signature d'une convention entre la FOS-Agri et l'administration de l'établissement.",
+          "Adhésion facultative, sur demande, pour le personnel des établissements sous tutelle du Département, ainsi que pour les conjoints et les enfants, après la signature d'une convention entre la FOS-Agri et l'administration de l'établissement.",
           'انخراط اختياري وبطلب لموظفي المؤسسات الخاضعة لوصاية القطاع، وأزواجهم وأبنائهم، بعد توقيع اتفاقية بين FOS-Agri وإدارة المؤسسة المعنية.',
           'ⴰⵎⵓⵏ ⵙ ⵓⴼⵔⴰⵏ ⴷ ⵓⵙⵙⵓⵜⵔ ⵉ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ ⵏ ⵜⵎⵙⵙⵉⵡⵉⵏ ⴷⴷⴰⵡ ⵓⵙⵏⴼⵍ, ⴷ ⵉⵙⵍⴰⵏ ⴷ ⵜⴰⵔⵡⴰ ⵏⵏⵙⵏ.'),
         card('retraites', 'fa-person-cane', 'Retraités', 'المتقاعدون', 'ⵉⵎⴷⴽⴽⵯⴰⵍⵏ',
@@ -160,7 +160,7 @@
           icon: 'fa-clock-rotate-left',
           title: { fr: "Prolongation d'adhésion pour futurs retraités", ar: 'تمديد الانخراط للمقبلين على التقاعد', zgh: 'ⴰⵙⵉⵖⵣⴼ ⵏ ⵓⵎⵓⵏ ⵉ ⵉⵎⴷⴽⴽⵯⴰⵍⵏ ⵉⴷⴷⵓⵙⵏ' },
           items: [
-            item("Demande de prolongation d'adhésion après la mise en retraite, précisant le numéro de téléphone et les adresses email et postale", 'طلب تمديد الانخراط بعد الإحالة على التقاعد، مع تحديد رقم الهاتف والعنوان الإلكتروني والبريدي', 'ⴰⵙⵙⵓⵜⵔ ⵏ ⵓⵙⵉⵖⵣⴼ ⵏ ⵓⵎⵓⵏ ⵎⴱⴰⵄⴷ ⵜⴰⴽⵛⵛⵓⵎⵜ ⵖⵔ ⵜⵎⴷⴽⴽⵯⴰⵍⵜ'),
+            item("Demande de prolongation de l'adhésion après le départ à la retraite, précisant le numéro de téléphone, l'adresse électronique et l'adresse postale", 'طلب تمديد الانخراط بعد الإحالة على التقاعد، مع تحديد رقم الهاتف والعنوان الإلكتروني والبريدي', 'ⴰⵙⵙⵓⵜⵔ ⵏ ⵓⵙⵉⵖⵣⴼ ⵏ ⵓⵎⵓⵏ ⵎⴱⴰⵄⴷ ⵜⴰⴽⵛⵛⵓⵎⵜ ⵖⵔ ⵜⵎⴷⴽⴽⵯⴰⵍⵜ'),
             item("Autorisation de précompte légalisée, en deux copies, à transmettre via l'administration (bordereau) 3 mois avant la date d'effet de la sortie de service", 'إذن بالاقتطاع مصادق عليه، في نسختين، يرسل عبر الإدارة (بيان إرسال) 3 أشهر قبل تاريخ سريان مغادرة الخدمة', 'ⵜⴰⵙⵔⴰⴳⵜ ⵏ ⵓⵙⵉⵣⴷⴳ ⵜⵜⵓⵙⵙⴷⵖⵔⵜ, ⵙ ⵙⵉⵏ ⵉⵙⵓⵖⴰⵍ, ⴰⴷ ⵜⵜⵓⵣⵏ ⵙ ⵜⵏⴱⴰⴹⵜ 3 ⵉⵢⵢⵓⵔⵏ ⴷⴰⵜ ⵡⴰⵙⵙ ⵏ ⵓⴼⵓⵖ', 'assets/adhesion/procedure/autorisation-precompte-avis.pdf')
           ]
         },
@@ -170,7 +170,7 @@
           title: { fr: 'Retraités', ar: 'المتقاعدون', zgh: 'ⵉⵎⴷⴽⴽⵯⴰⵍⵏ' },
           items: [
             item("Demande d'adhésion à la FOS-Agri", 'طلب الانخراط في FOS-Agri', 'ⴰⵙⵙⵓⵜⵔ ⵏ ⵓⵎⵓⵏ ⴳ FOS-Agri'),
-            item("Fiche de demande d'adhésion, précisant le numéro de téléphone et l'adresse email et postale", 'بطاقة طلب الانخراط، مع تحديد رقم الهاتف والعنوان الإلكتروني والبريدي', 'ⵜⴰⴼⵔⴽⵜ ⵏ ⵓⵙⵙⵓⵜⵔ ⵏ ⵓⵎⵓⵏ', 'assets/adhesion/procedure/formulaire-autorisation-retraites.pdf'),
+            item("Fiche de demande d'adhésion précisant le numéro de téléphone, l'adresse électronique et l'adresse postale", 'بطاقة طلب الانخراط، مع تحديد رقم الهاتف والعنوان الإلكتروني والبريدي', 'ⵜⴰⴼⵔⴽⵜ ⵏ ⵓⵙⵙⵓⵜⵔ ⵏ ⵓⵎⵓⵏ', 'assets/adhesion/procedure/formulaire-autorisation-retraites.pdf'),
             item('Chèque barré ou attestation de RIB', 'شيك مسطر أو شهادة RIB', 'ⵛⵉⴽ ⴰⵙⵟⵟⴰⵔ ⵏⵖ ⵜⴰⵙⴽⵉⵏⵜ ⵏ RIB'),
             item('Attestation de pension', 'شهادة التقاعد', 'ⵜⴰⵙⴽⵉⵏⵜ ⵏ ⵜⵎⴷⴽⴽⵯⴰⵍⵜ'),
             item('Autorisation de précompte, en deux copies', 'إذن بالاقتطاع، في نسختين', 'ⵜⴰⵙⵔⴰⴳⵜ ⵏ ⵓⵙⵉⵣⴷⴳ, ⵙ ⵙⵉⵏ ⵉⵙⵓⵖⴰⵍ'),
@@ -193,12 +193,12 @@
         zgh: 'ⴰⵎⵟⵟⵓⵏ ⵏ ⵜⴰⵡⵙⵉⵡⵜ ⵜⴰⵢⵢⵓⵔⴰⵏⵜ ⵉⵜⵜⵓⵙⵏ ⵙ ⵓⵙⴽⴰⵍⴰ ⵏⵖ ⵜⴰⴷⵔⴰⴷⵜ ⵏ ⵓⵎⵓⵏ.'
       },
       fees: [
-        fee('Catégorie 1 : Échelles 6 et 7', 'الفئة 1: السلمان 6 و7', 'ⵜⴰⴳⴳⴰⵢⵜ 1: ⵉⵙⴽⴰⵍⴰⵏ 6 ⴷ 7', '20.00 DH'),
-        fee('Catégorie 2 : Échelles 8 et 9', 'الفئة 2: السلمان 8 و9', 'ⵜⴰⴳⴳⴰⵢⵜ 2: ⵉⵙⴽⴰⵍⴰⵏ 8 ⴷ 9', '30.00 DH'),
-        fee('Catégorie 3 : Échelle 10', 'الفئة 3: السلم 10', 'ⵜⴰⴳⴳⴰⵢⵜ 3: ⴰⵙⴽⴰⵍⴰ 10', '45.00 DH'),
-        fee('Catégorie 4 : Échelle 11', 'الفئة 4: السلم 11', 'ⵜⴰⴳⴳⴰⵢⵜ 4: ⴰⵙⴽⴰⵍⴰ 11', '70.00 DH'),
-        fee('Catégorie 5 : Hors Échelle Premier Grade', 'الفئة 5: خارج السلم الدرجة الأولى', 'ⵜⴰⴳⴳⴰⵢⵜ 5: ⴱⵕⵕⴰ ⵏ ⵓⵙⴽⴰⵍⴰ ⵜⴰⴷⵔⴰⴷⵜ ⵜⴰⵎⵣⵡⴰⵔⵓⵜ', '100.00 DH'),
-        fee('Catégorie 6 : Hors Échelle Grade Principal', 'الفئة 6: خارج السلم الدرجة الرئيسية', 'ⵜⴰⴳⴳⴰⵢⵜ 6: ⴱⵕⵕⴰ ⵏ ⵓⵙⴽⴰⵍⴰ ⵜⴰⴷⵔⴰⴷⵜ ⵜⴰⵎⵇⵔⴰⵏⵜ', '120.00 DH')
+        fee('Catégorie 1 : échelles 6 et 7', 'الفئة 1: السلمان 6 و7', 'ⵜⴰⴳⴳⴰⵢⵜ 1: ⵉⵙⴽⴰⵍⴰⵏ 6 ⴷ 7', '20,00 DH'),
+        fee('Catégorie 2 : échelles 8 et 9', 'الفئة 2: السلمان 8 و9', 'ⵜⴰⴳⴳⴰⵢⵜ 2: ⵉⵙⴽⴰⵍⴰⵏ 8 ⴷ 9', '30,00 DH'),
+        fee('Catégorie 3 : échelle 10', 'الفئة 3: السلم 10', 'ⵜⴰⴳⴳⴰⵢⵜ 3: ⴰⵙⴽⴰⵍⴰ 10', '45,00 DH'),
+        fee('Catégorie 4 : échelle 11', 'الفئة 4: السلم 11', 'ⵜⴰⴳⴳⴰⵢⵜ 4: ⴰⵙⴽⴰⵍⴰ 11', '70,00 DH'),
+        fee('Catégorie 5 : hors échelle, premier grade', 'الفئة 5: خارج السلم الدرجة الأولى', 'ⵜⴰⴳⴳⴰⵢⵜ 5: ⴱⵕⵕⴰ ⵏ ⵓⵙⴽⴰⵍⴰ ⵜⴰⴷⵔⴰⴷⵜ ⵜⴰⵎⵣⵡⴰⵔⵓⵜ', '100,00 DH'),
+        fee('Catégorie 6 : hors échelle, grade principal', 'الفئة 6: خارج السلم الدرجة الرئيسية', 'ⵜⴰⴳⴳⴰⵢⵜ 6: ⴱⵕⵕⴰ ⵏ ⵓⵙⴽⴰⵍⴰ ⵜⴰⴷⵔⴰⴷⵜ ⵜⴰⵎⵇⵔⴰⵏⵜ', '120,00 DH')
       ]
     }
   ];

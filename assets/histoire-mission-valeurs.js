@@ -71,13 +71,13 @@
       'values.loading': 'Chargement…',
       'values.empty': "Aucune valeur n'est disponible pour le moment.",
       'values.intro.title': 'Nos valeurs',
-      'values.intro.body': "Les valeurs sont les constituants de base de la culture de la fondation et un aiguillage à nos actions et à nos interactions avec l’ensemble de nos parties-prenantes. Ces valeurs fondamentales sont portées au quotidien par nos collaborateurs et donnent du sens à notre quotidien et une portée à notre mission.",
+      'values.intro.body': "Les valeurs constituent le socle de la culture de la Fondation et guident nos actions ainsi que nos interactions avec l’ensemble de nos parties prenantes. Portées chaque jour par nos collaborateurs, elles donnent du sens à notre action et renforcent la portée de notre mission.",
       'values.equity.title': 'Équité',
-      'values.equity.desc': "L'équité renvoie vers l'égalité des chances en termes d'accès aux prestations à l'ensemble des adhérents.",
+      'values.equity.desc': "L’équité garantit l’égalité des chances dans l’accès aux prestations pour l’ensemble des adhérents.",
       'values.service.title': 'Sens du service',
-      'values.service.desc': 'Être mobilisé pour fournir toujours le meilleur service en faisant preuve de bienveillance, d’assistance et de réactivité et garantir la continuité et l’accès à nos prestations.',
+      'values.service.desc': 'Nous nous mobilisons pour fournir le meilleur service avec bienveillance, disponibilité et réactivité, tout en garantissant la continuité et l’accès à nos prestations.',
       'values.inclusion.title': 'Inclusion',
-      'values.inclusion.desc': "Garantir l'accès aux prestations sociales à l'ensemble des agents actifs ou retraités du département indépendamment de leur grade, genre, région ou fonction…",
+      'values.inclusion.desc': "Garantir l'accès aux prestations sociales à l'ensemble des agents actifs ou retraités du Département, indépendamment de leur grade, de leur genre, de leur région ou de leur fonction.",
 
       // Timeline content
       'timeline.2015.title': 'Naissance de la Fondation',
@@ -89,7 +89,7 @@
       'timeline.2016.tools': 'Instauration des outils de gestion',
 
       'timeline.2017.title': 'Déploiement des prestations phares',
-      'timeline.2017.amc_amts': "Déploiement des prestations phares relatives de l'AMC et de l'AMTS",
+      'timeline.2017.amc_amts': "Déploiement des prestations phares relatives à l'AMC et à l'AMTS",
 
       'timeline.2018.title': 'Adaptation et digitalisation',
       'timeline.2018.health': "Adaptation de l'offre à la situation sanitaire",
@@ -101,11 +101,11 @@
       'timeline.2019.relais': "Nomination des relais régionaux afin de garantir une coordination optimale à l'échelle régionale.",
 
       'timeline.2021.title': 'Élargissement et nouveaux crédits',
-      'timeline.2021.onssa': "Intégration de l'ONSSA et l'ONCA",
-      'timeline.2021.credits': 'Lancement des crédits sociaux et de la bonification aux crédits de logement',
+      'timeline.2021.onssa': "Intégration de l'ONSSA et de l'ONCA",
+      'timeline.2021.credits': 'Lancement des crédits sociaux et de la bonification des crédits au logement',
 
       'timeline.2022.title': "Ouverture du Club de l'Agriculture",
-      'timeline.2022.club_provided': 'Mise à la disposition du club auprès de la Fos-Agri',
+      'timeline.2022.club_provided': 'Mise du club à la disposition de la FOS-Agri',
       'timeline.2022.club_open': 'Ouverture du club',
       'timeline.2022.club_services': "Lancement des prestations du Club de l'Agriculture",
 

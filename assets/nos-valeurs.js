@@ -12,15 +12,15 @@
       'values.section.tag': 'Principes fondateurs',
       'values.section.title': 'Une action guidée par quatre engagements',
       'values.intro.title': 'Nos valeurs',
-      'values.intro.body': "Les valeurs sont les constituants de base de la culture de la fondation et un aiguillage à nos actions et à nos interactions avec l’ensemble de nos parties-prenantes. Ces valeurs fondamentales sont portées au quotidien par nos collaborateurs et donnent du sens à notre quotidien et une portée à notre mission.",
+      'values.intro.body': "Les valeurs constituent le socle de la culture de la Fondation et guident nos actions ainsi que nos interactions avec l’ensemble de nos parties prenantes. Portées chaque jour par nos collaborateurs, elles donnent du sens à notre action et renforcent la portée de notre mission.",
       'values.proximity.title': 'Proximité',
-      'values.proximity.body': "Renvoie vers notre capacité à toujours être plus proche de nos adhérents afin de mieux comprendre et d'anticiper leurs attentes et aspirations.",
+      'values.proximity.body': "La proximité reflète notre capacité à rester au plus près de nos adhérents afin de mieux comprendre et anticiper leurs attentes et leurs aspirations.",
       'values.equity.title': 'Équité',
-      'values.equity.body': "L'équité renvoie vers l'égalité des chances en termes d'accès aux prestations à l'ensemble des adhérents.",
+      'values.equity.body': "L’équité garantit l’égalité des chances dans l’accès aux prestations pour l’ensemble des adhérents.",
       'values.service.title': 'Sens du service',
-      'values.service.body': 'Être mobilisé pour fournir toujours le meilleur service en faisant preuve de bienveillance, d’assistance et de réactivité et garantir la continuité et l’accès à nos prestations.',
+      'values.service.body': 'Nous nous mobilisons pour fournir le meilleur service avec bienveillance, disponibilité et réactivité, tout en garantissant la continuité et l’accès à nos prestations.',
       'values.inclusion.title': 'Inclusion',
-      'values.inclusion.body': 'Garantir l’accès aux prestations sociales à l’ensemble des agents actifs ou retraités du département indépendamment de leur grade, genre, région ou fonction…'
+      'values.inclusion.body': 'Garantir l’accès aux prestations sociales à l’ensemble des agents actifs ou retraités du Département, indépendamment de leur grade, de leur genre, de leur région ou de leur fonction.'
     },
     ar: {
       'values.pageTitle': 'قيمنا',

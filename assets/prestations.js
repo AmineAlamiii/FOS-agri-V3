@@ -25,7 +25,7 @@
       id: 'a-propos',
       icon: 'fa-circle-info',
       labels: {
-        fr: 'A PROPOS',
+        fr: 'À PROPOS',
         ar: 'حول الخدمة',
         zgh: 'ⵅⴼ ⵜⴰⵏⴼⵓⵜ'
       }
@@ -1006,14 +1006,14 @@
         amcDetail: amcDetailFr,
         amtsDetail: amtsDetailFr,
         features: [
-          ['A PROPOS', 'Accompagnement, orientation et écoute autour des besoins de santé et de bien-être des adhérents.'],
+          ['À PROPOS', 'Accompagnement, orientation et écoute autour des besoins de santé et de bien-être des adhérents.'],
           ['Assurance Maladie Complémentaire', 'Sanlam Maroc rembourse ou prend en charge tout ou partie du reste à charge selon les taux, bases et plafonds contractuels.'],
           ['Assistance Médicale et Transport Sanitaire', 'Wafa IMA Assistance couvre les situations urgentes, les transports sanitaires, l’assistance à domicile et l’évacuation sanitaire selon conditions.'],
           ['AIDES AUX PERSONNES AUX BESOINS SPECIFIQUES', 'Contribution à la prise en charge des besoins particuliers des enfants des adhérents.'],
           ['CONVENTIONS ET PARTENARIATS MEDICALES', 'Réseau de prestataires répartis dans plusieurs régions du Royaume avec la contribution des relais régionaux.']
         ],
         centerMedical: {
-          badge: 'A PROPOS',
+          badge: 'À PROPOS',
           title: 'Accompagnement médico-social',
           intro: 'La FOS-Agri a érigé le volet santé en une place de choix à travers la mise en place d’un dispositif de santé composé de l’assurance maladie complémentaire, de l’accompagnement médico-social, de l’assistance médicale et transport sanitaire et d’une série de conventions avec des praticiens de renom dans le domaine médical au niveau de plusieurs régions du Royaume avec la précieuse collaboration des relais régionaux.',
           items: [
@@ -1180,7 +1180,7 @@
     culture: {
       href: 'services/culture-loisirs-voyages.html',
       fr: {
-        title: 'Culture, loisirs, et voyages',
+        title: 'Culture, loisirs et voyages',
         meta: 'Détente, partage et découverte',
         summary: 'Des programmes pour créer des moments de détente, de découverte culturelle et d’évasion au profit des adhérents et de leurs familles.',
         stats: [['6', 'sous-rubriques'], ['Familles', 'activités intergénérationnelles'], ['Partenaires', 'offres et conventions loisirs']],
@@ -1219,7 +1219,7 @@
     formation: {
       href: 'services/formation-scolarisation.html',
       fr: {
-        title: 'Appui à la Scolarisation et Formation',
+        title: 'Appui à la scolarisation et à la formation',
         meta: 'Réussite scolaire et accompagnement parental',
         summary: 'Des dispositifs pour soutenir les enfants des adhérents dans leur parcours scolaire et encourager l’excellence.',
         stats: [['Coaching', 'scolaire et parental'], ['Bourses', 'excellence et bourses sociales'], ['Rentrée', 'primes et conventions éducatives']],
@@ -1262,10 +1262,10 @@
         meta: 'Logement, banques et projets immobiliers',
         summary: 'Un accompagnement pour faciliter l’accès au logement à travers l’aide au logement, les offres bancaires préférentielles et les partenariats immobiliers.',
         stats: [['9', 'offres immobilières recensées'], ['76 ans', 'âge indiqué pour Al Barid Bank sur le site'], ['Banques', 'crédits préférentiels logement']],
-        chips: ['Aide au logement', 'Offres bancaires à des taux de crédits préférentiels', 'Promoteurs immobiliers', 'Mise en place des projets logement par la FOS-Agri'],
+        chips: ['Aide au logement', 'Offres bancaires à des taux de crédit préférentiels', 'Promoteurs immobiliers', 'Mise en place de projets de logement par la FOS-Agri'],
         overview: 'Les fichiers transmis recensent les offres de crédit immobilier et les conventions bancaires associées au logement, avec des établissements confirmés et des avis à maintenir à jour.',
-        highlights: ['Aide au logement et accompagnement des adhérents.', 'Offres bancaires à taux de crédits préférentiels.', 'Promoteurs immobiliers et projets logement par FOS-Agri.', 'Suivi des offres Banque Populaire, BMCI, Crédit du Maroc, CFG Bank, Crédit Agricole du Maroc, Wafa Immobilier, Al Barid Bank, Bank Assafa et autres partenaires.'],
-        features: [['Aide au logement', 'Orientation des adhérents vers les dispositifs et partenaires disponibles.'], ['Offres bancaires préférentielles', 'Crédits immobiliers négociés avec des banques partenaires.'], ['Promoteurs immobiliers', 'Mise en relation avec les offres immobilières validées.'], ['Projets logement FOS-Agri', 'Suivi des projets logement mis en place par la Fondation.']],
+        highlights: ['Aide au logement et accompagnement des adhérents.', 'Offres bancaires à taux de crédit préférentiels.', 'Promoteurs immobiliers et projets de logement de FOS-Agri.', 'Suivi des offres de Banque Populaire, BMCI, Crédit du Maroc, CFG Bank, Crédit Agricole du Maroc, Wafa Immobilier, Al Barid Bank, Bank Assafa et d’autres partenaires.'],
+        features: [['Aide au logement', 'Orientation des adhérents vers les dispositifs et partenaires disponibles.'], ['Offres bancaires préférentielles', 'Crédits immobiliers négociés avec des banques partenaires.'], ['Promoteurs immobiliers', 'Mise en relation avec les offres immobilières validées.'], ['Projets de logement FOS-Agri', 'Suivi des projets de logement mis en place par la Fondation.']],
         partners: ['Banque Populaire', 'Al Barid Bank', 'Wafa Immobilier', 'BMCI', 'Crédit du Maroc', 'CFG Bank', 'Crédit Agricole du Maroc', 'Attijari Wafa Bank', 'Bank Assafa'],
         steps: [['Besoin', 'Définir le type de logement ou financement.'], ['Offre', 'Comparer les partenaires et âges limites de crédit.'], ['Dossier', 'Préparer les justificatifs bancaires et administratifs.'], ['Suivi', 'Confirmer l’offre active auprès de la Fondation.']]
       },
@@ -1301,10 +1301,10 @@
         meta: 'Partenariats et tarifs préférentiels',
         summary: 'La FOS-Agri négocie de nombreux partenariats offrant des tarifs préférentiels à ses adhérents pour l’accès à des services de financement, d’assurance, de restauration, d’ameublement et de transport.',
         stats: [['5', 'partenariats dédiés'], ['Tarifs', 'préférentiels négociés'], ['Adhérents', 'conjoints et enfants']],
-        chips: ['Organismes de financement', 'Assurances Auto', 'Prestataires de restauration', 'Organismes d’ameublement', 'Organismes de transport'],
+        chips: ['Organismes de financement', 'Assurance automobile', 'Prestataires de restauration', 'Organismes d’ameublement', 'Organismes de transport'],
         overview: 'Dans le cadre de la diversification de l’offre de prestations sociales, la FOS-Agri négocie une multitude de partenariats offrant des tarifs préférentiels au profit de ses adhérents pour l’accès à plusieurs services, notamment en matière de financement bancaire, d’assurance, de restauration, d’ameublement et de transport.',
         highlights: ['Organismes de financement à taux préférentiels.', 'Assurances auto à tarifs préférentiels.', 'Restauration collective subventionnée.', 'Organismes d’ameublement à taux de remise avantageux.', 'Organismes de transport à tarifs préférentiels.'],
-        features: [['Organismes de financement', 'Conventions bancaires à taux préférentiels pour le financement des projets personnels.'], ['Assurances Auto', 'Conventions d’assurance automobile à tarifs avantageux.'], ['Prestataires de restauration', 'Service de restauration collective subventionné pour le personnel en déplacement.'], ['Organismes d’ameublement', 'Partenariats offrant des taux de remise sur l’ameublement.'], ['Organismes de transport', 'Conventions tarifaires préférentielles avec l’ONCF et Supratours.']],
+        features: [['Organismes de financement', 'Conventions bancaires à taux préférentiels pour le financement des projets personnels.'], ['Assurance automobile', 'Conventions d’assurance automobile à tarifs avantageux.'], ['Prestataires de restauration', 'Service de restauration collective subventionné pour le personnel en déplacement.'], ['Organismes d’ameublement', 'Partenariats offrant des taux de remise sur l’ameublement.'], ['Organismes de transport', 'Conventions tarifaires préférentielles avec l’ONCF et Supratours.']],
         partners: ['Banque Populaire', 'Wafa Salaf', 'Crédit du Maroc', 'CFG Bank', 'Salafin', 'Eqdom', 'Attijari Wafa Bank', 'MAMDA', 'SNTL', 'Kitea', 'Biougnach', 'Mobilia Triangle d’Or', 'ONCF', 'Supratours'],
         steps: [['Besoin', 'Identifier le service concerné : financement, assurance, restauration, ameublement ou transport.'], ['Partenaire', 'Choisir l’organisme conventionné adapté.'], ['Carte d’adhésion', 'Se présenter muni de la carte d’adhésion à la FOS-Agri.'], ['Offre', 'Télécharger la fiche de l’offre correspondante.']]
       },
@@ -1532,7 +1532,7 @@
     { id: 'offres-immobilier',   icon: 'fa-building-columns',   labels: { fr: 'Offres bancaires — crédits immobiliers', ar: 'عروض بنكية — القروض العقارية', zgh: 'ⵉⴼⵔⴰⵏ ⵏ ⵉⴱⴰⵏⴽⵏ — ⴰⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵖⵉⵎ' } },
     { id: 'offres-consommation', icon: 'fa-credit-card',        labels: { fr: 'Offres bancaires — crédits à la consommation', ar: 'عروض بنكية — قروض الاستهلاك', zgh: 'ⵉⴼⵔⴰⵏ ⵏ ⵉⴱⴰⵏⴽⵏ — ⴰⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵙⵉⵜⵎ' } },
     { id: 'promoteurs',          icon: 'fa-building',           labels: { fr: 'Promoteurs immobiliers', ar: 'المنعشون العقاريون', zgh: 'ⵉⵎⵙⵏⴼⴰⵔⵏ ⵏ ⵓⵙⵖⵉⵎ' } },
-    { id: 'projets-fosagri',     icon: 'fa-helmet-safety',      labels: { fr: 'Projets logement FOS-Agri', ar: 'مشاريع السكن FOS-Agri', zgh: 'ⵉⵙⵏⴼⴰⵔⵏ ⵏ ⵓⵙⵖⵉⵎ FOS-Agri' } }
+    { id: 'projets-fosagri',     icon: 'fa-helmet-safety',      labels: { fr: 'Projets de logement FOS-Agri', ar: 'مشاريع السكن FOS-Agri', zgh: 'ⵉⵙⵏⴼⴰⵔⵏ ⵏ ⵓⵙⵖⵉⵎ FOS-Agri' } }
   ];
 
   function localizedLogementMenu(targetLang = lang) {
@@ -1592,10 +1592,10 @@
       { navIndex: 1, type: 'bankOffers', category: 'immobilier', icon: 'fa-building-columns', badge: 'Crédits immobiliers', title: 'Offres bancaires — crédits immobiliers', intro: 'Crédits immobiliers négociés avec des banques partenaires. Téléchargez la fiche de chaque banque pour consulter l’offre et l’âge limite de crédit.' },
       { navIndex: 2, type: 'bankOffers', category: 'consommation', icon: 'fa-credit-card', badge: 'Crédits à la consommation', title: 'Offres bancaires — crédits à la consommation', intro: 'Crédits à la consommation à conditions préférentielles auprès des banques et sociétés de financement partenaires.' },
       { navIndex: 3, type: 'culturePartners', icon: 'fa-building', badge: 'Promoteurs immobiliers', title: 'Promoteurs immobiliers',
-        intro: ['La Fos-Agri développe des partenariats avec plusieurs promoteurs immobiliers pour contribuer, à travers des taux préférentiels, à la concrétisation de leurs projets d’acquisition d’un logement neuf ou ancien, la construction, l’aménagement ou l’achat d’un lot de terrain et sa construction.', 'Ci-après le détail des offres proposées :'],
+        intro: ['La FOS-Agri développe des partenariats avec plusieurs promoteurs immobiliers afin de contribuer, grâce à des taux préférentiels, à la concrétisation de projets d’acquisition d’un logement neuf ou ancien, de construction, d’aménagement ou d’achat d’un terrain à bâtir.', 'Voici le détail des offres proposées :'],
         groups: [{ title: 'Promoteurs immobiliers partenaires', items: logementPromoteursItemsFor('Télécharger l’offre', 'Liste des projets') }] },
-      { navIndex: 4, icon: 'fa-helmet-safety', badge: 'Projets logement FOS-Agri', title: 'Mise en place des projets logement par la FOS-Agri',
-        intro: ['Dans le cadre de la poursuite des efforts de prospection de nouveaux projets en faveur de ses adhérents, la Fos-Agri a initié les démarches administratives pour l’acquisition du foncier en vue de la construction de logements sociaux sur des terrains domaniaux appartenant au Département de l’Agriculture.', 'Des projets sont en cours d’étude aux niveaux des villes de Temara, de Meknès, d’Oujda…'] }
+      { navIndex: 4, icon: 'fa-helmet-safety', badge: 'Projets de logement FOS-Agri', title: 'Mise en place de projets de logement par la FOS-Agri',
+        intro: ['Dans le cadre de la poursuite de ses efforts de prospection de nouveaux projets en faveur de ses adhérents, la FOS-Agri a entrepris les démarches administratives nécessaires à l’acquisition de terrains destinés à la construction de logements sociaux sur des biens domaniaux relevant du Département de l’Agriculture.', 'Des projets sont à l’étude dans les villes de Témara, Meknès et Oujda.'] }
     ],
     ar: [
       { navIndex: 1, type: 'bankOffers', category: 'immobilier', icon: 'fa-building-columns', badge: 'القروض العقارية', title: 'عروض بنكية — القروض العقارية', intro: 'قروض عقارية متفاوض بشأنها مع أبناك شريكة. حمّل بطاقة كل بنك للاطلاع على العرض والسن الأقصى للقرض.' },
@@ -1619,7 +1619,7 @@
 
   /* ===== Appui à la scolarisation et formation : même logique que logement (chips + panneaux) ===== */
   const formationMenuItems = [
-    { id: 'a-propos',      icon: 'fa-circle-info',      labels: { fr: 'A PROPOS', ar: 'حول الخدمة', zgh: 'ⵅⴼ ⵜⵏⴼⵍⵉⵜ' } },
+    { id: 'a-propos',      icon: 'fa-circle-info',      labels: { fr: 'À PROPOS', ar: 'حول الخدمة', zgh: 'ⵅⴼ ⵜⵏⴼⵍⵉⵜ' } },
     { id: 'coaching',      icon: 'fa-chalkboard-user', labels: { fr: 'Coaching scolaire et parental', ar: 'المواكبة الدراسية والأسرية', zgh: 'ⴰⵎⵓⴷⴷⵓ ⴰⵙⵍⵎⴰⴷ ⴷ ⵏ ⵜⵡⴰⵛⵓⵍⵜ' } },
     { id: 'grandes-ecoles',icon: 'fa-school',          labels: { fr: 'Préparation aux grandes écoles', ar: 'التحضير للمدارس العليا', zgh: 'ⴰⵙⵎⵓⵜⵜⴳ ⵉ ⵜⵎⴰⵣⵉⵔⵉⵏ ⵏ ⵓⵙⵍⵎⴷ' } },
     { id: 'bourses-excellence', icon: 'fa-medal',      labels: { fr: 'Bourses d’excellence', ar: 'منح التميز', zgh: 'ⵜⵉⵎⵓⴷⴰ ⵏ ⵜⵎⵥⵉ' } },
@@ -1635,7 +1635,7 @@
   const formationCenter = {
     fr: {
       icon: 'fa-circle-info',
-      badge: 'A PROPOS', title: 'Appui à la scolarisation et formation',
+      badge: 'À PROPOS', title: 'Appui à la scolarisation et à la formation',
       intro: 'La FOS-Agri accompagne les familles dans les étapes importantes de la scolarité, de l’orientation et de la formation, avec des dispositifs dédiés aux enfants des adhérents et à leurs parents.',
       items: [
         { navIndex: 1, icon: 'fa-chalkboard-user', title: 'Coaching scolaire et parental', body: 'Ateliers et accompagnement pour mieux orienter les enfants, renforcer leurs méthodes de travail et soutenir les parents dans leur rôle éducatif.' },
@@ -1828,7 +1828,7 @@
   /* ===== Appui aux projets personnels : 5 sous-rubriques (pas de panneau "à propos") ===== */
   const projetsMenuItems = [
     { id: 'financement',  icon: 'fa-building-columns', labels: { fr: 'Organismes de financement', ar: 'مؤسسات التمويل', zgh: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵔⴹ' } },
-    { id: 'assurances',    icon: 'fa-car-burst',        labels: { fr: 'Assurances Auto', ar: 'تأمين السيارات', zgh: 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ' } },
+    { id: 'assurances',    icon: 'fa-car-burst',        labels: { fr: 'Assurance automobile', ar: 'تأمين السيارات', zgh: 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ' } },
     { id: 'restauration',  icon: 'fa-utensils',         labels: { fr: 'Prestataires de restauration', ar: 'مقدمو خدمات الإطعام', zgh: 'ⵉⵎⴰⵜⵜⴰⵢⵏ ⵏ ⵓⵙⵓⵎⵎⵓ' } },
     { id: 'ameublement',   icon: 'fa-couch',            labels: { fr: 'Organismes d’ameublement', ar: 'مؤسسات التأثيث', zgh: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ' } },
     { id: 'transport',     icon: 'fa-route',            labels: { fr: 'Organismes de transport', ar: 'مؤسسات النقل', zgh: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ' } }
@@ -1885,7 +1885,7 @@
           'Bénéficiaires : tous les adhérents de la FOS-Agri.',
           'Modalités et pièces à fournir : se présenter directement auprès de l’organisme de financement conventionné, muni de la carte d’adhésion à la FOS-Agri.'
         ] },
-      { navIndex: 1, type: 'culturePartners', icon: 'fa-car-burst', badge: 'Assurances Auto', title: 'Assurances Auto',
+      { navIndex: 1, type: 'culturePartners', icon: 'fa-car-burst', badge: 'Assurance automobile', title: 'Assurance automobile',
         intro: [
           'Afin de permettre à ses adhérents de bénéficier d’une assurance auto à des tarifs préférentiels, la FOS-Agri a conclu des conventions avec la Mutuelle Agricole Marocaine d’Assurances (MAMDA) et la Société Nationale de Transport et de Logistique (SNTL), offrant une panoplie de garanties avantageuses.',
           'Bénéficiaires : les adhérents, leurs conjoints et leurs enfants.',
@@ -1995,7 +1995,7 @@
 
   /* ===== Culture, loisirs et voyages : 9 rubriques de contenu + partenariats ===== */
   const cultureMenuItems = [
-    { id: 'a-propos',          icon: 'fa-circle-info',      labels: { fr: 'A PROPOS', ar: 'حول الخدمة', zgh: 'ⵅⴼ ⵜⵏⴼⵍⵉⵜ' } },
+    { id: 'a-propos',          icon: 'fa-circle-info',      labels: { fr: 'À PROPOS', ar: 'حول الخدمة', zgh: 'ⵅⴼ ⵜⵏⴼⵍⵉⵜ' } },
     { id: 'appui-vacances',    icon: 'fa-umbrella-beach',   labels: { fr: 'Appui aux vacances des adhérents', ar: 'دعم عطل المنخرطين', zgh: 'ⴰⴼⵓⵙ ⵉ ⵓⵙⴳⵓⵏⴼⵓ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ' } },
     { id: 'colonies',          icon: 'fa-child-reaching',   labels: { fr: "Colonies de vacances d'été", ar: 'مخيمات العطلة الصيفية', zgh: 'ⵜⵉⵎⵥⵥⵉⵢⵏ ⵏ ⵓⵙⴳⵓⵏⴼⵓ ⵏ ⵓⵏⴱⴷⵓ' } },
     { id: 'sejours-culturels', icon: 'fa-language',         labels: { fr: 'Séjours culturels', ar: 'إقامات ثقافية', zgh: 'ⵜⵉⵖⵔⵎⵉⵏ ⵜⵉⴷⵍⵙⴰⵏⵉⵏ' } },
@@ -2011,7 +2011,7 @@
   }
 
   const cultureCenter = {
-    badge: 'À propos', title: 'A propos',
+    badge: 'À propos', title: 'À propos',
     intro: "La FOS-Agri offre une panoplie de services culturelles, de loisirs et de divertissements répondant aux aspirations de ses adhérents et favorisant leurs épanouissement et bien-être.",
     items: [
       { navIndex: 91, icon: 'fa-users', title: 'Bénéficiaires', body: 'Tous les adhérents de la FOS-Agri' },
@@ -2068,7 +2068,7 @@
         { title: 'Journée de la femme', body: [
           'Célébration de la Journée internationale des droits des femmes',
           "A l'occasion du 8 mars, la FOS-Agri célèbre la Journée internationale des droits des femmes qui demeure une consécration des efforts déployés par la femme pour la promotion du secteur agricole, et une reconnaissance de son professionnalisme et son dévouement.",
-          "Conformément aux orientations du Comité de Direction et à la volonté de la FOS-Agri, cet évènement est célébré annuellement d'une manière alternée dans diverses régions de royaume tout en choisissant une thématique bien spécifique. Cette journée est marquée par la remise des prix aux femmes, ayant prouvé leurs engagements et professionnalismes au fil du temps au sein du Département."
+          "Conformément aux orientations du Comité de direction et à la volonté de la FOS-Agri, cet événement est célébré chaque année, à tour de rôle, dans différentes régions du Royaume, autour d’une thématique particulière. Cette journée est marquée par la remise de prix à des femmes qui ont fait preuve d’engagement et de professionnalisme au fil du temps au sein du Département."
         ] },
         { title: 'Cérémonie des retraités', body: [
           "Pour exprimer sa reconnaissance aux retraités du département, la FOS-Agri organise une cérémonie en leur honneur, afin de leur témoigner ses remerciements pour leurs efforts inlassables, les sacrifices consentis et leur dévouement durant leur carrière administrative."
@@ -2078,8 +2078,8 @@
           'Cette cérémonie est dédiée pour la remise des chèques aux pèlerins ayant effectués leur pèlerinage.'
         ] },
         { title: 'Bacheliers', body: [
-          "Cérémonie au profit des adhérents et leurs enfants bénéficiaires du programme de Bourses d'excellence",
-          "Cette cérémonie est une opportunité pour récompenser les enfants d'adhérents qui se sont distingués à l'Examen National du Baccalauréat et renforcer leur motivation pour la poursuite de leurs études supérieures, à travers la remise de bourses d'excellence et de prix d'encouragement."
+          "Cérémonie au profit des adhérents et de leurs enfants bénéficiaires du programme de bourses d'excellence",
+          "Cette cérémonie permet de récompenser les enfants d'adhérents qui se sont distingués à l'examen national du baccalauréat et de renforcer leur motivation à poursuivre des études supérieures grâce à la remise de bourses d'excellence et de prix d'encouragement."
         ] }
       ] },
     { navIndex: 9, type: 'culturePartners', icon: 'fa-handshake', badge: 'Partenariats', title: 'Partenariats',
@@ -2130,7 +2130,7 @@
       center: {
         icon: 'fa-circle-info',
         badge: 'À propos',
-        title: 'A propos',
+        title: 'À propos',
         intro: "La FOS-Agri offre une panoplie de services culturelles, de loisirs et de divertissements répondant aux aspirations de ses adhérents et favorisant leurs épanouissement et bien-être.",
         items: [
           { navIndex: 91, icon: 'fa-users', title: 'Bénéficiaires', body: 'Tous les adhérents de la FOS-Agri' },
@@ -2212,16 +2212,16 @@
           badge: 'Célébrations et cérémonies',
           title: 'Célébrations et cérémonies',
           apercu: [
-            "Célébration de la Journée internationale des droits des femmes. À l'occasion du 8 mars, la FOS-Agri célèbre la Journée internationale des droits des femmes qui demeure pour nous une consécration des efforts déployés par la femme pour la promotion du secteur agricole, et une reconnaissance de son professionnalisme et son dévouement. Conformément aux orientations du Comité de Direction et à la volonté de la FOS-Agri, cet évènement est célébré annuellement d'une manière alternée dans diverses régions du royaume avec la remise de prix symboliques aux femmes ayant prouvé leurs engagements et professionnalismes au sein du Département.",
+            "À l'occasion du 8 mars, la FOS-Agri célèbre la Journée internationale des droits des femmes. Cette journée consacre les efforts déployés par les femmes pour promouvoir le secteur agricole et reconnaît leur professionnalisme et leur dévouement. Conformément aux orientations du Comité de direction, cet événement est organisé chaque année, à tour de rôle, dans différentes régions du Royaume. Des prix symboliques sont remis aux femmes qui ont fait preuve d’engagement et de professionnalisme au sein du Département.",
             "En hommage aux retraités du département, la FOS-Agri organise des cérémonies en guise de remerciement et de reconnaissance de leurs apports et de leur dévouement à la réussite de l'action du Département. Cette célébration marquée généralement par la présence des familles, amis et collègues des retraités est une consécration pour leurs efforts inlassables, les sacrifices consentis et leur loyauté durant leur carrière administrative.",
             "Étant convaincue que les moments importants de la vie s'accompagnent d'occasions de célébration, la Fondation célèbre le retour des pèlerins avec la remise des chèques aux adhérents bénéficiaires après avoir effectué leur pèlerinage.",
-            "Cette cérémonie, considérée par la Fondation comme une opportunité pour récompenser les enfants d'adhérents qui se sont distingués à l'Examen National du Baccalauréat, renforce leur motivation pour la poursuite de leurs études supérieures à travers la remise de bourses d'excellence et de prix d'encouragement."
+            "Cette cérémonie permet à la Fondation de récompenser les enfants d'adhérents qui se sont distingués à l'examen national du baccalauréat et de renforcer leur motivation à poursuivre des études supérieures grâce à la remise de bourses d'excellence et de prix d'encouragement."
           ],
           celebrations: [
-            { title: 'Journée de la femme', body: ['Célébration de la Journée internationale des droits des femmes', "À l'occasion du 8 mars, la FOS-Agri célèbre la Journée internationale des droits des femmes qui demeure une consécration des efforts déployés par la femme pour la promotion du secteur agricole, et une reconnaissance de son professionnalisme et son dévouement. Conformément aux orientations du Comité de Direction et à la volonté de la FOS-Agri, cet évènement est célébré annuellement d'une manière alternée dans diverses régions du royaume tout en choisissant une thématique bien spécifique. Cette journée est marquée par la remise des prix aux femmes, ayant prouvé leurs engagements et professionnalismes au fil du temps au sein du Département."] },
+            { title: 'Journée des droits des femmes', body: ['Célébration de la Journée internationale des droits des femmes', "À l'occasion du 8 mars, la FOS-Agri célèbre la Journée internationale des droits des femmes. Cette journée consacre les efforts déployés par les femmes pour promouvoir le secteur agricole et reconnaît leur professionnalisme et leur dévouement. Conformément aux orientations du Comité de direction, cet événement est organisé chaque année, à tour de rôle, dans différentes régions du Royaume, autour d’une thématique particulière. Des prix sont remis aux femmes qui ont fait preuve d’engagement et de professionnalisme au fil du temps au sein du Département."] },
             { title: 'Cérémonie des retraités', body: ["Cérémonie des retraités", "Pour exprimer sa reconnaissance aux retraités du département, la FOS-Agri organise une cérémonie en leur honneur, afin de leur témoigner ses remerciements pour leurs efforts inlassables, les sacrifices consentis et leur dévouement durant leur carrière administrative."] },
             { title: 'Pèlerins', body: ['Cérémonie des pèlerins', 'Cette cérémonie est dédiée à la remise des chèques aux pèlerins ayant effectué leur pèlerinage.'] },
-            { title: 'Bacheliers', body: ["Cérémonie au profit des adhérents et leurs enfants bénéficiaires du programme de Bourses d'excellence", "Cette cérémonie est une opportunité pour récompenser les enfants d'adhérents qui se sont distingués à l'Examen National du Baccalauréat et renforcer leur motivation pour la poursuite de leurs études supérieures, à travers la remise de bourses d'excellence et de prix d'encouragement."] }
+            { title: 'Bacheliers', body: ["Cérémonie au profit des adhérents et de leurs enfants bénéficiaires du programme de bourses d'excellence", "Cette cérémonie permet de récompenser les enfants d'adhérents qui se sont distingués à l'examen national du baccalauréat et de renforcer leur motivation à poursuivre des études supérieures grâce à la remise de bourses d'excellence et de prix d'encouragement."] }
           ]
         },
         partenariats: {
