@@ -247,11 +247,11 @@ function renderNews() {
 
   const categories = {
     fr: [
-      "Portee strategique",
+      "Portée stratégique",
       "Gouvernance",
-      "Formation & Developpement",
+      "Formation & Développement",
       "Direction digitale",
-      "Comite innovation",
+      "Comité innovation",
       "Ressources humaines"
     ],
     ar: [
@@ -528,8 +528,8 @@ window.goToMiniSlide = function (index) {
     const months = lang === "ar" ? MONTH_NAMES_AR : lang === "zgh" ? MONTH_NAMES_ZGH : MONTH_NAMES_FR;
     const today = new Date(); today.setHours(0, 0, 0, 0);
     const filterPrefix = lang === "ar" ? "تصفية :" : lang === "zgh" ? "ⴰⵙⵜⴰⵢ :" : "Filtre :";
-    const emptyLabel = lang === "ar" ? "لا يوجد حدث لهذه الفترة" : lang === "zgh" ? "ⵓⵔ ⵉⵍⵉ ⵓⵙⴳⵔⴰⵡ ⵉ ⵜⵉⵣⵉ ⴰⴷ" : "Aucun evenement pour cette periode";
-    const detailsLabel = lang === "ar" ? "عرض التفاصيل" : lang === "zgh" ? "ⵙⴽⵏ ⵉⴼⵔⴰⴹ" : "Voir details";
+    const emptyLabel = lang === "ar" ? "لا يوجد حدث لهذه الفترة" : lang === "zgh" ? "ⵓⵔ ⵉⵍⵉ ⵓⵙⴳⵔⴰⵡ ⵉ ⵜⵉⵣⵉ ⴰⴷ" : "Aucun événement pour cette période";
+    const detailsLabel = lang === "ar" ? "عرض التفاصيل" : lang === "zgh" ? "ⵙⴽⵏ ⵉⴼⵔⴰⴹ" : "Voir les détails";
 
     let events = (siteData.events || []).map(ev => {
       const d = parseDate(ev.date);
@@ -1286,7 +1286,7 @@ function initMobileNewsSlider() {
 
   const renderDots = () => {
     dotsHost.innerHTML = Array.from({ length: maxIndex() + 1 }, (_, index) => {
-      return `<button class="news-dot ${index === 0 ? "is-active" : ""}" type="button" data-news-dot="${index}" aria-label="Actualites ${index + 1}"></button>`;
+      return `<button class="news-dot ${index === 0 ? "is-active" : ""}" type="button" data-news-dot="${index}" aria-label="Actualités ${index + 1}"></button>`;
     }).join("");
 
     qsa(".news-dot").forEach((dot) => {

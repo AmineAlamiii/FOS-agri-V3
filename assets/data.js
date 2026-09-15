@@ -20,43 +20,43 @@ window.siteData = {
         news: "Actualités",
         events: "Agenda solidaire",
         contact: "Contact",
-        member: "Espace adherent",
-        memberSpace: "Espace adherent"
+        member: "Espace adhérent",
+        memberSpace: "Espace adhérent"
       },
       hero: {
         eyebrow: "Solidaires par nature",
         title: "L'engagement au service de celles et ceux qui cultivent l'avenir.",
-        description: "Chaque prestation, chaque initiative et chaque partenariat refletent notre ambition de batir une action sociale d'excellence, innovante, inclusive et durable, au service des adherents et de leurs familles.",
-        ctaPrincipal: "Decouvrir nos prestations",
-        ctaSecondary: "Actualite FOS",
-        ctaServices: "Decouvrir les services",
+        description: "Chaque prestation, chaque initiative et chaque partenariat reflètent notre ambition de bâtir une action sociale d'excellence, innovante, inclusive et durable, au service des adhérents et de leurs familles.",
+        ctaPrincipal: "Découvrir nos prestations",
+        ctaSecondary: "Actualité FOS",
+        ctaServices: "Découvrir les services",
         ctaContact: "Nous contacter"
       },
       about: {
         tag: "La Fondation",
-        title: "Un accompagnement social structure, proche et national",
-        body: "La Fondation pour la Promotion des Oeuvres Sociales du Personnel du Ministere de l'Agriculture centralise des prestations, des conventions et des programmes solidaires de FOS-Agri.",
+        title: "Un accompagnement social structuré, proche et national",
+        body: "La Fondation pour la promotion des œuvres sociales du personnel du ministère de l'Agriculture centralise des prestations, des conventions et des programmes solidaires de FOS-Agri.",
         missionTitle: "Mission",
-        missionBody: "Servir les adherents, soutenir les familles et rapprocher les services sur l'ensemble du territoire.",
-        scopeTitle: "Perimetre",
-        scopeBody: "Prevoyance medico-sociale, loisirs, scolarisation, logement, projets personnels et conventions partenaires.",
+        missionBody: "Servir les adhérents, soutenir les familles et rapprocher les services sur l'ensemble du territoire.",
+        scopeTitle: "Périmètre",
+        scopeBody: "Prévoyance médico-sociale, loisirs, scolarisation, logement, projets personnels et conventions partenaires.",
         promiseTitle: "Promesse",
-        promiseBody: "Une experience lisible, bilingue et accessible qui met en avant les services prioritaires et les informations utiles."
+        promiseBody: "Une expérience lisible, bilingue et accessible qui met en avant les services prioritaires et les informations utiles."
       },
       services: {
         tag: "Prestations",
-        title: "Tout un ecosysteme de soutien",
-        link: "Acceder a l'espace adherent"
+        title: "Tout un écosystème de soutien",
+        link: "Accéder à l'espace adhérent"
       },
       news: {
-        tag: "Actualites",
+        tag: "Actualités",
         title: "Les infos FOS-Agri",
-        more: "Plus d'actualites"
+        more: "Plus d'actualités"
       },
       events: {
         tag: "Agenda solidaire",
         title: "Campagnes, rencontres et actions terrain",
-        subtitle: "Selection d'evenements et d'initiatives de FOS-Agri.",
+        subtitle: "Sélection d'événements et d'initiatives de FOS-Agri.",
         viewAllLink: "Voir tout l'agenda",
         calendar: "Calendrier",
         legendUpcoming: "Événements à venir",
@@ -68,39 +68,39 @@ window.siteData = {
         viewAll: "Voir tous les événements à venir"
       },
       testimonials: {
-        tag: "Temoignage"
+        tag: "Témoignage"
       },
       map: {
-        tag: "Presence nationale",
-        title: "Un reseau de proximite a travers le Maroc",
-        subtitle: "Selectionnez une region ou survolez une ville pour afficher une delegation ou un point de presence."
+        tag: "Présence nationale",
+        title: "Un réseau de proximité à travers le Maroc",
+        subtitle: "Sélectionnez une région ou survolez une ville pour afficher une délégation ou un point de présence."
       },
       region: {
-        contact: "Contacter la delegation"
+        contact: "Contacter la délégation"
       },
       member: {
-        memberTag: "Espace adherent",
-        memberTitle: "Consulter l'extranet et les services personnalises",
-        memberBody: "Retrouvez les prestations, conventions et informations pratiques de l'espace adherent FOS-Agri.",
-        memberCta: "Acceder a l'extranet",
+        memberTag: "Espace adhérent",
+        memberTitle: "Consulter l'extranet et les services personnalisés",
+        memberBody: "Retrouvez les prestations, conventions et informations pratiques de l'espace adhérent FOS-Agri.",
+        memberCta: "Accéder à l'extranet",
         clubTag: "Club Agri",
-        clubTitle: "Decouvrir les avantages et les partenariats",
-        clubBody: "Explorez les conventions, avantages et opportunites lies au Club Agri et aux partenaires.",
-        clubCta: "Acceder au Club AGRI"
+        clubTitle: "Découvrir les avantages et les partenariats",
+        clubBody: "Explorez les conventions, avantages et opportunités liés au Club Agri et aux partenaires.",
+        clubCta: "Accéder au Club AGRI"
       },
       partners: {
         tag: "Partenaires",
-        title: "Un reseau solide public et prive qui renforce l'impact des programmes"
+        title: "Un réseau solide, public et privé, qui renforce l'impact des programmes"
       },
       contact: {
         tag: "Contact",
         title: "Parlons de vos besoins",
-        subtitle: "Coordonnees officielles pour faciliter la prise de contact.",
+        subtitle: "Coordonnées officielles pour faciliter la prise de contact.",
         phone1: "+212 5 37 77 47 48",
         address: "461 Avenue Hassan II, Agdal - Rabat"
       },
       stats: {
-        tag: "Chiffres cles",
+        tag: "Chiffres clés",
         title: "Une fondation dynamique et engagée",
         members: "Adhérents actifs",
         conventions: "Conventions signées",
@@ -111,16 +111,16 @@ window.siteData = {
         }
       },
       footer: {
-        about: "Fondation pour la promotion des oeuvres sociales du personnel du ministere de l'agriculture.",
+        about: "Fondation pour la promotion des œuvres sociales du personnel du ministère de l'Agriculture.",
         usefulTitle: "Liens utiles",
         useful1: "Appels d'offres",
         useful2: "FAQ",
         useful3: "Newsletter",
-        quickTitle: "Acces rapide",
+        quickTitle: "Accès rapide",
         quick1: "Portail agent",
         quick2: "Programme social",
-        quick3: "Actualites",
-        contactTitle: "Coordonnees",
+        quick3: "Actualités",
+        contactTitle: "Coordonnées",
         copy: "© 2026 FOS-Agri - Ministère de l'Agriculture",
         credit: "Powered by <a href='https://neonovia.com/' target='_blank' rel='noopener noreferrer'>NEONOVIA</a>",
         legal: "© 2025 FOS-Agri. Tous droits réservés.",
@@ -129,31 +129,31 @@ window.siteData = {
       },
       pages: {
         adherent: {
-          kicker: "Espace adherent",
-          title: "Un espace d'information et d'orientation pour les adherents",
-          intro: "Retrouvez ici les reperes utiles pour acceder aux prestations, suivre les conventions et prendre contact avec FOS-Agri.",
+          kicker: "Espace adhérent",
+          title: "Un espace d'information et d'orientation pour les adhérents",
+          intro: "Retrouvez ici les repères utiles pour accéder aux prestations, suivre les conventions et prendre contact avec FOS-Agri.",
           cta: "Contacter FOS-Agri",
-          card1Title: "Acceder aux prestations",
-          card1Body: "Identifiez rapidement les services, les aides et les conventions adaptes a votre situation et a celle de votre famille.",
+          card1Title: "Accéder aux prestations",
+          card1Body: "Identifiez rapidement les services, les aides et les conventions adaptés à votre situation et à celle de votre famille.",
           card2Title: "Suivre les conventions",
-          card2Body: "Consultez les dispositifs en cours, les partenaires disponibles et les informations pratiques utiles a vos demarches.",
+          card2Body: "Consultez les dispositifs en cours, les partenaires disponibles et les informations pratiques utiles à vos démarches.",
           card3Title: "Obtenir un accompagnement",
-          card3Body: "Les equipes FOS-Agri restent a votre ecoute pour vous orienter, vous informer et faciliter vos demandes."
+          card3Body: "Les équipes FOS-Agri restent à votre écoute pour vous orienter, vous informer et faciliter vos demandes."
         },
         club: {
           kicker: "Club Agri",
-          title: "Des avantages negocies avec nos partenaires",
-          intro: "Le Club Agri rassemble des conventions, des offres preferees et des opportunites utiles aux adherents de FOS-Agri.",
-          cta: "Acceder au Club AGRI",
+          title: "Des avantages négociés avec nos partenaires",
+          intro: "Le Club Agri rassemble des conventions, des offres préférentielles et des opportunités utiles aux adhérents de FOS-Agri.",
+          cta: "Accéder au Club AGRI",
           card1Title: "Offres partenaires",
-          card1Body: "Retrouvez des services, des remises et des avantages negocies aupres d'un reseau de partenaires fiables.",
-          card2Title: "Avantages negocies",
-          card2Body: "Profitez d'accords preferentiels pensés pour les adherents, leurs familles et leurs besoins du quotidien.",
-          card3Title: "Un reseau utile au quotidien",
-          card3Body: "Le Club Agri rapproche les adherents d'un ecosysteme de partenaires publics et prives mobilises a leurs cotes."
+          card1Body: "Retrouvez des services, des remises et des avantages négociés auprès d'un réseau de partenaires fiables.",
+          card2Title: "Avantages négociés",
+          card2Body: "Profitez d'accords préférentiels pensés pour les adhérents, leurs familles et leurs besoins du quotidien.",
+          card3Title: "Un réseau utile au quotidien",
+          card3Body: "Le Club Agri rapproche les adhérents d'un écosystème de partenaires publics et privés mobilisés à leurs côtés."
         }
       },
-      formNotice: "Votre message a bien ete envoye. Nous vous recontacterons rapidement."
+      formNotice: "Votre message a bien été envoyé. Nous vous recontacterons rapidement."
     },
     ar: {
       nav: {
@@ -663,7 +663,7 @@ window.siteData = {
     {
       date: "17/05/2026",
       time: "10:00 - 15:00",
-      location: "Fes",
+      location: "Fès",
       locationAr: "فاس",
       locationZgh: "ⴼⴰⵙ",
       type: "Rencontre",
@@ -672,8 +672,8 @@ window.siteData = {
       typeColor: "#d4a017",
       icon: "fa-users",
       fr: {
-        title: "Rencontre des cooperatives agricoles",
-        excerpt: "Echange d'experiences et bonnes pratiques entre cooperatives partenaires."
+        title: "Rencontre des coopératives agricoles",
+        excerpt: "Échange d'expériences et de bonnes pratiques entre coopératives partenaires."
       },
       ar: {
         title: "لقاء التعاونيات الفلاحية",
@@ -687,7 +687,7 @@ window.siteData = {
     {
       date: "28/05/2026",
       time: "08:30 - 13:00",
-      location: "Meknes",
+      location: "Meknès",
       locationAr: "مكناس",
       locationZgh: "ⵎⴽⵏⴰⵙ",
       type: "Action Terrain",
@@ -697,7 +697,7 @@ window.siteData = {
       icon: "fa-tree",
       fr: {
         title: "Campagne de plantation d'oliviers",
-        excerpt: "Action terrain de reboisement et de valorisation des filieres oleicoles."
+        excerpt: "Action de terrain consacrée au reboisement et à la valorisation des filières oléicoles."
       },
       ar: {
         title: "حملة غرس أشجار الزيتون",
@@ -722,8 +722,8 @@ window.siteData = {
       target: { x: 388, y: 118 },
       fr: {
         name: "Casablanca-Settat",
-        delegate: "Siege",
-        details: "Point de contact regional pour le conseil, la coordination et l'acces aux services."
+        delegate: "Siège",
+        details: "Point de contact régional pour le conseil, la coordination et l'accès aux services."
       },
       ar: {
         name: "الدار البيضاء - سطات",
@@ -742,8 +742,8 @@ window.siteData = {
       target: { x: 350, y: 180 },
       fr: {
         name: "Marrakech-Safi",
-        delegate: "Relais regional",
-        details: "Orientation et suivi des dossiers with un relais local pour les beneficiaires."
+        delegate: "Relais régional",
+        details: "Orientation et suivi des dossiers par un relais local pour les bénéficiaires."
       },
       ar: {
         name: "مراكش - آسفي",
@@ -761,9 +761,9 @@ window.siteData = {
       color: "#c8a44d",
       target: { x: 505, y: 165 },
       fr: {
-        name: "Beni Mellal-Khenifra",
-        delegate: "Presence territoriale",
-        details: "Appui administratif et suivi des demandes sociales pour les beneficiaires de la region."
+        name: "Béni Mellal-Khénifra",
+        delegate: "Présence territoriale",
+        details: "Appui administratif et suivi des demandes sociales pour les bénéficiaires de la région."
       },
       ar: {
         name: "بني ملال - خنيفرة",
@@ -781,9 +781,9 @@ window.siteData = {
       color: "#c8a44d",
       target: { x: 455, y: 70 },
       fr: {
-        name: "Rabat-Sale-Kenitra",
+        name: "Rabat-Salé-Kénitra",
         delegate: "Relais du nord",
-        details: "Accueil et orientation des adherents, relais des services et actions sociales locales."
+        details: "Accueil et orientation des adhérents, relais des services et actions sociales locales."
       },
       ar: {
         name: "الرباط - سلا - القنيطرة",
@@ -801,9 +801,9 @@ window.siteData = {
       color: "#c8a44d",
       target: { x: 450, y: 250 },
       fr: {
-        name: "Draa-Tafilalet",
-        delegate: "Relais de proximite",
-        details: "Relais de proximite pour l'information, le suivi et l'accompagnement."
+        name: "Drâa-Tafilalet",
+        delegate: "Relais de proximité",
+        details: "Relais de proximité pour l'information, le suivi et l'accompagnement."
       },
       ar: {
         name: "درعة - تافيلالت",
@@ -821,9 +821,9 @@ window.siteData = {
       color: "#c8a44d",
       target: { x: 515, y: 305 },
       fr: {
-        name: "Fes-Meknes",
-        delegate: "Relais de proximite",
-        details: "Relais de proximite pour l'information, le suivi et l'accompagnement."
+        name: "Fès-Meknès",
+        delegate: "Relais de proximité",
+        details: "Relais de proximité pour l'information, le suivi et l'accompagnement."
       },
       ar: {
         name: "فاس - مكناس",
@@ -842,8 +842,8 @@ window.siteData = {
       target: { x: 390, y: 295 },
       fr: {
         name: "Souss-Massa",
-        delegate: "Point d'ecoute",
-        details: "Accueil des adherents et information sur les programmes de soutien regionaux."
+        delegate: "Point d'écoute",
+        details: "Accueil des adhérents et information sur les programmes de soutien régionaux."
       },
       ar: {
         name: "سوس - ماسة",
@@ -863,7 +863,7 @@ window.siteData = {
       fr: {
         name: "Guelmim-Oued Noun",
         delegate: "Relais d'information",
-        details: "Information et orientation des adherents, appui aux demarches sociales."
+        details: "Information et orientation des adhérents, appui aux démarches sociales."
       },
       ar: {
         name: "كلميم - واد نون",
@@ -881,9 +881,9 @@ window.siteData = {
       color: "#c8a44d",
       target: { x: 275, y: 430 },
       fr: {
-        name: "Laayoune-Sakia El Hamra",
+        name: "Laâyoune-Sakia El Hamra",
         delegate: "Relais d'information",
-        details: "Information et orientation des adherents, appui aux demarches sociales."
+        details: "Information et orientation des adhérents, appui aux démarches sociales."
       },
       ar: {
         name: "العيون - الساقية الحمراء",
@@ -901,9 +901,9 @@ window.siteData = {
       color: "#c8a44d",
       target: { x: 220, y: 505 },
       fr: {
-        name: "Tanger-Tetouan-Al Hoceima",
-        delegate: "Presence locale",
-        details: "Accompagnement de proximite et suivi des demandes locales."
+        name: "Tanger-Tétouan-Al Hoceïma",
+        delegate: "Présence locale",
+        details: "Accompagnement de proximité et suivi des demandes locales."
       },
       ar: {
         name: "طنجة - تطوان - الحسيمة",
@@ -923,7 +923,7 @@ window.siteData = {
       fr: {
         name: "Dakhla-Oued Ed-Dahab",
         delegate: "Relais local",
-        details: "Relais local pour l'acces aux services et informations sociales."
+        details: "Relais local pour l'accès aux services et aux informations sociales."
       },
       ar: {
         name: "الداخلة - وادي الذهب",
@@ -943,7 +943,7 @@ window.siteData = {
       fr: {
         name: "L'Oriental",
         delegate: "Antenne territoriale",
-        details: "Information regionale et relais des conventions utiles pour les adherents."
+        details: "Information régionale et relais des conventions utiles pour les adhérents."
       },
       ar: {
         name: "الشرق",
@@ -961,21 +961,21 @@ window.siteData = {
     {
       key: "rabat",
       color: "#1f6a43",
-      fr: { name: "Rabat", text: "Siege FOS-Agri et point de coordination des conventions et services sociaux." },
+      fr: { name: "Rabat", text: "Siège de FOS-Agri et point de coordination des conventions et services sociaux." },
       ar: { name: "الرباط", text: "المقر الرئيسي لفوس-أكري ونقطة تنسيق الاتفاقيات والخدمات الاجتماعية." },
       zgh: { name: "ⵕⵕⴱⴰⵟ", text: "ⴰⵎⵇⵇⴰⵔ ⴰⵎⵇⵇⵔⴰⵏ ⵏ FOS-Agri ⴷ ⵜⴰⵎⵙⴽⴰⵔⵜ ⵏ ⵓⵙⵙⵎⴷ ⵏ ⵜⵉⵎⵙⴰⵙⴽⴰⵏ ⴷ ⵉⵎⴰⵍⴰⵙⵙⵏ ⵉⵏⵎⴰⵍⴰⵏ." }
     },
     {
       key: "casa",
       color: "#c8a44d",
-      fr: { name: "Casablanca", text: "Relais partenarial pour les avantages et l'orientation des adherents." },
+      fr: { name: "Casablanca", text: "Relais partenarial pour les avantages et l'orientation des adhérents." },
       ar: { name: "الدار البيضاء", text: "صلة بالشركاء لتقريب الامتيازات وتوجيه المنخرطين." },
       zgh: { name: "ⴽⴰⵣⴰⴱⵍⴰⵏⴽⴰ", text: "ⴰⵣⴷⵉ ⵏ ⵉⵎⵎⴷⴷⴰⵏ ⵉ ⵉⵎⵏⴼⴰⵄⵏ ⴷ ⵓⵙⵏⵎⵍ ⵏ ⵉⵎⵣⵔⴰⵢⵏ." }
     },
     {
       key: "fes",
       color: "#1f6a43",
-      fr: { name: "Fes", text: "Point de proximite autour de la scolarisation, de l'information et des conventions." },
+      fr: { name: "Fès", text: "Point de proximité autour de la scolarisation, de l'information et des conventions." },
       ar: { name: "فاس", text: "نقطة قرب حول التمدرس والمعلومة والاتفاقيات." },
       zgh: { name: "ⴼⴰⵙ", text: "ⴰⵎⴽⴰⵏ ⵏ ⵓⵣⴷⵉ ⵅⴼ ⵓⵙⴽⵯⵍ, ⵓⵙⵉⵏⴼⵓ ⴷ ⵜⵉⵎⵙⴰⵙⴽⴰⵏ." }
     },
@@ -989,21 +989,21 @@ window.siteData = {
     {
       key: "agadir",
       color: "#1f6a43",
-      fr: { name: "Agadir", text: "Suivi local des conventions de sante et des avantages pour les familles." },
+      fr: { name: "Agadir", text: "Suivi local des conventions de santé et des avantages pour les familles." },
       ar: { name: "أكادير", text: "تتبع محلي للاتفاقيات الصحية والامتيازات الموجهة للأسر." },
       zgh: { name: "ⴰⴳⴰⴷⵉⵔ", text: "ⵜⵜⴰⴱⴰⵄ ⴰⴷⴰⵖⴰⵔ ⵏ ⵜⵉⵎⵙⴰⵙⴽⴰⵏ ⵏ ⵜⴷⵓⵙⵉ ⴷ ⵉⵎⵏⴼⴰⵄⵏ ⵉ ⵜⵡⴰⵛⵓⵍⵉⵏ." }
     },
     {
       key: "tanger",
       color: "#c8a44d",
-      fr: { name: "Tanger", text: "Presence nord pour l'information, les partenariats et l'accompagnement des adherents." },
+      fr: { name: "Tanger", text: "Présence dans le nord pour l'information, les partenariats et l'accompagnement des adhérents." },
       ar: { name: "طنجة", text: "حضور بالشمال للمعلومة والشراكات ومواكبة المنخرطين." },
       zgh: { name: "ⵟⵏⵊⴰ", text: "ⴰⵙⵉⵍⵉ ⴳ ⵓⵏⴰⵎⵎⴰⵙ ⵉ ⵓⵙⵉⵏⴼⵓ, ⵜⵉⵎⵙⴷⵓⴽⴽⴰⵍ ⴷ ⵓⵎⵎⴰⵏ ⵏ ⵉⵎⵣⵔⴰⵢⵏ." }
     },
     {
       key: "oujda",
       color: "#1f6a43",
-      fr: { name: "Oujda", text: "Point d'ecoute pour les services de proximite dans l'Oriental." },
+      fr: { name: "Oujda", text: "Point d'écoute pour les services de proximité dans l'Oriental." },
       ar: { name: "وجدة", text: "نقطة استقبال لخدمات القرب بجهة الشرق." },
       zgh: { name: "ⵡⵓⵊⴷⴰ", text: "ⴰⵎⴽⴰⵏ ⵏ ⵓⵙⵍⵍⵉ ⵉ ⵉⵎⴰⵍⴰⵙⵙⵏ ⵏ ⵓⵣⴷⵉ ⴳ ⵓⵛⵛⵔⵇ." }
     }
