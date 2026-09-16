@@ -18,6 +18,7 @@ Do not change:
 
 Allowed homepage changes:
 
+allow editing the existing “Chiffres clés / Une fondation dynamique et engagée et
 - Safe header/menu link fixes only
 - Safe submenu connection fixes only
 
@@ -40,3 +41,4 @@ Allowed homepage changes:
 ## Future migration rule
 
 If the project later moves to Next.js, migrate the approved homepage carefully without redesigning it.
+Exception: The existing “Chiffres clés / Une fondation dynamique et engagée / Témoignage” section may be edited. All other homepage content and design remain protected.

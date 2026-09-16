@@ -57,3 +57,5 @@ Allowed homepage edits are limited to safe menu/header link fixes.
 ## Future migration
 
 Next.js migration may happen later, but only after approval. The approved homepage must be migrated carefully, not redesigned.
+
+Exception: The existing “Chiffres clés / Une fondation dynamique et engagée / Témoignage” section may be edited. All other homepage content and design remain protected.
