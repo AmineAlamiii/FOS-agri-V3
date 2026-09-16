@@ -731,8 +731,8 @@ function renderTestimonials() {
 
   function startAutoplay() {
     stopAutoplay();
-    if (prefersReducedMotion?.matches || testimonials.length < 2) return;
-    testimonialTimer = window.setInterval(() => updateCarousel(testimonialIndex + 1), 7000);
+    if (testimonials.length < 2) return;
+    testimonialTimer = window.setInterval(() => updateCarousel(testimonialIndex + 1), 5000);
   }
 
   previous.onclick = () => {
@@ -750,8 +750,6 @@ function renderTestimonials() {
     };
   });
 
-  card.onmouseenter = stopAutoplay;
-  card.onmouseleave = startAutoplay;
   card.onfocusin = stopAutoplay;
   card.onfocusout = (event) => {
     if (!card.contains(event.relatedTarget)) startAutoplay();
