@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tifinagh:wght@400;500;600;700&amp;family=Poppins:wght@400;500;600;700;800&amp;family=Tajawal:wght@400;500;700;800&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="stylesheet" href="assets/styles.css?v=8">
+  <link rel="stylesheet" href="assets/styles.css?v=9">
 <style id="antigravity-scroll-lock-style">
   html:root body.antigravity-scroll-lock {
     overflow: hidden !important;
@@ -407,10 +407,27 @@
           <span>Appui a la scolarisation</span>
         </article>
       </div>
-          <div class="testimonial-card reveal-on-scroll is-visible">
-            <div class="section-tag" data-i18n="testimonials.tag">Témoignage</div>
-            <blockquote id="testimonial-quote">La plateforme clarifie les prestations et rapproche l'information utile pour les adhérents et leurs familles.</blockquote>
-            <p class="testimonial-author" id="testimonial-author">FOS-Agri</p>
+          <div class="testimonial-card reveal-on-scroll is-visible" id="testimonial-card">
+            <div class="section-tag" data-i18n="testimonials.tag">Témoignages</div>
+            <div class="testimonial-viewport" id="testimonial-viewport">
+              <div class="testimonial-track" id="testimonial-track">
+                <article class="testimonial-slide">
+                  <p class="testimonial-category">Santé – Assurance maladie</p>
+                  <blockquote>Après une opération complexe en 2019, j’ai bénéficié d’une prise en charge complète grâce à la mutuelle et à l’assurance partenaire de la Fondation. Un soutien précieux.</blockquote>
+                  <p class="testimonial-author">Madame Lalla Aïcha Sebbani</p>
+                  <p class="testimonial-role">Direction centrale</p>
+                </article>
+              </div>
+            </div>
+            <div class="testimonial-controls">
+              <button class="testimonial-arrow" id="testimonial-prev" type="button" aria-label="Témoignage précédent">
+                <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+              </button>
+              <div class="testimonial-dots" id="testimonial-dots" role="group" aria-label="Choisir un témoignage"></div>
+              <button class="testimonial-arrow" id="testimonial-next" type="button" aria-label="Témoignage suivant">
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -647,9 +664,9 @@
     </div>
   </footer>
 
-  <script src="assets/data.js?v=9"></script>
+  <script src="assets/data.js?v=10"></script>
   <script src="assets/news-2026.js?v=4"></script>
-  <script src="assets/app.js?v=9"></script>
+  <script src="assets/app.js?v=10"></script>
   <script src="assets/home-nav-fix.js?v=7"></script>
   <script type="module" src="assets/motion-site.js?v=2"></script>
 

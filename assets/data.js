@@ -68,7 +68,10 @@ window.siteData = {
         viewAll: "Voir tous les événements à venir"
       },
       testimonials: {
-        tag: "Témoignage"
+        tag: "Témoignages",
+        previous: "Témoignage précédent",
+        next: "Témoignage suivant",
+        pagination: "Choisir un témoignage"
       },
       map: {
         tag: "Présence nationale",
@@ -212,7 +215,10 @@ window.siteData = {
         viewAll: "عرض جميع الأحداث القادمة"
       },
       testimonials: {
-        tag: "شهادة"
+        tag: "شهادات",
+        previous: "الشهادة السابقة",
+        next: "الشهادة التالية",
+        pagination: "اختيار شهادة"
       },
       map: {
         tag: "الحضور الوطني",
@@ -356,7 +362,10 @@ window.siteData = {
         viewAll: "ⵙⵙⵏ ⴽⵓⵍⵍⵓ ⵉⵙⴳⵔⴰⵡⵏ ⵉⴷ ⴷⴷⵓⵏ"
       },
       testimonials: {
-        tag: "ⵜⴰⵏⴰⵢⵜ"
+        tag: "ⵜⵉⵏⴰⵢⵉⵏ",
+        previous: "ⵜⴰⵏⴰⵢⵜ ⵜⴰⵣⵔⴰⵢⵜ",
+        next: "ⵜⴰⵏⴰⵢⵜ ⵜⴰⴹⴼⵉⵕⵜ",
+        pagination: "ⴼⵔⵏ ⵜⴰⵏⴰⵢⵜ"
       },
       map: {
         tag: "ⴰⵙⵉⵍⵉ ⴰⵏⴰⵎⵓⵔ",
@@ -444,20 +453,113 @@ window.siteData = {
       formNotice: "ⵜⵜⵓⵣⵏ ⵜⵉⵣⵎⵎⴰⵔⵜ ⵏⵏⵓⵏ. ⴰⵏⵎⵎⴰⵍ ⴷⴰⵔⵙ ⴷⴰⵔⵓⵏ."
     }
   },
-  testimonials: {
-    fr: {
-      quote: "La plateforme clarifie les prestations et rapproche l'information utile pour les adhérents et leurs familles.",
-      author: "FOS-Agri"
+  testimonials: [
+    {
+      id: "health-insurance",
+      fr: {
+        category: "Santé – Assurance maladie",
+        quote: "Après une opération complexe en 2019, j’ai bénéficié d’une prise en charge complète grâce à la mutuelle et à l’assurance partenaire de la Fondation. Un soutien précieux.",
+        author: "Madame Lalla Aïcha Sebbani",
+        role: "Direction centrale"
+      },
+      ar: {
+        category: "الصحة – التأمين الصحي",
+        quote: "بعد عملية جراحية معقدة سنة 2019، استفدت من تغطية كاملة بفضل التعاضدية وشركة التأمين الشريكة للمؤسسة. كان دعماً ثميناً.",
+        author: "السيدة للا عائشة السباني",
+        role: "الإدارة المركزية"
+      },
+      zgh: {
+        category: "ⵜⴰⴷⵓⵙⵉ – ⴰⵙⵉⴹⵏ ⵏ ⵜⴷⵓⵙⵉ",
+        quote: "ⴷⴼⴼⵉⵔ ⵏ ⵢⴰⵜ ⵜⵎⵀⵍⵜ ⵜⴰⵎⵔⴰⵔⵜ ⴳ 2019، ⵙⵜⴼⴰⴷⵖ ⵙⴳ ⵓⵎⵎⴰⵏ ⵓⵎⵎⵉⴷ ⵙ ⵓⴼⵓⵙ ⵏ ⵜⵎⵓⵜⵓⵍⵉⵜ ⴷ ⵓⵙⵉⴹⵏ ⴰⵎⵎⴷⴷⴰⴽⵯⵍ ⵏ ⵜⴷⵓⵙⵉ. ⵜⴰⵡⵉⵙⵉ ⵜⴰⵖⵓⴷⴰⵏⵜ.",
+        author: "ⵎⴰⴷⴰⵎ ⵍⴰⵍⵍⴰ ⵄⴰⵢⵛⴰ ⵙⴱⴱⴰⵏⵉ",
+        role: "ⵜⴰⵏⴰⴷⴷⴰⵜ ⵜⴰⵎⵎⴰⵙⵜ"
+      }
     },
-    ar: {
-      quote: "توضح المنصة الخدمات وتقرب المعلومات المفيدة للمنخرطين وأسرهم.",
-      author: "فوس-أكري"
+    {
+      id: "medical-transport",
+      fr: {
+        category: "Santé – Transport sanitaire",
+        quote: "En 2018, la Fondation a pris en charge en urgence le transfert médical de mon épouse de Laâyoune à Rabat. Une intervention rapide qui nous a été d’une aide précieuse.",
+        author: "Monsieur Sidi Ahmed Ayla Sidi",
+        role: "Direction régionale de l’Agriculture – Laâyoune-Sakia El Hamra"
+      },
+      ar: {
+        category: "الصحة – النقل الصحي",
+        quote: "سنة 2018، تكفلت المؤسسة بشكل استعجالي بالنقل الطبي لزوجتي من العيون إلى الرباط. تدخل سريع قدم لنا مساعدة ثمينة.",
+        author: "السيد سيدي أحمد أيلا سيدي",
+        role: "المديرية الجهوية للفلاحة – العيون الساقية الحمراء"
+      },
+      zgh: {
+        category: "ⵜⴰⴷⵓⵙⵉ – ⴰⵙⵙⵉⵡⴹ ⴰⵎⴰⴹⴰⵏ",
+        quote: "ⴳ 2018، ⵜⴽⴼⵍ ⵜⴷⵓⵙⵉ ⵙ ⵓⵙⵙⵉⵡⴹ ⴰⵎⴰⴹⴰⵏ ⴰⵎⵢⴰⵡ ⵏ ⵜⵎⵖⴰⵔⵜ ⵉⵏⵓ ⵙⴳ ⵍⵄⵢⵓⵏ ⵖⵔ ⵕⵕⴱⴰⵟ. ⵜⴰⵡⵓⵔⵉ ⵜⴰⵣⵔⴱⵜ ⵉⵍⵍⴰⵏ ⴷ ⵜⴰⵡⵉⵙⵉ ⵜⴰⵖⵓⴷⴰⵏⵜ ⵉ ⵏⵖ.",
+        author: "ⵎⴰⵙⵙ ⵙⵉⴷⵉ ⴰⵃⵎⴷ ⴰⵢⵍⴰ ⵙⵉⴷⵉ",
+        role: "ⵜⴰⵏⴰⴷⴷⴰⵜ ⵜⴰⵎⵏⴰⴹⵜ ⵏ ⵜⴼⵍⴰⵃⵜ – ⵍⵄⵢⵓⵏ ⵙⵙⴰⵇⵉⵢⴰ ⵍⵃⴰⵎⵔⴰ"
+      }
     },
-    zgh: {
-      quote: "ⵜⴰⴱⵓⵔⵜ ⴰⴷ ⵜⵙⴰⴼⴰⵔⴷ ⵉⵎⴰⵍⴰⵙⵙⵏ ⴷ ⵜⵙⵙⵉⵡⴹ ⵉⵙⴰⵍⵏ ⵉⵏⴼⴰⵏ ⵉ ⵉⵎⵣⵔⴰⵢⵏ ⴷ ⵜⵡⴰⵛⵓⵍⵉⵏ ⵏⵏⵙⵏ.",
-      author: "FOS-Agri"
+    {
+      id: "school-coaching",
+      fr: {
+        category: "Éducation – Coaching scolaire",
+        quote: "Le coaching scolaire de la Fondation a aidé ma fille à mieux s’organiser, à gérer son stress et à reprendre confiance jusqu’à l’obtention de son baccalauréat.",
+        author: "Monsieur Mustapha El Khoufi",
+        role: "Direction régionale de l’Agriculture – Région Marrakech-Safi"
+      },
+      ar: {
+        category: "التربية – المواكبة المدرسية",
+        quote: "ساعدت المواكبة المدرسية التي تقدمها المؤسسة ابنتي على تحسين تنظيمها وتدبير توترها واستعادة ثقتها بنفسها إلى أن حصلت على شهادة البكالوريا.",
+        author: "السيد مصطفى الخوفي",
+        role: "المديرية الجهوية للفلاحة – جهة مراكش آسفي"
+      },
+      zgh: {
+        category: "ⴰⵙⴳⵎⵉ – ⴰⵎⵎⴰⵏ ⴰⵙⴽⵯⴰⵍ",
+        quote: "ⵉⵡⵙ ⵓⵎⵎⴰⵏ ⴰⵙⴽⵯⴰⵍ ⵏ ⵜⴷⵓⵙⵉ ⵢⴰⵍⵍⵉ ⴰⴷ ⵜⵙⵓⴷⵙ ⵜⴰⵡⵓⵔⵉ ⵏⵏⵙ، ⴰⴷ ⵜⵙⵙⵓⴷⵙ ⴰⵣⵡⴰⵖ ⵏⵏⵙ ⴷ ⴰⴷ ⵜⴰⵡⵉ ⵜⴰⴼⵍⵙⵜ ⴰⵔ ⵜⴰⵡⵉ ⵜⴰⴱⴰⴽⴰⵍⵓⵔⵢⴰ.",
+        author: "ⵎⴰⵙⵙ ⵎⵓⵚⵟⴰⴼⴰ ⵍⵅⵓⴼⵉ",
+        role: "ⵜⴰⵏⴰⴷⴷⴰⵜ ⵜⴰⵎⵏⴰⴹⵜ ⵏ ⵜⴼⵍⴰⵃⵜ – ⵎⵕⵕⴰⴽⵛ ⴰⵙⴼⵉ"
+      }
+    },
+    {
+      id: "omra",
+      fr: {
+        category: "Omra",
+        quote: "Grâce à la Fondation, j’ai pu accomplir la Omra dans d’excellentes conditions. Tout était bien organisé, me permettant de vivre cette expérience en toute sérénité.",
+        author: "Madame Hafida Zankour",
+        role: "Direction régionale de l’Agriculture – Région Béni Mellal-Khénifra"
+      },
+      ar: {
+        category: "العمرة",
+        quote: "بفضل المؤسسة، تمكنت من أداء العمرة في ظروف ممتازة. كان كل شيء منظماً بشكل جيد، مما أتاح لي عيش هذه التجربة بكل طمأنينة.",
+        author: "السيدة حفيظة زنكور",
+        role: "المديرية الجهوية للفلاحة – جهة بني ملال خنيفرة"
+      },
+      zgh: {
+        category: "ⵄⵓⵎⵔⴰ",
+        quote: "ⵙ ⵓⴼⵓⵙ ⵏ ⵜⴷⵓⵙⵉ، ⵣⵎⵔⵖ ⴰⴷ ⵙⴽⵔⵖ ⵄⵓⵎⵔⴰ ⴳ ⵉⵎⵏⵣⴰⵢⵏ ⵉⴼⵓⵍⴽⵉⵏ. ⴽⵓⵍⵍⵓ ⵉⵍⵍⴰ ⵉⵜⵜⵓⵙⵓⴷⵙ ⵎⵍⵉⵃ، ⵉⵙⵙⵓⵔⴼ ⵉⵢⵉ ⴰⴷ ⵙⵙⵓⵔⵙⵖ ⵜⴰⵔⵎⵉⵜ ⴰⴷ ⵙ ⵜⴰⵍⵡⵉⵜ.",
+        author: "ⵎⴰⴷⴰⵎ ⵃⴰⴼⵉⴹⴰ ⵣⴰⵏⴽⵓⵔ",
+        role: "ⵜⴰⵏⴰⴷⴷⴰⵜ ⵜⴰⵎⵏⴰⴹⵜ ⵏ ⵜⴼⵍⴰⵃⵜ – ⴱⵏⵉ ⵎⵍⵍⴰⵍ ⵅⵏⵉⴼⵕⴰ"
+      }
+    },
+    {
+      id: "summer-camp",
+      fr: {
+        category: "Colonie de vacances",
+        quote: "Mon fils a participé à une colonie de vacances à Agadir. Nous avons été ravis par la qualité des activités, l’encadrement et l’attention accordée aux enfants.",
+        author: "Madame Mbirika Abaliat",
+        role: "Direction régionale de l’Agriculture – Région Souss-Massa"
+      },
+      ar: {
+        category: "مخيم العطلة الصيفية",
+        quote: "شارك ابني في مخيم صيفي بأكادير. لقد سعدنا بجودة الأنشطة والتأطير والعناية التي حظي بها الأطفال.",
+        author: "السيدة مبيريكا أباليات",
+        role: "المديرية الجهوية للفلاحة – جهة سوس ماسة"
+      },
+      zgh: {
+        category: "ⵜⴰⵎⵥⵥⵉⵜ ⵏ ⵓⵙⴳⵓⵏⴼⵓ ⵏ ⵓⵏⴱⴷⵓ",
+        quote: "ⵉⵎⵓⵏ ⵓⵔⴱⴰ ⵉⵏⵓ ⴳ ⵢⴰⵜ ⵜⵎⵥⵥⵉⵜ ⵏ ⵓⵙⴳⵓⵏⴼⵓ ⴳ ⴰⴳⴰⴷⵉⵔ. ⵏⴼⵔⵃ ⵙ ⵜⵖⵓⴷⵉ ⵏ ⵉⵎⵓⵔⵙⵏ، ⵓⵙⵏⵎⵍ ⴷ ⵓⵎⵎⴰⵏ ⵉⵜⵜⵓⴼⴽⴰⵏ ⵉ ⵜⴰⵔⵡⴰ.",
+        author: "ⵎⴰⴷⴰⵎ ⵎⴱⵉⵔⵉⴽⴰ ⴰⴱⴰⵍⵢⴰⵜ",
+        role: "ⵜⴰⵏⴰⴷⴷⴰⵜ ⵜⴰⵎⵏⴰⴹⵜ ⵏ ⵜⴼⵍⴰⵃⵜ – ⵙⵓⵙ ⵎⴰⵙⵙⴰ"
+      }
     }
-  },
+  ],
   services: [
     {
       key: "projets-personnels",

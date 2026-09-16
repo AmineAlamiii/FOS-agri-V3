@@ -7,6 +7,8 @@ const savedLang = localStorage.getItem("fosagri-lang");
 let currentLang = savedLang || "fr";
 let heroSliderStarted = false;
 let headerScrollInitialized = false;
+let testimonialIndex = 0;
+let testimonialTimer = null;
 const SUPPORTED_LANGS = new Set(["fr", "ar", "zgh"]);
 
 const qs = (selector) => document.querySelector(selector);
@@ -659,12 +661,116 @@ function renderStats() {
     )
     .join("");
 
-  const quote = qs("#testimonial-quote");
-  const author = qs("#testimonial-author");
-  if (quote && author && siteData.testimonials?.[currentLang]) {
-    quote.textContent = siteData.testimonials[currentLang].quote;
-    author.textContent = siteData.testimonials[currentLang].author;
+  renderTestimonials();
+}
+
+function renderTestimonials() {
+  const card = qs("#testimonial-card");
+  const viewport = qs("#testimonial-viewport");
+  const track = qs("#testimonial-track");
+  const dots = qs("#testimonial-dots");
+  const previous = qs("#testimonial-prev");
+  const next = qs("#testimonial-next");
+  const testimonials = Array.isArray(siteData.testimonials) ? siteData.testimonials : [];
+  if (!card || !viewport || !track || !dots || !previous || !next || !testimonials.length) return;
+
+  if (testimonialTimer) {
+    window.clearInterval(testimonialTimer);
+    testimonialTimer = null;
   }
+
+  testimonialIndex = Math.min(testimonialIndex, testimonials.length - 1);
+  track.innerHTML = testimonials
+    .map((item, index) => {
+      const content = getLocalizedEntry(item) || {};
+      return `
+        <article class="testimonial-slide" aria-hidden="${index === testimonialIndex ? "false" : "true"}">
+          <p class="testimonial-category">${escapeHtml(content.category)}</p>
+          <blockquote>“${escapeHtml(content.quote)}”</blockquote>
+          <p class="testimonial-author">${escapeHtml(content.author)}</p>
+          <p class="testimonial-role">${escapeHtml(content.role)}</p>
+        </article>
+      `;
+    })
+    .join("");
+
+  const paginationLabel = getTranslationValue("testimonials.pagination", currentLang) || "Choisir un témoignage";
+  const previousLabel = getTranslationValue("testimonials.previous", currentLang) || "Témoignage précédent";
+  const nextLabel = getTranslationValue("testimonials.next", currentLang) || "Témoignage suivant";
+  previous.setAttribute("aria-label", previousLabel);
+  next.setAttribute("aria-label", nextLabel);
+  dots.setAttribute("aria-label", paginationLabel);
+  dots.innerHTML = testimonials
+    .map(
+      (_, index) => `
+        <button class="testimonial-dot${index === testimonialIndex ? " is-active" : ""}" type="button"
+          aria-label="${escapeHtml(`${paginationLabel} ${index + 1}`)}"
+          aria-current="${index === testimonialIndex ? "true" : "false"}" data-testimonial-index="${index}"></button>
+      `
+    )
+    .join("");
+
+  function updateCarousel(index) {
+    testimonialIndex = (index + testimonials.length) % testimonials.length;
+    track.style.transform = `translateX(-${testimonialIndex * 100}%)`;
+    qsa(".testimonial-slide").forEach((slide, slideIndex) => {
+      slide.setAttribute("aria-hidden", slideIndex === testimonialIndex ? "false" : "true");
+    });
+    qsa(".testimonial-dot").forEach((dot, dotIndex) => {
+      const isActive = dotIndex === testimonialIndex;
+      dot.classList.toggle("is-active", isActive);
+      dot.setAttribute("aria-current", isActive ? "true" : "false");
+    });
+  }
+
+  function stopAutoplay() {
+    if (!testimonialTimer) return;
+    window.clearInterval(testimonialTimer);
+    testimonialTimer = null;
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    if (prefersReducedMotion?.matches || testimonials.length < 2) return;
+    testimonialTimer = window.setInterval(() => updateCarousel(testimonialIndex + 1), 7000);
+  }
+
+  previous.onclick = () => {
+    updateCarousel(testimonialIndex - 1);
+    startAutoplay();
+  };
+  next.onclick = () => {
+    updateCarousel(testimonialIndex + 1);
+    startAutoplay();
+  };
+  qsa(".testimonial-dot").forEach((dot) => {
+    dot.onclick = () => {
+      updateCarousel(Number(dot.dataset.testimonialIndex));
+      startAutoplay();
+    };
+  });
+
+  card.onmouseenter = stopAutoplay;
+  card.onmouseleave = startAutoplay;
+  card.onfocusin = stopAutoplay;
+  card.onfocusout = (event) => {
+    if (!card.contains(event.relatedTarget)) startAutoplay();
+  };
+
+  let touchStartX = 0;
+  viewport.ontouchstart = (event) => {
+    touchStartX = event.changedTouches[0]?.clientX || 0;
+    stopAutoplay();
+  };
+  viewport.ontouchend = (event) => {
+    const touchEndX = event.changedTouches[0]?.clientX || 0;
+    const delta = touchEndX - touchStartX;
+    if (Math.abs(delta) > 45) updateCarousel(testimonialIndex + (delta < 0 ? 1 : -1));
+    startAutoplay();
+  };
+
+  updateCarousel(testimonialIndex);
+  startAutoplay();
 }
 
 function renderRegions() {
