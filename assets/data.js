@@ -710,10 +710,10 @@ window.siteData = {
     }
   ],
   stats: [
-    { value: "45k", icon: "fa-users", fr: "Membres", ar: "منخرط", zgh: "ⵉⵎⵣⵔⴰⵢⵏ" },
-    { value: "120", icon: "fa-file-signature", fr: "Conventions", ar: "اتفاقية", zgh: "ⵜⵉⵎⵙⴰⵙⴽⴰⵏ" },
-    { value: "12", icon: "fa-map-location-dot", fr: "Régions", ar: "جهة", zgh: "ⵜⵉⵎⵏⴰⴹⵉⵏ" },
-    { value: "25M", icon: "fa-coins", fr: "Budget", ar: "ميزانية", zgh: "ⴰⵙⵎⵉⵍ" }
+    { value: "+30", icon: "fa-hand-holding-heart", fr: "Prestations sociales", ar: "خدمات اجتماعية", zgh: "ⵉⵎⴰⵍⴰⵙⵙⵏ ⵉⵏⴰⵎⵓⵏⵏ" },
+    { value: "+7 000", icon: "fa-users", fr: "Adhérents accompagnés", ar: "منخرطون مستفيدون", zgh: "ⵉⵎⵣⵔⴰⵢⵏ ⵉⵎⵙⵜⴼⴰⴷⵏ" },
+    { value: "+20 000", icon: "fa-people-group", fr: "Ayants droit soutenus", ar: "ذوو الحقوق المستفيدون", zgh: "ⵡⵉⴷ ⵉⵍⴰⵏ ⴰⵣⵔⴼ" },
+    { value: "+90", icon: "fa-handshake", fr: "Conventions actives", ar: "اتفاقيات نشطة", zgh: "ⵜⵉⵎⵙⴰⵙⴽⴰⵏ ⵜⵉⵔⵎⵉⵏ" }
   ],
   regions: [
     {
