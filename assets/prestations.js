@@ -81,8 +81,8 @@
     prevoyance: prevoyanceMenuItems.map((item) => item.icon),
     culture: ['fa-circle-info', 'fa-umbrella-beach', 'fa-child-reaching', 'fa-language', 'fa-campground', 'fa-bus', 'fa-kaaba', 'fa-place-of-worship', 'fa-award', 'fa-handshake', 'fa-suitcase-medical'],
     formation: ['fa-circle-info', 'fa-chalkboard-user', 'fa-medal', 'fa-hand-holding-heart', 'fa-sack-dollar', 'fa-handshake'],
-    logement: ['fa-house-user', 'fa-building-columns', 'fa-building', 'fa-helmet-safety'],
-    projets: ['fa-building-columns', 'fa-car-burst', 'fa-utensils', 'fa-couch', 'fa-route']
+    logement: ['fa-circle-info', 'fa-hand-holding-heart', 'fa-building-columns', 'fa-building', 'fa-helmet-safety'],
+    projets: ['fa-circle-info', 'fa-hand-holding-dollar', 'fa-credit-card', 'fa-car-burst', 'fa-couch', 'fa-route']
   };
 
   const image = {
@@ -1278,12 +1278,12 @@
       fr: {
         title: 'Accès au logement',
         meta: 'Logement, banques et projets immobiliers',
-        summary: 'Un accompagnement pour faciliter l’accès au logement à travers l’aide au logement, les offres bancaires préférentielles et les partenariats immobiliers.',
+        summary: 'Un accompagnement pour faciliter l’accès au logement à travers l’appui au logement, les offres bancaires préférentielles et les partenariats immobiliers.',
         stats: [['9', 'offres immobilières recensées'], ['76 ans', 'âge indiqué pour Al Barid Bank sur le site'], ['Banques', 'crédits préférentiels logement']],
-        chips: ['Aide au logement', 'Offres bancaires à des taux de crédit préférentiels', 'Promoteurs immobiliers', 'Mise en place de projets de logement par la FOS-Agri'],
+        chips: ['Appui au logement', 'Offres bancaires à des taux de crédit préférentiels', 'Promoteurs immobiliers', 'Mise en place de projets de logement par la FOS-Agri'],
         overview: 'Les fichiers transmis recensent les offres de crédit immobilier et les conventions bancaires associées au logement, avec des établissements confirmés et des avis à maintenir à jour.',
-        highlights: ['Aide au logement et accompagnement des adhérents.', 'Offres bancaires à taux de crédit préférentiels.', 'Promoteurs immobiliers et projets de logement de FOS-Agri.', 'Suivi des offres de Banque Populaire, BMCI, Crédit du Maroc, CFG Bank, Crédit Agricole du Maroc, Wafa Immobilier, Al Barid Bank, Bank Assafa et d’autres partenaires.'],
-        features: [['Aide au logement', 'Orientation des adhérents vers les dispositifs et partenaires disponibles.'], ['Offres bancaires préférentielles', 'Crédits immobiliers négociés avec des banques partenaires.'], ['Promoteurs immobiliers', 'Mise en relation avec les offres immobilières validées.'], ['Projets de logement FOS-Agri', 'Suivi des projets de logement mis en place par la Fondation.']],
+        highlights: ['Appui au logement et accompagnement des adhérents.', 'Offres bancaires à taux de crédit préférentiels.', 'Promoteurs immobiliers et projets de logement de FOS-Agri.', 'Suivi des offres de Banque Populaire, BMCI, Crédit du Maroc, CFG Bank, Crédit Agricole du Maroc, Wafa Immobilier, Al Barid Bank, Bank Assafa et d’autres partenaires.'],
+        features: [['Appui au logement', 'Orientation des adhérents vers les dispositifs et partenaires disponibles.'], ['Offres bancaires préférentielles', 'Crédits immobiliers négociés avec des banques partenaires.'], ['Promoteurs immobiliers', 'Mise en relation avec les offres immobilières validées.'], ['Projets de logement FOS-Agri', 'Suivi des projets de logement mis en place par la Fondation.']],
         partners: ['Banque Populaire', 'Al Barid Bank', 'Wafa Immobilier', 'BMCI', 'Crédit du Maroc', 'CFG Bank', 'Crédit Agricole du Maroc', 'Attijari Wafa Bank', 'Bank Assafa'],
         steps: [['Besoin', 'Définir le type de logement ou financement.'], ['Offre', 'Comparer les partenaires et âges limites de crédit.'], ['Dossier', 'Préparer les justificatifs bancaires et administratifs.'], ['Suivi', 'Confirmer l’offre active auprès de la Fondation.']]
       },
@@ -1292,10 +1292,10 @@
         meta: 'السكن، الأبناك والمشاريع العقارية',
         summary: 'مواكبة لتسهيل الولوج إلى السكن عبر الدعم السكني والعروض البنكية التفضيلية والشراكات العقارية.',
         stats: [['9', 'عروض عقارية محصاة'], ['76 سنة', 'السن المشار إليه لبريد بنك'], ['الأبناك', 'قروض سكنية تفضيلية']],
-        chips: ['المساعدة على السكن', 'عروض بنكية بنسب قروض تفضيلية', 'المنعشون العقاريون', 'إحداث مشاريع سكنية من طرف FOS-Agri'],
+        chips: ['دعم السكن', 'عروض بنكية بنسب قروض تفضيلية', 'المنعشون العقاريون', 'إحداث مشاريع سكنية من طرف FOS-Agri'],
         overview: 'تضم الملفات المتوصل بها عروض القروض العقارية والاتفاقيات البنكية المرتبطة بالسكن، مع مؤسسات مؤكدة ومعطيات يجب تحيينها باستمرار.',
         highlights: ['دعم السكن ومواكبة المنخرطين.', 'عروض بنكية بنسب قروض تفضيلية.', 'منعشون عقاريون ومشاريع سكنية عبر FOS-Agri.', 'تتبع عروض الشركاء البنكيين والعقاريين.'],
-        features: [['المساعدة على السكن', 'توجيه المنخرطين نحو الآليات والشركاء المتاحين.'], ['العروض البنكية التفضيلية', 'قروض عقارية متفاوض بشأنها مع أبناك شريكة.'], ['المنعشون العقاريون', 'ربط المنخرطين بالعروض العقارية المصادق عليها.'], ['مشاريع السكن FOS-Agri', 'تتبع المشاريع السكنية التي تضعها المؤسسة.']],
+        features: [['دعم السكن', 'توجيه المنخرطين نحو الآليات والشركاء المتاحين.'], ['العروض البنكية التفضيلية', 'قروض عقارية متفاوض بشأنها مع أبناك شريكة.'], ['المنعشون العقاريون', 'ربط المنخرطين بالعروض العقارية المصادق عليها.'], ['مشاريع السكن FOS-Agri', 'تتبع المشاريع السكنية التي تضعها المؤسسة.']],
         partners: ['Banque Populaire', 'Al Barid Bank', 'Wafa Immobilier', 'BMCI', 'Crédit du Maroc', 'CFG Bank', 'Crédit Agricole du Maroc', 'Attijari Wafa Bank', 'Bank Assafa'],
         steps: [['الحاجة', 'تحديد نوع السكن أو التمويل.'], ['العرض', 'مقارنة الشركاء وحدود السن للقرض.'], ['الملف', 'تحضير الوثائق البنكية والإدارية.'], ['التتبع', 'تأكيد العرض النشط لدى المؤسسة.']]
       },
@@ -1317,38 +1317,38 @@
       fr: {
         title: 'Appui aux projets personnels',
         meta: 'Partenariats et tarifs préférentiels',
-        summary: 'La FOS-Agri négocie de nombreux partenariats offrant des tarifs préférentiels à ses adhérents pour l’accès à des services de financement, d’assurance, de restauration, d’ameublement et de transport.',
+        summary: 'La FOS-Agri négocie de nombreux partenariats offrant des tarifs préférentiels à ses adhérents pour l’accès à des services de financement, d’assurance, d’ameublement et de transport.',
         stats: [['5', 'partenariats dédiés'], ['Tarifs', 'préférentiels négociés'], ['Adhérents', 'conjoints et enfants']],
-        chips: ['Organismes de financement', 'Assurance automobile', 'Prestataires de restauration', 'Organismes d’ameublement', 'Organismes de transport'],
-        overview: 'Dans le cadre de la diversification de l’offre de prestations sociales, la FOS-Agri négocie une multitude de partenariats offrant des tarifs préférentiels au profit de ses adhérents pour l’accès à plusieurs services, notamment en matière de financement bancaire, d’assurance, de restauration, d’ameublement et de transport.',
-        highlights: ['Organismes de financement à taux préférentiels.', 'Assurances auto à tarifs préférentiels.', 'Restauration collective subventionnée.', 'Organismes d’ameublement à taux de remise avantageux.', 'Organismes de transport à tarifs préférentiels.'],
-        features: [['Organismes de financement', 'Conventions bancaires à taux préférentiels pour le financement des projets personnels.'], ['Assurance automobile', 'Conventions d’assurance automobile à tarifs avantageux.'], ['Prestataires de restauration', 'Service de restauration collective subventionné pour le personnel en déplacement.'], ['Organismes d’ameublement', 'Partenariats offrant des taux de remise sur l’ameublement.'], ['Organismes de transport', 'Conventions tarifaires préférentielles avec l’ONCF et Supratours.']],
+        chips: ['Organismes de financement', 'Assurance automobile', 'Organismes d’ameublement', 'Organismes de transport'],
+        overview: 'Dans le cadre de la diversification de l’offre de prestations sociales, la FOS-Agri négocie une multitude de partenariats offrant des tarifs préférentiels au profit de ses adhérents pour l’accès à plusieurs services, notamment en matière de financement bancaire, d’assurance, d’ameublement et de transport.',
+        highlights: ['Organismes de financement à taux préférentiels.', 'Assurances auto à tarifs préférentiels.', 'Organismes d’ameublement à taux de remise avantageux.', 'Organismes de transport à tarifs préférentiels.'],
+        features: [['Organismes de financement', 'Conventions bancaires à taux préférentiels pour le financement des projets personnels.'], ['Assurance automobile', 'Conventions d’assurance automobile à tarifs avantageux.'], ['Organismes d’ameublement', 'Partenariats offrant des taux de remise sur l’ameublement.'], ['Organismes de transport', 'Conventions tarifaires préférentielles avec l’ONCF et Supratours.']],
         partners: ['Banque Populaire', 'Wafa Salaf', 'Crédit du Maroc', 'CFG Bank', 'Salafin', 'Eqdom', 'Attijari Wafa Bank', 'MAMDA', 'SNTL', 'Kitea', 'Biougnach', 'Mobilia Triangle d’Or', 'ONCF', 'Supratours'],
-        steps: [['Besoin', 'Identifier le service concerné : financement, assurance, restauration, ameublement ou transport.'], ['Partenaire', 'Choisir l’organisme conventionné adapté.'], ['Carte d’adhésion', 'Se présenter muni de la carte d’adhésion à la FOS-Agri.'], ['Offre', 'Télécharger la fiche de l’offre correspondante.']]
+        steps: [['Besoin', 'Identifier le service concerné : financement, assurance, ameublement ou transport.'], ['Partenaire', 'Choisir l’organisme conventionné adapté.'], ['Carte d’adhésion', 'Se présenter muni de la carte d’adhésion à la FOS-Agri.'], ['Offre', 'Télécharger la fiche de l’offre correspondante.']]
       },
       ar: {
         title: 'دعم المشاريع الشخصية',
         meta: 'شراكات وتعريفات تفضيلية',
-        summary: 'تتفاوض FOS-Agri حول العديد من الشراكات التي توفر تعريفات تفضيلية لمنخرطيها للولوج إلى خدمات التمويل والتأمين والإطعام والتأثيث والنقل.',
+        summary: 'تتفاوض FOS-Agri حول العديد من الشراكات التي توفر تعريفات تفضيلية لمنخرطيها للولوج إلى خدمات التمويل والتأمين والتأثيث والنقل.',
         stats: [['5', 'شراكات مخصصة'], ['تعريفات', 'تفضيلية متفاوض بشأنها'], ['المستفيدون', 'المنخرطون وأزواجهم وأبناؤهم']],
-        chips: ['مؤسسات التمويل', 'تأمين السيارات', 'مقدمو خدمات الإطعام', 'مؤسسات التأثيث', 'مؤسسات النقل'],
-        overview: 'في إطار تنويع عرض الخدمات الاجتماعية، تتفاوض FOS-Agri حول مجموعة من الشراكات التي توفر تعريفات تفضيلية لفائدة منخرطيها للولوج إلى عدة خدمات، لا سيما في مجالات التمويل البنكي والتأمين والإطعام والتأثيث والنقل.',
-        highlights: ['مؤسسات تمويل بنسب تفضيلية.', 'تأمين السيارات بتعريفات تفضيلية.', 'إطعام جماعي مدعم.', 'مؤسسات تأثيث بنسب تخفيض مهمة.', 'مؤسسات نقل بتعريفات تفضيلية.'],
-        features: [['مؤسسات التمويل', 'اتفاقيات بنكية بنسب تفضيلية لتمويل المشاريع الشخصية.'], ['تأمين السيارات', 'اتفاقيات تأمين السيارات بتعريفات مهمة.'], ['مقدمو خدمات الإطعام', 'خدمة إطعام جماعي مدعمة لفائدة الموظفين المتنقلين.'], ['مؤسسات التأثيث', 'شراكات توفر نسب تخفيض على التأثيث.'], ['مؤسسات النقل', 'اتفاقيات تعريفية تفضيلية مع ONCF و Supratours.']],
+        chips: ['مؤسسات التمويل', 'تأمين السيارات', 'مؤسسات التأثيث', 'مؤسسات النقل'],
+        overview: 'في إطار تنويع عرض الخدمات الاجتماعية، تتفاوض FOS-Agri حول مجموعة من الشراكات التي توفر تعريفات تفضيلية لفائدة منخرطيها للولوج إلى عدة خدمات، لا سيما في مجالات التمويل البنكي والتأمين والتأثيث والنقل.',
+        highlights: ['مؤسسات تمويل بنسب تفضيلية.', 'تأمين السيارات بتعريفات تفضيلية.', 'مؤسسات تأثيث بنسب تخفيض مهمة.', 'مؤسسات نقل بتعريفات تفضيلية.'],
+        features: [['مؤسسات التمويل', 'اتفاقيات بنكية بنسب تفضيلية لتمويل المشاريع الشخصية.'], ['تأمين السيارات', 'اتفاقيات تأمين السيارات بتعريفات مهمة.'], ['مؤسسات التأثيث', 'شراكات توفر نسب تخفيض على التأثيث.'], ['مؤسسات النقل', 'اتفاقيات تعريفية تفضيلية مع ONCF و Supratours.']],
         partners: ['البنك الشعبي', 'Wafa Salaf', 'القرض الفلاحي للمغرب', 'CFG Bank', 'Salafin', 'Eqdom', 'Attijari Wafa Bank', 'MAMDA', 'SNTL', 'Kitea', 'Biougnach', 'Mobilia Triangle d’Or', 'ONCF', 'Supratours'],
-        steps: [['الحاجة', 'تحديد الخدمة المعنية: التمويل، التأمين، الإطعام، التأثيث أو النقل.'], ['الشريك', 'اختيار المؤسسة المتعاقدة المناسبة.'], ['بطاقة الانخراط', 'التوجه مع بطاقة الانخراط في FOS-Agri.'], ['العرض', 'تحميل بطاقة العرض المعني.']]
+        steps: [['الحاجة', 'تحديد الخدمة المعنية: التمويل، التأمين، التأثيث أو النقل.'], ['الشريك', 'اختيار المؤسسة المتعاقدة المناسبة.'], ['بطاقة الانخراط', 'التوجه مع بطاقة الانخراط في FOS-Agri.'], ['العرض', 'تحميل بطاقة العرض المعني.']]
       },
       zgh: {
         title: 'ⴰⵎⵓⴷⴷⵓ ⵉ ⵉⵙⵏⴼⴰⵔⵏ ⵉⵎⵥⵍⵉⵢⵏ',
         meta: 'ⵉⵣⴷⴰⵢⵏ ⴷ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ',
-        summary: 'ⵜⵙⵙⴰⵡⴰⴹ FOS-Agri ⴰⵟⴰⵙ ⵏ ⵉⵣⴷⴰⵢⵏ ⵢⴰⴽⴼⵏ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏⵏⵙ ⴳ ⵓⵙⵔⴹ, ⵜⴰⵏⴰⵎⵎⴰⵍⵜ, ⴰⵙⵓⵎⵎⵓ, ⴰⵙⵎⵓⵜⵜⴳ ⴷ ⵓⵣⵣⵓⵖⵔ.',
+        summary: 'ⵜⵙⵙⴰⵡⴰⴹ FOS-Agri ⴰⵟⴰⵙ ⵏ ⵉⵣⴷⴰⵢⵏ ⵢⴰⴽⴼⵏ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏⵏⵙ ⴳ ⵓⵙⵔⴹ, ⵜⴰⵏⴰⵎⵎⴰⵍⵜ, ⴰⵙⵎⵓⵜⵜⴳ ⴷ ⵓⵣⵣⵓⵖⵔ.',
         stats: [['5', 'ⵉⵣⴷⴰⵢⵏ ⵉⵎⵥⵍⵉⵢⵏ'], ['ⵜⵉⵙⵏⵙⵉⵡⵉⵏ', 'ⵉⵎⵥⵍⵉⵢⵏ'], ['ⵉⵎⵙⵜⴼⵉⴷⵏ', 'ⵉⵎⵏⵅⵔⴰⵟⵏ, ⵜⵉⵔⴳⴰⵣⵉⵏ ⴷ ⵜⴰⵔⵡⴰ']],
-        chips: ['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵔⴹ', 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ', 'ⵉⵎⴰⵜⵜⴰⵢⵏ ⵏ ⵓⵙⵓⵎⵎⵓ', 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ', 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ'],
-        overview: 'ⴳ ⵓⵙⵏⴼⵍ ⵏ ⵜⵉⵏⴼⴰ ⵜⵉⵏⴰⵎⵓⵏⵉⵏ, ⵜⵙⵙⴰⵡⴰⴹ FOS-Agri ⴰⵟⴰⵙ ⵏ ⵉⵣⴷⴰⵢⵏ ⵢⴰⴽⴼⵏ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏⵏⵙ ⴳ ⵓⵙⵔⴹ, ⵜⴰⵏⴰⵎⵎⴰⵍⵜ, ⴰⵙⵓⵎⵎⵓ, ⴰⵙⵎⵓⵜⵜⴳ ⴷ ⵓⵣⵣⵓⵖⵔ.',
-        highlights: ['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵔⴹ ⵙ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ.', 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⵉⵢⵏ.', 'ⴰⵙⵓⵎⵎⵓ ⴰⴳⵔⴰⵡⴰⵏ ⵢⵜⵜⵓⴷⵄⵎⵏ.', 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⵉⵢⵏ.', 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ ⵙ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ.'],
-        features: [['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵔⴹ', 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵉⴱⴰⵏⴽⵏ ⵙ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ.'], ['ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ', 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵜⵏⴰⵎⵎⴰⵍⵜ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⵉⵢⵏ.'], ['ⵉⵎⴰⵜⵜⴰⵢⵏ ⵏ ⵓⵙⵓⵎⵎⵓ', 'ⴰⵙⵓⵎⵎⵓ ⴰⴳⵔⴰⵡⴰⵏ ⵢⵜⵜⵓⴷⵄⵎⵏ ⵉ ⵉⵎⵣⵡⴰⵔⴰ.'], ['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ', 'ⵉⵣⴷⴰⵢⵏ ⵢⴰⴽⴼⵏ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵖⴼ ⵓⵙⵎⵓⵜⵜⴳ.'], ['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ', 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⵉⵢⵏ ⴷ ONCF ⴷ Supratours.']],
+        chips: ['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵔⴹ', 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ', 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ', 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ'],
+        overview: 'ⴳ ⵓⵙⵏⴼⵍ ⵏ ⵜⵉⵏⴼⴰ ⵜⵉⵏⴰⵎⵓⵏⵉⵏ, ⵜⵙⵙⴰⵡⴰⴹ FOS-Agri ⴰⵟⴰⵙ ⵏ ⵉⵣⴷⴰⵢⵏ ⵢⴰⴽⴼⵏ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏⵏⵙ ⴳ ⵓⵙⵔⴹ, ⵜⴰⵏⴰⵎⵎⴰⵍⵜ, ⴰⵙⵎⵓⵜⵜⴳ ⴷ ⵓⵣⵣⵓⵖⵔ.',
+        highlights: ['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵔⴹ ⵙ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ.', 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⵉⵢⵏ.', 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⵉⵢⵏ.', 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ ⵙ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ.'],
+        features: [['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵔⴹ', 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵉⴱⴰⵏⴽⵏ ⵙ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ.'], ['ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ', 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵜⵏⴰⵎⵎⴰⵍⵜ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⵉⵢⵏ.'], ['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ', 'ⵉⵣⴷⴰⵢⵏ ⵢⴰⴽⴼⵏ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵖⴼ ⵓⵙⵎⵓⵜⵜⴳ.'], ['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ', 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⵉⵢⵏ ⴷ ONCF ⴷ Supratours.']],
         partners: ['Banque Populaire', 'Wafa Salaf', 'Crédit du Maroc', 'CFG Bank', 'Salafin', 'Eqdom', 'Attijari Wafa Bank', 'MAMDA', 'SNTL', 'Kitea', 'Biougnach', 'Mobilia Triangle d’Or', 'ONCF', 'Supratours'],
-        steps: [['ⴰⵙⵔⵓⵜ', 'ⵙⵙⵏ ⵜⴰⵏⴼⴰ ⵢⵍⴰⵇⵏ: ⴰⵙⵔⴹ, ⵜⴰⵏⴰⵎⵎⴰⵍⵜ, ⴰⵙⵓⵎⵎⵓ, ⴰⵙⵎⵓⵜⵜⴳ ⵏⵖ ⴰⵣⵣⵓⵖⵔ.'], ['ⴰⵣⴷⴰⵢ', 'ⴼⵔⵏ ⵜⴰⵎⴳⵓⵔⵜ ⵉⵣⴷⵉⵏ ⵢⵍⴰⵇⵏ.'], ['ⵜⴰⴽⴰⵔⴹⴰ ⵏ ⵓⵎⵓⵏ', 'ⵙⵉⴷⵔ ⵙ ⵜⴽⴰⵔⴹⴰ ⵏ ⵓⵎⵓⵏ ⴳ FOS-Agri.'], ['ⴰⴼⵔⴰⵏ', 'ⵙⵉⴷⵔ ⵜⴰⴱⵔⴰⵜ ⵏ ⵓⴼⵔⴰⵏ ⵉⵍⴰⵇⵏ.']]
+        steps: [['ⴰⵙⵔⵓⵜ', 'ⵙⵙⵏ ⵜⴰⵏⴼⴰ ⵢⵍⴰⵇⵏ: ⴰⵙⵔⴹ, ⵜⴰⵏⴰⵎⵎⴰⵍⵜ, ⴰⵙⵎⵓⵜⵜⴳ ⵏⵖ ⴰⵣⵣⵓⵖⵔ.'], ['ⴰⵣⴷⴰⵢ', 'ⴼⵔⵏ ⵜⴰⵎⴳⵓⵔⵜ ⵉⵣⴷⵉⵏ ⵢⵍⴰⵇⵏ.'], ['ⵜⴰⴽⴰⵔⴹⴰ ⵏ ⵓⵎⵓⵏ', 'ⵙⵉⴷⵔ ⵙ ⵜⴽⴰⵔⴹⴰ ⵏ ⵓⵎⵓⵏ ⴳ FOS-Agri.'], ['ⴰⴼⵔⴰⵏ', 'ⵙⵉⴷⵔ ⵜⴰⴱⵔⴰⵜ ⵏ ⵓⴼⵔⴰⵏ ⵉⵍⴰⵇⵏ.']]
       }
     }
   };
@@ -1449,26 +1449,26 @@
       ar: {
         title: 'دعم المشاريع الشخصية',
         meta: 'شراكات وتعريفات تفضيلية',
-        summary: 'تتفاوض FOS-Agri حول العديد من الشراكات التي توفر تعريفات تفضيلية لمنخرطيها للولوج إلى خدمات التمويل والتأمين والإطعام والتأثيث والنقل.',
+        summary: 'تتفاوض FOS-Agri حول العديد من الشراكات التي توفر تعريفات تفضيلية لمنخرطيها للولوج إلى خدمات التمويل والتأمين والتأثيث والنقل.',
         stats: [['5', 'شراكات مخصصة'], ['تعريفات', 'تفضيلية متفاوض بشأنها'], ['المستفيدون', 'المنخرطون وأزواجهم وأبناؤهم']],
-        chips: ['مؤسسات التمويل', 'تأمين السيارات', 'مقدمو خدمات الإطعام', 'مؤسسات التأثيث', 'مؤسسات النقل'],
-        overview: 'في إطار تنويع عرض الخدمات الاجتماعية، تتفاوض FOS-Agri حول مجموعة من الشراكات التي توفر تعريفات تفضيلية لفائدة منخرطيها للولوج إلى عدة خدمات، لا سيما في مجالات التمويل البنكي والتأمين والإطعام والتأثيث والنقل.',
-        highlights: ['مؤسسات تمويل بنسب تفضيلية.', 'تأمين السيارات بتعريفات تفضيلية.', 'إطعام جماعي مدعم.', 'مؤسسات تأثيث بنسب تخفيض مهمة.', 'مؤسسات نقل بتعريفات تفضيلية.'],
-        features: [['مؤسسات التمويل', 'اتفاقيات بنكية بنسب تفضيلية لتمويل المشاريع الشخصية.'], ['تأمين السيارات', 'اتفاقيات تأمين السيارات بتعريفات مهمة.'], ['مقدمو خدمات الإطعام', 'خدمة إطعام جماعي مدعمة لفائدة الموظفين المتنقلين.'], ['مؤسسات التأثيث', 'شراكات توفر نسب تخفيض على التأثيث.'], ['مؤسسات النقل', 'اتفاقيات تعريفية تفضيلية مع ONCF و Supratours.']],
+        chips: ['مؤسسات التمويل', 'تأمين السيارات', 'مؤسسات التأثيث', 'مؤسسات النقل'],
+        overview: 'في إطار تنويع عرض الخدمات الاجتماعية، تتفاوض FOS-Agri حول مجموعة من الشراكات التي توفر تعريفات تفضيلية لفائدة منخرطيها للولوج إلى عدة خدمات، لا سيما في مجالات التمويل البنكي والتأمين والتأثيث والنقل.',
+        highlights: ['مؤسسات تمويل بنسب تفضيلية.', 'تأمين السيارات بتعريفات تفضيلية.', 'مؤسسات تأثيث بنسب تخفيض مهمة.', 'مؤسسات نقل بتعريفات تفضيلية.'],
+        features: [['مؤسسات التمويل', 'اتفاقيات بنكية بنسب تفضيلية لتمويل المشاريع الشخصية.'], ['تأمين السيارات', 'اتفاقيات تأمين السيارات بتعريفات مهمة.'], ['مؤسسات التأثيث', 'شراكات توفر نسب تخفيض على التأثيث.'], ['مؤسسات النقل', 'اتفاقيات تعريفية تفضيلية مع ONCF و Supratours.']],
         partners: ['البنك الشعبي', 'Wafa Salaf', 'القرض الفلاحي للمغرب', 'CFG Bank', 'Salafin', 'Eqdom', 'Attijari Wafa Bank', 'MAMDA', 'SNTL', 'Kitea', 'Biougnach', 'Mobilia Triangle d’Or', 'ONCF', 'Supratours'],
-        steps: [['الحاجة', 'تحديد الخدمة المعنية: التمويل، التأمين، الإطعام، التأثيث أو النقل.'], ['الشريك', 'اختيار المؤسسة المتعاقدة المناسبة.'], ['بطاقة الانخراط', 'التوجه مع بطاقة الانخراط في FOS-Agri.'], ['العرض', 'تحميل بطاقة العرض المعني.']]
+        steps: [['الحاجة', 'تحديد الخدمة المعنية: التمويل، التأمين، التأثيث أو النقل.'], ['الشريك', 'اختيار المؤسسة المتعاقدة المناسبة.'], ['بطاقة الانخراط', 'التوجه مع بطاقة الانخراط في FOS-Agri.'], ['العرض', 'تحميل بطاقة العرض المعني.']]
       },
       zgh: {
         title: 'ⴰⵎⵓⴷⴷⵓ ⵉ ⵉⵙⵏⴼⴰⵔⵏ ⵉⵎⵥⵍⵉⵢⵏ',
         meta: 'ⵉⵣⴷⴰⵢⵏ ⴷ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ',
-        summary: 'ⵜⵙⵙⴰⵡⴰⴹ FOS-Agri ⴰⵟⴰⵙ ⵏ ⵉⵣⴷⴰⵢⵏ ⵢⴰⴽⴼⵏ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏⵏⵙ ⴳ ⵓⵙⵔⴹ, ⵜⴰⵏⴰⵎⵎⴰⵍⵜ, ⴰⵙⵓⵎⵎⵓ, ⴰⵙⵎⵓⵜⵜⴳ ⴷ ⵓⵣⵣⵓⵖⵔ.',
+        summary: 'ⵜⵙⵙⴰⵡⴰⴹ FOS-Agri ⴰⵟⴰⵙ ⵏ ⵉⵣⴷⴰⵢⵏ ⵢⴰⴽⴼⵏ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏⵏⵙ ⴳ ⵓⵙⵔⴹ, ⵜⴰⵏⴰⵎⵎⴰⵍⵜ, ⴰⵙⵎⵓⵜⵜⴳ ⴷ ⵓⵣⵣⵓⵖⵔ.',
         stats: [['5', 'ⵉⵣⴷⴰⵢⵏ ⵉⵎⵥⵍⵉⵢⵏ'], ['ⵜⵉⵙⵏⵙⵉⵡⵉⵏ', 'ⵉⵎⵥⵍⵉⵢⵏ'], ['ⵉⵎⵙⵜⴼⵉⴷⵏ', 'ⵉⵎⵏⵅⵔⴰⵟⵏ, ⵜⵉⵔⴳⴰⵣⵉⵏ ⴷ ⵜⴰⵔⵡⴰ']],
-        chips: ['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵔⴹ', 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ', 'ⵉⵎⴰⵜⵜⴰⵢⵏ ⵏ ⵓⵙⵓⵎⵎⵓ', 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ', 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ'],
-        overview: 'ⴳ ⵓⵙⵏⴼⵍ ⵏ ⵜⵉⵏⴼⴰ ⵜⵉⵏⴰⵎⵓⵏⵉⵏ, ⵜⵙⵙⴰⵡⴰⴹ FOS-Agri ⴰⵟⴰⵙ ⵏ ⵉⵣⴷⴰⵢⵏ ⵢⴰⴽⴼⵏ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏⵏⵙ ⴳ ⵓⵙⵔⴹ, ⵜⴰⵏⴰⵎⵎⴰⵍⵜ, ⴰⵙⵓⵎⵎⵓ, ⴰⵙⵎⵓⵜⵜⴳ ⴷ ⵓⵣⵣⵓⵖⵔ.',
-        highlights: ['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵔⴹ ⵙ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ.', 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⵉⵢⵏ.', 'ⴰⵙⵓⵎⵎⵓ ⴰⴳⵔⴰⵡⴰⵏ ⵢⵜⵜⵓⴷⵄⵎⵏ.', 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⵉⵢⵏ.', 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ ⵙ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ.'],
-        features: [['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵔⴹ', 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵉⴱⴰⵏⴽⵏ ⵙ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ.'], ['ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ', 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵜⵏⴰⵎⵎⴰⵍⵜ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⵉⵢⵏ.'], ['ⵉⵎⴰⵜⵜⴰⵢⵏ ⵏ ⵓⵙⵓⵎⵎⵓ', 'ⴰⵙⵓⵎⵎⵓ ⴰⴳⵔⴰⵡⴰⵏ ⵢⵜⵜⵓⴷⵄⵎⵏ ⵉ ⵉⵎⵣⵡⴰⵔⴰ.'], ['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ', 'ⵉⵣⴷⴰⵢⵏ ⵢⴰⴽⴼⵏ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵖⴼ ⵓⵙⵎⵓⵜⵜⴳ.'], ['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ', 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⵉⵢⵏ ⴷ ONCF ⴷ Supratours.']],
+        chips: ['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵔⴹ', 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ', 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ', 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ'],
+        overview: 'ⴳ ⵓⵙⵏⴼⵍ ⵏ ⵜⵉⵏⴼⴰ ⵜⵉⵏⴰⵎⵓⵏⵉⵏ, ⵜⵙⵙⴰⵡⴰⴹ FOS-Agri ⴰⵟⴰⵙ ⵏ ⵉⵣⴷⴰⵢⵏ ⵢⴰⴽⴼⵏ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏⵏⵙ ⴳ ⵓⵙⵔⴹ, ⵜⴰⵏⴰⵎⵎⴰⵍⵜ, ⴰⵙⵎⵓⵜⵜⴳ ⴷ ⵓⵣⵣⵓⵖⵔ.',
+        highlights: ['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵔⴹ ⵙ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ.', 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⵉⵢⵏ.', 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⵉⵢⵏ.', 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ ⵙ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ.'],
+        features: [['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵔⴹ', 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵉⴱⴰⵏⴽⵏ ⵙ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ.'], ['ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ', 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵜⵏⴰⵎⵎⴰⵍⵜ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⵉⵢⵏ.'], ['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ', 'ⵉⵣⴷⴰⵢⵏ ⵢⴰⴽⴼⵏ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵖⴼ ⵓⵙⵎⵓⵜⵜⴳ.'], ['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ', 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⵉⵢⵏ ⴷ ONCF ⴷ Supratours.']],
         partners: ['Banque Populaire', 'Wafa Salaf', 'Crédit du Maroc', 'CFG Bank', 'Salafin', 'Eqdom', 'Attijari Wafa Bank', 'MAMDA', 'SNTL', 'Kitea', 'Biougnach', 'Mobilia Triangle d’Or', 'ONCF', 'Supratours'],
-        steps: [['ⴰⵙⵔⵓⵜ', 'ⵙⵙⵏ ⵜⴰⵏⴼⴰ ⵢⵍⴰⵇⵏ: ⴰⵙⵔⴹ, ⵜⴰⵏⴰⵎⵎⴰⵍⵜ, ⴰⵙⵓⵎⵎⵓ, ⴰⵙⵎⵓⵜⵜⴳ ⵏⵖ ⴰⵣⵣⵓⵖⵔ.'], ['ⴰⵣⴷⴰⵢ', 'ⴼⵔⵏ ⵜⴰⵎⴳⵓⵔⵜ ⵉⵣⴷⵉⵏ ⵢⵍⴰⵇⵏ.'], ['ⵜⴰⴽⴰⵔⴹⴰ ⵏ ⵓⵎⵓⵏ', 'ⵙⵉⴷⵔ ⵙ ⵜⴽⴰⵔⴹⴰ ⵏ ⵓⵎⵓⵏ ⴳ FOS-Agri.'], ['ⴰⴼⵔⴰⵏ', 'ⵙⵉⴷⵔ ⵜⴰⴱⵔⴰⵜ ⵏ ⵓⴼⵔⴰⵏ ⵉⵍⴰⵇⵏ.']]
+        steps: [['ⴰⵙⵔⵓⵜ', 'ⵙⵙⵏ ⵜⴰⵏⴼⴰ ⵢⵍⴰⵇⵏ: ⴰⵙⵔⴹ, ⵜⴰⵏⴰⵎⵎⴰⵍⵜ, ⴰⵙⵎⵓⵜⵜⴳ ⵏⵖ ⴰⵣⵣⵓⵖⵔ.'], ['ⴰⵣⴷⴰⵢ', 'ⴼⵔⵏ ⵜⴰⵎⴳⵓⵔⵜ ⵉⵣⴷⵉⵏ ⵢⵍⴰⵇⵏ.'], ['ⵜⴰⴽⴰⵔⴹⴰ ⵏ ⵓⵎⵓⵏ', 'ⵙⵉⴷⵔ ⵙ ⵜⴽⴰⵔⴹⴰ ⵏ ⵓⵎⵓⵏ ⴳ FOS-Agri.'], ['ⴰⴼⵔⴰⵏ', 'ⵙⵉⴷⵔ ⵜⴰⴱⵔⴰⵜ ⵏ ⵓⴼⵔⴰⵏ ⵉⵍⴰⵇⵏ.']]
       }
     }
   };
@@ -1546,9 +1546,9 @@
 
   /* ===== Accès au logement : même logique que prévoyance (chips + panneaux) ===== */
   const logementMenuItems = [
-    { id: 'aide-logement',       icon: 'fa-hand-holding-heart', labels: { fr: 'Aide au logement', ar: 'المساعدة على السكن', zgh: 'ⵜⵉⵡⵉⵙⵉ ⵏ ⵓⵙⵖⵉⵎ' } },
+    { id: 'a-propos',            icon: 'fa-circle-info',        labels: { fr: 'À PROPOS', ar: 'حول الخدمة', zgh: 'ⵅⴼ ⵜⵏⴼⵍⵉⵜ' } },
+    { id: 'aide-logement',       icon: 'fa-hand-holding-heart', labels: { fr: 'Appui au logement', ar: 'دعم السكن', zgh: 'ⴰⵎⵓⴷⴷⵓ ⵏ ⵓⵙⵖⵉⵎ' } },
     { id: 'offres-immobilier',   icon: 'fa-building-columns',   labels: { fr: 'Offres bancaires — crédits immobiliers', ar: 'عروض بنكية — القروض العقارية', zgh: 'ⵉⴼⵔⴰⵏ ⵏ ⵉⴱⴰⵏⴽⵏ — ⴰⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵖⵉⵎ' } },
-    { id: 'offres-consommation', icon: 'fa-credit-card',        labels: { fr: 'Offres bancaires — crédits à la consommation', ar: 'عروض بنكية — قروض الاستهلاك', zgh: 'ⵉⴼⵔⴰⵏ ⵏ ⵉⴱⴰⵏⴽⵏ — ⴰⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵙⵉⵜⵎ' } },
     { id: 'promoteurs',          icon: 'fa-building',           labels: { fr: 'Promoteurs immobiliers', ar: 'المنعشون العقاريون', zgh: 'ⵉⵎⵙⵏⴼⴰⵔⵏ ⵏ ⵓⵙⵖⵉⵎ' } },
     { id: 'projets-fosagri',     icon: 'fa-helmet-safety',      labels: { fr: 'Projets de logement FOS-Agri', ar: 'مشاريع السكن FOS-Agri', zgh: 'ⵉⵙⵏⴼⴰⵔⵏ ⵏ ⵓⵙⵖⵉⵎ FOS-Agri' } }
   ];
@@ -1559,28 +1559,22 @@
 
   const logementCenter = {
     fr: {
-      badge: 'Aide au logement', title: 'Aide au logement',
-      intro: 'La FOS-Agri accompagne ses adhérents dans l’accès au logement en facilitant l’orientation vers les dispositifs et partenaires disponibles, et en négociant des offres bancaires à des conditions préférentielles.',
-      items: [
-        { navIndex: 91, icon: 'fa-hand-holding-heart', title: 'Accompagnement des adhérents', body: 'Orientation des adhérents vers les dispositifs d’aide et les partenaires bancaires et immobiliers.' },
-        { navIndex: 92, icon: 'fa-building-columns', title: 'Offres bancaires préférentielles', body: 'Crédits immobiliers et crédits à la consommation négociés avec des banques partenaires (voir les deux rubriques dédiées).' }
-      ]
+      icon: 'fa-circle-info',
+      badge: "À propos", title: "À propos",
+      intro: "L’accès au logement constitue un axe majeur de la stratégie d’action de la Fondation, compte tenu de l’importance qu’il revêt dans les préoccupations et les attentes de ses adhérents. Consciente de cet enjeu, la Fondation s’attache à développer et à diversifier continuellement les solutions proposées en matière de logement, afin de répondre au mieux aux attentes de ses adhérents et de contribuer à l’amélioration de leurs conditions de vie.",
+      items: []
     },
     ar: {
-      badge: 'المساعدة على السكن', title: 'المساعدة على السكن',
-      intro: 'تواكب FOS-Agri منخرطيها في الولوج إلى السكن عبر التوجيه نحو الآليات والشركاء المتاحين، والتفاوض حول عروض بنكية بشروط تفضيلية.',
-      items: [
-        { navIndex: 91, icon: 'fa-hand-holding-heart', title: 'مواكبة المنخرطين', body: 'توجيه المنخرطين نحو آليات الدعم والشركاء البنكيين والعقاريين.' },
-        { navIndex: 92, icon: 'fa-building-columns', title: 'عروض بنكية تفضيلية', body: 'قروض عقارية وقروض استهلاكية متفاوض بشأنها مع أبناك شريكة (انظر الرُّبريكتين المخصصتين).' }
-      ]
+      icon: 'fa-circle-info',
+      badge: "حول الخدمة", title: "حول الخدمة",
+      intro: "يشكل الولوج إلى السكن محورا رئيسيا في استراتيجية عمل المؤسسة، نظرا للأهمية التي يكتسيها ضمن انشغالات وتطلعات منخرطيها. وإدراكا منها لهذا الرهان، تحرص المؤسسة على تطوير وتنويع الحلول المقترحة في مجال السكن بشكل مستمر، من أجل الاستجابة على أفضل وجه لتطلعات منخرطيها والمساهمة في تحسين ظروف عيشهم.",
+      items: []
     },
     zgh: {
-      badge: 'ⵜⵉⵡⵉⵙⵉ ⵏ ⵓⵙⵖⵉⵎ', title: 'ⵜⵉⵡⵉⵙⵉ ⵏ ⵓⵙⵖⵉⵎ',
-      intro: 'ⵜⴰⵎⴰⵡⴰⵙⵜ FOS-Agri ⵜⴻⵎⵎⵓⴷⴷⵓ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵖⵔ ⵓⵍⵓⴳ ⵏ ⵓⵙⵖⵉⵎ ⵙ ⵉⴼⵔⴰⵏ ⵏ ⵉⴱⴰⵏⴽⵏ ⵉⵎⵥⵍⵉⵢⵏ.',
-      items: [
-        { navIndex: 91, icon: 'fa-hand-holding-heart', title: 'ⴰⵙⴷⵓ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ', body: 'ⴰⵙⴷⵓ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵖⵔ ⵉⵣⴷⴰⵢⵏ ⵏ ⵉⴱⴰⵏⴽⵏ ⴷ ⵓⵙⵖⵉⵎ.' },
-        { navIndex: 92, icon: 'fa-building-columns', title: 'ⵉⴼⵔⴰⵏ ⵏ ⵉⴱⴰⵏⴽⵏ', body: 'ⴰⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵖⵉⵎ ⴷ ⵓⵙⵙⵉⵜⵎ ⴷ ⵉⴱⴰⵏⴽⵏ ⵉⵣⴷⵉⵏ.' }
-      ]
+      icon: 'fa-circle-info',
+      badge: "ⵅⴼ ⵜⵏⴼⵍⵉⵜ", title: "ⵅⴼ ⵜⵏⴼⵍⵉⵜ",
+      intro: "ⴰⴽⵛⵛⵓⵎ ⵖⵔ ⵓⵙⵖⵉⵎ ⵉⴳⴰ ⴰⴳⵍⴰⵎ ⴰⵎⵇⵇⵔⴰⵏ ⴳ ⵜⵙⵔⴰⵜⵉⵊⵉⵜ ⵏ ⵜⵡⵓⵔⵉ ⵏ ⵜⵙⴷⴰⵡⵉⵜ, ⵙ ⵓⵙⵡⵉⵔ ⵏⵏⵙ ⴳ ⵜⵉⵎⵙⵙⵓⴳⴳⵔⵉⵏ ⴷ ⵜⵉⵔⴰⵜⵉⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ. ⵙ ⵓⵙⵙⵏ ⵏ ⵓⵙⵓⵖⵍ ⴰⴷ, ⵜⵙⴷⴰⵡⵉⵜ ⵜⵜⵎⵓⵔⵙ ⵖⴼ ⵓⵙⵏⴼⵍⵓⵍ ⴷ ⵓⵙⵏⴰⵡⴰⵢ ⵏ ⵜⵉⴼⵉⵔⴰ ⵏ ⵓⵙⵖⵉⵎ ⴰⴷⴷⵓⵔ ⴰⴷⴷⵓⵔ, ⴰⴼⴰⴷ ⴰⴷ ⵜⵔⴰⵔ ⵖⴼ ⵜⵉⵔⴰⵜⵉⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴷ ⴰⴷ ⵜⴰⵡⵙ ⴳ ⵓⵙⵖⵓⴷⵓ ⵏ ⵜⵙⴰⴳⴰⵡⵉⵏ ⵏ ⵜⵓⴷⵔⵜ ⵏⵏⵙⵏ.",
+      items: []
     }
   };
 
@@ -1607,31 +1601,43 @@
 
   const logementExtra = {
     fr: [
-      { navIndex: 1, type: 'bankOffers', category: 'immobilier', icon: 'fa-building-columns', badge: 'Crédits immobiliers', title: 'Offres bancaires — crédits immobiliers', intro: 'Crédits immobiliers négociés avec des banques partenaires. Téléchargez la fiche de chaque banque pour consulter l’offre et l’âge limite de crédit.' },
-      { navIndex: 2, type: 'bankOffers', category: 'consommation', icon: 'fa-credit-card', badge: 'Crédits à la consommation', title: 'Offres bancaires — crédits à la consommation', intro: 'Crédits à la consommation à conditions préférentielles auprès des banques et sociétés de financement partenaires.' },
+      { navIndex: 1, icon: 'fa-hand-holding-heart', badge: "Appui au logement", title: "Appui au logement",
+        intro: ["Une prime frontale et forfaitaire est versée en une seule fois aux adhérents sélectionnés afin de soutenir l'accès au logement. Cette prestation sociale s'adresse exclusivement aux adhérents qui disposent déjà d'un prêt immobilier au moment du lancement de la prestation, sous réserve de la production des justificatifs bancaires attestant des détails du crédit."],
+        beneficiariesTitle: "Bénéficiaires",
+        beneficiaries: [{ number: '01', text: "Tous (tes) les adhérent(e)s de la FOS-Agri" }],
+        blocks: [{ icon: 'fa-clipboard-list', title: '', items: [{ title: "Inscription et modalités", icon: 'fa-clipboard-check', bullets: ["L'inscription à cette prestation s'effectue à travers l'Espace Adhérent de la FOS-Agri.", "La sélection des bénéficiaires est réalisée selon un système de scoring reposant sur des critères objectifs et transparents définis par la Fondation, garantissant l'équité dans l'attribution de la prestation.", "Les adhérents retenus sont informés des résultats de la sélection via leur Espace Adhérent ainsi que par les canaux de communication de la Fondation."] }] }] },
+      { navIndex: 2, type: 'bankOffers', category: 'immobilier', icon: 'fa-building-columns', badge: 'Crédits immobiliers', title: 'Offres bancaires — crédits immobiliers', intro: 'Crédits immobiliers négociés avec des banques partenaires. Téléchargez la fiche de chaque banque pour consulter l’offre et l’âge limite de crédit.' },
       { navIndex: 3, type: 'culturePartners', icon: 'fa-building', badge: 'Promoteurs immobiliers', title: 'Promoteurs immobiliers',
         intro: ['La FOS-Agri développe des partenariats avec plusieurs promoteurs immobiliers afin de contribuer, grâce à des taux préférentiels, à la concrétisation de projets d’acquisition d’un logement neuf ou ancien, de construction, d’aménagement ou d’achat d’un terrain à bâtir.', 'Voici le détail des offres proposées :'],
         groups: [{ title: 'Promoteurs immobiliers partenaires', items: logementPromoteursItemsFor('Télécharger l’offre', 'Liste des projets') }] },
       { navIndex: 4, icon: 'fa-helmet-safety', badge: 'Projets de logement FOS-Agri', title: 'Mise en place de projets de logement par la FOS-Agri',
-        intro: ['Dans le cadre de la poursuite de ses efforts de prospection de nouveaux projets en faveur de ses adhérents, la FOS-Agri a entrepris les démarches administratives nécessaires à l’acquisition de terrains destinés à la construction de logements sociaux sur des biens domaniaux relevant du Département de l’Agriculture.', 'Des projets sont à l’étude dans les villes de Témara, Meknès et Oujda.'] }
+        intro: ['Dans le cadre de la poursuite de ses efforts de prospection de nouveaux projets en faveur de ses adhérents, la FOS-Agri a entrepris les démarches administratives nécessaires à l’acquisition de terrains destinés à la construction de logements sociaux sur des biens domaniaux relevant du Département de l’Agriculture.'] }
     ],
     ar: [
-      { navIndex: 1, type: 'bankOffers', category: 'immobilier', icon: 'fa-building-columns', badge: 'القروض العقارية', title: 'عروض بنكية — القروض العقارية', intro: 'قروض عقارية متفاوض بشأنها مع أبناك شريكة. حمّل بطاقة كل بنك للاطلاع على العرض والسن الأقصى للقرض.' },
-      { navIndex: 2, type: 'bankOffers', category: 'consommation', icon: 'fa-credit-card', badge: 'قروض الاستهلاك', title: 'عروض بنكية — قروض الاستهلاك', intro: 'قروض استهلاكية بشروط تفضيلية لدى الأبناك وشركات التمويل الشريكة.' },
+      { navIndex: 1, icon: 'fa-hand-holding-heart', badge: "دعم السكن", title: "دعم السكن",
+        intro: ["تصرف منحة جزافية دفعة واحدة للمنخرطين المنتقين من أجل دعم الولوج إلى السكن. وتستهدف هذه الخدمة الاجتماعية حصريا المنخرطين الذين يتوفرون على قرض عقاري عند إطلاق الخدمة، شريطة الإدلاء بالوثائق البنكية التي تثبت تفاصيل القرض."],
+        beneficiariesTitle: "المستفيدون",
+        beneficiaries: [{ number: '01', text: "جميع منخرطات ومنخرطي FOS-Agri" }],
+        blocks: [{ icon: 'fa-clipboard-list', title: '', items: [{ title: "التسجيل والكيفيات", icon: 'fa-clipboard-check', bullets: ["يتم التسجيل في هذه الخدمة عبر فضاء المنخرط لدى FOS-Agri.", "تتم عملية انتقاء المستفيدين وفق نظام تنقيط مبني على معايير موضوعية وشفافة تحددها المؤسسة، بما يضمن الإنصاف في منح الخدمة.", "يتم إخبار المنخرطين المقبولين بنتائج الانتقاء عبر فضاء المنخرط ومن خلال قنوات التواصل التابعة للمؤسسة."] }] }] },
+      { navIndex: 2, type: 'bankOffers', category: 'immobilier', icon: 'fa-building-columns', badge: 'القروض العقارية', title: 'عروض بنكية — القروض العقارية', intro: 'قروض عقارية متفاوض بشأنها مع أبناك شريكة. حمّل بطاقة كل بنك للاطلاع على العرض والسن الأقصى للقرض.' },
       { navIndex: 3, type: 'culturePartners', icon: 'fa-building', badge: 'المنعشون العقاريون', title: 'المنعشون العقاريون',
         intro: ['تطور Fos-Agri شراكات مع العديد من المنعشين العقاريين للمساهمة، من خلال معدلات تفضيلية، في إنجاز مشاريعهم المتعلقة باقتناء سكن جديد أو قديم، أو البناء، أو التهيئة، أو شراء قطعة أرض وبنائها.', 'وفيما يلي تفاصيل العروض المقترحة:'],
         groups: [{ title: 'المنعشون العقاريون الشركاء', items: logementPromoteursItemsFor('تحميل العرض', 'لائحة المشاريع') }] },
       { navIndex: 4, icon: 'fa-helmet-safety', badge: 'مشاريع السكن FOS-Agri', title: 'إحداث مشاريع السكن من طرف FOS-Agri',
-        intro: ['في إطار مواصلة جهود التنقيب عن مشاريع جديدة لفائدة منخرطيها، شرعت Fos-Agri في المساطر الإدارية لاقتناء العقار من أجل بناء سكن اجتماعي فوق أراضي الدولة التابعة لقطاع الفلاحة.', 'وتوجد مشاريع قيد الدراسة على مستوى مدن تمارة ومكناس ووجدة...'] }
+        intro: ['في إطار مواصلة جهود التنقيب عن مشاريع جديدة لفائدة منخرطيها، شرعت Fos-Agri في المساطر الإدارية لاقتناء العقار من أجل بناء سكن اجتماعي فوق أراضي الدولة التابعة لقطاع الفلاحة.'] }
     ],
     zgh: [
-      { navIndex: 1, type: 'bankOffers', category: 'immobilier', icon: 'fa-building-columns', badge: 'ⴰⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵖⵉⵎ', title: 'ⵉⴼⵔⴰⵏ ⵏ ⵉⴱⴰⵏⴽⵏ — ⴰⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵖⵉⵎ', intro: 'ⴰⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵖⵉⵎ ⴷ ⵉⴱⴰⵏⴽⵏ ⵉⵣⴷⵉⵏ. ⵙⵉⴷⵔ ⵜⴰⴽⴰⵔⴹⴰ ⵏ ⴽⵓ ⴱⴰⵏⴽ.' },
-      { navIndex: 2, type: 'bankOffers', category: 'consommation', icon: 'fa-credit-card', badge: 'ⴰⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵙⵉⵜⵎ', title: 'ⵉⴼⵔⴰⵏ ⵏ ⵉⴱⴰⵏⴽⵏ — ⴰⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵙⵉⵜⵎ', intro: 'ⴰⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵙⵉⵜⵎ ⵙ ⵜⵎⴰⵏⴰⵡⵜ ⵉⵎⵥⵍⵉⵢⵏ.' },
+      { navIndex: 1, icon: 'fa-hand-holding-heart', badge: "ⴰⵎⵓⴷⴷⵓ ⵏ ⵓⵙⵖⵉⵎ", title: "ⴰⵎⵓⴷⴷⵓ ⵏ ⵓⵙⵖⵉⵎ",
+        intro: ["ⵜⴰⵡⵉⵙⵉ ⵜⴰⴷⵔⵉⵎⵜ ⵜⴰⵎⴰⵜⴰⵢⵜ ⵜⵜⵓⵎⵓⵛⵛ ⵢⴰⵜ ⵜⵉⴽⴽⵍⵜ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵜⵜⵓⵙⵜⴰⵢⵏ ⴰⴼⴰⴷ ⴰⴷ ⵜⴰⵡⵙ ⴳ ⵓⴽⵛⵛⵓⵎ ⵖⵔ ⵓⵙⵖⵉⵎ. ⵜⴰⵏⴼⵍⵉⵜ ⴰⴷ ⵜⴰⵏⵎⴰⵍⴰⵏⵜ ⵜⵙⵙⵓⴷⵓⵙ ⵖⴰⵙ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵍⵍⵉ ⵖⵓⵔ ⵉⵍⵍⴰ ⵓⵔⴹⴰⵍ ⵏ ⵓⵙⵖⵉⵎ ⴳ ⵓⵙⵏⵜⵉ ⵏ ⵜⵏⴼⵍⵉⵜ, ⵙ ⵓⵙⵙⵓⴼⵖ ⵏ ⵜⵉⴼⵔⴽⵉⵡⵉⵏ ⵏ ⴱⴰⵏⴽ ⵉⵙⵙⵏⵜⴰⵎⵏ ⵜⵉⴼⵔⵓⵔⵉⵏ ⵏ ⵓⵔⴹⴰⵍ."],
+        beneficiariesTitle: "ⵉⵎⵙⵜⴼⴰⴷⵏ",
+        beneficiaries: [{ number: '01', text: "ⴽⵓⵍⵍⵓ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴷ ⵜⵎⵏⵅⵔⴰⵟⵉⵏ ⵏ FOS-Agri" }],
+        blocks: [{ icon: 'fa-clipboard-list', title: '', items: [{ title: "ⴰⵙⵙⴼⵜⵔ ⴷ ⵜⴳⴳⵓⵔⵉⵏ", icon: 'fa-clipboard-check', bullets: ["ⴰⵙⵙⴼⵜⵔ ⵉ ⵜⵏⴼⵍⵉⵜ ⴰⴷ ⵉⵜⵜⴳ ⵙ ⵓⵙⵉⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ ⵏ FOS-Agri.", "ⵜⴰⵙⵜⴰⵢⵜ ⵏ ⵉⵎⵙⵜⴼⴰⴷⵏ ⵜⵜⴳ ⵙ ⵓⵙⵎⵉⵍ ⵏ ⵓⵙⴽⵓⵔ ⵉⵙⵙⴰⵙⵏ ⴷ ⵉⴼⵔⴰⵔⵏ ⵉⵜⵜⵓⵙⴷⴷⵉⵏ ⵙⴳ ⵜⵙⴷⴰⵡⵉⵜ, ⴰⴼⴰⴷ ⴰⴷ ⵉⵍⵉ ⵓⵏⴱⴰⴹ ⵉⵎⵥⵍⵉ.", "ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵜⵜⵓⵙⵜⴰⵢⵏ ⵜⵜⵓⵙⵙⵏⵏ ⵙ ⵉⵎⴽⴽⵉⵏ ⵏ ⵜⵙⵜⴰⵢⵜ ⵙ ⵓⵙⵉⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ ⴷ ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵜⵙⴷⴰⵡⵉⵜ."] }] }] },
+      { navIndex: 2, type: 'bankOffers', category: 'immobilier', icon: 'fa-building-columns', badge: 'ⴰⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵖⵉⵎ', title: 'ⵉⴼⵔⴰⵏ ⵏ ⵉⴱⴰⵏⴽⵏ — ⴰⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵖⵉⵎ', intro: 'ⴰⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵖⵉⵎ ⴷ ⵉⴱⴰⵏⴽⵏ ⵉⵣⴷⵉⵏ. ⵙⵉⴷⵔ ⵜⴰⴽⴰⵔⴹⴰ ⵏ ⴽⵓ ⴱⴰⵏⴽ.' },
       { navIndex: 3, type: 'culturePartners', icon: 'fa-building', badge: 'ⵉⵎⵙⵏⴼⴰⵔⵏ ⵏ ⵓⵙⵖⵉⵎ', title: 'ⵉⵎⵙⵏⴼⴰⵔⵏ ⵏ ⵓⵙⵖⵉⵎ',
         intro: ['ⵜⵙⴽⴰ FOS-Agri ⵉⵣⴷⵡⵉⵢⵏ ⴷ ⵉⵎⵙⵏⴼⴰⵔⵏ ⵏ ⵓⵙⵖⵉⵎ ⵉ ⵓⵙⵎⵓⵜⵜⵉ, ⵙ ⵜⵎⴰⵏⴰⵡⵜ ⵉⵎⵥⵍⵉⵢⵏ, ⵏ ⵉⵙⵏⴼⴰⵔⵏ ⵏⵏⵙⵏ ⵏ ⵓⵙⵖⵉⵎ ⴰⵎⴰⵢⵏⵓ ⵏⵖ ⴰⵇⴱⵓⵔ, ⴰⴱⵏⵏⵓ, ⴰⵙⵣⵡⵔ ⵏⵖ ⴰⵙⵖ ⵏ ⵢⴰⵜ ⵜⵥⴰⵍⴰ ⴷ ⵓⴱⵏⵏⵓ ⵏⵏⵙ.', 'ⴳ ⵓⴷⴷⴰⵢ ⴰⵢⴰ, ⵉⴼⵔⴰⵏ ⵉⵜⵜⵓⵙⵙⵏⵏ:'],
         groups: [{ title: 'ⵉⵎⵙⵏⴼⴰⵔⵏ ⵏ ⵓⵙⵖⵉⵎ ⵉⵣⴷⵉⵏ', items: logementPromoteursItemsFor('ⵙⵉⴷⵔ ⴰⴼⵔⴰⵏ', 'ⵜⴰⵍⵍⴰⵙⵜ ⵏ ⵉⵙⵏⴼⴰⵔⵏ') }] },
       { navIndex: 4, icon: 'fa-helmet-safety', badge: 'ⵉⵙⵏⴼⴰⵔⵏ ⵏ ⵓⵙⵖⵉⵎ FOS-Agri', title: 'ⴰⵙⴱⵓⵖⵍⵓ ⵏ ⵉⵙⵏⴼⴰⵔⵏ ⵏ ⵓⵙⵖⵉⵎ ⵙ FOS-Agri',
-        intro: ['ⴳ ⵓⵙⵎⵓⵜⵜⵉ ⵏ ⵉⵅⴷⴷⴰⵎⵏ ⵏ ⵓⴼⴰⵔⵙ ⵏ ⵉⵙⵏⴼⴰⵔⵏ ⵉⵎⴰⵢⵏⵓⵜⵏ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏⵏⵙ, ⵜⴱⴷⴰ FOS-Agri ⴰⵙⵏⴼⵍ ⵏ ⵜⵥⴰⵍⵉⵡⵉⵏ ⵉ ⵓⴱⵏⵏⵓ ⵏ ⵓⵙⵖⵉⵎ ⴰⵏⴰⵎⵓⵔ ⴳ ⵜⵎⵓⵔⴰ ⵏ ⵜⵎⴰⵡⴰⵙⵜ ⵏ ⵜⴼⵍⴰⵃⵜ.', 'ⵉⵙⵏⴼⴰⵔⵏ ⴳⴳⵓⵔⵏⵉⵏ ⴳ ⵜⵎⴷⵉⵏⵉⵏ ⵏ ⵟⵎⴰⵕⴰ, ⵎⴽⵏⴰⵙ, ⵡⵊⴷⴰ...'] }
+        intro: ['ⴳ ⵓⵙⵎⵓⵜⵜⵉ ⵏ ⵉⵅⴷⴷⴰⵎⵏ ⵏ ⵓⴼⴰⵔⵙ ⵏ ⵉⵙⵏⴼⴰⵔⵏ ⵉⵎⴰⵢⵏⵓⵜⵏ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏⵏⵙ, ⵜⴱⴷⴰ FOS-Agri ⴰⵙⵏⴼⵍ ⵏ ⵜⵥⴰⵍⵉⵡⵉⵏ ⵉ ⵓⴱⵏⵏⵓ ⵏ ⵓⵙⵖⵉⵎ ⴰⵏⴰⵎⵓⵔ ⴳ ⵜⵎⵓⵔⴰ ⵏ ⵜⵎⴰⵡⴰⵙⵜ ⵏ ⵜⴼⵍⴰⵃⵜ.'] }
     ]
   };
 
@@ -1822,11 +1828,12 @@
     ]
   };
 
-  /* ===== Appui aux projets personnels : 5 sous-rubriques (pas de panneau "à propos") ===== */
+  /* ===== Appui aux projets personnels : panneau "À propos" + 5 sous-rubriques ===== */
   const projetsMenuItems = [
-    { id: 'financement',  icon: 'fa-building-columns', labels: { fr: 'Organismes de financement', ar: 'مؤسسات التمويل', zgh: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵔⴹ' } },
+    { id: 'a-propos',             icon: 'fa-circle-info',          labels: { fr: 'À PROPOS', ar: 'حول الخدمة', zgh: 'ⵅⴼ ⵜⵏⴼⵍⵉⵜ' } },
+    { id: 'credits-sociaux',      icon: 'fa-hand-holding-dollar',  labels: { fr: 'Crédits sociaux', ar: 'القروض الاجتماعية', zgh: 'ⵉⵔⴹⴰⵍⵏ ⵉⵏⵎⴰⵍⴰⵏ' } },
+    { id: 'offres-consommation',  icon: 'fa-credit-card',          labels: { fr: 'Offres bancaires — crédits à la consommation', ar: 'عروض بنكية — قروض الاستهلاك', zgh: 'ⵉⴼⵔⴰⵏ ⵏ ⵉⴱⴰⵏⴽⵏ — ⴰⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵙⵉⵜⵎ' } },
     { id: 'assurances',    icon: 'fa-car-burst',        labels: { fr: 'Assurance automobile', ar: 'تأمين السيارات', zgh: 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ' } },
-    { id: 'restauration',  icon: 'fa-utensils',         labels: { fr: 'Prestataires de restauration', ar: 'مقدمو خدمات الإطعام', zgh: 'ⵉⵎⴰⵜⵜⴰⵢⵏ ⵏ ⵓⵙⵓⵎⵎⵓ' } },
     { id: 'ameublement',   icon: 'fa-couch',            labels: { fr: 'Organismes d’ameublement', ar: 'مؤسسات التأثيث', zgh: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ' } },
     { id: 'transport',     icon: 'fa-route',            labels: { fr: 'Organismes de transport', ar: 'مؤسسات النقل', zgh: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ' } }
   ];
@@ -1873,37 +1880,50 @@
     return projetsTransportItems.map((it) => ({ ...it, pdfs: [{ label: downloadLabel, pdf: it.pdf }] }));
   }
 
+  const projetsCenter = {
+    fr: {
+      icon: 'fa-circle-info',
+      badge: "À propos", title: "À propos",
+      intro: "La Fondation soutient les projets personnels de ses adhérents et ce à travers l’octroi des crédits sociaux ainsi que les partenariats avec les organismes de financement.",
+      items: []
+    },
+    ar: {
+      icon: 'fa-circle-info',
+      badge: "حول الخدمة", title: "حول الخدمة",
+      intro: "تدعم المؤسسة المشاريع الشخصية لمنخرطيها من خلال منح القروض الاجتماعية وعقد شراكات مع مؤسسات التمويل.",
+      items: []
+    },
+    zgh: {
+      icon: 'fa-circle-info',
+      badge: "ⵅⴼ ⵜⵏⴼⵍⵉⵜ", title: "ⵅⴼ ⵜⵏⴼⵍⵉⵜ",
+      intro: "ⵜⴰⵙⴷⴰⵡⵉⵜ ⵜⵙⵙⵏⴷⵓⵢ ⵉⵙⵏⴼⴰⵔⵏ ⵉⵎⴰⵏⵙⴰⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵙ ⵓⴼⴽⴰ ⵏ ⵉⵔⴹⴰⵍⵏ ⵉⵏⵎⴰⵍⴰⵏ ⴷ ⵜⵉⵎⵙⴷⵓⴽⴽⴰⵍ ⴷ ⵜⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵔⴹ.",
+      items: []
+    }
+  };
+
   const projetsExtra = {
     fr: [
-      { navIndex: 0, type: 'bankOffers', category: 'consommation', icon: 'fa-building-columns', badge: 'Organismes de financement', title: 'Organismes de financement',
-        intro: [
-          'La FOS-Agri a conclu des conventions de partenariat avec des institutions bancaires et des compagnies de crédit, en négociant des taux préférentiels afin de satisfaire le besoin de ses adhérents pour le financement de leurs projets personnels.',
-          'Bénéficiaires : tous les adhérents de la FOS-Agri.',
-          'Modalités et pièces à fournir : se présenter directement auprès de l’organisme de financement conventionné, muni de la carte d’adhésion à la FOS-Agri.'
-        ] },
-      { navIndex: 1, type: 'culturePartners', icon: 'fa-car-burst', badge: 'Assurance automobile', title: 'Assurance automobile',
+      { navIndex: 1, icon: 'fa-hand-holding-dollar', badge: "Crédits sociaux", title: "Crédits sociaux",
+        intro: ["La Fondation accorde des prêts sans intérêt, pouvant aller jusqu’à 50 000 dirhams, afin de soutenir les projets personnels et les aspirations individuelles de ses adhérents."],
+        beneficiariesTitle: "Bénéficiaires",
+        beneficiaries: [{ number: '01', text: "Tous les adhérents actifs de la Fondation" }],
+        blocks: [{ icon: 'fa-clipboard-list', title: '', items: [{ title: "Inscription et modalités", icon: 'fa-clipboard-check', bullets: ["L'inscription à cette prestation s'effectue à travers l'Espace Adhérent de la FOS-Agri.", "La sélection des bénéficiaires est réalisée selon un système de scoring reposant sur des critères objectifs et transparents définis par la Fondation, garantissant l'équité dans l'attribution de la prestation.", "Les adhérents sélectionnés sont informés des résultats de la sélection via leur Espace Adhérent ainsi que par les canaux de communication de la Fondation."] }] }] },
+      { navIndex: 2, type: 'bankOffers', category: 'consommation', icon: 'fa-credit-card', badge: 'Crédits à la consommation', title: 'Offres bancaires — crédits à la consommation', intro: 'Crédits à la consommation à conditions préférentielles auprès des banques et sociétés de financement partenaires.' },
+      { navIndex: 3, type: 'culturePartners', icon: 'fa-car-burst', badge: 'Assurance automobile', title: 'Assurance automobile',
         intro: [
           'Afin de permettre à ses adhérents de bénéficier d’une assurance auto à des tarifs préférentiels, la FOS-Agri a conclu des conventions avec la Mutuelle Agricole Marocaine d’Assurances (MAMDA) et la Société Nationale de Transport et de Logistique (SNTL), offrant une panoplie de garanties avantageuses.',
           'Bénéficiaires : les adhérents, leurs conjoints et leurs enfants.',
           'Modalités et pièces à fournir : se présenter directement auprès de l’organisme d’assurances conventionné, muni de la carte d’adhésion à la FOS-Agri.'
         ],
         groups: [{ title: 'Organismes d’assurances partenaires', items: projetsAssurancesItemsFor('Télécharger l’offre', 'Avantages de l’offre', 'Conseils pratiques') }] },
-      { navIndex: 2, icon: 'fa-utensils', badge: 'Prestataires de restauration', title: 'Prestataires de restauration',
-        intro: [
-          'La FOS-Agri assure un service de restauration collective au profit du personnel des directions centrales, régionales et provinciales lors de leurs déplacements à Rabat, au niveau de trois restaurants : celui de la station Dbagh, celui du club de l’Agriculture et celui du siège de l’ONSSA.',
-          'Les repas servis sont subventionnés par la Fondation. La prestation est assurée dans le respect des normes d’hygiène et de qualité, sous le contrôle d’un organisme habilité. Pour garantir la fluidité de l’accès, les restaurants sont équipés de dispositifs d’identification nécessitant une carte d’accès.'
-        ],
-        beneficiariesTitle: 'Bénéficiaires',
-        beneficiaries: [{ number: '01', text: 'Tous les adhérents de la FOS-Agri disposant de leur carte d’adhésion (nécessaire pour le pointage).' }],
-        blocks: [{ icon: 'fa-location-dot', title: 'Restaurants disponibles', items: [{ title: 'Trois sites à Rabat', bullets: ['Restaurant de la station Dbagh', 'Restaurant du club de l’Agriculture', 'Restaurant du siège de l’ONSSA'] }] }] },
-      { navIndex: 3, type: 'culturePartners', icon: 'fa-couch', badge: 'Organismes d’ameublement', title: 'Organismes d’ameublement',
+      { navIndex: 4, type: 'culturePartners', icon: 'fa-couch', badge: 'Organismes d’ameublement', title: 'Organismes d’ameublement',
         intro: [
           'La FOS-Agri a conclu des conventions de partenariat avec des organismes d’ameublement, offrant à ses adhérents des taux de remise avantageux sur leurs achats.',
           'Bénéficiaires : tous les adhérents de la FOS-Agri.',
           'Modalités et pièces à fournir : se présenter directement auprès de l’organisme d’ameublement conventionné, muni de la carte d’adhésion à la FOS-Agri.'
         ],
         groups: [{ title: 'Organismes d’ameublement partenaires', items: projetsAmeublementItemsFor('Télécharger l’offre') }] },
-      { navIndex: 4, type: 'culturePartners', icon: 'fa-route', badge: 'Organismes de transport', title: 'Organismes de transport',
+      { navIndex: 5, type: 'culturePartners', icon: 'fa-route', badge: 'Organismes de transport', title: 'Organismes de transport',
         intro: [
           'La FOS-Agri a conclu deux conventions avec l’ONCF et la compagnie Supratours, afin de faire bénéficier ses adhérents d’une offre tarifaire préférentielle.',
           'Une réduction de 30 %, dont 15 % est prise en charge par la FOS-Agri, est offerte sur les tickets de première et deuxième classe pour les trains à grande vitesse (Al Boraq), les trains de ligne, les trains de navette (à l’exception de l’axe Casablanca-Rabat-Kénitra en période de pointe) et les couchettes, sous réserve de réservation à l’avance. Une réduction de 30 %, totalement prise en charge par la FOS-Agri, s’applique par ailleurs sur les bus Supratours à l’échelle nationale.',
@@ -1913,35 +1933,27 @@
         groups: [{ title: 'Organismes de transport partenaires', items: projetsTransportItemsFor('Télécharger l’offre') }] }
     ],
     ar: [
-      { navIndex: 0, type: 'bankOffers', category: 'consommation', icon: 'fa-building-columns', badge: 'مؤسسات التمويل', title: 'مؤسسات التمويل',
-        intro: [
-          'أبرمت FOS-Agri اتفاقيات شراكة مع مؤسسات بنكية وشركات قروض، عبر التفاوض على نسب تفضيلية لتلبية حاجيات منخرطيها في تمويل مشاريعهم الشخصية.',
-          'المستفيدون: جميع منخرطي FOS-Agri.',
-          'كيفية الاستفادة والوثائق المطلوبة: التوجه مباشرة إلى مؤسسة التمويل المتعاقدة، مع الإدلاء ببطاقة الانخراط في FOS-Agri.'
-        ] },
-      { navIndex: 1, type: 'culturePartners', icon: 'fa-car-burst', badge: 'تأمين السيارات', title: 'تأمين السيارات',
+      { navIndex: 1, icon: 'fa-hand-holding-dollar', badge: "القروض الاجتماعية", title: "القروض الاجتماعية",
+        intro: ["تمنح المؤسسة قروضا بدون فوائد يمكن أن تصل إلى 50 000 درهم، من أجل دعم المشاريع الشخصية والتطلعات الفردية لمنخرطيها."],
+        beneficiariesTitle: "المستفيدون",
+        beneficiaries: [{ number: '01', text: "جميع المنخرطين في وضعية نشاط بالمؤسسة" }],
+        blocks: [{ icon: 'fa-clipboard-list', title: '', items: [{ title: "التسجيل والكيفيات", icon: 'fa-clipboard-check', bullets: ["يتم التسجيل في هذه الخدمة عبر فضاء المنخرط لدى FOS-Agri.", "تتم عملية انتقاء المستفيدين وفق نظام تنقيط مبني على معايير موضوعية وشفافة تحددها المؤسسة، بما يضمن الإنصاف في منح الخدمة.", "يتم إخبار المنخرطين المنتقين بنتائج الانتقاء عبر فضاء المنخرط ومن خلال قنوات التواصل التابعة للمؤسسة."] }] }] },
+      { navIndex: 2, type: 'bankOffers', category: 'consommation', icon: 'fa-credit-card', badge: 'قروض الاستهلاك', title: 'عروض بنكية — قروض الاستهلاك', intro: 'قروض استهلاكية بشروط تفضيلية لدى الأبناك وشركات التمويل الشريكة.' },
+      { navIndex: 3, type: 'culturePartners', icon: 'fa-car-burst', badge: 'تأمين السيارات', title: 'تأمين السيارات',
         intro: [
           'حرصا على تمكين منخرطيها من الاستفادة من تأمين للسيارات بأسعار تفضيلية، أبرمت FOS-Agri اتفاقيات مع التعاضدية الفلاحية المغربية للتأمين (MAMDA) والشركة الوطنية للنقل واللوجستيك (SNTL)، توفر مجموعة من الضمانات المهمة.',
           'المستفيدون: المنخرطون وأزواجهم وأبناؤهم.',
           'كيفية الاستفادة والوثائق المطلوبة: التوجه مباشرة إلى مؤسسة التأمين المتعاقدة، مع الإدلاء ببطاقة الانخراط في FOS-Agri.'
         ],
         groups: [{ title: 'مؤسسات التأمين الشريكة', items: projetsAssurancesItemsFor('تحميل العرض', 'مزايا العرض', 'نصائح عملية') }] },
-      { navIndex: 2, icon: 'fa-utensils', badge: 'مقدمو خدمات الإطعام', title: 'مقدمو خدمات الإطعام',
-        intro: [
-          'تضمن FOS-Agri خدمة الإطعام الجماعي لفائدة موظفي المصالح المركزية والجهوية والإقليمية خلال تنقلاتهم إلى الرباط، وذلك على مستوى ثلاثة مطاعم: مطعم محطة الدباغ، ومطعم نادي الفلاحة، ومطعم مقر ONSSA.',
-          'الوجبات المقدمة مدعمة من طرف المؤسسة. وتُقدَّم هذه الخدمة وفق معايير النظافة والجودة، تحت مراقبة هيئة مؤهلة. ولضمان سلاسة الولوج، تم تجهيز المطاعم بأجهزة تعريف تتطلب بطاقة ولوج.'
-        ],
-        beneficiariesTitle: 'المستفيدون',
-        beneficiaries: [{ number: '01', text: 'جميع منخرطي FOS-Agri الحاملين لبطاقة الانخراط (ضرورية لتسجيل الحضور).' }],
-        blocks: [{ icon: 'fa-location-dot', title: 'المطاعم المتوفرة', items: [{ title: 'ثلاثة مواقع بالرباط', bullets: ['مطعم محطة الدباغ', 'مطعم نادي الفلاحة', 'مطعم مقر ONSSA'] }] }] },
-      { navIndex: 3, type: 'culturePartners', icon: 'fa-couch', badge: 'مؤسسات التأثيث', title: 'مؤسسات التأثيث',
+      { navIndex: 4, type: 'culturePartners', icon: 'fa-couch', badge: 'مؤسسات التأثيث', title: 'مؤسسات التأثيث',
         intro: [
           'أبرمت FOS-Agri اتفاقيات شراكة مع مؤسسات التأثيث، تخول لمنخرطيها نسب تخفيض مهمة على مشترياتهم.',
           'المستفيدون: جميع منخرطي FOS-Agri.',
           'كيفية الاستفادة والوثائق المطلوبة: التوجه مباشرة إلى مؤسسة التأثيث المتعاقدة، مع الإدلاء ببطاقة الانخراط في FOS-Agri.'
         ],
         groups: [{ title: 'مؤسسات التأثيث الشريكة', items: projetsAmeublementItemsFor('تحميل العرض') }] },
-      { navIndex: 4, type: 'culturePartners', icon: 'fa-route', badge: 'مؤسسات النقل', title: 'مؤسسات النقل',
+      { navIndex: 5, type: 'culturePartners', icon: 'fa-route', badge: 'مؤسسات النقل', title: 'مؤسسات النقل',
         intro: [
           'أبرمت FOS-Agri اتفاقيتين مع المكتب الوطني للسكك الحديدية (ONCF) وشركة Supratours، لتمكين منخرطيها من الاستفادة من عروض تعريفية تفضيلية.',
           'يُمنح تخفيض بنسبة 30%، تتحمل FOS-Agri منه 15%، على تذاكر الدرجتين الأولى والثانية للقطارات فائقة السرعة (البراق)، وقطارات الخط العادي، وقطارات المكوك (باستثناء محور الدار البيضاء-الرباط-القنيطرة خلال ساعات الذروة)، وكذا العربات ذات الأسرة، وذلك رهن الحجز المسبق. كما يُطبَّق تخفيض بنسبة 30%، تتحمله FOS-Agri بالكامل، على حافلات Supratours على الصعيد الوطني.',
@@ -1951,35 +1963,27 @@
         groups: [{ title: 'مؤسسات النقل الشريكة', items: projetsTransportItemsFor('تحميل العرض') }] }
     ],
     zgh: [
-      { navIndex: 0, type: 'bankOffers', category: 'consommation', icon: 'fa-building-columns', badge: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵔⴹ', title: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵔⴹ',
-        intro: [
-          'ⵜⵙⴽⴰ FOS-Agri ⵉⵎⵙⴰⵡⴰⴹⵏ ⴷ ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵜⵉⴱⴰⵏⴽⵉⵢⵉⵏ ⴷ ⵜⵉⵎⵙⵙⵉⵡⵉⵏ ⵏ ⵉⵙⵔⴹⴰⵏ, ⵙ ⵜⵎⵏⵜⵉⵍⵜ ⵖⴼ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⴰⵢⵏ ⵉ ⵓⵙⵔⵓⵜ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴳ ⵉⵙⵏⴼⴰⵔⵏ ⵏⵏⵙⵏ ⵉⵎⴰⵏⴰⵏ.',
-          'ⵉⵎⵙⵜⴼⵉⴷⵏ: ⵎⵔⵔⴰ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ FOS-Agri.',
-          'ⵜⴰⵎⴰⵎⴽⵜ ⴷ ⵉⵙⴻⵎⴹⴰⵍ: ⵙⵉⴷⵔ ⵖⵔ ⵜⵎⴳⵓⵔⵜ ⵏ ⵓⵙⵔⴹ ⵉⵣⴷⵉⵏ, ⵙ ⵜⴽⴰⵔⴹⴰ ⵏ ⵓⵎⵓⵏ ⴳ FOS-Agri.'
-        ] },
-      { navIndex: 1, type: 'culturePartners', icon: 'fa-car-burst', badge: 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ', title: 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ',
+      { navIndex: 1, icon: 'fa-hand-holding-dollar', badge: "ⵉⵔⴹⴰⵍⵏ ⵉⵏⵎⴰⵍⴰⵏ", title: "ⵉⵔⴹⴰⵍⵏ ⵉⵏⵎⴰⵍⴰⵏ",
+        intro: ["ⵜⴰⵙⴷⴰⵡⵉⵜ ⵜⴻⵜⵜⴰⴽⴽⴰ ⵉⵔⴹⴰⵍⵏ ⴱⵍⴰ ⵜⵉⵖⴰⵡⵙⵉⵡⵉⵏ, ⴰⵔ 50 000 DH, ⴰⴼⴰⴷ ⴰⴷ ⵜⵙⵙⵏⴷⵓⵢ ⵉⵙⵏⴼⴰⵔⵏ ⵉⵎⴰⵏⵙⴰⵏ ⴷ ⵜⵉⵔⴰⵜⵉⵏ ⵜⵉⵎⴰⵏⵙⴰⵏⵉⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ."],
+        beneficiariesTitle: "ⵉⵎⵙⵜⴼⴰⴷⵏ",
+        beneficiaries: [{ number: '01', text: "ⴽⵓⵍⵍⵓ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ ⵏ ⵜⵙⴷⴰⵡⵉⵜ" }],
+        blocks: [{ icon: 'fa-clipboard-list', title: '', items: [{ title: "ⴰⵙⵙⴼⵜⵔ ⴷ ⵜⴳⴳⵓⵔⵉⵏ", icon: 'fa-clipboard-check', bullets: ["ⴰⵙⵙⴼⵜⵔ ⵉ ⵜⵏⴼⵍⵉⵜ ⴰⴷ ⵉⵜⵜⴳ ⵙ ⵓⵙⵉⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ ⵏ FOS-Agri.", "ⵜⴰⵙⵜⴰⵢⵜ ⵏ ⵉⵎⵙⵜⴼⴰⴷⵏ ⵜⵜⴳ ⵙ ⵓⵙⵎⵉⵍ ⵏ ⵓⵙⴽⵓⵔ ⵉⵙⵙⴰⵙⵏ ⴷ ⵉⴼⵔⴰⵔⵏ ⵉⵜⵜⵓⵙⴷⴷⵉⵏ ⵙⴳ ⵜⵙⴷⴰⵡⵉⵜ, ⴰⴼⴰⴷ ⴰⴷ ⵉⵍⵉ ⵓⵏⴱⴰⴹ ⵉⵎⵥⵍⵉ.", "ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵜⵜⵓⵙⵜⴰⵢⵏ ⵜⵜⵓⵙⵙⵏⵏ ⵙ ⵉⵎⴽⴽⵉⵏ ⵏ ⵜⵙⵜⴰⵢⵜ ⵙ ⵓⵙⵉⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ ⴷ ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵜⵙⴷⴰⵡⵉⵜ."] }] }] },
+      { navIndex: 2, type: 'bankOffers', category: 'consommation', icon: 'fa-credit-card', badge: 'ⴰⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵙⵉⵜⵎ', title: 'ⵉⴼⵔⴰⵏ ⵏ ⵉⴱⴰⵏⴽⵏ — ⴰⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵙⵉⵜⵎ', intro: 'ⴰⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵙⵉⵜⵎ ⵙ ⵜⵎⴰⵏⴰⵡⵜ ⵉⵎⵥⵍⵉⵢⵏ.' },
+      { navIndex: 3, type: 'culturePartners', icon: 'fa-car-burst', badge: 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ', title: 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ',
         intro: [
           'ⵉ ⵓⵙⵎⵓⵜⵜⵉ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵙ ⵜⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⴰⵢⵏ, ⵜⵙⴽⴰ FOS-Agri ⵉⵎⵙⴰⵡⴰⴹⵏ ⴷ MAMDA ⴷ SNTL.',
           'ⵉⵎⵙⵜⴼⵉⴷⵏ: ⵉⵎⵏⵅⵔⴰⵟⵏ, ⵜⵉⵔⴳⴰⵣⵉⵏ ⵏⵏⵙⵏ ⴷ ⵜⴰⵔⵡⴰ ⵏⵏⵙⵏ.',
           'ⵜⴰⵎⴰⵎⴽⵜ ⴷ ⵉⵙⴻⵎⴹⴰⵍ: ⵙⵉⴷⵔ ⵖⵔ ⵜⵎⴳⵓⵔⵜ ⵏ ⵜⵏⴰⵎⵎⴰⵍⵜ ⵉⵣⴷⵉⵏ, ⵙ ⵜⴽⴰⵔⴹⴰ ⵏ ⵓⵎⵓⵏ ⴳ FOS-Agri.'
         ],
         groups: [{ title: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵜⵏⴰⵎⵎⴰⵍⵜ ⵉⵣⴷⵉⵏ', items: projetsAssurancesItemsFor('ⵙⵉⴷⵔ ⴰⴼⵔⴰⵏ', 'ⵜⵉⵡⵜⵜⴰⵙ ⵏ ⵓⴼⵔⴰⵏ', 'ⵉⵡⵉⵙⵉⵏ') }] },
-      { navIndex: 2, icon: 'fa-utensils', badge: 'ⵉⵎⴰⵜⵜⴰⵢⵏ ⵏ ⵓⵙⵓⵎⵎⵓ', title: 'ⵉⵎⴰⵜⵜⴰⵢⵏ ⵏ ⵓⵙⵓⵎⵎⵓ',
-        intro: [
-          'ⵜⵙⴽⴰ FOS-Agri ⴰⵙⵓⵎⵎⵓ ⴰⴳⵔⴰⵡⴰⵏ ⵉ ⵉⵎⵣⵡⴰⵔⴰ ⵏ ⵜⵎⵙⵙⵓⵔⵉⵏ ⵜⵉⵏⴰⵎⵎⴰⵙⵉⵏ ⴷ ⵜⵉⵏⴰⵎⵓⵔⵉⵏ ⴳ ⵜⵉⵔⵣⴰ ⵏⵏⵙⵏ ⵖⵔ ⵕⵕⴱⴰⵟ, ⴳ ⴽⵕⴰⴹ ⵉⵎⴰⵜⵜⴰⵢⵏ: ⴰⵎⴰⵜⵜⴰⵢ ⵏ ⵜⴳⴰⵔⴰ Dbagh, ⴰⵎⴰⵜⵜⴰⵢ ⵏ ⴽⵍⵓⴱ ⵏ ⵜⴼⵍⴰⵃⵜ, ⴷ ⴰⵎⴰⵜⵜⴰⵢ ⵏ ONSSA.',
-          'ⵜⵉⵎⴻⵏⵙⵉⵡⵉⵏ ⵜⵜⵓⴷⵄⵎⵏⵜ ⵙ ⵜⵎⴰⵡⴰⵙⵜ.'
-        ],
-        beneficiariesTitle: 'ⵉⵎⵙⵜⴼⵉⴷⵏ',
-        beneficiaries: [{ number: '01', text: 'ⵎⵔⵔⴰ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ FOS-Agri ⵢⵓⵙⵏⵉⵏ ⵜⴰⴽⴰⵔⴹⴰ ⵏ ⵓⵎⵓⵏ.' }],
-        blocks: [{ icon: 'fa-location-dot', title: 'ⵉⵎⴰⵜⵜⴰⵢⵏ ⵢⵍⵍⴰⵏ', items: [{ title: 'ⴽⵕⴰⴹ ⵉⵙⵓⴳⴰⵎ ⴳ ⵕⵕⴱⴰⵟ', bullets: ['ⴰⵎⴰⵜⵜⴰⵢ ⵏ ⵜⴳⴰⵔⴰ Dbagh', 'ⴰⵎⴰⵜⵜⴰⵢ ⵏ ⴽⵍⵓⴱ ⵏ ⵜⴼⵍⴰⵃⵜ', 'ⴰⵎⴰⵜⵜⴰⵢ ⵏ ONSSA'] }] }] },
-      { navIndex: 3, type: 'culturePartners', icon: 'fa-couch', badge: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ', title: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ',
+      { navIndex: 4, type: 'culturePartners', icon: 'fa-couch', badge: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ', title: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ',
         intro: [
           'ⵜⵙⴽⴰ FOS-Agri ⵉⵎⵙⴰⵡⴰⴹⵏ ⴷ ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ, ⵢⴰⴽⴼⵏ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⴰⵢⵏ.',
           'ⵉⵎⵙⵜⴼⵉⴷⵏ: ⵎⵔⵔⴰ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ FOS-Agri.',
           'ⵜⴰⵎⴰⵎⴽⵜ ⴷ ⵉⵙⴻⵎⴹⴰⵍ: ⵙⵉⴷⵔ ⵖⵔ ⵜⵎⴳⵓⵔⵜ ⵏ ⵓⵙⵎⵓⵜⵜⴳ ⵉⵣⴷⵉⵏ, ⵙ ⵜⴽⴰⵔⴹⴰ ⵏ ⵓⵎⵓⵏ ⴳ FOS-Agri.'
         ],
         groups: [{ title: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ ⵉⵣⴷⵉⵏ', items: projetsAmeublementItemsFor('ⵙⵉⴷⵔ ⴰⴼⵔⴰⵏ') }] },
-      { navIndex: 4, type: 'culturePartners', icon: 'fa-route', badge: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ', title: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ',
+      { navIndex: 5, type: 'culturePartners', icon: 'fa-route', badge: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ', title: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ',
         intro: [
           'ⵜⵙⴽⴰ FOS-Agri ⵙⵉⵏ ⵉⵎⵙⴰⵡⴰⴹⵏ ⴷ ONCF ⴷ Supratours, ⵉ ⵓⵙⵎⵓⵜⵜⵉ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⴰⵢⵏ.',
           'ⵉⵎⵙⵜⴼⵉⴷⵏ: ⵉⵎⵏⵅⵔⴰⵟⵏ, ⵜⵉⵔⴳⴰⵣⵉⵏ ⵏⵏⵙⵏ ⴷ ⵜⴰⵔⵡⴰ ⵏⵏⵙⵏ ⵙⴳ 4 ⴰⵔ 21 ⵏ ⵉⵙⴳⴳⵯⴰⵙⵏ.',
@@ -2610,6 +2614,7 @@
         ...text,
         menuItems,
         chips: menuItems.map((item) => item.label),
+        centerMedical: projetsCenter[lang] || projetsCenter.fr,
         extraSections: projetsExtra[lang] || projetsExtra.fr
       };
     }
@@ -2657,7 +2662,7 @@
             <h2>${esc(center.title)}</h2>
             <p>${esc(center.intro)}</p>
           </div>
-          <div class="prestation-accordion" data-prestation-accordion>
+          ${center.items?.length ? `<div class="prestation-accordion" data-prestation-accordion>
             ${center.items.map((entry, index) => `
               <article class="prestation-accordion-item" id="${subrubriqueId(Number.isInteger(entry.navIndex) ? entry.navIndex : index + 1)}">
                 <button class="prestation-accordion-trigger" type="button" aria-expanded="false">
@@ -2673,7 +2678,7 @@
                   ${entry.seeMore ? `<a class="prestation-see-more" href="#${subrubriqueId(Number.isInteger(entry.navIndex) ? entry.navIndex : index + 1)}">${esc(t('seeMore'))} <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>` : ''}
                 </div>
               </article>`).join('')}
-          </div>
+          </div>` : ''}
         </div>
       </section>`;
   }

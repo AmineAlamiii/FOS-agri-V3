@@ -128,7 +128,7 @@
     prevoyance: 'prevoyance medico sociale medical assurance assistance sante transport sanitaire centre medical',
     culture: 'culture loisirs voyages colonies omra pelerinage ceremonies conventions',
     scolarisation: 'scolarisation formation coaching scolaire bourses excellence rentree education',
-    logement: 'logement habitat aide logement credit banque promoteur immobilier',
+    logement: 'logement habitat appui logement aide credit banque promoteur immobilier',
     projets: 'projets personnels credits sociaux financement partenariat tarifs preferentiels',
     quotidien: 'services du quotidien restauration collective restaurant cantine transport du personnel bus',
     docSpace: 'espace documentaire documents telechargement fichiers ressources',
