@@ -17,7 +17,8 @@
     culture: 'fa-plane-departure',
     formation: 'fa-graduation-cap',
     logement: 'fa-house-chimney',
-    projets: 'fa-hand-holding-dollar'
+    projets: 'fa-hand-holding-dollar',
+    quotidien: 'fa-utensils'
   };
 
   const prevoyanceMenuItems = [
@@ -82,7 +83,8 @@
     culture: ['fa-circle-info', 'fa-umbrella-beach', 'fa-child-reaching', 'fa-language', 'fa-campground', 'fa-bus', 'fa-kaaba', 'fa-place-of-worship', 'fa-award', 'fa-handshake', 'fa-suitcase-medical'],
     formation: ['fa-circle-info', 'fa-chalkboard-user', 'fa-medal', 'fa-hand-holding-heart', 'fa-sack-dollar', 'fa-handshake'],
     logement: ['fa-circle-info', 'fa-hand-holding-heart', 'fa-building-columns', 'fa-building', 'fa-helmet-safety'],
-    projets: ['fa-circle-info', 'fa-hand-holding-dollar', 'fa-credit-card', 'fa-car-burst', 'fa-couch', 'fa-route']
+    projets: ['fa-circle-info', 'fa-hand-holding-dollar', 'fa-credit-card', 'fa-car-burst', 'fa-couch', 'fa-route'],
+    quotidien: ['fa-circle-info', 'fa-utensils', 'fa-bus']
   };
 
   const image = {
@@ -90,7 +92,9 @@
     culture: 'assets/images/prestation-culture-hero.png',
     formation: 'assets/images/prestation-formation-hero.png',
     logement: 'assets/images/prestation-logement-hero.png',
-    projets: 'assets/images/prestation-projets-hero.png'
+    projets: 'assets/images/prestation-projets-hero.png',
+    /* Image provisoire : à remplacer par un visuel dédié aux services du quotidien. */
+    quotidien: 'assets/images/prestation-projets-hero.png'
   };
 
   let selectedService = 'prevoyance';
@@ -1350,6 +1354,45 @@
         partners: ['Banque Populaire', 'Wafa Salaf', 'Crédit du Maroc', 'CFG Bank', 'Salafin', 'Eqdom', 'Attijari Wafa Bank', 'MAMDA', 'SNTL', 'Kitea', 'Biougnach', 'Mobilia Triangle d’Or', 'ONCF', 'Supratours'],
         steps: [['ⴰⵙⵔⵓⵜ', 'ⵙⵙⵏ ⵜⴰⵏⴼⴰ ⵢⵍⴰⵇⵏ: ⴰⵙⵔⴹ, ⵜⴰⵏⴰⵎⵎⴰⵍⵜ, ⴰⵙⵎⵓⵜⵜⴳ ⵏⵖ ⴰⵣⵣⵓⵖⵔ.'], ['ⴰⵣⴷⴰⵢ', 'ⴼⵔⵏ ⵜⴰⵎⴳⵓⵔⵜ ⵉⵣⴷⵉⵏ ⵢⵍⴰⵇⵏ.'], ['ⵜⴰⴽⴰⵔⴹⴰ ⵏ ⵓⵎⵓⵏ', 'ⵙⵉⴷⵔ ⵙ ⵜⴽⴰⵔⴹⴰ ⵏ ⵓⵎⵓⵏ ⴳ FOS-Agri.'], ['ⴰⴼⵔⴰⵏ', 'ⵙⵉⴷⵔ ⵜⴰⴱⵔⴰⵜ ⵏ ⵓⴼⵔⴰⵏ ⵉⵍⴰⵇⵏ.']]
       }
+    },
+    quotidien: {
+      href: 'services/services-quotidien.html',
+      fr: {
+        title: "Services du quotidien",
+        meta: "Restauration et transport du personnel",
+        summary: "La Fondation met à disposition des adhérents des services destinés à faciliter leur quotidien professionnel, notamment la restauration collective et le transport du personnel.",
+        stats: [],
+        chips: ["Restauration collective", "Transport du personnel"],
+        overview: "La Fondation met à disposition des adhérents des services destinés à faciliter leur quotidien professionnel, notamment la restauration collective et le transport du personnel.",
+        highlights: ["Restauration collective.", "Transport du personnel."],
+        features: [["Restauration collective", "La Fondation met à disposition des adhérents des services destinés à faciliter leur quotidien professionnel, notamment la restauration collective et le transport du personnel."], ["Transport du personnel", "Un service de transport collectif destiné à faciliter les déplacements quotidiens des adhérents vers leurs lieux de travail, tout en réduisant les contraintes de mobilité et les frais de transport, et en contribuant à l’amélioration de leurs conditions de vie professionnelle."]],
+        partners: [],
+        steps: []
+      },
+      ar: {
+        title: "خدمات الحياة اليومية",
+        meta: "الإطعام ونقل الموظفين",
+        summary: "تضع المؤسسة رهن إشارة المنخرطين خدمات تهدف إلى تسهيل حياتهم المهنية اليومية، لا سيما الإطعام الجماعي ونقل الموظفين.",
+        stats: [],
+        chips: ["الإطعام الجماعي", "نقل الموظفين"],
+        overview: "تضع المؤسسة رهن إشارة المنخرطين خدمات تهدف إلى تسهيل حياتهم المهنية اليومية، لا سيما الإطعام الجماعي ونقل الموظفين.",
+        highlights: ["الإطعام الجماعي.", "نقل الموظفين."],
+        features: [["الإطعام الجماعي", "تضع المؤسسة رهن إشارة المنخرطين خدمات تهدف إلى تسهيل حياتهم المهنية اليومية، لا سيما الإطعام الجماعي ونقل الموظفين."], ["نقل الموظفين", "خدمة للنقل الجماعي تهدف إلى تسهيل التنقلات اليومية للمنخرطين نحو أماكن عملهم، مع التقليص من إكراهات التنقل ومصاريفه، والمساهمة في تحسين ظروف حياتهم المهنية."]],
+        partners: [],
+        steps: []
+      },
+      zgh: {
+        title: "ⵉⵎⴰⵍⴰⵙⵙⵏ ⵏ ⵓⵙⵙ ⵙ ⵡⴰⵙⵙ",
+        meta: "ⴰⵙⵓⵎⵎⵓ ⴷ ⵓⵙⵙⵉⵡⴹ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ",
+        summary: "ⵜⴰⵙⴷⴰⵡⵉⵜ ⵜⵙⵙⵓⴼⵓⵖ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵎⴰⵍⴰⵙⵙⵏ ⵉⵜⵜⵙⵙⴰⵀⴰⵍⵏ ⵜⵓⴷⵔⵜ ⵏⵏⵙⵏ ⵏ ⵜⵡⵓⵔⵉ ⵏ ⵓⵙⵙ ⵙ ⵡⴰⵙⵙ, ⵎⴰⵙ ⴷ ⴰⵙⵓⵎⵎⵓ ⴰⵎⵓⵏ ⴷ ⵓⵙⵙⵉⵡⴹ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ.",
+        stats: [],
+        chips: ["ⴰⵙⵓⵎⵎⵓ ⴰⵎⵓⵏ", "ⴰⵙⵙⵉⵡⴹ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ"],
+        overview: "ⵜⴰⵙⴷⴰⵡⵉⵜ ⵜⵙⵙⵓⴼⵓⵖ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵎⴰⵍⴰⵙⵙⵏ ⵉⵜⵜⵙⵙⴰⵀⴰⵍⵏ ⵜⵓⴷⵔⵜ ⵏⵏⵙⵏ ⵏ ⵜⵡⵓⵔⵉ ⵏ ⵓⵙⵙ ⵙ ⵡⴰⵙⵙ, ⵎⴰⵙ ⴷ ⴰⵙⵓⵎⵎⵓ ⴰⵎⵓⵏ ⴷ ⵓⵙⵙⵉⵡⴹ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ.",
+        highlights: ["ⴰⵙⵓⵎⵎⵓ ⴰⵎⵓⵏ.", "ⴰⵙⵙⵉⵡⴹ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ."],
+        features: [["ⴰⵙⵓⵎⵎⵓ ⴰⵎⵓⵏ", "ⵜⴰⵙⴷⴰⵡⵉⵜ ⵜⵙⵙⵓⴼⵓⵖ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵎⴰⵍⴰⵙⵙⵏ ⵉⵜⵜⵙⵙⴰⵀⴰⵍⵏ ⵜⵓⴷⵔⵜ ⵏⵏⵙⵏ ⵏ ⵜⵡⵓⵔⵉ ⵏ ⵓⵙⵙ ⵙ ⵡⴰⵙⵙ, ⵎⴰⵙ ⴷ ⴰⵙⵓⵎⵎⵓ ⴰⵎⵓⵏ ⴷ ⵓⵙⵙⵉⵡⴹ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ."], ["ⴰⵙⵙⵉⵡⴹ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ", "ⵜⴰⵏⴼⵍⵉⵜ ⵏ ⵓⵙⵙⵉⵡⴹ ⴰⵎⵓⵏ ⵉⵜⵜⵙⵙⴰⵀⴰⵍⵏ ⴰⵎⵓⵙⵙⵓ ⵏ ⵓⵙⵙ ⵙ ⵡⴰⵙⵙ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵖⵔ ⵉⴷⵖⴰⵔⵏ ⵏ ⵜⵡⵓⵔⵉ ⵏⵏⵙⵏ, ⵙ ⵓⵙⵎⵥⵉ ⵏ ⵉⵎⵓⴽⵔⵉⵙⵏ ⴷ ⵜⵉⵙⵉⵔⴰⴼ ⵏ ⵓⵎⵓⵙⵙⵓ, ⴷ ⵓⵙⵖⵓⴷⵓ ⵏ ⵜⵙⴰⴳⴰⵡⵉⵏ ⵏ ⵜⵓⴷⵔⵜ ⵏⵏⵙⵏ ⵏ ⵜⵡⵓⵔⵉ."]],
+        partners: [],
+        steps: []
+      }
     }
   };
 
@@ -1993,6 +2036,77 @@
     ]
   };
 
+  /* ===== Services du quotidien : À propos + restauration collective + transport du personnel ===== */
+  const quotidienMenuItems = [
+    { id: 'a-propos',     icon: 'fa-circle-info', labels: { fr: 'À PROPOS', ar: 'حول الخدمة', zgh: 'ⵅⴼ ⵜⵏⴼⵍⵉⵜ' } },
+    { id: 'restauration', icon: 'fa-utensils',    labels: { fr: 'Restauration collective', ar: 'الإطعام الجماعي', zgh: 'ⴰⵙⵓⵎⵎⵓ ⴰⵎⵓⵏ' } },
+    { id: 'transport-personnel', icon: 'fa-bus',  labels: { fr: 'Transport du personnel', ar: 'نقل الموظفين', zgh: 'ⴰⵙⵙⵉⵡⴹ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ' } }
+  ];
+
+  function localizedQuotidienMenu(targetLang = lang) {
+    return quotidienMenuItems.map((item) => ({ id: item.id, icon: item.icon, label: item.labels[targetLang] || item.labels.fr }));
+  }
+
+  const quotidienCenter = {
+    fr: {
+      icon: 'fa-circle-info',
+      badge: "À propos", title: "À propos",
+      intro: "La Fondation met à disposition des adhérents des services destinés à faciliter leur quotidien professionnel, notamment la restauration collective et le transport du personnel.",
+      items: []
+    },
+    ar: {
+      icon: 'fa-circle-info',
+      badge: "حول الخدمة", title: "حول الخدمة",
+      intro: "تضع المؤسسة رهن إشارة المنخرطين خدمات تهدف إلى تسهيل حياتهم المهنية اليومية، لا سيما الإطعام الجماعي ونقل الموظفين.",
+      items: []
+    },
+    zgh: {
+      icon: 'fa-circle-info',
+      badge: "ⵅⴼ ⵜⵏⴼⵍⵉⵜ", title: "ⵅⴼ ⵜⵏⴼⵍⵉⵜ",
+      intro: "ⵜⴰⵙⴷⴰⵡⵉⵜ ⵜⵙⵙⵓⴼⵓⵖ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵎⴰⵍⴰⵙⵙⵏ ⵉⵜⵜⵙⵙⴰⵀⴰⵍⵏ ⵜⵓⴷⵔⵜ ⵏⵏⵙⵏ ⵏ ⵜⵡⵓⵔⵉ ⵏ ⵓⵙⵙ ⵙ ⵡⴰⵙⵙ, ⵎⴰⵙ ⴷ ⴰⵙⵓⵎⵎⵓ ⴰⵎⵓⵏ ⴷ ⵓⵙⵙⵉⵡⴹ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ.",
+      items: []
+    }
+  };
+
+  const quotidienExtra = {
+    fr: [
+      { navIndex: 1, icon: 'fa-utensils', badge: 'Restauration collective', title: 'Restauration collective',
+        intro: [
+          'La FOS-Agri assure un service de restauration collective au profit du personnel des directions centrales, régionales et provinciales lors de leurs déplacements à Rabat, au niveau de quatre restaurants : celui de la station Dbagh, celui du club de l’Agriculture, celui du siège de l’ONSSA et celui du siège du ministère.',
+          'Les repas servis sont subventionnés par la Fondation. La prestation est assurée dans le respect des normes d’hygiène et de qualité, sous le contrôle d’un organisme habilité. Pour garantir la fluidité de l’accès, les restaurants sont équipés de dispositifs d’identification nécessitant une carte d’accès.'
+        ],
+        beneficiariesTitle: 'Bénéficiaires',
+        beneficiaries: [{ number: '01', text: 'Tous les adhérents de la FOS-Agri disposant de leur carte d’adhésion (nécessaire pour le pointage).' }],
+        blocks: [{ icon: 'fa-location-dot', title: 'Restaurants disponibles', items: [{ title: 'Quatre sites à Rabat', bullets: ['Restaurant de la station Dbagh', 'Restaurant du club de l’Agriculture', 'Restaurant du siège de l’ONSSA', 'Restaurant du siège du ministère'] }] }] },
+      { navIndex: 2, icon: 'fa-bus', badge: "Transport du personnel", title: "Transport du personnel",
+        intro: ["Un service de transport collectif destiné à faciliter les déplacements quotidiens des adhérents vers leurs lieux de travail, tout en réduisant les contraintes de mobilité et les frais de transport, et en contribuant à l’amélioration de leurs conditions de vie professionnelle."] }
+    ],
+    ar: [
+      { navIndex: 1, icon: 'fa-utensils', badge: 'الإطعام الجماعي', title: 'الإطعام الجماعي',
+        intro: [
+          'تضمن FOS-Agri خدمة الإطعام الجماعي لفائدة موظفي المصالح المركزية والجهوية والإقليمية خلال تنقلاتهم إلى الرباط، وذلك على مستوى أربعة مطاعم: مطعم محطة الدباغ، ومطعم نادي الفلاحة، ومطعم مقر ONSSA، ومطعم مقر الوزارة.',
+          'الوجبات المقدمة مدعمة من طرف المؤسسة. وتُقدَّم هذه الخدمة وفق معايير النظافة والجودة، تحت مراقبة هيئة مؤهلة. ولضمان سلاسة الولوج، تم تجهيز المطاعم بأجهزة تعريف تتطلب بطاقة ولوج.'
+        ],
+        beneficiariesTitle: 'المستفيدون',
+        beneficiaries: [{ number: '01', text: 'جميع منخرطي FOS-Agri الحاملين لبطاقة الانخراط (ضرورية لتسجيل الحضور).' }],
+        blocks: [{ icon: 'fa-location-dot', title: 'المطاعم المتوفرة', items: [{ title: 'أربعة مواقع بالرباط', bullets: ['مطعم محطة الدباغ', 'مطعم نادي الفلاحة', 'مطعم مقر ONSSA', 'مطعم مقر الوزارة'] }] }] },
+      { navIndex: 2, icon: 'fa-bus', badge: "نقل الموظفين", title: "نقل الموظفين",
+        intro: ["خدمة للنقل الجماعي تهدف إلى تسهيل التنقلات اليومية للمنخرطين نحو أماكن عملهم، مع التقليص من إكراهات التنقل ومصاريفه، والمساهمة في تحسين ظروف حياتهم المهنية."] }
+    ],
+    zgh: [
+      { navIndex: 1, icon: 'fa-utensils', badge: 'ⴰⵙⵓⵎⵎⵓ ⴰⵎⵓⵏ', title: 'ⴰⵙⵓⵎⵎⵓ ⴰⵎⵓⵏ',
+        intro: [
+          'ⵜⵙⴽⴰ FOS-Agri ⴰⵙⵓⵎⵎⵓ ⴰⴳⵔⴰⵡⴰⵏ ⵉ ⵉⵎⵣⵡⴰⵔⴰ ⵏ ⵜⵎⵙⵙⵓⵔⵉⵏ ⵜⵉⵏⴰⵎⵎⴰⵙⵉⵏ ⴷ ⵜⵉⵏⴰⵎⵓⵔⵉⵏ ⴳ ⵜⵉⵔⵣⴰ ⵏⵏⵙⵏ ⵖⵔ ⵕⵕⴱⴰⵟ, ⴳ ⴽⴽⵓⵥ ⵉⵙⵓⵎⵎⵓⵜⵏ : ⵡⵉⵏ ⵜⵙⵜⴰⵙⵢⵓⵏ ⵏ ⴷⴱⴰⵖ, ⵡⵉⵏ ⴽⵍⵓⴱ ⵏ ⵜⴼⵍⴰⵃⵜ, ⵡⵉⵏ ⵓⵙⵉⵔⴰ ⵏ ONSSA ⴷ ⵡⵉⵏ ⵓⵙⵉⵔⴰ ⵏ ⵜⵎⴰⵡⴰⵙⵜ.',
+          'ⵜⵉⵎⴻⵏⵙⵉⵡⵉⵏ ⵜⵜⵓⴷⵄⵎⵏⵜ ⵙ ⵜⵎⴰⵡⴰⵙⵜ.'
+        ],
+        beneficiariesTitle: 'ⵉⵎⵙⵜⴼⵉⴷⵏ',
+        beneficiaries: [{ number: '01', text: 'ⵎⵔⵔⴰ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ FOS-Agri ⵢⵓⵙⵏⵉⵏ ⵜⴰⴽⴰⵔⴹⴰ ⵏ ⵓⵎⵓⵏ.' }],
+        blocks: [{ icon: 'fa-location-dot', title: 'ⵉⵎⴰⵜⵜⴰⵢⵏ ⵢⵍⵍⴰⵏ', items: [{ title: 'ⴽⴽⵓⵥ ⵉⴷⵖⴰⵔⵏ ⴳ ⵕⵕⴱⴰⵟ', bullets: ['ⴰⵙⵓⵎⵎⵓⵜ ⵏ ⵜⵙⵜⴰⵙⵢⵓⵏ ⵏ ⴷⴱⴰⵖ', 'ⴰⵙⵓⵎⵎⵓⵜ ⵏ ⴽⵍⵓⴱ ⵏ ⵜⴼⵍⴰⵃⵜ', 'ⴰⵙⵓⵎⵎⵓⵜ ⵏ ⵓⵙⵉⵔⴰ ⵏ ONSSA', 'ⴰⵙⵓⵎⵎⵓⵜ ⵏ ⵓⵙⵉⵔⴰ ⵏ ⵜⵎⴰⵡⴰⵙⵜ'] }] }] },
+      { navIndex: 2, icon: 'fa-bus', badge: "ⴰⵙⵙⵉⵡⴹ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ", title: "ⴰⵙⵙⵉⵡⴹ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ",
+        intro: ["ⵜⴰⵏⴼⵍⵉⵜ ⵏ ⵓⵙⵙⵉⵡⴹ ⴰⵎⵓⵏ ⵉⵜⵜⵙⵙⴰⵀⴰⵍⵏ ⴰⵎⵓⵙⵙⵓ ⵏ ⵓⵙⵙ ⵙ ⵡⴰⵙⵙ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵖⵔ ⵉⴷⵖⴰⵔⵏ ⵏ ⵜⵡⵓⵔⵉ ⵏⵏⵙⵏ, ⵙ ⵓⵙⵎⵥⵉ ⵏ ⵉⵎⵓⴽⵔⵉⵙⵏ ⴷ ⵜⵉⵙⵉⵔⴰⴼ ⵏ ⵓⵎⵓⵙⵙⵓ, ⴷ ⵓⵙⵖⵓⴷⵓ ⵏ ⵜⵙⴰⴳⴰⵡⵉⵏ ⵏ ⵜⵓⴷⵔⵜ ⵏⵏⵙⵏ ⵏ ⵜⵡⵓⵔⵉ."] }
+    ]
+  };
+
   /* ===== Culture, loisirs et voyages : 9 rubriques de contenu + partenariats ===== */
   const cultureMenuItems = [
     { id: 'a-propos',          icon: 'fa-circle-info',      labels: { fr: 'À PROPOS', ar: 'حول الخدمة', zgh: 'ⵅⴼ ⵜⵏⴼⵍⵉⵜ' } },
@@ -2616,6 +2730,16 @@
         chips: menuItems.map((item) => item.label),
         centerMedical: projetsCenter[lang] || projetsCenter.fr,
         extraSections: projetsExtra[lang] || projetsExtra.fr
+      };
+    }
+    if (key === 'quotidien') {
+      const menuItems = localizedQuotidienMenu(lang);
+      return {
+        ...text,
+        menuItems,
+        chips: menuItems.map((item) => item.label),
+        centerMedical: quotidienCenter[lang] || quotidienCenter.fr,
+        extraSections: quotidienExtra[lang] || quotidienExtra.fr
       };
     }
     return text;
