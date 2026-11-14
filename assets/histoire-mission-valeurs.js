@@ -50,20 +50,14 @@
 
       'sections.mission.tag': 'Mission',
       'sections.mission.title': 'Notre mission',
-      'sections.mission.paragraph1': "Accompagner, soutenir et valoriser les femmes et les hommes du secteur agricole à travers des prestations sociales de proximité, accessibles et de qualité.",
-      'sections.mission.paragraph2': "Renforcer la solidarité au sein de la grande famille du Ministère de l'Agriculture en développant des services adaptés aux besoins des adhérents, des retraités et de leurs familles.",
-      'sections.mission.pillar1': 'Solidarité de proximité',
-      'sections.mission.pillar2': 'Couverture médico-sociale',
-      'sections.mission.pillar3': 'Soutien aux familles',
+      'sections.mission.paragraph1': "Depuis sa création, la mission de la FOS-Agri est d'améliorer les conditions de vie et de travail du personnel de Département de l'Agriculture et de favoriser leur épanouissement.",
+      'sections.mission.paragraph2': "Cette mission est alimentée par la conviction intime, de l'ensemble des parties prenantes de la FOS-Agri, que les œuvres sociales constituent un levier fondamental dans la motivation du capital humain.",
+      'sections.mission.paragraph3': "La volonté derrière cette création de la Fondation est de donner un nouvel élan aux œuvres sociales et de permettre au Département de marquer un saut qualitatif dans le développement de l'action sociale tout en favorisant les meilleures conditions pour l'épanouissement du personnel.",
       'sections.mission.quote': "« Une Fondation au service de la famille du Ministère de l'Agriculture. »",
 
       'sections.values.tag': 'Principes fondateurs',
       'sections.values.title': 'Une action guidée par quatre engagements',
       'sections.values.intro': "Les principes qui guident l'action sociale de la FOS-Agri.",
-
-      'cta.title': 'Vous souhaitez en savoir plus sur la Fondation ?',
-      'cta.subtitle': "Découvrez la gouvernance, les prestations et l'espace adhérent.",
-      'cta.button': 'Retour à la Fondation',
 
       'timeline.loading': 'Chargement de la chronologie…',
       'timeline.empty': "Aucune étape n'est disponible pour le moment.",
@@ -80,44 +74,50 @@
       'values.inclusion.desc': "Garantir l'accès aux prestations sociales à l'ensemble des agents actifs ou retraités du Département, indépendamment de leur grade, de leur genre, de leur région ou de leur fonction.",
 
       // Timeline content
-      'timeline.2015.title': 'Naissance de la Fondation',
-      'timeline.2015.creation': 'Création de la FOS-Agri',
-      'timeline.2015.governance': 'Mise en place des organes de gouvernance',
+      'timeline.2015_2017.1': 'Création de la FOS-Agri.',
+      'timeline.2015_2017.2': 'Mise en place des organes de gouvernance.',
+      'timeline.2015_2017.3': 'Lancement des prestations.',
+      'timeline.2015_2017.4': 'Instauration des outils de gestion.',
+      'timeline.2015_2017.5': 'Déploiement des prestations phares relatives de l\'AMC et de l\'AMTS.',
+      'timeline.2015_2017.6': 'Mise en place du portail de la FOS-Agri.',
 
-      'timeline.2016.title': 'Lancement opérationnel',
-      'timeline.2016.services': 'Lancement des prestations',
-      'timeline.2016.tools': 'Instauration des outils de gestion',
-
-      'timeline.2017.title': 'Déploiement des prestations phares',
-      'timeline.2017.amc_amts': "Déploiement des prestations phares relatives à l'AMC et à l'AMTS",
-
-      'timeline.2018.title': 'Adaptation et digitalisation',
-      'timeline.2018.health': "Adaptation de l'offre à la situation sanitaire",
-      'timeline.2018.app': "Lancement de l'application FOSAGRI",
-      'timeline.2018.digital': 'Déploiement de la communication digitale',
+      'timeline.2018.1': 'Étude de l\'impact de l\'élargissement de l\'assiette des adhérents, incluant les retraités ainsi que le personnel des établissements sous-tutelle.',
 
       'timeline.2019.title': 'Ouverture et ancrage régional',
-      'timeline.2019.retirees': 'Intégration des retraités',
-      'timeline.2019.relais': "Nomination des relais régionaux afin de garantir une coordination optimale à l'échelle régionale.",
+      'timeline.2019.1': 'Intégration des retraités.',
+      'timeline.2019.2': 'Nomination des relais régionaux afin de garantir une coordination optimale à l\'échelle régionale.',
+      'timeline.2019.3': 'Lancement de la plateforme E-services d\'adhésion et prestations sociales.',
+
+      'timeline.2020.1': 'Adaptation de l\'offre à la situation sanitaire.',
+      'timeline.2020.2': 'Lancement de l\'application FOSAGRI.',
+      'timeline.2020.3': 'Déploiement de la communication digitale.',
 
       'timeline.2021.title': 'Élargissement et nouveaux crédits',
-      'timeline.2021.onssa': "Intégration de l'ONSSA et de l'ONCA",
-      'timeline.2021.credits': 'Lancement des crédits sociaux et de la bonification des crédits au logement',
+      'timeline.2021.1': 'Intégration de l\'ONSSA et l\'ONCA.',
+      'timeline.2021.2': 'Lancement des crédits sociaux et de la bonification aux crédits de logement.',
 
       'timeline.2022.title': "Ouverture du Club de l'Agriculture",
-      'timeline.2022.club_provided': 'Mise du club à la disposition de la FOS-Agri',
-      'timeline.2022.club_open': 'Ouverture du club',
-      'timeline.2022.club_services': "Lancement des prestations du Club de l'Agriculture",
+      'timeline.2022.1': 'Mise à la disposition du club auprès de la FOS-Agri.',
+      'timeline.2022.2': 'Ouverture du club.',
+      'timeline.2022.3': 'Lancement de la plateforme E-services des prestations du club.',
 
       'timeline.2023.title': 'Nouvelles aides et partenariats',
-      'timeline.2023.housing': "Mise en place de la nouvelle formule d'aide au logement",
-      'timeline.2023.partners': 'Signature de nouveaux partenariats',
-      'timeline.2023.medical': 'Ouverture du nouveau centre médical',
+      'timeline.2023.1': 'Mise en place de la nouvelle formule d\'aide au logement.',
+      'timeline.2023.2': 'Ouverture du nouveau centre médical.',
 
       'timeline.2024.title': 'Enrichissement des prestations',
-      'timeline.2024.amts': "Enrichissement du panier de l'AMTS",
-      'timeline.2024.medical_new': 'Mise en place de nouvelles prestations au niveau du centre médical',
-      'timeline.2024.partners': 'Signature de nouveaux partenariats',
+      'timeline.2024.1': 'Mise en place d\'un cadre de gouvernance afin de structurer les processus décisionnels.',
+      'timeline.2024.2': 'Enrichissement du panier de l\'AMTS.',
+      'timeline.2024.3': 'Mise en place de nouvelles prestations au niveau du centre médical.',
+
+      'timeline.2025.1': 'Enrichissement de l\'offre AMC par l\'introduction d\'une nouvelle option.',
+      'timeline.2025.2': 'Lancement du tournois « Génération Green ».',
+      'timeline.2025.3': 'Organisation d\'un Camp Ado au profit des enfants des adhérents.',
+      'timeline.2025.4': 'Déploiement de cours de soutien scolaire à distance.',
+      'timeline.2025.5': 'Instauration d\'une subvention pour l\'accès aux infrastructures sportives de SONARGES.',
+      'timeline.2025.6': 'Création d\'une nouvelle prestation : la « Bourse sociale ».',
+      'timeline.2025.7': 'Restructurations du schéma directeur.',
+      'timeline.2025.8': 'Mise à jour du manuel de procédures et de la cartographie des risques.',
 
       // Values
       'values.solidarity.title': 'Solidarité',
@@ -146,20 +146,14 @@
 
       'sections.mission.tag': 'المهمة',
       'sections.mission.title': 'مهمتنا',
-      'sections.mission.paragraph1': 'مواكبة ودعم وتثمين نساء ورجال القطاع الفلاحي من خلال خدمات اجتماعية قريبة وفي المتناول وعالية الجودة.',
-      'sections.mission.paragraph2': 'تعزيز التضامن داخل الأسرة الكبرى لوزارة الفلاحة عبر تطوير خدمات تستجيب لاحتياجات المنخرطين والمتقاعدين وأسرهم.',
-      'sections.mission.pillar1': 'تضامن قريب',
-      'sections.mission.pillar2': 'تغطية طبية واجتماعية',
-      'sections.mission.pillar3': 'دعم الأسر',
+      'sections.mission.paragraph1': "منذ إحداثها، تتمثل مهمة FOS-Agri في تحسين ظروف عيش وعمل موظفي قطاع الفلاحة والعمل على تحقيق ازدهارهم.",
+      'sections.mission.paragraph2': "وتستمد هذه المهمة قوتها من القناعة الراسخة لدى جميع الأطراف المعنية بـ FOS-Agri بأن الأعمال الاجتماعية تشكل رافعة أساسية لتحفيز الرأسمال البشري.",
+      'sections.mission.paragraph3': "وتتمثل الإرادة الكامنة وراء إحداث هذه المؤسسة في إعطاء نفس جديد للأعمال الاجتماعية وتمكين القطاع من تحقيق نقلة نوعية في تطوير العمل الاجتماعي، مع توفير أفضل الظروف لازدهار الموظفين.",
       'sections.mission.quote': '«مؤسسة في خدمة أسرة وزارة الفلاحة.»',
 
       'sections.values.tag': 'مبادئ مؤسِّسة',
       'sections.values.title': 'عملنا يرتكز على أربعة التزامات',
       'sections.values.intro': 'المبادئ التي توجه العمل الاجتماعي لمؤسسة FOS-Agri.',
-
-      'cta.title': 'هل ترغبون في معرفة المزيد عن المؤسسة؟',
-      'cta.subtitle': 'تعرفوا على الحكامة والخدمات وفضاء المنخرط.',
-      'cta.button': 'العودة إلى المؤسسة',
 
       'timeline.loading': 'جارٍ تحميل التسلسل الزمني…',
       'timeline.empty': 'لا توجد محطات متاحة حالياً.',
@@ -175,44 +169,50 @@
       'values.inclusion.title': 'الإدماج',
       'values.inclusion.desc': 'ضمان الولوج إلى الخدمات الاجتماعية لجميع المنخرطين، بغض النظر عن الدرجة أو النوع أو الجهة أو الوظيفة.',
 
-      'timeline.2015.title': 'تأسيس المؤسسة',
-      'timeline.2015.creation': 'إحداث FOS-Agri',
-      'timeline.2015.governance': 'إرساء أجهزة الحكامة',
+      'timeline.2015_2017.1': 'إحداث مؤسسة FOS-Agri.',
+      'timeline.2015_2017.2': 'إرساء أجهزة الحكامة.',
+      'timeline.2015_2017.3': 'إطلاق الخدمات.',
+      'timeline.2015_2017.4': 'اعتماد أدوات التدبير.',
+      'timeline.2015_2017.5': 'تعميم الخدمات الرئيسية المتعلقة بالتأمين الصحي التكميلي (AMC) والمساعدة الطبية والنقل الصحي (AMTS).',
+      'timeline.2015_2017.6': 'إطلاق البوابة الإلكترونية لـ FOS-Agri.',
 
-      'timeline.2016.title': 'الانطلاقة العملية',
-      'timeline.2016.services': 'إطلاق الخدمات',
-      'timeline.2016.tools': 'وضع أدوات التدبير',
-
-      'timeline.2017.title': 'تعميم الخدمات الرئيسية',
-      'timeline.2017.amc_amts': 'تعميم الخدمات الرئيسية للتغطية الصحية التكميلية والتغطية الاجتماعية',
-
-      'timeline.2018.title': 'التكيّف والرقمنة',
-      'timeline.2018.health': 'تكييف العرض مع الوضع الصحي',
-      'timeline.2018.app': 'إطلاق تطبيق FOSAGRI',
-      'timeline.2018.digital': 'تطوير التواصل الرقمي',
+      'timeline.2018.1': 'دراسة أثر توسيع قاعدة المنخرطين لتشمل المتقاعدين وموظفي المؤسسات الخاضعة للوصاية.',
 
       'timeline.2019.title': 'الانفتاح والتجذّر الجهوي',
-      'timeline.2019.retirees': 'إدماج المتقاعدين',
-      'timeline.2019.relais': 'تعيين المنسقين الجهويين لضمان تنسيق أمثل على المستوى الجهوي.',
+      'timeline.2019.1': 'إدماج المتقاعدين.',
+      'timeline.2019.2': 'تعيين المنسقين الجهويين لضمان تنسيق أمثل على المستوى الجهوي.',
+      'timeline.2019.3': 'إطلاق منصة الخدمات الإلكترونية للانخراط والخدمات الاجتماعية.',
+
+      'timeline.2020.1': 'ملاءمة العرض مع الوضعية الصحية.',
+      'timeline.2020.2': 'إطلاق تطبيق FOSAGRI.',
+      'timeline.2020.3': 'تعزيز التواصل الرقمي.',
 
       'timeline.2021.title': 'توسيع المنخرطين وقروض اجتماعية جديدة',
-      'timeline.2021.onssa': 'إدماج ONSSA و ONCA',
-      'timeline.2021.credits': 'إطلاق القروض الاجتماعية ودعم قروض السكن',
+      'timeline.2021.1': 'إدماج ONSSA وONCA.',
+      'timeline.2021.2': 'إطلاق القروض الاجتماعية ودعم فوائد قروض السكن.',
 
       'timeline.2022.title': 'افتتاح نادي الفلاحة',
-      'timeline.2022.club_provided': 'وضع النادي رهن إشارة FOS-Agri',
-      'timeline.2022.club_open': 'افتتاح النادي',
-      'timeline.2022.club_services': 'إطلاق خدمات نادي الفلاحة',
+      'timeline.2022.1': 'وضع النادي رهن إشارة FOS-Agri.',
+      'timeline.2022.2': 'افتتاح النادي.',
+      'timeline.2022.3': 'إطلاق منصة الخدمات الإلكترونية لخدمات النادي.',
 
       'timeline.2023.title': 'مساعدات وشراكات جديدة',
-      'timeline.2023.housing': 'إرساء الصيغة الجديدة للمساعدة على السكن',
-      'timeline.2023.partners': 'توقيع شراكات جديدة',
-      'timeline.2023.medical': 'افتتاح المركز الطبي الجديد',
+      'timeline.2023.1': 'اعتماد الصيغة الجديدة للمساعدة على السكن.',
+      'timeline.2023.2': 'افتتاح المركز الطبي الجديد.',
 
       'timeline.2024.title': 'إثراء الخدمات',
-      'timeline.2024.amts': 'إثراء سلة الخدمات الاجتماعية',
-      'timeline.2024.medical_new': 'إرساء خدمات جديدة بالمركز الطبي',
-      'timeline.2024.partners': 'توقيع شراكات جديدة',
+      'timeline.2024.1': 'إرساء إطار للحكامة من أجل هيكلة مسارات اتخاذ القرار.',
+      'timeline.2024.2': 'إثراء سلة خدمات المساعدة الطبية والنقل الصحي (AMTS).',
+      'timeline.2024.3': 'إرساء خدمات جديدة بالمركز الطبي.',
+
+      'timeline.2025.1': 'إثراء عرض التأمين الصحي التكميلي (AMC) بإدراج خيار جديد.',
+      'timeline.2025.2': 'إطلاق دوري « Génération Green ».',
+      'timeline.2025.3': 'تنظيم مخيم لليافعين لفائدة أبناء المنخرطين.',
+      'timeline.2025.4': 'اعتماد دروس الدعم المدرسي عن بعد.',
+      'timeline.2025.5': 'إحداث دعم مالي للولوج إلى المنشآت الرياضية التابعة لـ SONARGES.',
+      'timeline.2025.6': 'إحداث خدمة جديدة: « المنحة الاجتماعية ».',
+      'timeline.2025.7': 'إعادة هيكلة المخطط المديري.',
+      'timeline.2025.8': 'تحيين دليل المساطر وخريطة المخاطر.',
 
       'values.solidarity.title': 'التضامن',
       'values.solidarity.desc': 'العمل الجماعي في خدمة أسرة FOS-Agri ومستفيديها.',
@@ -240,20 +240,14 @@
 
       'sections.mission.tag': 'ⵜⴰⵎⴰⵙⵜ',
       'sections.mission.title': 'ⵜⴰⵎⴰⵙⵜ ⵏⵏⵖ',
-      'sections.mission.paragraph1': 'ⴰⴷⴷⴰⴷ ⴷ ⵓⴷⵓⵙ ⵏ ⵉⵡⴷⴰⵏ ⵏ ⵜⴼⵍⵍⴰⵃⵜ ⵙ ⵜⵏⴼⴰⵙ ⵜⵉⵏⴰⵎⵓⵏⵉⵏ.',
-      'sections.mission.paragraph2': 'ⴰⵙⴽⵏⴰⴼ ⵏ ⵜⵉⵎⵓⵏⵉ ⴳⵔ ⵜⴰⵡⵊⴰ ⵏ ⵜⵎⴰⵡⴰⵙⵜ ⵏ ⵜⴼⵍⵍⴰⵃⵜ.',
-      'sections.mission.pillar1': 'ⵜⵉⵎⵓⵏⵉ ⵜⴰⵎⵣⵡⴰⵔⵓⵜ',
-      'sections.mission.pillar2': 'ⴰⴼⵔⴰⵙ ⴰⴷⴰⵡⵙⴰⵏ ⴷ ⴰⵏⴰⵎⵓⵏ',
-      'sections.mission.pillar3': 'ⴰⴷⵓⵙ ⵏ ⵜⵡⵓⵊⵉⵡⵉⵏ',
+      'sections.mission.paragraph1': "ⵙⴳ ⵓⵙⵏⵓⵍⴼⵓ ⵏⵏⵙ, ⵜⴰⵡⵓⵔⵉ ⵏ FOS-Agri ⵜⴳⴰ ⴰⵙⵖⵓⴷⵓ ⵏ ⵜⵙⴰⴳⴰⵡⵉⵏ ⵏ ⵜⵓⴷⵔⵜ ⴷ ⵜⵡⵓⵔⵉ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ ⵏ ⵓⴳⵣⵣⵓⵎ ⵏ ⵜⴼⵍⴰⵃⵜ ⴷ ⵓⵙⵎⵖⵓⵔ ⵏ ⵓⴼⵓⵍⴽⵉ ⵏⵏⵙⵏ.",
+      'sections.mission.paragraph2': "ⵜⴰⵡⵓⵔⵉ ⴰⴷ ⵜⵜⵓⵙⵙⵏⵓⵔⵏⵓⵏⵜ ⵙ ⵓⵎⵓⵔⵙ ⴰⵏⵖⴰⵍ ⵏ ⴽⵓⵍⵍⵓ ⵉⵎⵙⵓⵔⴰⵏ ⵏ FOS-Agri ⵙ ⵉⵙ ⵉⴳⵓⵍⵏ ⵉⵏⵎⴰⵍⴰⵏ ⴳⴰⵏ ⴰⵙⴳⵓⵎⵎⵉ ⴰⴷⵙⵍⴰⵏ ⴳ ⵓⵙⵙⵏⵓⵔⵏⵓ ⵏ ⵓⵔⴰⵙⵎⴰⵍ ⴰⵏⴼⴳⴰⵏ.",
+      'sections.mission.paragraph3': "ⴰⵙⵏⵓⵍⴼⵓ ⵏ ⵜⵙⴷⴰⵡⵉⵜ ⴰⴷ ⵉⵙⵙⵉⵡⵙ ⴰⴷ ⵢⴰⴼⴽ ⵜⵓⴷⵔⵜ ⵜⴰⵎⴰⵢⵏⵓⵜ ⵉ ⵉⴳⵓⵍⵏ ⵉⵏⵎⴰⵍⴰⵏ ⴷ ⴰⴷ ⵢⴰⵊⵊ ⴰⴳⵣⵣⵓⵎ ⴰⴷ ⵉⵙⴽⵔ ⴰⵙⵓⵔⴼ ⴰⵎⵇⵇⵔⴰⵏ ⴳ ⵓⵙⵏⴼⵍⵓⵍ ⵏ ⵜⵡⵓⵔⵉ ⵜⴰⵏⵎⴰⵍⴰⵏⵜ, ⵙ ⵓⵙⵡⵊⴷ ⵏ ⵜⵙⴰⴳⴰⵡⵉⵏ ⵉⴼⵓⵍⴽⵉⵏ ⵉ ⵓⵙⵎⵖⵓⵔ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ.",
       'sections.mission.quote': '« ⵜⴰⵎⵙⵙⵓⵔⵜ ⵉ ⵜⴰⵡⵊⴰ ⵏ ⵜⵎⴰⵡⴰⵙⵜ ⵏ ⵜⴼⵍⵍⴰⵃⵜ. »',
 
       'sections.values.tag': 'ⵉⵎⴰⵡⵓⵜⵏ ⵉⵙⵙⴰⵙⵏ',
       'sections.values.title': 'ⵜⵉⴳⴰⵡⵜ-ⵏⵏⴻⵖ ⵜⴻⵜⵜⵓⵙⵙⴻⵏⴷ ⵖⴼ ⴽⵕⴰⴹ ⵉⵎⴰⵏⵙⵏ',
       'sections.values.intro': 'ⵉⵎⴰⵡⵓⵜⵏ ⵉ ⵙⵙⵏⴰⵏ ⵜⵉⴳⴰⵡⵜ ⵜⴰⵏⵎⴻⵜⵜⵉⵜ ⵏ FOS-Agri.',
-
-      'cta.title': 'ⵉⵙ ⵜⵔⴰⵎ ⴰⴷ ⵜⵙⵙⵏⵎ ⵓⴳⴳⴰⵔ ⵅⴼ ⵜⵎⵙⵙⵓⵔⵜ ?',
-      'cta.subtitle': 'ⵙⵙⵏⵎ ⵜⴰⴳⵓⵔⵉ, ⵜⵉⵏⴼⴰⵙ ⴷ ⵓⵎⵙⴽⴰⵔ ⵏ ⵓⵎⵏⵖⵓⵔ.',
-      'cta.button': 'ⵜⵓⵖⴰⵍⵉⵏ ⵖⵔ ⵜⵎⵙⵙⵓⵔⵜ',
 
       'timeline.loading': 'ⴰⵙⴰⵍⵉ…',
       'timeline.empty': 'ⵓⵔ ⵍⵍⵉⵏ ⵉⵎⴰⵏⴰⵔⵏ ⴰⵙⵙⴰ.',
@@ -269,44 +263,50 @@
       'values.inclusion.title': 'ⵜⴰⵎⴰⵙⵙⵓⵜ',
       'values.inclusion.desc': 'ⴰⴷ ⵏⵙⵃⴻⴱⴱⴻⵜ ⴰⴷ ⵜⵉⵍⵍⵉ ⵜⴰⵎⴰⴳⴷⴰⵍⵜ ⴷⴻⴳ ⵓⵍⵓⵣⵣⵓⵎ ⵖⵔ ⵜⵉⵏⴼⴰ ⵉ ⵎⴻⵔⵔⴰ ⵉⵎⵓⵏⵏ.',
 
-      'timeline.2015.title': 'ⴰⵙⵏⵓⵍⴼⵓ ⵏ ⵜⵎⵙⵙⵓⵔⵜ',
-      'timeline.2015.creation': 'ⴰⵙⵏⵓⵍⴼⵓ ⵏ FOS-Agri',
-      'timeline.2015.governance': 'ⴰⵙⵔⵙ ⵏ ⵜⵏⴱⴰⴹⵉⵏ ⵏ ⵜⴳⵓⵔⵉ',
+      'timeline.2015_2017.1': 'ⴰⵙⵏⵓⵍⴼⵓ ⵏ FOS-Agri.',
+      'timeline.2015_2017.2': 'ⴰⵙⵔⵙ ⵏ ⵉⵎⵙⵙⵓⴳⴰⵍ ⵏ ⵜⵏⴱⴰⴹⵜ.',
+      'timeline.2015_2017.3': 'ⴰⵙⵏⵜⵉ ⵏ ⵉⵎⴰⵍⴰⵙⵙⵏ.',
+      'timeline.2015_2017.4': 'ⴰⵙⵔⵙ ⵏ ⵉⵎⴰⵙⵙ ⵏ ⵓⵙⵡⵓⴷⴷⵓ.',
+      'timeline.2015_2017.5': 'ⴰⵙⵎⵔⵙ ⵏ ⵉⵎⴰⵍⴰⵙⵙⵏ ⵉⵎⵇⵇⵔⴰⵏⵏ ⵏ AMC ⴷ AMTS.',
+      'timeline.2015_2017.6': 'ⴰⵙⵔⵙ ⵏ ⵓⵙⵉⵜ ⴰⵍⵉⴽⵜⵔⵓⵏⵉ ⵏ FOS-Agri.',
 
-      'timeline.2016.title': 'ⴰⵙⵏⵜⵉ ⴰⵎⵙⴽⴰⵔ',
-      'timeline.2016.services': 'ⴰⵙⵏⵜⵉ ⵏ ⵜⵏⴼⴰⵙ',
-      'timeline.2016.tools': 'ⴰⵙⵔⵙ ⵏ ⵉⵙⵏⵙⵙⴰⵍ ⵏ ⵜⵙⵏⴱⴹⴰⵏⵜ',
-
-      'timeline.2017.title': 'ⴰⵙⵙⵉⵡⴹ ⵏ ⵜⵏⴼⴰⵙ ⵜⵉⵎⴰⵇⵇⵔⴰⵏⵉⵏ',
-      'timeline.2017.amc_amts': 'ⴰⵙⵙⵉⵡⴹ ⵏ ⵜⵏⴼⴰⵙ AMC ⴷ AMTS',
-
-      'timeline.2018.title': 'ⴰⵎⵙⴰⵙⴰ ⴷ ⵓⵙⴷⴷⵉⵇ ⴰⵎⵓⵟⵟⵓⵏ',
-      'timeline.2018.health': 'ⴰⵎⵙⴰⵙⴰ ⵏ ⵜⵏⴼⴰⵙ ⴷ ⵡⴰⴷⴷⴰⴷ ⴰⴷⴰⵡⵙⴰⵏ',
-      'timeline.2018.app': 'ⴰⵙⵏⵜⵉ ⵏ ⵓⵙⵏⵙ FOSAGRI',
-      'timeline.2018.digital': 'ⴰⵙⵙⵉⵡⴹ ⵏ ⵓⵎⵢⴰⵡⴰⴹ ⴰⵎⵓⵟⵟⵓⵏ',
+      'timeline.2018.1': 'ⴰⵏⴰⴷ ⵖⴼ ⵜⵉⵢⵉⵜ ⵏ ⵓⵙⵎⵖⵔ ⵏ ⵓⵎⴹⴰⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ, ⵙ ⵓⵙⴽⵛⵎ ⵏ ⵉⵎⴷⴽⴽⵯⴰⵍⵏ ⴷ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ ⵏ ⵜⵉⵎⵙⵙⵉⵡⵉⵏ ⴷⴷⴰⵡ ⵓⵙⵏⴼⵍ.',
 
       'timeline.2019.title': 'ⴰⵔⵣⵣⵓ ⴷ ⵜⵎⵏⴰⴹⵜ',
-      'timeline.2019.retirees': 'ⴰⵙⵎⵓⵏ ⵏ ⵉⵎⴰⵎⴰⵙⵏ',
-      'timeline.2019.relais': 'ⴰⵙⵎⵉⵍⵍⵉ ⵏ ⵉⵎⵙⵏⴰⵡⵏ ⵉⵎⵏⴰⴹⵏ.',
+      'timeline.2019.1': 'ⴰⵙⴽⵛⵎ ⵏ ⵉⵎⴷⴽⴽⵯⴰⵍⵏ.',
+      'timeline.2019.2': 'ⴰⵙⵙⵓⴷⵙ ⵏ ⵉⵎⵙⵏⴰⵡⵏ ⵉⵎⵏⴰⴹⵏ ⴰⴼⴰⴷ ⴰⴷ ⵉⵍⵉ ⵓⵙⵎⵙⴰⵙⴰ ⵉⴼⵓⵍⴽⵉⵏ ⴳ ⵓⵙⵡⵉⵔ ⴰⵎⵏⴰⴹ.',
+      'timeline.2019.3': 'ⴰⵙⵏⵜⵉ ⵏ ⵜⵖⵍⴰⵢⵜ ⵏ ⵉⵎⴰⵍⴰⵙⵙⵏ ⵉⵍⵉⴽⵜⵔⵓⵏⵉⵢⵏ ⵏ ⵓⵎⵓⵏ ⴷ ⵉⵎⴰⵍⴰⵙⵙⵏ ⵉⵏⵎⴰⵍⴰⵏ.',
+
+      'timeline.2020.1': 'ⴰⵙⵎⵙⴰⵙⴰ ⵏ ⵓⵙⵓⴼⵖ ⴷ ⵜⵡⴰⵍⵜ ⵜⴰⴷⵓⵙⴰⵏⵜ.',
+      'timeline.2020.2': 'ⴰⵙⵏⵜⵉ ⵏ ⵓⵙⵏⵙ FOSAGRI.',
+      'timeline.2020.3': 'ⴰⵙⵎⵔⵙ ⵏ ⵓⵎⵢⴰⵡⴰⴹ ⴰⵏⵓⵎⴰⵏ.',
 
       'timeline.2021.title': 'ⴰⵙⵎⴳⴳⵔ ⴷ ⵉⵏⴹⴹⴰⴹⵏ ⵉⵎⴰⵢⵏⵓⵜⵏ',
-      'timeline.2021.onssa': 'ⴰⵙⵎⵓⵏ ⵏ ONSSA ⴷ ONCA',
-      'timeline.2021.credits': 'ⴰⵙⵏⵜⵉ ⵏ ⵉⵏⴹⴹⴰⴹⵏ ⵉⵏⴰⵎⵓⵏⵏ ⴷ ⵓⵙⴷⵓⵙ ⵏ ⵉⵏⴹⴹⴰⴹⵏ ⵏ ⵜⴰⴷⴷⴰⵔⵜ',
+      'timeline.2021.1': 'ⴰⵙⴽⵛⵎ ⵏ ONSSA ⴷ ONCA.',
+      'timeline.2021.2': 'ⴰⵙⵏⵜⵉ ⵏ ⵉⵔⴹⴰⵍⵏ ⵉⵏⵎⴰⵍⴰⵏ ⴷ ⵓⵎⵓⴷⴷⵓ ⵏ ⵉⵔⴹⴰⵍⵏ ⵏ ⵓⵙⵖⵉⵎ.',
 
       'timeline.2022.title': 'ⴰⵔⵣⵣⵓ ⵏ ⵓⴽⵍⵓⴱ ⵏ ⵜⴼⵍⵍⴰⵃⵜ',
-      'timeline.2022.club_provided': 'ⴰⵙⵙⵉⵡⴹ ⵏ ⵓⴽⵍⵓⴱ ⵉ FOS-Agri',
-      'timeline.2022.club_open': 'ⴰⵔⵣⵣⵓ ⵏ ⵓⴽⵍⵓⴱ',
-      'timeline.2022.club_services': 'ⴰⵙⵏⵜⵉ ⵏ ⵜⵏⴼⴰⵙ ⵏ ⵓⴽⵍⵓⴱ',
+      'timeline.2022.1': 'ⴰⵙⵙⵓⴼⵖ ⵏ ⴽⵍⵓⴱ ⵖⵔ FOS-Agri.',
+      'timeline.2022.2': 'ⴰⵕⵥⵥⵓⵎ ⵏ ⴽⵍⵓⴱ.',
+      'timeline.2022.3': 'ⴰⵙⵏⵜⵉ ⵏ ⵜⵖⵍⴰⵢⵜ ⵏ ⵉⵎⴰⵍⴰⵙⵙⵏ ⵉⵍⵉⴽⵜⵔⵓⵏⵉⵢⵏ ⵏ ⴽⵍⵓⴱ.',
 
       'timeline.2023.title': 'ⵜⴰⵏⴰⴼⵓⵜ ⴷ ⵉⵎⵎⴰⵏⴽⵏ ⵉⵎⴰⵢⵏⵓⵜⵏ',
-      'timeline.2023.housing': 'ⴰⵙⵔⵙ ⵏ ⵜⵏⵇⵉⴹⵜ ⵜⴰⵎⴰⵢⵏⵓⵜ ⵏ ⵜⵏⴰⴼⵓⵜ ⵉ ⵜⴰⴷⴷⴰⵔⵜ',
-      'timeline.2023.partners': 'ⴰⵙⵙⵉⵏⵏ ⵏ ⵉⵎⵎⴰⵏⴽⵏ ⵉⵎⴰⵢⵏⵓⵜⵏ',
-      'timeline.2023.medical': 'ⴰⵔⵣⵣⵓ ⵏ ⵓⵙⵏⵉⵏ ⴰⴷⴰⵡⵙⴰⵏ ⴰⵎⴰⵢⵏⵓ',
+      'timeline.2023.1': 'ⴰⵙⵔⵙ ⵏ ⵜⵍⵖⴰ ⵜⴰⵎⴰⵢⵏⵓⵜ ⵏ ⵜⵡⵉⵙⵉ ⵏ ⵓⵙⵖⵉⵎ.',
+      'timeline.2023.2': 'ⴰⵕⵥⵥⵓⵎ ⵏ ⵓⵎⵔⴽⴰⵣ ⴰⴷⵓⵙⴰⵏ ⴰⵎⴰⵢⵏⵓ.',
 
       'timeline.2024.title': 'ⴰⵙⵎⵓⵟⵟⵓⵏ ⵏ ⵜⵏⴼⴰⵙ',
-      'timeline.2024.amts': 'ⴰⵙⵎⵓⵟⵟⵓⵏ ⵏ ⵉⵙⴱⵉⵃⵏ ⵏ AMTS',
-      'timeline.2024.medical_new': 'ⴰⵙⵔⵙ ⵏ ⵜⵏⴼⴰⵙ ⵜⵉⵎⴰⵢⵏⵓⵜⵉⵏ ⴷⴳ ⵓⵙⵏⵉⵏ ⴰⴷⴰⵡⵙⴰⵏ',
-      'timeline.2024.partners': 'ⴰⵙⵙⵉⵏⵏ ⵏ ⵉⵎⵎⴰⵏⴽⵏ ⵉⵎⴰⵢⵏⵓⵜⵏ',
+      'timeline.2024.1': 'ⴰⵙⵔⵙ ⵏ ⵓⵙⴳⴰ ⵏ ⵜⵏⴱⴰⴹⵜ ⴰⴼⴰⴷ ⴰⴷ ⵜⵜⵓⵙⵎⵓⵜⵜⴳⵏ ⵉⴱⵔⵉⴷⵏ ⵏ ⵜⴳⵜⵜⵓⵔⵉⵡⵉⵏ.',
+      'timeline.2024.2': 'ⴰⵙⵎⵓⵟⵟⵓⵏ ⵏ ⵉⵙⴱⵉⵃⵏ ⵏ AMTS.',
+      'timeline.2024.3': 'ⴰⵙⵔⵙ ⵏ ⵉⵎⴰⵍⴰⵙⵙⵏ ⵉⵎⴰⵢⵏⵓⵜⵏ ⴳ ⵓⵎⵔⴽⴰⵣ ⴰⴷⵓⵙⴰⵏ.',
+
+      'timeline.2025.1': 'ⴰⵙⵎⵓⵟⵟⵓⵏ ⵏ ⵓⵙⵓⴼⵖ ⵏ AMC ⵙ ⵓⵙⴽⵛⵎ ⵏ ⵓⴼⵔⴰⵏ ⴰⵎⴰⵢⵏⵓ.',
+      'timeline.2025.2': 'ⴰⵙⵏⵜⵉ ⵏ ⵓⵎⵙⵓⵏⴳⵎ « Génération Green ».',
+      'timeline.2025.3': 'ⴰⵙⵓⴷⵙ ⵏ ⵓⵎⵅⵉⵢⵎ ⵏ ⵉⵎⵥⵥⵢⴰⵏⵏ ⵉ ⵜⴰⵔⵡⴰ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ.',
+      'timeline.2025.4': 'ⴰⵙⵎⵔⵙ ⵏ ⵜⵖⵓⵔⵉ ⵏ ⵓⵎⵓⴷⴷⵓ ⴰⵙⵍⵎⴰⴷ ⵙ ⵓⴳⴳⵓⴳ.',
+      'timeline.2025.5': 'ⴰⵙⵔⵙ ⵏ ⵜⵡⵉⵙⵉ ⵜⴰⴷⵔⵉⵎⵜ ⵉ ⵓⴽⵛⵛⵓⵎ ⵖⵔ ⵉⵙⵓⵔⴰ ⵏ ⵓⴷⴰⴷⴷⵓⵙ ⵏ SONARGES.',
+      'timeline.2025.6': 'ⴰⵙⵏⵓⵍⴼⵓ ⵏ ⵜⵏⴼⵍⵉⵜ ⵜⴰⵎⴰⵢⵏⵓⵜ : « ⵜⴰⵎⵓⴷⴰ ⵜⴰⵏⴰⵎⵓⵏⵜ ».',
+      'timeline.2025.7': 'ⴰⵙⵎⵓⵜⵜⴳ ⵏ ⵓⵙⵖⵡⵙ ⴰⵎⵏⴰⵖ.',
+      'timeline.2025.8': 'ⴰⵙⵎⴰⵢⵏⵓ ⵏ ⵓⴷⵍⵉⵙ ⵏ ⵜⵎⵙⵙⴰⵔⵉⵏ ⴷ ⵜⴽⴰⵕⴹⴰ ⵏ ⵉⵎⵙⵓⴳⴳⵔⵏ.',
 
       'values.solidarity.title': 'ⵜⵉⵎⵓⵏⵉ',
       'values.solidarity.desc': 'ⴰⵅⴷⴷⴰⵎ ⴰⵙⵎⵓⵏⴰⵏ ⵉ ⵜⴰⵡⵊⴰ FOS-Agri.',
@@ -354,80 +354,88 @@
   //     descKey: string
   //   }
   // ============================================================
+  /* Cartes sans titre (2015-2017, 2018, 2020, 2025) : titleKey omis, le gabarit
+     n'affiche alors que l'année et la liste. */
   const DEFAULT_TIMELINE = [
     {
-      id: '2015', year: '2015', order: 1, isActive: true, icon: 'fa-solid fa-seedling',
-      titleKey: 'timeline.2015.title',
+      id: '2015-2017', year: '2015-2017', order: 1, isActive: true, icon: 'fa-solid fa-seedling',
       items: [
-        { id: '2015-1', textKey: 'timeline.2015.creation' },
-        { id: '2015-2', textKey: 'timeline.2015.governance' }
+        { id: '2015-2017-1', textKey: 'timeline.2015_2017.1' },
+        { id: '2015-2017-2', textKey: 'timeline.2015_2017.2' },
+        { id: '2015-2017-3', textKey: 'timeline.2015_2017.3' },
+        { id: '2015-2017-4', textKey: 'timeline.2015_2017.4' },
+        { id: '2015-2017-5', textKey: 'timeline.2015_2017.5' },
+        { id: '2015-2017-6', textKey: 'timeline.2015_2017.6' }
       ]
     },
     {
-      id: '2016', year: '2016', order: 2, isActive: true, icon: 'fa-solid fa-rocket',
-      titleKey: 'timeline.2016.title',
+      id: '2018', year: '2018', order: 2, isActive: true, icon: 'fa-solid fa-magnifying-glass-chart',
       items: [
-        { id: '2016-1', textKey: 'timeline.2016.services' },
-        { id: '2016-2', textKey: 'timeline.2016.tools' }
+        { id: '2018-1', textKey: 'timeline.2018.1' }
       ]
     },
     {
-      id: '2017', year: '2017', order: 3, isActive: true, icon: 'fa-solid fa-stethoscope',
-      titleKey: 'timeline.2017.title',
-      items: [
-        { id: '2017-1', textKey: 'timeline.2017.amc_amts' }
-      ]
-    },
-    {
-      id: '2018', year: '2018', order: 4, isActive: true, icon: 'fa-solid fa-mobile-screen',
-      titleKey: 'timeline.2018.title',
-      items: [
-        { id: '2018-1', textKey: 'timeline.2018.health' },
-        { id: '2018-2', textKey: 'timeline.2018.app' },
-        { id: '2018-3', textKey: 'timeline.2018.digital' }
-      ]
-    },
-    {
-      id: '2019', year: '2019', order: 5, isActive: true, icon: 'fa-solid fa-users-line',
+      id: '2019', year: '2019', order: 3, isActive: true, icon: 'fa-solid fa-users-line',
       titleKey: 'timeline.2019.title',
       items: [
-        { id: '2019-1', textKey: 'timeline.2019.retirees' },
-        { id: '2019-2', textKey: 'timeline.2019.relais' }
+        { id: '2019-1', textKey: 'timeline.2019.1' },
+        { id: '2019-2', textKey: 'timeline.2019.2' },
+        { id: '2019-3', textKey: 'timeline.2019.3' }
       ]
     },
     {
-      id: '2021', year: '2021', order: 6, isActive: true, icon: 'fa-solid fa-building-columns',
+      id: '2020', year: '2020', order: 4, isActive: true, icon: 'fa-solid fa-mobile-screen',
+      items: [
+        { id: '2020-1', textKey: 'timeline.2020.1' },
+        { id: '2020-2', textKey: 'timeline.2020.2' },
+        { id: '2020-3', textKey: 'timeline.2020.3' }
+      ]
+    },
+    {
+      id: '2021', year: '2021', order: 5, isActive: true, icon: 'fa-solid fa-building-columns',
       titleKey: 'timeline.2021.title',
       items: [
-        { id: '2021-1', textKey: 'timeline.2021.onssa' },
-        { id: '2021-2', textKey: 'timeline.2021.credits' }
+        { id: '2021-1', textKey: 'timeline.2021.1' },
+        { id: '2021-2', textKey: 'timeline.2021.2' }
       ]
     },
     {
-      id: '2022', year: '2022', order: 7, isActive: true, icon: 'fa-solid fa-mug-saucer',
+      id: '2022', year: '2022', order: 6, isActive: true, icon: 'fa-solid fa-mug-saucer',
       titleKey: 'timeline.2022.title',
       items: [
-        { id: '2022-1', textKey: 'timeline.2022.club_provided' },
-        { id: '2022-2', textKey: 'timeline.2022.club_open' },
-        { id: '2022-3', textKey: 'timeline.2022.club_services' }
+        { id: '2022-1', textKey: 'timeline.2022.1' },
+        { id: '2022-2', textKey: 'timeline.2022.2' },
+        { id: '2022-3', textKey: 'timeline.2022.3' }
       ]
     },
     {
-      id: '2023', year: '2023', order: 8, isActive: true, icon: 'fa-solid fa-house-medical',
+      id: '2023', year: '2023', order: 7, isActive: true, icon: 'fa-solid fa-house-medical',
       titleKey: 'timeline.2023.title',
       items: [
-        { id: '2023-1', textKey: 'timeline.2023.housing' },
-        { id: '2023-2', textKey: 'timeline.2023.partners' },
-        { id: '2023-3', textKey: 'timeline.2023.medical' }
+        { id: '2023-1', textKey: 'timeline.2023.1' },
+        { id: '2023-2', textKey: 'timeline.2023.2' }
       ]
     },
     {
-      id: '2024', year: '2024', order: 9, isActive: true, icon: 'fa-solid fa-star',
+      id: '2024', year: '2024', order: 8, isActive: true, icon: 'fa-solid fa-star',
       titleKey: 'timeline.2024.title',
       items: [
-        { id: '2024-1', textKey: 'timeline.2024.amts' },
-        { id: '2024-2', textKey: 'timeline.2024.medical_new' },
-        { id: '2024-3', textKey: 'timeline.2024.partners' }
+        { id: '2024-1', textKey: 'timeline.2024.1' },
+        { id: '2024-2', textKey: 'timeline.2024.2' },
+        { id: '2024-3', textKey: 'timeline.2024.3' }
+      ]
+    },
+    {
+      id: '2025', year: '2025', order: 9, isActive: true, icon: 'fa-solid fa-trophy',
+      items: [
+        { id: '2025-1', textKey: 'timeline.2025.1' },
+        { id: '2025-2', textKey: 'timeline.2025.2' },
+        { id: '2025-3', textKey: 'timeline.2025.3' },
+        { id: '2025-4', textKey: 'timeline.2025.4' },
+        { id: '2025-5', textKey: 'timeline.2025.5' },
+        { id: '2025-6', textKey: 'timeline.2025.6' },
+        { id: '2025-7', textKey: 'timeline.2025.7' },
+        { id: '2025-8', textKey: 'timeline.2025.8' }
       ]
     }
   ];
