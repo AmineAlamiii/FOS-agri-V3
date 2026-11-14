@@ -37,11 +37,19 @@ window.siteData = {
         title: "Un accompagnement social structuré, proche et national",
         body: "La Fondation pour la promotion des œuvres sociales du personnel du ministère de l'Agriculture centralise des prestations, des conventions et des programmes solidaires de FOS-Agri.",
         missionTitle: "Mission",
-        missionBody: "Servir les adhérents, soutenir les familles et rapprocher les services sur l'ensemble du territoire.",
+        missionBody: "Améliorer les conditions de vie et de travail du personnel de Département de l'Agriculture et de favoriser leur épanouissement.",
         scopeTitle: "Périmètre",
-        scopeBody: "Prévoyance médico-sociale, loisirs, scolarisation, logement, projets personnels et conventions partenaires.",
+        scope1: "Prévoyance médico-sociale",
+        scope2: "Culture, loisirs et voyages",
+        scope3: "Appui à la scolarisation et à la formation",
+        scope4: "Accès au logement",
+        scope5: "Appui aux projets personnels",
+        scope6: "Services du quotidien",
         promiseTitle: "Promesse",
-        promiseBody: "Une expérience lisible, bilingue et accessible qui met en avant les services prioritaires et les informations utiles."
+        promiseBody: "Donner un nouvel élan aux œuvres sociales et permettre au Département de marquer un saut qualitatif dans le développement de l'action sociale tout en favorisant les meilleures conditions pour l'épanouissement du personnel."
+      },
+      wafaIma: {
+        title: "Contactez Wafa IMA :"
       },
       services: {
         tag: "Prestations",
@@ -55,7 +63,7 @@ window.siteData = {
       },
       events: {
         tag: "Agenda solidaire",
-        title: "Campagnes, rencontres et actions terrain",
+        title: "Campagnes, rencontres et évènements phares",
         subtitle: "Sélection d'événements et d'initiatives de FOS-Agri.",
         viewAllLink: "Voir tout l'agenda",
         calendar: "Calendrier",
@@ -75,8 +83,8 @@ window.siteData = {
       },
       map: {
         tag: "Présence nationale",
-        title: "Un réseau de proximité à travers le Maroc",
-        subtitle: "Sélectionnez une région ou survolez une ville pour afficher une délégation ou un point de présence."
+        title: "Une couverture territoriale assurant une représentation de proximité",
+        subtitle: "Sélectionnez une région pour prendre connaissance de notre représentant"
       },
       region: {
         contact: "Contacter la délégation"
@@ -93,7 +101,7 @@ window.siteData = {
       },
       partners: {
         tag: "Partenaires",
-        title: "Un réseau solide, public et privé, qui renforce l'impact des programmes"
+        title: "Un réseau solide, qui renforce l'impact de nos programmes"
       },
       contact: {
         tag: "Contact",
@@ -114,15 +122,16 @@ window.siteData = {
         }
       },
       footer: {
-        about: "Fondation pour la promotion des œuvres sociales du personnel du ministère de l'Agriculture.",
+        about: "Fondation pour la Promotion des Œuvres Sociales du Personnel du Ministère de l'Agriculture et de la Pêche Maritime - Département de l'Agriculture",
         usefulTitle: "Liens utiles",
         useful1: "Appels d'offres",
         useful2: "FAQ",
         useful3: "Newsletter",
         quickTitle: "Accès rapide",
-        quick1: "Portail agent",
-        quick2: "Programme social",
-        quick3: "Actualités",
+        quick1: "Espace adhérent",
+        quick2: "Prestations",
+        quick3: "Espace documentaire",
+        callAria: "Appeler la Fondation",
         contactTitle: "Coordonnées",
         copy: "© 2026 FOS-Agri - Ministère de l'Agriculture",
         credit: "Powered by <a href='https://neonovia.com/' target='_blank' rel='noopener noreferrer'>NEONOVIA</a>",
@@ -184,11 +193,19 @@ window.siteData = {
         title: "مواكبة اجتماعية منظمة وقريبة وعلى الصعيد الوطني",
         body: "تجمع مؤسسة النهوض بالأعمال الاجتماعية لموظفي وزارة الفلاحة مختلف الخدمات والاتفاقيات والبرامج التضامنية لمؤسسة فوس-أكري.",
         missionTitle: "المهمة",
-        missionBody: "خدمة المنخرطين ودعم الأسر وتقريب الخدمات عبر مختلف جهات المملكة.",
+        missionBody: "تحسين ظروف عيش وعمل موظفي قطاع الفلاحة والعمل على تحقيق ازدهارهم.",
         scopeTitle: "مجالات التدخل",
-        scopeBody: "الاحتياط الطبي والاجتماعي والترفيه والتمدرس والسكن والمشاريع الشخصية واتفاقيات الشركاء.",
+        scope1: "الوقاية الطبية والاجتماعية",
+        scope2: "الثقافة والترفيه والأسفار",
+        scope3: "دعم التمدرس والتكوين",
+        scope4: "الولوج إلى السكن",
+        scope5: "دعم المشاريع الشخصية",
+        scope6: "خدمات الحياة اليومية",
         promiseTitle: "وعدنا",
-        promiseBody: "تجربة واضحة وثنائية اللغة وسهلة الولوج تبرز الخدمات الأساسية والمعلومات العملية."
+        promiseBody: "إعطاء نفس جديد للأعمال الاجتماعية وتمكين القطاع من تحقيق نقلة نوعية في تطوير العمل الاجتماعي، مع توفير أفضل الظروف لازدهار الموظفين."
+      },
+      wafaIma: {
+        title: "اتصلوا بـ Wafa IMA:"
       },
       services: {
         tag: "الخدمات",
@@ -202,7 +219,7 @@ window.siteData = {
       },
       events: {
         tag: "الأجندة التضامنية",
-        title: "حملات ولقاءات ومبادرات ميدانية",
+        title: "حملات ولقاءات وأحداث بارزة",
         subtitle: "مجموعة من الأحداث والمبادرات الميدانية لمؤسسة فوس-أكري.",
         viewAllLink: "عرض الأجندة كاملة",
         calendar: "المفكرة",
@@ -222,8 +239,8 @@ window.siteData = {
       },
       map: {
         tag: "الحضور الوطني",
-        title: "شبكة قرب عبر المغرب",
-        subtitle: "اختر جهة أو مرر المؤشر فوق مدينة لعرض مندوبية أو نقطة حضور."
+        title: "تغطية ترابية تضمن تمثيلية القرب",
+        subtitle: "اختر جهة للتعرف على ممثلنا"
       },
       region: {
         contact: "اتصل بالمندوبية"
@@ -240,7 +257,7 @@ window.siteData = {
       },
       partners: {
         tag: "الشركاء",
-        title: "شبكة قوية من الشركاء العموميين والخواص تعزز أثر البرامج"
+        title: "شبكة متينة تعزز أثر برامجنا"
       },
       contact: {
         tag: "اتصل بنا",
@@ -261,15 +278,16 @@ window.siteData = {
         }
       },
       footer: {
-        about: "مؤسسة النهوض بالأعمال الاجتماعية لموظفي وزارة الفلاحة.",
+        about: "مؤسسة النهوض بالأعمال الاجتماعية لموظفي وزارة الفلاحة والصيد البحري - قطاع الفلاحة",
         usefulTitle: "روابط مفيدة",
         useful1: "طلبات العروض",
         useful2: "الأسئلة الشائعة",
         useful3: "النشرة الإخبارية",
         quickTitle: "ولوج سريع",
-        quick1: "بوابة الموظف",
-        quick2: "البرنامج الاجتماعي",
-        quick3: "المستجدات",
+        quick1: "فضاء المنخرط",
+        quick2: "الخدمات",
+        quick3: "الفضاء الوثائقي",
+        callAria: "اتصل بالمؤسسة",
         contactTitle: "بيانات الاتصال",
         copy: "© 2026 فوس-أكري - وزارة الفلاحة",
         credit: "Powered by <a href='https://neonovia.com/' target='_blank' rel='noopener noreferrer'>NEONOVIA</a>",
@@ -331,11 +349,19 @@ window.siteData = {
         title: "ⴰⵎⵎⴰⵏ ⴰⵏⵎⴰⵍⴰⵏ ⵉⵍⵍⴰⵏ ⵉⵣⴷⵉ ⴷ ⴰⵎⵓⵔⴰⵏ",
         body: "ⵜⴰⴷⵓⵙⵉ ⵏ ⵓⵙⵙⴼⵍⴷ ⵏ ⵉⴳⵓⵍⵏ ⵉⵏⵎⴰⵍⴰⵏ ⵏ ⵓⵎⴷⴰⵏ ⵏ ⵜⴰⵎⴰⵣⵔⵜ ⵏ ⵜⴼⵍⴰⵃⵜ ⵜⵙⵎⵓⵏ ⵉⵎⴰⵍⴰⵙⵙⵏ, ⵜⵉⵎⵙⴰⵙⴽⴰⵏ ⴷ ⵉⵙⵏⴰⵎⴰⵍⵏ ⵏ FOS-Agri.",
         missionTitle: "ⵜⴰⵡⵓⵔⵉ",
-        missionBody: "ⴰⴷ ⵏⵅⴷⴻⵎ ⵉ ⵉⵎⵣⵔⴰⵢⵏ, ⴰⴷ ⵏⴱⴹ ⵜⵉⵡⴰⵛⵓⵍⵉⵏ ⴷ ⴰⴷ ⵏⵙⵙⵉⵡⴹ ⵉⵎⴰⵍⴰⵙⵙⵏ ⴳ ⵎⴻⵔⵔⴰ ⵜⵎⵏⴰⴹⵉⵏ.",
+        missionBody: "ⴰⵙⵖⵓⴷⵓ ⵏ ⵜⵙⴰⴳⴰⵡⵉⵏ ⵏ ⵜⵓⴷⵔⵜ ⴷ ⵜⵡⵓⵔⵉ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ ⵏ ⵓⴳⵣⵣⵓⵎ ⵏ ⵜⴼⵍⴰⵃⵜ ⴷ ⵓⵙⵎⵖⵓⵔ ⵏ ⵓⴼⵓⵍⴽⵉ ⵏⵏⵙⵏ.",
         scopeTitle: "ⵜⴰⵙⵉⵔⵜ",
-        scopeBody: "ⴰⵃⵟⵟⵓ ⴰⵎⴰⴹⴰⵏ, ⴰⵙⵔⴼ, ⴰⵙⵍⵎⴷ, ⴰⵙⴽⵯⵍ, ⵉⵙⵏⴼⴰⵔⵏ ⵉⵎⴰⵏⵙⴰⵏ ⴷ ⵜⵉⵎⵙⴰⵙⴽⴰⵏ ⵏ ⵉⵎⵎⴷⴷⴰⵏ.",
+        scope1: "ⵜⴰⴼⵔⴰⵙⵜ ⵜⴰⴷⴰⵡⵙⴰⵏⵜ",
+        scope2: "ⵜⴰⴷⵍⵙⴰ, ⴰⵙⴰⵢⵔⴰⵔ ⴷ ⵉⵙⵉⴽⵍⵏ",
+        scope3: "ⴰⵙⴳⵎⵉ ⴷ ⵜⵙⴳⵎⵉ",
+        scope4: "ⴰⴽⵛⵓⵎ ⵖⵔ ⵜⴰⴷⴷⴰⵔⵜ",
+        scope5: "ⵉⵙⵏⴼⴰⵔⵏ ⵉⵎⴰⵏⴰⵡⵏ",
+        scope6: "ⵉⵎⴰⵍⴰⵙⵙⵏ ⵏ ⵓⵙⵙ ⵙ ⵡⴰⵙⵙ",
         promiseTitle: "ⴰⵍⵍⴰⵍ ⵏⵏⵖ",
-        promiseBody: "ⵜⴰⵔⵎⵉⵜ ⵜⴰⴼⵔⴰⵔⵜ, ⵜⴰⴷⴰⵢⵏⵉⵏⵜ ⴷ ⵜⴰⵙⵙⴰⵔⵓⵜ ⵙ ⵓⵍⵍⵓⵢ ⵉ ⵎⴻⵔⵔⴰ."
+        promiseBody: "ⴰⴼⴽⴰ ⵏ ⵜⵓⴷⵔⵜ ⵜⴰⵎⴰⵢⵏⵓⵜ ⵉ ⵉⴳⵓⵍⵏ ⵉⵏⵎⴰⵍⴰⵏ ⴷ ⵓⵙⵙⵓⴷⵓ ⵏ ⵓⴳⵣⵣⵓⵎ ⴰⴷ ⵉⵙⴽⵔ ⴰⵙⵓⵔⴼ ⴰⵎⵇⵇⵔⴰⵏ ⴳ ⵓⵙⵏⴼⵍⵓⵍ ⵏ ⵜⵡⵓⵔⵉ ⵜⴰⵏⵎⴰⵍⴰⵏⵜ, ⵙ ⵓⵙⵡⵊⴷ ⵏ ⵜⵙⴰⴳⴰⵡⵉⵏ ⵉⴼⵓⵍⴽⵉⵏ ⵉ ⵓⵙⵎⵖⵓⵔ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ."
+      },
+      wafaIma: {
+        title: "ⵎⵢⴰⵡⴰⵍⴰⵜ ⴷ Wafa IMA :"
       },
       services: {
         tag: "ⵉⵎⴰⵍⴰⵙⵙⵏ",
@@ -349,7 +375,7 @@ window.siteData = {
       },
       events: {
         tag: "ⴰⵎⵙⴰⵔⵓ ⵏ ⵜⵎⵙⵙⵉ",
-        title: "ⵜⵉⴽⵎⵉⵏ, ⵉⵎⵍⴰⵏ ⴷ ⵉⵙⵏⴽⴻⵔⵏ ⵏ ⵓⴽⴰⵍ",
+        title: "ⵜⵉⵎⵙⵙⵓⵔⴰ, ⵉⵎⵙⵉⵡⵏ ⴷ ⵜⵎⵙⴽⵔⵉⵏ ⵜⵉⵎⵇⵇⵔⴰⵏⵉⵏ",
         subtitle: "ⴰⴼⵔⴰⵏ ⵏ ⵉⵙⴳⵔⴰⵡⵏ ⴷ ⵉⵙⵏⴽⴻⵔⵏ ⵏ FOS-Agri.",
         viewAllLink: "ⵙⵙⵏ ⴰⵎⵙⴰⵔⵓ ⴽⵓⵍⵍⵓ",
         calendar: "ⴰⵡⵉⵏⴰⵙ",
@@ -369,8 +395,8 @@ window.siteData = {
       },
       map: {
         tag: "ⴰⵙⵉⵍⵉ ⴰⵏⴰⵎⵓⵔ",
-        title: "ⴰⵥⴰⵡⴰⵏ ⵏ ⵓⵣⴷⵉ ⴳ ⵎⵔⵔⵓⴽ",
-        subtitle: "ⴼⵔⵏ ⵜⴰⵎⵏⴰⴹⵜ ⵏⵖ ⵙⵎⵎⵔ ⵅⴼ ⵜⴰⵎⴷⵉⵏⵜ ⴰⴷ ⵜⵥⵕⵜ ⵜⴰⵎⵏⵉⴹⵜ ⵏ ⵓⵣⴷⵉ."
+        title: "ⴰⵙⴷⵓⵍ ⴰⵎⵏⴰⴹ ⵉⵜⵜⴰⵡⵙⵏ ⴰⵙⴽⴰⵏ ⵏ ⵓⵣⴷⵉ",
+        subtitle: "ⴼⵔⵏ ⵜⴰⵎⵏⴰⴹⵜ ⴰⴷ ⵜⵙⵙⵏⴷ ⴰⵎⵙⵏⴰⵡ ⵏⵏⵖ"
       },
       region: {
         contact: "ⴰⵎⵢⴰⵡⴰⴹ ⴷ ⵜⵎⵏⵉⴹⵜ"
@@ -387,7 +413,7 @@ window.siteData = {
       },
       partners: {
         tag: "ⵉⵎⵎⴷⴷⴰⵏ",
-        title: "ⴰⵥⴰⵡⴰⵏ ⵉⵖⵓⵙⴰⵏ ⵏ ⵉⵎⵎⴷⴷⴰⵏ ⵏ ⵓⵎⴰⵜⴰⵢ ⴷ ⵓⵙⵍⵉⴳ ⵉⵙⵙⵓⵙⵎⵏ ⴰⵙⴻⵎⴰⵔ ⵏ ⵉⵙⵏⴰⵎⴰⵍⵏ"
+        title: "ⴰⵥⵟⵟⴰ ⵉⴷⵓⵙⵏ ⵉⵙⵙⵉⵊⵀⴷⵏ ⵜⴰⵎⵙⵙⵓⵔⵜ ⵏ ⵉⵙⵏⴰⵎⴰⵍⵏ ⵏⵏⵖ"
       },
       contact: {
         tag: "ⴰⵎⵢⴰⵡⴰⴹ",
@@ -408,15 +434,16 @@ window.siteData = {
         }
       },
       footer: {
-        about: "ⵜⴰⴷⵓⵙⵉ ⵏ ⵓⵙⵙⴼⵍⴷ ⵏ ⵉⴳⵓⵍⵏ ⵉⵏⵎⴰⵍⴰⵏ ⵏ ⵓⵎⴷⴰⵏ ⵏ ⵜⴰⵎⴰⵣⵔⵜ ⵏ ⵜⴼⵍⴰⵃⵜ.",
+        about: "ⵜⴰⵙⴷⴰⵡⵉⵜ ⵏ ⵓⵙⵙⵓⴷⵓ ⵏ ⵉⴳⵓⵍⵏ ⵉⵏⵎⴰⵍⴰⵏ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ ⵏ ⵜⵎⴰⵡⴰⵙⵜ ⵏ ⵜⴼⵍⴰⵃⵜ ⴷ ⵓⵙⴳⵓⵔ ⵏ ⵢⵉⵍⵍ - ⴰⴳⵣⵣⵓⵎ ⵏ ⵜⴼⵍⴰⵃⵜ",
         usefulTitle: "ⵉⵙⵖⵡⴰⵏ ⵉⵏⴼⴰⵏ",
         useful1: "ⵜⵉⵙⵓⵜⵔⴰ ⵏ ⵜⵉⵙⵎⵙⴽⴰⵍ",
         useful2: "FAQ",
         useful3: "ⴰⵙⴳⴳⵯⴰⵙ ⵏ ⵓⵎⵉⵏⵉⴷ",
         quickTitle: "ⴰⴽⵛⵛⵓⵎ ⴰⵣⵔⴰⵡ",
-        quick1: "ⵜⴰⴱⵓⵔⵜ ⵏ ⵓⵎⵙⴽⴰⵔ",
-        quick2: "ⴰⵙⵏⴰⵎⴰⵍ ⴰⵏⵎⴰⵍⴰⵏ",
-        quick3: "ⵉⵎⵉⵏⵉⴷⵏ",
+        quick1: "ⴰⵙⴰⵢⵍⴰ ⵏ ⵓⵎⵣⵔⴰⵢ",
+        quick2: "ⵉⵎⴰⵍⴰⵙⵙⵏ",
+        quick3: "ⴰⵙⴰⵢⵍⴰ ⵏ ⵜⵉⴼⵔⴽⵉⵡⵉⵏ",
+        callAria: "ⵎⵢⴰⵡⴰⵍ ⴷ ⵜⵙⴷⴰⵡⵉⵜ",
         contactTitle: "ⵉⵙⴰⵍⵏ ⵏ ⵓⵎⵢⴰⵡⴰⴹ",
         copy: "© 2026 FOS-Agri - ⵜⴰⵎⴰⵣⵔⵜ ⵏ ⵜⴼⵍⴰⵃⵜ",
         credit: "Powered by <a href='https://neonovia.com/' target='_blank' rel='noopener noreferrer'>NEONOVIA</a>",
@@ -651,17 +678,17 @@ window.siteData = {
       href: "services/culture-loisirs-voyages.html",
       icon: "fa-umbrella-beach",
       fr: {
-        title: "Vacances & Loisirs",
+        title: "Vacances, loisirs & services du quotidien",
         excerpt: "Centres d'estivage, voyages organisés et conventions de transport.",
         detail: "Programmes de vacances, loisirs familiaux et offres partenaires à tarifs préférentiels."
       },
       ar: {
-        title: "الاصطياف والترفيه",
+        title: "العطل والترفيه وخدمات الحياة اليومية",
         excerpt: "مراكز الاصطياف، رحلات منظمة واتفاقيات للنقل.",
         detail: "برامج الاصطياف والترفيه العائلي وعروض الشركاء بأسعار تفضيلية."
       },
       zgh: {
-        title: "ⵉⵡⵙⵙⴰⵏ ⵏ ⵓⵙⵔⴼ ⴷ ⵓⵔⴰⵔ",
+        title: "ⵉⵡⵙⵙⴰⵏ ⵏ ⵓⵙⵔⴼ, ⴰⵔⴰⵔ ⴷ ⵉⵎⴰⵍⴰⵙⵙⵏ ⵏ ⵓⵙⵙ ⵙ ⵡⴰⵙⵙ",
         excerpt: "ⵉⵎⵔⴽⴰⵣ ⵏ ⵓⵙⵔⴼ, ⵉⵏⵉⴳⵏ ⵉⵜⵜⵓⵙⵏⵜⵍⵏ ⴷ ⵜⵉⵎⵙⴰⵙⴽⴰⵏ ⵏ ⵓⵙⵙⵉⵡⴹ.",
         detail: "ⵉⵙⵏⴰⵎⴰⵍⵏ ⵏ ⵓⵙⵔⴼ, ⴰⵔⴰⵔ ⵏ ⵜⵡⴰⵛⵓⵍⵜ ⴷ ⵉⵙⵓⴼⴰⵖⵏ ⵏ ⵉⵎⵎⴷⴷⴰⵏ ⵙ ⵜⵉⵖⴼⵉⴹⵉⵏ."
       }
@@ -809,11 +836,110 @@ window.siteData = {
         title: "ⵜⴰⴽⵎⵉⵜ ⵏ ⵓⵖⵔⵙ ⵏ ⵉⵣⵎⵔⴰⵏ",
         excerpt: "ⴰⵙⵏⴽⴻⵔ ⵏ ⵓⴽⴰⵍ ⵉ ⵓⵙⵍⴰⵍⵉ ⴷ ⵓⵙⵎⵖⵔ ⵏ ⵉⴼⵔⵓⵖⵏ ⵏ ⵓⵣⵎⵔ."
       }
+    },
+    /* Évènements phares (important: true → légende dorée du calendrier) */
+    {
+      date: "01/01/2026",
+      time: "",
+      location: "",
+      locationAr: "",
+      locationZgh: "",
+      type: "",
+      typeAr: "",
+      typeZgh: "",
+      typeColor: "#c8a44d",
+      icon: "fa-star",
+      important: true,
+      fr: { title: "Nouvel an", excerpt: "" },
+      ar: { title: "رأس السنة الميلادية", excerpt: "" },
+      zgh: { title: "ⵉⵅⴼ ⵏ ⵓⵙⴳⴳⵯⴰⵙ ⴰⵎⵉⵍⴰⴷⵉ", excerpt: "" }
+    },
+    {
+      date: "13/01/2026",
+      time: "",
+      location: "",
+      locationAr: "",
+      locationZgh: "",
+      type: "",
+      typeAr: "",
+      typeZgh: "",
+      typeColor: "#c8a44d",
+      icon: "fa-star",
+      important: true,
+      fr: { title: "Nouvel an Amazigh", excerpt: "" },
+      ar: { title: "رأس السنة الأمازيغية", excerpt: "" },
+      zgh: { title: "ⵉⵅⴼ ⵏ ⵓⵙⴳⴳⵯⴰⵙ ⴰⵎⴰⵣⵉⵖ (ⵢⵉⵏⵏⴰⵢⵔ)", excerpt: "" }
+    },
+    {
+      date: "08/03/2026",
+      time: "",
+      location: "",
+      locationAr: "",
+      locationZgh: "",
+      type: "",
+      typeAr: "",
+      typeZgh: "",
+      typeColor: "#c8a44d",
+      icon: "fa-star",
+      important: true,
+      fr: { title: "Journée internationale des droits des femmes", excerpt: "" },
+      ar: { title: "اليوم العالمي لحقوق المرأة", excerpt: "" },
+      zgh: { title: "ⴰⵙⵙ ⴰⵎⴰⴹⵍⴰⵏ ⵏ ⵉⵣⵔⴼⴰⵏ ⵏ ⵜⵎⵖⴰⵔⵉⵏ", excerpt: "" }
+    },
+    {
+      date: "20/04/2026",
+      time: "Du 20 au 28 avril 2026",
+      timeAr: "من 20 إلى 28 أبريل 2026",
+      timeZgh: "ⵙⴳ 20 ⴰⵔ 28 ⴱⵕⵉⵔ 2026",
+      location: "",
+      locationAr: "",
+      locationZgh: "",
+      type: "",
+      typeAr: "",
+      typeZgh: "",
+      typeColor: "#c8a44d",
+      icon: "fa-star",
+      important: true,
+      fr: { title: "Salon International de l'Agriculture au Maroc", excerpt: "" },
+      ar: { title: "المعرض الدولي للفلاحة بالمغرب", excerpt: "" },
+      zgh: { title: "ⴰⵙⵎⵓⵖⵍⵓ ⴰⵎⴰⴹⵍⴰⵏ ⵏ ⵜⴼⵍⴰⵃⵜ ⴳ ⵍⵎⵖⵔⵉⴱ", excerpt: "" }
+    },
+    {
+      date: "21/06/2026",
+      time: "",
+      location: "",
+      locationAr: "",
+      locationZgh: "",
+      type: "",
+      typeAr: "",
+      typeZgh: "",
+      typeColor: "#c8a44d",
+      icon: "fa-star",
+      important: true,
+      fr: { title: "Lancement de la saison estivale 2026 au niveau du Club de l'Agriculture", excerpt: "" },
+      ar: { title: "انطلاق الموسم الصيفي 2026 بنادي الفلاحة", excerpt: "" },
+      zgh: { title: "ⴰⵙⵏⵜⵉ ⵏ ⵜⵙⴳⴰ ⵏ ⵓⵏⴱⴷⵓ 2026 ⴳ ⴽⵍⵓⴱ ⵏ ⵜⴼⵍⴰⵃⵜ", excerpt: "" }
+    },
+    {
+      date: "23/06/2026",
+      time: "",
+      location: "",
+      locationAr: "",
+      locationZgh: "",
+      type: "",
+      typeAr: "",
+      typeZgh: "",
+      typeColor: "#c8a44d",
+      icon: "fa-star",
+      important: true,
+      fr: { title: "Journée des Nations Unies pour la fonction publique", excerpt: "" },
+      ar: { title: "يوم الأمم المتحدة للخدمة العامة", excerpt: "" },
+      zgh: { title: "ⴰⵙⵙ ⵏ ⵜⴳⴷⵓⴷⵉⵏ ⵜⵉⵎⵓⵏⵏⵉⵏ ⵉ ⵜⵎⵙⵙⵓⵔⵜ ⵜⴰⵎⵜⵜⵉⵡⵜ", excerpt: "" }
     }
   ],
   stats: [
     { value: "+30", icon: "fa-hand-holding-heart", fr: "Prestations sociales", ar: "خدمات اجتماعية", zgh: "ⵉⵎⴰⵍⴰⵙⵙⵏ ⵉⵏⴰⵎⵓⵏⵏ" },
-    { value: "+7 000", icon: "fa-users", fr: "Adhérents accompagnés", ar: "منخرطون مستفيدون", zgh: "ⵉⵎⵣⵔⴰⵢⵏ ⵉⵎⵙⵜⴼⴰⴷⵏ" },
+    { value: "+8 000", icon: "fa-users", fr: "Adhérents accompagnés", ar: "منخرطون مستفيدون", zgh: "ⵉⵎⵣⵔⴰⵢⵏ ⵉⵎⵙⵜⴼⴰⴷⵏ" },
     { value: "+20 000", icon: "fa-people-group", fr: "Ayants droit soutenus", ar: "ذوو الحقوق المستفيدون", zgh: "ⵡⵉⴷ ⵉⵍⴰⵏ ⴰⵣⵔⴼ" },
     { value: "+90", icon: "fa-handshake", fr: "Conventions actives", ar: "اتفاقيات نشطة", zgh: "ⵜⵉⵎⵙⴰⵙⴽⴰⵏ ⵜⵉⵔⵎⵉⵏ" }
   ],
@@ -825,17 +951,17 @@ window.siteData = {
       fr: {
         name: "Casablanca-Settat",
         delegate: "Siège",
-        details: "Point de contact régional pour le conseil, la coordination et l'accès aux services."
+        details: "Relais de proximité assurant le lien entre l'adhérent et la Fondation"
       },
       ar: {
         name: "الدار البيضاء - سطات",
         delegate: "المقر",
-        details: "نقطة اتصال جهوية للاستشارة والتنسيق والولوج إلى الخدمات."
+        details: "صلة وصل للقرب تربط بين المنخرط والمؤسسة"
       },
       zgh: {
         name: "ⴽⴰⵣⴰⴱⵍⴰⵏⴽⴰ-ⵙⵟⴰⵜ",
         delegate: "ⴰⵎⵇⵇⴰⵔ",
-        details: "ⵜⴰⵎⵙⴽⴰⵔⵜ ⵏ ⵓⵎⵢⴰⵡⴰⴹ ⴰⵎⵏⴰⴹ ⵉ ⵓⵙⵏⵎⵍ, ⵓⵙⵙⵎⴷ ⴷ ⵓⴽⵛⵛⵓⵎ ⵖⵔ ⵉⵎⴰⵍⴰⵙⵙⵏ."
+        details: "ⴰⵎⵙⵏⴰⵡ ⵏ ⵓⵣⴷⵉ ⵉⵙⵙⵓⴷⵓⵏ ⴰⵎⵣⵔⴰⵢ ⴷ ⵜⵙⴷⴰⵡⵉⵜ"
       }
     },
     {
@@ -845,17 +971,17 @@ window.siteData = {
       fr: {
         name: "Marrakech-Safi",
         delegate: "Relais régional",
-        details: "Orientation et suivi des dossiers par un relais local pour les bénéficiaires."
+        details: "Relais de proximité assurant le lien entre l'adhérent et la Fondation"
       },
       ar: {
         name: "مراكش - آسفي",
         delegate: "صلة جهوية",
-        details: "توجيه وتتبع الملفات عبر صلة محلية موجهة للمستفيدين."
+        details: "صلة وصل للقرب تربط بين المنخرط والمؤسسة"
       },
       zgh: {
         name: "ⵎⵕⵕⴰⴽⵯⵛ-ⴰⵙⴼⵉ",
         delegate: "ⴰⵣⴷⵉ ⴰⵎⵏⴰⴹ",
-        details: "ⴰⵙⵏⵎⵍ ⴷ ⵜⵜⴰⴱⴰⵄ ⵏ ⵉⴼⴰⵢⵍⵏ ⵙ ⵢⴰⵏ ⵓⵣⴷⵉ ⴰⴷⴰⵖⴰⵔ ⵉ ⵉⵙⴼⴰⵢⴷⵏ."
+        details: "ⴰⵎⵙⵏⴰⵡ ⵏ ⵓⵣⴷⵉ ⵉⵙⵙⵓⴷⵓⵏ ⴰⵎⵣⵔⴰⵢ ⴷ ⵜⵙⴷⴰⵡⵉⵜ"
       }
     },
     {
@@ -865,17 +991,17 @@ window.siteData = {
       fr: {
         name: "Béni Mellal-Khénifra",
         delegate: "Présence territoriale",
-        details: "Appui administratif et suivi des demandes sociales pour les bénéficiaires de la région."
+        details: "Relais de proximité assurant le lien entre l'adhérent et la Fondation"
       },
       ar: {
         name: "بني ملال - خنيفرة",
         delegate: "حضور ترابي",
-        details: "دعم إداري وتتبع الطلبات الاجتماعية لفائدة المستفيدين بالجهة."
+        details: "صلة وصل للقرب تربط بين المنخرط والمؤسسة"
       },
       zgh: {
         name: "ⴱⵏⵉ ⵎⵍⵍⴰⵍ-ⵅⵏⵉⴼⵔⴰ",
         delegate: "ⴰⵙⵉⵍⵉ ⴰⴽⴰⵍⴰⵏ",
-        details: "ⴰⵎⵎⴰⵏ ⴰⴷⵎⵉⵏⵉⵙⵜⵔⴰⵜⵉⴼ ⴷ ⵜⵜⴰⴱⴰⵄ ⵏ ⵜⵉⵙⵓⵜⵔⴰ ⵜⵉⵏⵎⴰⵍⵉⵏ ⵉ ⵉⵙⴼⴰⵢⴷⵏ ⵏ ⵜⵎⵏⴰⴹⵜ."
+        details: "ⴰⵎⵙⵏⴰⵡ ⵏ ⵓⵣⴷⵉ ⵉⵙⵙⵓⴷⵓⵏ ⴰⵎⵣⵔⴰⵢ ⴷ ⵜⵙⴷⴰⵡⵉⵜ"
       }
     },
     {
@@ -885,17 +1011,17 @@ window.siteData = {
       fr: {
         name: "Rabat-Salé-Kénitra",
         delegate: "Relais du nord",
-        details: "Accueil et orientation des adhérents, relais des services et actions sociales locales."
+        details: "Relais de proximité assurant le lien entre l'adhérent et la Fondation"
       },
       ar: {
         name: "الرباط - سلا - القنيطرة",
         delegate: "صلة الشمال",
-        details: "استقبال وتوجيه المنخرطين وربطهم بالخدمات والأنشطة الاجتماعية المحلية."
+        details: "صلة وصل للقرب تربط بين المنخرط والمؤسسة"
       },
       zgh: {
         name: "ⵕⵕⴱⴰⵟ-ⵙⵍⴰ-ⵇⵏⵉⵟⵕⴰ",
         delegate: "ⴰⵣⴷⵉ ⵏ ⵓⵏⴰⵎⵎⴰⵙ",
-        details: "ⴰⵎⵎⵔⵣⵓ ⴷ ⵓⵙⵏⵎⵍ ⵏ ⵉⵎⵣⵔⴰⵢⵏ, ⴰⵣⴷⵉ ⵏ ⵉⵎⴰⵍⴰⵙⵙⵏ ⴷ ⵉⵙⵏⴽⴻⵔⵏ ⵉⵏⵎⴰⵍⴰⵏ ⵉⴷⴰⵖⴰⵔⵏ."
+        details: "ⴰⵎⵙⵏⴰⵡ ⵏ ⵓⵣⴷⵉ ⵉⵙⵙⵓⴷⵓⵏ ⴰⵎⵣⵔⴰⵢ ⴷ ⵜⵙⴷⴰⵡⵉⵜ"
       }
     },
     {
@@ -905,17 +1031,17 @@ window.siteData = {
       fr: {
         name: "Drâa-Tafilalet",
         delegate: "Relais de proximité",
-        details: "Relais de proximité pour l'information, le suivi et l'accompagnement."
+        details: "Relais de proximité assurant le lien entre l'adhérent et la Fondation"
       },
       ar: {
         name: "درعة - تافيلالت",
         delegate: "صلة القرب",
-        details: "صلة للقرب من اجل الاعلام والتتبع والمواكبة."
+        details: "صلة وصل للقرب تربط بين المنخرط والمؤسسة"
       },
       zgh: {
         name: "ⴷⵔⴰⵄ-ⵜⴰⴼⵉⵍⴰⵍⵜ",
         delegate: "ⴰⵣⴷⵉ ⵏ ⵓⵣⴷⵉ",
-        details: "ⴰⵣⴷⵉ ⵏ ⵓⵣⴷⵉ ⵉ ⵓⵙⵉⵏⴼⵓ, ⵜⵜⴰⴱⴰⵄ ⴷ ⵓⵎⵎⴰⵏ."
+        details: "ⴰⵎⵙⵏⴰⵡ ⵏ ⵓⵣⴷⵉ ⵉⵙⵙⵓⴷⵓⵏ ⴰⵎⵣⵔⴰⵢ ⴷ ⵜⵙⴷⴰⵡⵉⵜ"
       }
     },
     {
@@ -925,17 +1051,17 @@ window.siteData = {
       fr: {
         name: "Fès-Meknès",
         delegate: "Relais de proximité",
-        details: "Relais de proximité pour l'information, le suivi et l'accompagnement."
+        details: "Relais de proximité assurant le lien entre l'adhérent et la Fondation"
       },
       ar: {
         name: "فاس - مكناس",
         delegate: "صلة القرب",
-        details: "صلة للقرب من اجل الاعلام والتتبع والمواكبة."
+        details: "صلة وصل للقرب تربط بين المنخرط والمؤسسة"
       },
       zgh: {
         name: "ⴼⴰⵙ-ⵎⴽⵏⴰⵙ",
         delegate: "ⴰⵣⴷⵉ ⵏ ⵓⵣⴷⵉ",
-        details: "ⴰⵣⴷⵉ ⵏ ⵓⵣⴷⵉ ⵉ ⵓⵙⵉⵏⴼⵓ, ⵜⵜⴰⴱⴰⵄ ⴷ ⵓⵎⵎⴰⵏ."
+        details: "ⴰⵎⵙⵏⴰⵡ ⵏ ⵓⵣⴷⵉ ⵉⵙⵙⵓⴷⵓⵏ ⴰⵎⵣⵔⴰⵢ ⴷ ⵜⵙⴷⴰⵡⵉⵜ"
       }
     },
     {
@@ -945,17 +1071,17 @@ window.siteData = {
       fr: {
         name: "Souss-Massa",
         delegate: "Point d'écoute",
-        details: "Accueil des adhérents et information sur les programmes de soutien régionaux."
+        details: "Relais de proximité assurant le lien entre l'adhérent et la Fondation"
       },
       ar: {
         name: "سوس - ماسة",
         delegate: "فضاء استقبال",
-        details: "استقبال المنخرطين وتقديم معلومات حول برامج الدعم الجهوية."
+        details: "صلة وصل للقرب تربط بين المنخرط والمؤسسة"
       },
       zgh: {
         name: "ⵙⵓⵙ-ⵎⴰⵙⵙⴰ",
         delegate: "ⴰⵎⴽⴰⵏ ⵏ ⵓⵙⵍⵍⵉ",
-        details: "ⴰⵎⵎⵔⵣⵓ ⵏ ⵉⵎⵣⵔⴰⵢⵏ ⴷ ⵓⵙⵉⵏⴼⵓ ⵅⴼ ⵉⵙⵏⴰⵎⴰⵍⵏ ⵏ ⵓⵎⵎⴰⵏ ⴰⵎⵏⴰⴹ."
+        details: "ⴰⵎⵙⵏⴰⵡ ⵏ ⵓⵣⴷⵉ ⵉⵙⵙⵓⴷⵓⵏ ⴰⵎⵣⵔⴰⵢ ⴷ ⵜⵙⴷⴰⵡⵉⵜ"
       }
     },
     {
@@ -965,17 +1091,17 @@ window.siteData = {
       fr: {
         name: "Guelmim-Oued Noun",
         delegate: "Relais d'information",
-        details: "Information et orientation des adhérents, appui aux démarches sociales."
+        details: "Relais de proximité assurant le lien entre l'adhérent et la Fondation"
       },
       ar: {
         name: "كلميم - واد نون",
         delegate: "صلة الاعلام",
-        details: "الإعلام والتوجيه ودعم المنخرطين في المساطر الاجتماعية."
+        details: "صلة وصل للقرب تربط بين المنخرط والمؤسسة"
       },
       zgh: {
         name: "ⴳⵯⵍⵎⵉⵎ-ⵡⴰⴷ ⵏⵓⵏ",
         delegate: "ⴰⵣⴷⵉ ⵏ ⵓⵙⵉⵏⴼⵓ",
-        details: "ⴰⵙⵉⵏⴼⵓ ⴷ ⵓⵙⵏⵎⵍ ⵏ ⵉⵎⵣⵔⴰⵢⵏ, ⴰⵎⵎⴰⵏ ⵉ ⵜⵉⵙⵓⵜⵔⴰ ⵜⵉⵏⵎⴰⵍⵉⵏ."
+        details: "ⴰⵎⵙⵏⴰⵡ ⵏ ⵓⵣⴷⵉ ⵉⵙⵙⵓⴷⵓⵏ ⴰⵎⵣⵔⴰⵢ ⴷ ⵜⵙⴷⴰⵡⵉⵜ"
       }
     },
     {
@@ -985,17 +1111,17 @@ window.siteData = {
       fr: {
         name: "Laâyoune-Sakia El Hamra",
         delegate: "Relais d'information",
-        details: "Information et orientation des adhérents, appui aux démarches sociales."
+        details: "Relais de proximité assurant le lien entre l'adhérent et la Fondation"
       },
       ar: {
         name: "العيون - الساقية الحمراء",
         delegate: "صلة الاعلام",
-        details: "الإعلام والتوجيه ودعم المنخرطين في المساطر الاجتماعية."
+        details: "صلة وصل للقرب تربط بين المنخرط والمؤسسة"
       },
       zgh: {
         name: "ⵍⵄⵢⵓⵏ-ⵙⴰⴽⵢⴰ ⵍⵃⵎⵔⴰ",
         delegate: "ⴰⵣⴷⵉ ⵏ ⵓⵙⵉⵏⴼⵓ",
-        details: "ⴰⵙⵉⵏⴼⵓ ⴷ ⵓⵙⵏⵎⵍ ⵏ ⵉⵎⵣⵔⴰⵢⵏ, ⴰⵎⵎⴰⵏ ⵉ ⵜⵉⵙⵓⵜⵔⴰ ⵜⵉⵏⵎⴰⵍⵉⵏ."
+        details: "ⴰⵎⵙⵏⴰⵡ ⵏ ⵓⵣⴷⵉ ⵉⵙⵙⵓⴷⵓⵏ ⴰⵎⵣⵔⴰⵢ ⴷ ⵜⵙⴷⴰⵡⵉⵜ"
       }
     },
     {
@@ -1005,17 +1131,17 @@ window.siteData = {
       fr: {
         name: "Tanger-Tétouan-Al Hoceïma",
         delegate: "Présence locale",
-        details: "Accompagnement de proximité et suivi des demandes locales."
+        details: "Relais de proximité assurant le lien entre l'adhérent et la Fondation"
       },
       ar: {
         name: "طنجة - تطوان - الحسيمة",
         delegate: "حضور محلي",
-        details: "مواكبة قريبة وتتبع للطلبات المحلية."
+        details: "صلة وصل للقرب تربط بين المنخرط والمؤسسة"
       },
       zgh: {
         name: "ⵟⵏⵊⴰ-ⵜⵉⵟⵡⴰⵏ-ⴰⵍ ⵃⵓⵙⵉⵎⴰ",
         delegate: "ⴰⵙⵉⵍⵉ ⴰⴷⴰⵖⴰⵔ",
-        details: "ⴰⵎⵎⴰⵏ ⵏ ⵓⵣⴷⵉ ⴷ ⵜⵜⴰⴱⴰⵄ ⵏ ⵜⵉⵙⵓⵜⵔⴰ ⵜⴰⴷⴰⵖⴰⵔⵉⵏ."
+        details: "ⴰⵎⵙⵏⴰⵡ ⵏ ⵓⵣⴷⵉ ⵉⵙⵙⵓⴷⵓⵏ ⴰⵎⵣⵔⴰⵢ ⴷ ⵜⵙⴷⴰⵡⵉⵜ"
       }
     },
     {
@@ -1025,17 +1151,17 @@ window.siteData = {
       fr: {
         name: "Dakhla-Oued Ed-Dahab",
         delegate: "Relais local",
-        details: "Relais local pour l'accès aux services et aux informations sociales."
+        details: "Relais de proximité assurant le lien entre l'adhérent et la Fondation"
       },
       ar: {
         name: "الداخلة - وادي الذهب",
         delegate: "صلة محلية",
-        details: "صلة محلية للولوج إلى الخدمات والمعلومات الاجتماعية."
+        details: "صلة وصل للقرب تربط بين المنخرط والمؤسسة"
       },
       zgh: {
         name: "ⴷⴷⴰⵅⵍⴰ-ⵡⴰⴷⵉ ⴷⴷⴰⵀⴰⴱ",
         delegate: "ⴰⵣⴷⵉ ⴰⴷⴰⵖⴰⵔ",
-        details: "ⴰⵣⴷⵉ ⴰⴷⴰⵖⴰⵔ ⵉ ⵓⴽⵛⵛⵓⵎ ⵖⵔ ⵉⵎⴰⵍⴰⵙⵙⵏ ⴷ ⵉⵙⴰⵍⵏ ⵉⵏⵎⴰⵍⴰⵏ."
+        details: "ⴰⵎⵙⵏⴰⵡ ⵏ ⵓⵣⴷⵉ ⵉⵙⵙⵓⴷⵓⵏ ⴰⵎⵣⵔⴰⵢ ⴷ ⵜⵙⴷⴰⵡⵉⵜ"
       }
     },
     {
@@ -1045,17 +1171,17 @@ window.siteData = {
       fr: {
         name: "L'Oriental",
         delegate: "Antenne territoriale",
-        details: "Information régionale et relais des conventions utiles pour les adhérents."
+        details: "Relais de proximité assurant le lien entre l'adhérent et la Fondation"
       },
       ar: {
         name: "الشرق",
         delegate: "هوائي ترابي",
-        details: "معلومة جهوية وربط بالاتفاقيات المفيدة لفائدة المنخرطين."
+        details: "صلة وصل للقرب تربط بين المنخرط والمؤسسة"
       },
       zgh: {
         name: "ⴰⵛⵛⵔⵇ",
         delegate: "ⴰⵙⵉⵍⵉ ⴰⴽⴰⵍⴰⵏ",
-        details: "ⴰⵙⵉⵏⴼⵓ ⴰⵎⵏⴰⴹ ⴷ ⵓⵣⴷⵉ ⵏ ⵜⵉⵎⵙⴰⵙⴽⴰⵏ ⵉⵏⴼⴰⵏ ⵉ ⵉⵎⵣⵔⴰⵢⵏ."
+        details: "ⴰⵎⵙⵏⴰⵡ ⵏ ⵓⵣⴷⵉ ⵉⵙⵙⵓⴷⵓⵏ ⴰⵎⵣⵔⴰⵢ ⴷ ⵜⵙⴷⴰⵡⵉⵜ"
       }
     }
   ],
@@ -1111,9 +1237,15 @@ window.siteData = {
     }
   ],
   partners: [
-    { name: "SNTL", logo: "assets/partenaires/sntl.png" },
+    { name: "Banque Populaire", logo: "assets/images/banks/Banque%20Populaire.png" },
+    { name: "Wafa Immobilier", logo: "assets/images/banks/Wafa%20Immobilier.png" },
     { name: "BMCI", logo: "assets/partenaires/bmci.png" },
-    { name: "Wafa Assurance", logo: "assets/partenaires/wafa.png" }
+    { name: "Kitea", logo: "assets/images/Partenariats/Kitea.png" },
+    { name: "SNTL", logo: "assets/partenaires/sntl.png" },
+    { name: "Wafa Assurance", logo: "assets/partenaires/wafa.png" },
+    { name: "Saham Assurance", logo: "assets/partenaires/saham-assurance.png" },
+    { name: "Wafa IMA Assistance", logo: "assets/partenaires/wafainjad.png" },
+    { name: "Salafin", logo: "assets/partenaires/salafin.png" }
   ]
 };
 

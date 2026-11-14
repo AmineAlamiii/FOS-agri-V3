@@ -80,11 +80,11 @@
   const nav = {
     fr: {
       home: 'Accueil', foundation: 'La Fondation', services: 'Prestations', adhesion: 'Adhésion', mediatheque: 'Médiathèque', news: 'Actualités',
-      events: 'Agenda solidaire', contact: 'Contact', member: 'Espace adhérent', footerAbout: 'Fondation pour la promotion des œuvres sociales du personnel du ministère de l\'Agriculture.',
+      events: 'Agenda solidaire', contact: 'Contact', member: 'Espace adhérent', footerAbout: 'Fondation pour la Promotion des Œuvres Sociales du Personnel du Ministère de l\'Agriculture et de la Pêche Maritime - Département de l\'Agriculture',
       usefulTitle: 'Liens utiles', quickTitle: 'Accès rapide', contactTitle: 'Coordonnées', copy: '© 2026 FOS-Agri - Ministère de l\'Agriculture',
-      useful1: 'Appels d\'offres', useful2: 'FAQ', useful3: 'Newsletter', quick1: 'Portail agent', quick2: 'Programme social', quick3: 'Actualités',
+      useful1: 'Appels d\'offres', useful2: 'FAQ', useful3: 'Newsletter', quick1: 'Espace adhérent', quick2: 'Prestations', quick3: 'Espace documentaire',
       minister: 'Mot du Ministre', president: 'Mot du Président', history: 'Histoire, mission et valeurs', values: 'Nos valeurs', governance: 'Gouvernance',
-      prevoyance: 'Prévoyance médico-sociale', culture: 'Culture, loisirs et voyages', scolarisation: 'Appui à la scolarisation et à la formation', logement: 'Accès au logement', projets: 'Appui aux projets personnels', education: 'Éducation et culture',
+      prevoyance: 'Prévoyance médico-sociale', culture: 'Culture, loisirs et voyages', scolarisation: 'Appui à la scolarisation et à la formation', logement: 'Accès au logement', projets: 'Appui aux projets personnels', quotidien: 'Services du quotidien', education: 'Éducation et culture',
       adherents: 'Nos adhérents & bénéficiaires', procedure: 'Procédure d’adhésion', cotisations: 'Cotisations',
       media2017: 'Galerie 2017', media2018: 'Galerie 2018', media2019: 'Galerie 2019', media2020: 'Galerie 2020',
       coordinates: 'Coordonnées', regional: 'Relais régionaux', social: 'Réseaux sociaux',
@@ -93,6 +93,8 @@
       langLabel: 'Langue', langMenuLabel: 'Choix de langue',
       navLabel: 'Navigation principale', submenuLabel: 'Sous-menu',
       memberClose: 'Fermer',
+      club: 'Espace club', searchBar: 'Rechercher sur le site…', callFoundation: 'Appeler la Fondation',
+      docSpace: 'Espace documentaire', docSpaceBody: 'Contenu bientôt disponible.',
       /* Hero sections — secondary pages */
       adhesionKicker: 'Adhésion', adhesionTitle: 'Adhérents, bénéficiaires et procédures',
       adhesionBody: 'Conditions d\'adhésion, pièces à fournir et cotisations de la Fondation.',
@@ -201,11 +203,11 @@
     },
     ar: {
       home: 'الرئيسية', foundation: 'المؤسسة', services: 'الخدمات', adhesion: 'الانخراط', mediatheque: 'الخزانة الرقمية', news: 'المستجدات',
-      events: 'الأجندة التضامنية', contact: 'اتصل بنا', member: 'فضاء المنخرط', footerAbout: 'مؤسسة النهوض بالأعمال الاجتماعية لموظفي وزارة الفلاحة.',
+      events: 'الأجندة التضامنية', contact: 'اتصل بنا', member: 'فضاء المنخرط', footerAbout: 'مؤسسة النهوض بالأعمال الاجتماعية لموظفي وزارة الفلاحة والصيد البحري - قطاع الفلاحة',
       usefulTitle: 'روابط مفيدة', quickTitle: 'ولوج سريع', contactTitle: 'بيانات الاتصال', copy: '© 2026 فوس-أكري - وزارة الفلاحة',
-      useful1: 'طلبات العروض', useful2: 'الأسئلة الشائعة', useful3: 'النشرة الإخبارية', quick1: 'بوابة الموظف', quick2: 'البرنامج الاجتماعي', quick3: 'المستجدات',
+      useful1: 'طلبات العروض', useful2: 'الأسئلة الشائعة', useful3: 'النشرة الإخبارية', quick1: 'فضاء المنخرط', quick2: 'الخدمات', quick3: 'الفضاء الوثائقي',
       minister: 'كلمة الوزير', president: 'كلمة الرئيس', history: 'التاريخ، المهمة والقيم', values: 'قيمنا', governance: 'الحكامة والتنظيم',
-      prevoyance: 'الوقاية الطبية الاجتماعية', culture: 'الثقافة والترفيه والأسفار', scolarisation: 'الدراسة والتكوين', logement: 'الولوج إلى السكن', projets: 'المشاريع الشخصية', education: 'التربية والثقافة',
+      prevoyance: 'الوقاية الطبية الاجتماعية', culture: 'الثقافة والترفيه والأسفار', scolarisation: 'الدراسة والتكوين', logement: 'الولوج إلى السكن', projets: 'المشاريع الشخصية', quotidien: 'خدمات الحياة اليومية', education: 'التربية والثقافة',
       adherents: 'المنخرطون والمستفيدون', procedure: 'مسطرة الانخراط', cotisations: 'الاشتراكات',
       media2017: 'صور 2017', media2018: 'صور 2018', media2019: 'صور 2019', media2020: 'صور 2020',
       coordinates: 'المعلومات', regional: 'المنسقون الجهويون', social: 'الشبكات الاجتماعية',
@@ -214,6 +216,8 @@
       langLabel: 'اللغة', langMenuLabel: 'اختيار اللغة',
       navLabel: 'التنقل الرئيسي', submenuLabel: 'قائمة فرعية',
       memberClose: 'إغلاق',
+      club: 'فضاء النادي', searchBar: 'ابحث في الموقع…', callFoundation: 'اتصل بالمؤسسة',
+      docSpace: 'الفضاء الوثائقي', docSpaceBody: 'المحتوى متاح قريبا.',
       adhesionKicker: 'الانخراط', adhesionTitle: 'المنخرطون والمستفيدون والمساطر',
       adhesionBody: 'شروط الانخراط، الوثائق المطلوبة، والاشتراكات الخاصة بالمؤسسة.',
       adh_activeTitle: 'الموظفون العاملون',
@@ -321,11 +325,11 @@
     },
     zgh: {
       home: 'ⴰⵙⵏⵓⴱⴳ', foundation: 'ⵜⴰⵎⵙⵙⵓⵔⵜ', services: 'ⵜⵉⵏⴼⴰⵙ', adhesion: 'ⴰⵎⵓⵏ', mediatheque: 'ⵜⴰⵎⵓⵙⵙⵏⴰ', news: 'ⵉⵙⴰⵍⵏ',
-      events: 'ⴰⴳⵏⴷⴰ ⵏ ⵜⴰⵏⴼⴰ', contact: 'ⴰⵏⴰⵔⵎⵙ', member: 'ⴰⵎⵙⴽⴰⵔ ⵏ ⵓⵎⵏⵖⵓⵔ', footerAbout: 'ⵜⴰⴷⵓⵙⵉ ⵏ ⵓⵙⵙⴼⵍⴷ ⵏ ⵉⴳⵓⵍⵏ ⵉⵏⵎⴰⵍⴰⵏ ⵏ ⵓⵎⴷⴰⵏ ⵏ ⵜⴰⵎⴰⵣⵔⵜ ⵏ ⵜⴼⵍⴰⵃⵜ.',
+      events: 'ⴰⴳⵏⴷⴰ ⵏ ⵜⴰⵏⴼⴰ', contact: 'ⴰⵏⴰⵔⵎⵙ', member: 'ⴰⵎⵙⴽⴰⵔ ⵏ ⵓⵎⵏⵖⵓⵔ', footerAbout: 'ⵜⴰⵙⴷⴰⵡⵉⵜ ⵏ ⵓⵙⵙⵓⴷⵓ ⵏ ⵉⴳⵓⵍⵏ ⵉⵏⵎⴰⵍⴰⵏ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ ⵏ ⵜⵎⴰⵡⴰⵙⵜ ⵏ ⵜⴼⵍⴰⵃⵜ ⴷ ⵓⵙⴳⵓⵔ ⵏ ⵢⵉⵍⵍ - ⴰⴳⵣⵣⵓⵎ ⵏ ⵜⴼⵍⴰⵃⵜ',
       usefulTitle: 'ⵉⵙⵖⵡⴰⵏ ⵉⵏⴼⴰⵏ', quickTitle: 'ⴰⴽⵛⵛⵓⵎ ⴰⵣⵔⴰⵡ', contactTitle: 'ⵉⵙⴰⵍⵏ ⵏ ⵓⵎⵢⴰⵡⴰⴹ', copy: '© 2026 FOS-Agri - ⵜⴰⵎⴰⵣⵔⵜ ⵏ ⵜⴼⵍⴰⵃⵜ',
-      useful1: 'ⵜⵉⵙⵓⵜⵔⴰ ⵏ ⵜⵉⵙⵎⵙⴽⴰⵍ', useful2: 'FAQ', useful3: 'ⴰⵙⴳⴳⵯⴰⵙ ⵏ ⵓⵎⵉⵏⵉⴷ', quick1: 'ⵜⴰⴱⵓⵔⵜ ⵏ ⵓⵎⵙⴽⴰⵔ', quick2: 'ⴰⵙⵏⴰⵎⴰⵍ ⴰⵏⵎⴰⵍⴰⵏ', quick3: 'ⵉⵎⵉⵏⵉⴷⵏ',
+      useful1: 'ⵜⵉⵙⵓⵜⵔⴰ ⵏ ⵜⵉⵙⵎⵙⴽⴰⵍ', useful2: 'FAQ', useful3: 'ⴰⵙⴳⴳⵯⴰⵙ ⵏ ⵓⵎⵉⵏⵉⴷ', quick1: 'ⴰⵙⴰⵢⵍⴰ ⵏ ⵓⵎⵣⵔⴰⵢ', quick2: 'ⵉⵎⴰⵍⴰⵙⵙⵏ', quick3: 'ⴰⵙⴰⵢⵍⴰ ⵏ ⵜⵉⴼⵔⴽⵉⵡⵉⵏ',
       minister: 'ⴰⵡⴰⵍ ⵏ ⵓⵎⵏⵣⴰⵡ', president: 'ⴰⵡⴰⵍ ⵏ ⵓⵙⵍⵡⴰⵢ', history: 'ⴰⵎⵣⵔⵓⵢ, ⵜⴰⵎⴰⵙⵜ ⴷ ⵉⵎⴰⵙⵙⴰⵏ', values: 'ⵜⵉⵏⵉⵍⴰ', governance: 'ⵜⴰⴳⵓⵔⵉ ⴷ ⵜⵎⵙⵙⵓⴷⵙⵜ',
-      prevoyance: 'ⵜⴰⴼⵔⴰⵙⵜ ⵜⴰⴷⴰⵡⵙⴰⵏⵜ', culture: 'ⵜⴰⴷⵍⵙⴰ, ⴰⵙⴰⵢⵔⴰⵔ ⴷ ⵉⵙⵉⴽⵍⵏ', scolarisation: 'ⴰⵙⴳⵎⵉ ⴷ ⵜⵙⴳⵎⵉ', logement: 'ⴰⴽⵛⵓⵎ ⵖⵔ ⵜⴰⴷⴷⴰⵔⵜ', projets: 'ⵉⵙⵏⴼⴰⵔⵏ ⵉⵎⴰⵏⴰⵡⵏ', education: 'ⴰⵙⴳⵎⵉ ⴷ ⵜⴷⵍⵙⴰ',
+      prevoyance: 'ⵜⴰⴼⵔⴰⵙⵜ ⵜⴰⴷⴰⵡⵙⴰⵏⵜ', culture: 'ⵜⴰⴷⵍⵙⴰ, ⴰⵙⴰⵢⵔⴰⵔ ⴷ ⵉⵙⵉⴽⵍⵏ', scolarisation: 'ⴰⵙⴳⵎⵉ ⴷ ⵜⵙⴳⵎⵉ', logement: 'ⴰⴽⵛⵓⵎ ⵖⵔ ⵜⴰⴷⴷⴰⵔⵜ', projets: 'ⵉⵙⵏⴼⴰⵔⵏ ⵉⵎⴰⵏⴰⵡⵏ', quotidien: 'ⵉⵎⴰⵍⴰⵙⵙⵏ ⵏ ⵓⵙⵙ ⵙ ⵡⴰⵙⵙ', education: 'ⴰⵙⴳⵎⵉ ⴷ ⵜⴷⵍⵙⴰ',
       adherents: 'ⵉⵎⵓⵏⵏ ⴷ ⵉⵎⵙⴼⵔⴽⵏ', procedure: 'ⵜⴰⵎⵙⵙⴰⵔⵜ ⵏ ⵓⵎⵓⵏ', cotisations: 'ⵜⵉⵡⵙⵉⵡⵉⵏ',
       media2017: 'ⵜⴰⵡⵍⴰⴼⵜ 2017', media2018: 'ⵜⴰⵡⵍⴰⴼⵜ 2018', media2019: 'ⵜⴰⵡⵍⴰⴼⵜ 2019', media2020: 'ⵜⴰⵡⵍⴰⴼⵜ 2020',
       coordinates: 'ⵉⵙⴰⵍⵏ', regional: 'ⵉⵎⵙⵏⴰⵡⵏ ⵉⵎⵏⴰⴹⵏ', social: 'ⵉⵥⴹⵡⴰⵏ ⵉⵏⴰⵎⵓⵏⵏ',
@@ -334,6 +338,8 @@
       langLabel: 'ⵜⵓⵜⵍⴰⵢⵜ', langMenuLabel: 'ⴰⴼⵔⴰⵏ ⵏ ⵜⵓⵜⵍⴰⵢⵜ',
       navLabel: 'ⴰⵙⵓⴷⴷⵓ ⴰⵎⴰⵟⵟⴰⵍ', submenuLabel: 'ⴰⵙⵓⴷⴷⵓ ⴰⴷⴷⴰⵢ',
       memberClose: 'ⵙⵏⵙ',
+      club: 'ⴰⵙⴰⵢⵍⴰ ⵏ ⴽⵍⵓⴱ', searchBar: 'ⵔⵣⵓ…', callFoundation: 'ⵎⵢⴰⵡⴰⵍ ⴷ ⵜⵙⴷⴰⵡⵉⵜ',
+      docSpace: 'ⴰⵙⴰⵢⵍⴰ ⵏ ⵜⵉⴼⵔⴽⵉⵡⵉⵏ', docSpaceBody: 'ⴰⴳⴱⵓⵔ ⴰⴷ ⴷ ⵢⴰⵙ ⵇⵔⵉⴱ.',
       adhesionKicker: 'ⴰⵎⵓⵏ', adhesionTitle: 'ⵉⵎⵓⵏⵏ, ⵉⵎⵙⴼⵔⴽⵏ ⴷ ⵜⵎⵙⵙⴰⵔⵉⵏ',
       adhesionBody: 'ⵜⵉⵎⴻⵍⵍⵓⵙⵉⵏ ⵏ ⵓⵎⵓⵏ ⴷ ⵜⵉⵡⵙⵉⵡⵉⵏ ⵏ ⵜⵎⵙⵙⵓⵔⵜ.',
       adh_activeTitle: 'ⵉⵎⵇⵇⵔⴰⵏⴻⵏ ⵉⵜⵜⵓⵙⴽⴰⵔⵏ',
@@ -446,15 +452,15 @@
      translated title/description and a target URL. */
   const extra = {
     fr: {
-      'footer.about': "Fondation pour la promotion des œuvres sociales du personnel du ministère de l'Agriculture.",
+      'footer.about': "Fondation pour la Promotion des Œuvres Sociales du Personnel du Ministère de l'Agriculture et de la Pêche Maritime - Département de l'Agriculture",
       'footer.usefulTitle': 'Liens utiles',
       'footer.useful1': "Appels d'offres",
       'footer.useful2': 'FAQ',
       'footer.useful3': 'Newsletter',
       'footer.quickTitle': 'Accès rapide',
-      'footer.quick1': 'Portail agent',
-      'footer.quick2': 'Programme social',
-      'footer.quick3': 'Actualités',
+      'footer.quick1': 'Espace adhérent',
+      'footer.quick2': 'Prestations',
+      'footer.quick3': 'Espace documentaire',
       'footer.contactTitle': 'Coordonnées',
       'footer.copy': "© 2026 FOS-Agri - Ministère de l'Agriculture",
       'footer.credit': "Powered by <a href='https://neonovia.com/' target='_blank' rel='noopener noreferrer'>NEONOVIA</a>",
@@ -497,15 +503,15 @@
       prestationsBandCta: 'Nous contacter'
     },
     ar: {
-      'footer.about': 'مؤسسة النهوض بالأعمال الاجتماعية لموظفي وزارة الفلاحة.',
+      'footer.about': 'مؤسسة النهوض بالأعمال الاجتماعية لموظفي وزارة الفلاحة والصيد البحري - قطاع الفلاحة',
       'footer.usefulTitle': 'روابط مفيدة',
       'footer.useful1': 'طلبات العروض',
       'footer.useful2': 'الأسئلة الشائعة',
       'footer.useful3': 'النشرة الإخبارية',
       'footer.quickTitle': 'ولوج سريع',
       'footer.quick1': 'فضاء المنخرط',
-      'footer.quick2': 'البرنامج الاجتماعي',
-      'footer.quick3': 'المستجدات',
+      'footer.quick2': 'الخدمات',
+      'footer.quick3': 'الفضاء الوثائقي',
       'footer.contactTitle': 'البيانات',
       'footer.copy': '© 2026 FOS-Agri - وزارة الفلاحة',
       'footer.credit': "Powered by <a href='https://neonovia.com/' target='_blank' rel='noopener noreferrer'>NEONOVIA</a>",
@@ -548,15 +554,15 @@
       prestationsBandCta: 'اتصل بنا'
     },
     zgh: {
-      'footer.about': 'ⵜⴰⵎⵙⵙⵓⵔⵜ ⵏ ⵜⵏⵀⵓⵔⵜ ⵙ ⵡⵓⵎⴰⵍ ⵏ ⵉⵎⵙⵙⵓⵔⴰ ⵏ ⵜⴰⵎⴰⵣⴰⵔⵜ ⵏ ⵜⴼⵍⴰⵃⵜ.',
+      'footer.about': 'ⵜⴰⵙⴷⴰⵡⵉⵜ ⵏ ⵓⵙⵙⵓⴷⵓ ⵏ ⵉⴳⵓⵍⵏ ⵉⵏⵎⴰⵍⴰⵏ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ ⵏ ⵜⵎⴰⵡⴰⵙⵜ ⵏ ⵜⴼⵍⴰⵃⵜ ⴷ ⵓⵙⴳⵓⵔ ⵏ ⵢⵉⵍⵍ - ⴰⴳⵣⵣⵓⵎ ⵏ ⵜⴼⵍⴰⵃⵜ',
       'footer.usefulTitle': 'ⵉⵙⵖⵡⴰⵏ ⵉⵏⴼⴰⵏ',
       'footer.useful1': 'ⵉⵙⵙⵓⵜⵔⵏ ⵏ ⵓⴼⴰⵔⵙ',
       'footer.useful2': 'ⵜⵉⵙⵇⵙⵉⵏ ⵉⵜⵜⵓⵙⵜⴰⵢⵏ',
       'footer.useful3': 'ⵜⴰⴱⵔⴰⵜ ⵏ ⵓⵙⴰⵏ',
       'footer.quickTitle': 'ⴰⴽⵛⵛⵓⵎ ⴰⵣⵔⴰⵡ',
-      'footer.quick1': 'ⴰⵙⵏⵓⴱⴳ ⵏ ⵓⵎⵏⵅⵔⴰⵟ',
-      'footer.quick2': 'ⴰⵀⵉⵍ ⴰⵎⴰⴷⴰⵏ',
-      'footer.quick3': 'ⵉⵙⴰⵍⵏ',
+      'footer.quick1': 'ⴰⵙⴰⵢⵍⴰ ⵏ ⵓⵎⵣⵔⴰⵢ',
+      'footer.quick2': 'ⵉⵎⴰⵍⴰⵙⵙⵏ',
+      'footer.quick3': 'ⴰⵙⴰⵢⵍⴰ ⵏ ⵜⵉⴼⵔⴽⵉⵡⵉⵏ',
       'footer.contactTitle': 'ⵉⵙⴰⵍⵏ',
       'footer.copy': '© 2026 FOS-Agri - ⵜⴰⵎⴰⵣⴰⵔⵜ ⵏ ⵜⴼⵍⴰⵃⵜ',
       'footer.credit': "Powered by <a href='https://neonovia.com/' target='_blank' rel='noopener noreferrer'>NEONOVIA</a>",
@@ -618,6 +624,8 @@
     { key: 'scolarisation', url: 'services/formation-scolarisation.html', icon: 'fa-graduation-cap' },
     { key: 'logement',      url: 'services/acces-logement.html',          icon: 'fa-house-chimney' },
     { key: 'projets',       url: 'services/projets-personnels.html',      icon: 'fa-lightbulb' },
+    { key: 'quotidien',     url: 'services/services-quotidien.html',      icon: 'fa-utensils' },
+    { key: 'docSpace',      url: 'espace-documentaire.html',              icon: 'fa-folder-open' },
     { key: 'mediatheque',   url: 'mediatheque.html',                      icon: 'fa-photo-film' },
     { key: 'media2017',     url: 'mediatheque.html#galerie-2017',         icon: 'fa-images' },
     { key: 'media2018',     url: 'mediatheque.html#galerie-2018',         icon: 'fa-images' },
@@ -650,6 +658,8 @@
     scolarisation: 'scolarisation formation coaching scolaire bourses excellence rentree education',
     logement: 'logement habitat aide logement credit banque promoteur immobilier',
     projets: 'projets personnels credits sociaux financement partenariat tarifs preferentiels',
+    quotidien: 'services du quotidien restauration collective restaurant cantine transport du personnel bus',
+    docSpace: 'espace documentaire documents telechargement fichiers ressources',
     education: 'education culture formation scolarisation enfants ecole',
     mediatheque: 'mediatheque galerie photos videos images media albums',
     media2017: 'galerie 2017 photos images mediatheque',
@@ -931,27 +941,42 @@
   function renderNavActions() {
     const actions = document.querySelector('.nav-actions');
     if (!actions) return;
-    const labelText = lang === 'fr' ? 'FR' : lang === 'ar' ? 'AR' : 'ⵜⵎⵣⵉⵖⵜ';
-    /* Desktop only: round search-icon button between lang dropdown
-       and the member CTA. Mobile hides it via CSS — search shows up
-       only inside the opened menu. */
+    /* Desktop only: 3 visible language buttons (Ar / Am / Fr), the
+       member CTA and the club CTA. The search lives in a visible bar
+       under the menu row (renderHeaderSearchBar). Mobile hides
+       .nav-actions — search and languages live in the opened menu. */
+    const langBtn = (code, label) => `<button class="lang-btn${lang === code ? ' is-active' : ''}" type="button" data-lang="${code}" aria-pressed="${lang === code}" lang="${code === 'zgh' ? 'zgh' : code}">${label}</button>`;
     actions.innerHTML = `
-      <div class="lang-select-wrap desktop-only" id="sec-lang-wrap" aria-label="${t('langLabel')}">
-        <button class="lang-select" id="sec-lang-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
-          <span id="sec-lang-label">${labelText}</span>
-          <i class="fa-solid fa-chevron-down lang-chevron" aria-hidden="true"></i>
-        </button>
-        <ul class="lang-dropdown-panel" id="sec-lang-panel" role="listbox" aria-label="${t('langLabel')}">
-          <li class="lang-dropdown-option${lang === 'fr' ? ' is-selected' : ''}" role="option" data-lang="fr" tabindex="0">FR — Français</li>
-          <li class="lang-dropdown-option${lang === 'ar' ? ' is-selected' : ''}" role="option" data-lang="ar" tabindex="0">AR — العربية</li>
-          <li class="lang-dropdown-option${lang === 'zgh' ? ' is-selected' : ''}" role="option" data-lang="zgh" tabindex="0">ⵜⵎⵣⵉⵖⵜ</li>
-        </ul>
+      <div class="lang-toggle header-lang-switch" role="group" aria-label="${t('langMenuLabel')}">
+        ${langBtn('ar', 'Ar')}${langBtn('zgh', 'Am')}${langBtn('fr', 'Fr')}
       </div>
-      <button class="nav-search-btn" type="button" aria-label="${t('search')}" data-header-search="true">
-        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-      </button>
       <a class="btn-cta-nav desktop-only" href="${href('espace-adherent.html')}">${t('member')}</a>
+      <a class="btn-cta-nav btn-cta-nav--secondary desktop-only" href="${href('club-agri.html')}">${t('club')}</a>
     `;
+  }
+
+  /* Desktop search bar placed under the menu row, inside the header
+     container. Submits to search.html?q=… (read by search-page.js). */
+  function renderHeaderSearchBar() {
+    const header = document.querySelector('.site-header');
+    const shell = header?.querySelector('.nav-shell');
+    if (!header || !shell) return;
+    let row = header.querySelector('.header-search-row');
+    if (!row) {
+      row = document.createElement('div');
+      row.className = 'container header-search-row';
+      shell.insertAdjacentElement('afterend', row);
+    }
+    const current = row.querySelector('.header-search-input')?.value || '';
+    row.innerHTML = `
+      <form class="header-search-form" role="search" action="${href('search.html')}" method="get">
+        <input class="header-search-input" type="search" name="q" placeholder="${t('searchBar')}" aria-label="${t('search')}" autocomplete="off" spellcheck="false" />
+        <button class="header-search-submit" type="submit" aria-label="${t('search')}">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        </button>
+      </form>`;
+    const input = row.querySelector('.header-search-input');
+    if (input) input.value = current;
   }
 
   /* Deduplicate header-side search button — keep exactly one. */
@@ -1190,7 +1215,8 @@
         { href: 'services/culture-loisirs-voyages.html', key: 'culture' },
         { href: 'services/formation-scolarisation.html', key: 'scolarisation' },
         { href: 'services/acces-logement.html', key: 'logement' },
-        { href: 'services/projets-personnels.html', key: 'projets' }
+        { href: 'services/projets-personnels.html', key: 'projets' },
+        { href: 'services/services-quotidien.html', key: 'quotidien' }
       ])}
       ${submenu(page, 'mediatheque', 'mediatheque.html', 'mediatheque', [
         { href: 'mediatheque.html#galerie-2017', key: 'media2017' },
@@ -1207,6 +1233,7 @@
         <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> ${t('search')}
       </button>
       <a class="member-link mobile-only btn-cta-nav" href="${href('espace-adherent.html')}" data-nav-key="member">${t('member')}</a>
+      <a class="member-link mobile-only btn-cta-nav btn-cta-nav--secondary" href="${href('club-agri.html')}" data-nav-key="club">${t('club')}</a>
       <div class="lang-toggle mobile-nav-lang" role="group" aria-label="${t('langMenuLabel')}">
         <button class="lang-btn ${lang === 'fr' ? 'is-active' : ''}" type="button" data-lang="fr">FR</button>
         <button class="lang-btn ${lang === 'ar' ? 'is-active' : ''}" type="button" data-lang="ar">AR</button>
@@ -1326,23 +1353,23 @@
           <h3>${t('usefulTitle')}</h3>
           <ul class="footer-links">
             <li><a href="${href('index.html#news')}">${t('useful1')}</a></li>
-            <li><a href="${href('index.html#contact')}">${t('useful2')}</a></li>
+            <li><a href="${href('contact.html')}">${t('useful2')}</a></li>
             <li><a href="mailto:fos-agri@fos-agri.ma">${t('useful3')}</a></li>
           </ul>
         </div>
         <div>
           <h3>${t('quickTitle')}</h3>
           <ul class="footer-links">
-            <li><a href="${href('index.html#member-space')}">${t('quick1')}</a></li>
-            <li><a href="${href('index.html#services')}">${t('quick2')}</a></li>
-            <li><a href="${href('index.html#news')}">${t('quick3')}</a></li>
+            <li><a href="${href('espace-adherent.html')}">${t('quick1')}</a></li>
+            <li><a href="${href('prestations.html')}">${t('quick2')}</a></li>
+            <li><a href="${href('espace-documentaire.html')}">${t('quick3')}</a></li>
           </ul>
         </div>
         <div>
           <h3>${t('contactTitle')}</h3>
           <ul class="footer-links">
             <li><a href="mailto:fos-agri@fos-agri.ma"><i class="fa-solid fa-envelope"></i> fos-agri@fos-agri.ma</a></li>
-            <li><a href="tel:+212537774748"><i class="fa-solid fa-phone"></i> <span>+212 5 37 77 47 48</span></a></li>
+            <li><a href="tel:+212537665540"><i class="fa-solid fa-phone"></i> <span>0537665540/39</span></a></li>
             <li><a href="https://maps.app.goo.gl/mUGT2XwCk56UjA5KA" target="_blank" rel="noopener"><i class="fa-solid fa-location-dot"></i> <span>${t('ctc_address')}</span></a></li>
           </ul>
         </div>
@@ -1369,6 +1396,7 @@
     removeBrandSubtitle();
     renderNavigation();
     renderNavActions();
+    renderHeaderSearchBar();
     normalizeMenuToggle();
     removeHeaderSearchButton();
     renderFooter();
@@ -1589,7 +1617,10 @@
           .map((a) => a.getAttribute('href'))
       );
       const allCovered = socialLinks.every((l) => have.has(l.href));
-      if (allCovered) return;
+      if (allCovered) {
+        existing.querySelector('.floating-social-phone')?.setAttribute('aria-label', t('callFoundation'));
+        return;
+      }
       existing.remove();
     }
 
@@ -1597,6 +1628,7 @@
     host.className = 'floating-social';
     host.innerHTML = `
       <div class="floating-social-links" aria-label="Liens sociaux rapides">
+        <a class="floating-social-link floating-social-phone" href="tel:+212537665540" aria-label="${t('callFoundation')}"><i class="fa-solid fa-phone" aria-hidden="true"></i></a>
         ${socialLinks.map((l) => `<a class="floating-social-link" href="${l.href}" target="_blank" rel="noopener noreferrer" aria-label="${l.label}">${l.html}</a>`).join('')}
       </div>
       <button class="floating-social-main" type="button" aria-label="Ouvrir les liens sociaux">

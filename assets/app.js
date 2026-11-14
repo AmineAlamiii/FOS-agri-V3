@@ -220,6 +220,7 @@ function setLanguage(lang) {
 
   syncLanguageControls();
   renderPage();
+  qs(".floating-social-phone")?.setAttribute("aria-label", getTranslationValue("footer.callAria", currentLang) || "");
   isolateArabicNumbers();
 }
 
@@ -230,7 +231,7 @@ function renderServices() {
     .map((service) => {
       const content = getLocalizedEntry(service);
       const description = content?.description || content?.excerpt || "";
-      return `
+      const card = `
         <article class="service-card">
           <div class="service-icon" aria-hidden="true">
             <i class="fa-solid ${service.icon}"></i>
@@ -239,6 +240,7 @@ function renderServices() {
           <p>${description}</p>
         </article>
       `;
+      return service.href ? `<a class="service-card-link" href="${service.href}">${card}</a>` : card;
     })
     .join("");
 }
@@ -495,11 +497,13 @@ window.goToMiniSlide = function (index) {
       const key = formatDateKey(dateObj);
       const isPast = dateObj < today && key !== todayKey;
       const hasEvent = !!eventDates[key];
+      const isImportant = hasEvent && eventDates[key].some((ev) => ev.important);
       const isToday = key === todayKey;
       const isSelected = key === selectedDate;
       let cls = "cal-day";
       if (isPast) cls += " is-past";
       if (hasEvent) cls += " has-event";
+      if (isImportant) cls += " is-important";
       if (isToday) cls += " is-today";
       if (isSelected) cls += " is-selected";
       html += `<button class="${cls}" data-date="${key}" aria-label="${d} ${months[calMonth]} ${calYear}">${d}</button>`;
@@ -577,9 +581,9 @@ window.goToMiniSlide = function (index) {
       const typeCol = ev.typeColor || "#1f6a43";
       const typeLabel = lang === "ar" ? (ev.typeAr || ev.type || "") : lang === "zgh" ? (ev.typeZgh || ev.type || "") : (ev.type || "");
       const loc = lang === "ar" ? (ev.locationAr || ev.location || "") : lang === "zgh" ? (ev.locationZgh || ev.location || "") : (ev.location || "");
-      const time = ev.time || "";
+      const time = lang === "ar" ? (ev.timeAr || ev.time || "") : lang === "zgh" ? (ev.timeZgh || ev.time || "") : (ev.time || "");
       return `
-        <article class="agenda-event-card${isPast ? " is-past" : ""}">
+        <article class="agenda-event-card${isPast ? " is-past" : ""}${ev.important ? " is-important" : ""}">
           <div class="event-date-block">
             <span class="edb-day">${day}</span>
             <span class="edb-month">${mon}</span>
@@ -590,7 +594,7 @@ window.goToMiniSlide = function (index) {
           </div>
           <div class="event-body">
             <p class="event-title">${content.title}</p>
-            <p class="event-excerpt">${content.excerpt}</p>
+            ${content.excerpt ? `<p class="event-excerpt">${content.excerpt}</p>` : ""}
             <div class="event-meta">
               ${loc ? `<span><i class="fa-solid fa-location-dot"></i> ${loc}</span>` : ""}
               ${time ? `<span><i class="fa-regular fa-clock"></i> ${time}</span>` : ""}
@@ -1542,6 +1546,9 @@ function initFloatingSocialButton() {
   host.className = "floating-social";
   host.innerHTML = `
     <div class="floating-social-links" aria-label="Liens sociaux rapides">
+      <a class="floating-social-link floating-social-phone" href="tel:+212537665540" aria-label="${escapeHtml(getTranslationValue("footer.callAria", currentLang) || "")}">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+      </a>
       ${socialLinks
         .map(
           (link) => `

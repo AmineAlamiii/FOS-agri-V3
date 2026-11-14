@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tifinagh:wght@400;500;600;700&amp;family=Poppins:wght@400;500;600;700;800&amp;family=Tajawal:wght@400;500;700;800&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="stylesheet" href="assets/styles.css?v=10">
+  <link rel="stylesheet" href="assets/styles.css?v=11">
 <style id="antigravity-scroll-lock-style">
   html:root body.antigravity-scroll-lock {
     overflow: hidden !important;
@@ -37,7 +37,7 @@
         <a href="#services" data-i18n="nav.services">Prestations</a>
         <a href="#news" data-i18n="nav.news">Actualités</a>
         <a href="#events" data-i18n="nav.events">Agenda solidaire</a>
-        <a href="#contact" data-i18n="nav.contact">Contact</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
         <a class="member-link mobile-only btn-cta-nav" href="#member-space" data-i18n="nav.member">Espace adhérent</a>
         <div class="lang-toggle mobile-nav-lang" role="group" aria-label="Choix de langue">
           <button class="lang-btn is-active" type="button" data-lang="fr">FR</button>
@@ -77,10 +77,17 @@
         <p class="hero-description" data-i18n="hero.description">Chaque prestation, chaque initiative et chaque partenariat reflètent notre ambition de bâtir une action sociale d'excellence, innovante, inclusive et durable, au service des adhérents et de leurs familles.</p>
         <div class="hero-actions">
           <a class="btn btn-hero-primary" href="#services" data-i18n="hero.ctaServices">Découvrir les services</a>
-          <a class="btn btn-hero-secondary" href="#contact" data-i18n="hero.ctaContact">Nous contacter</a>
+          <a class="btn btn-hero-secondary" href="contact.html" data-i18n="hero.ctaContact">Nous contacter</a>
         </div>
       </div>
 
+    </section>
+
+    <section class="wafa-ima-band" id="wafa-ima" aria-labelledby="wafa-ima-title">
+      <div class="container wafa-ima-inner">
+        <h2 class="wafa-ima-title" id="wafa-ima-title" data-i18n="wafaIma.title">Contactez Wafa IMA :</h2>
+        <a class="wafa-ima-btn" href="tel:+212529075100" dir="ltr">+212 52 90 751 00</a>
+      </div>
     </section>
 
     <section class="section news-section" id="news">
@@ -171,15 +178,22 @@
         <div class="intro-panel reveal-on-scroll is-visible">
           <div class="intro-list-item">
             <strong><i class="fa-solid fa-bullseye"></i> <span data-i18n="about.missionTitle">Mission</span></strong>
-            <p data-i18n="about.missionBody">Servir les adhérents, soutenir les familles et rapprocher les services sur l'ensemble du territoire.</p>
+            <p data-i18n="about.missionBody">Améliorer les conditions de vie et de travail du personnel de Département de l'Agriculture et de favoriser leur épanouissement.</p>
           </div>
           <div class="intro-list-item">
             <strong><i class="fa-solid fa-layer-group"></i> <span data-i18n="about.scopeTitle">Périmètre</span></strong>
-            <p data-i18n="about.scopeBody">Prévoyance médico-sociale, loisirs, scolarisation, logement, projets personnels et conventions partenaires.</p>
+            <ul class="intro-scope-list">
+              <li data-i18n="about.scope1">Prévoyance médico-sociale</li>
+              <li data-i18n="about.scope2">Culture, loisirs et voyages</li>
+              <li data-i18n="about.scope3">Appui à la scolarisation et à la formation</li>
+              <li data-i18n="about.scope4">Accès au logement</li>
+              <li data-i18n="about.scope5">Appui aux projets personnels</li>
+              <li data-i18n="about.scope6">Services du quotidien</li>
+            </ul>
           </div>
           <div class="intro-list-item">
             <strong><i class="fa-solid fa-hand-holding-heart"></i> <span data-i18n="about.promiseTitle">Promesse</span></strong>
-            <p data-i18n="about.promiseBody">Une expérience lisible, bilingue et accessible qui met en avant les services prioritaires et les informations utiles.</p>
+            <p data-i18n="about.promiseBody">Donner un nouvel élan aux œuvres sociales et permettre au Département de marquer un saut qualitatif dans le développement de l'action sociale tout en favorisant les meilleures conditions pour l'épanouissement du personnel.</p>
           </div>
         </div>
       </div>
@@ -251,7 +265,7 @@
         <div class="events-hero">
         <div class="events-hero-content">
           <div class="agenda-tag" data-i18n="events.tag">Agenda solidaire</div>
-          <h2 data-i18n="events.title">Campagnes, rencontres et actions terrain</h2>
+          <h2 data-i18n="events.title">Campagnes, rencontres et évènements phares</h2>
           <p class="events-hero-sub" data-i18n="events.subtitle">Sélection d'événements et d'initiatives de FOS-Agri.</p>
         </div>
         <a href="#agenda-list" class="btn-agenda-all">
@@ -438,15 +452,15 @@
       <div class="container map-layout">
         <div>
           <div class="section-tag" data-i18n="map.tag">Présence nationale</div>
-          <h2 data-i18n="map.title">Un réseau de proximité à travers le Maroc</h2>
-          <p class="section-copy" data-i18n="map.subtitle">Sélectionnez une région ou survolez une ville pour afficher une délégation ou un point de présence.</p>
+          <h2 data-i18n="map.title">Une couverture territoriale assurant une représentation de proximité</h2>
+          <p class="section-copy" data-i18n="map.subtitle">Sélectionnez une région pour prendre connaissance de notre représentant</p>
           <div class="map-info-card" id="region-info-card">
             <div class="map-info-head">
               <span class="map-info-dot" id="region-dot" style="background-color: rgb(200, 164, 77); opacity: 1;"></span>
             <p id="region-title">Rabat-Salé-Kénitra</p>
             </div>
-            <p id="region-text">Accueil et orientation des adhérents, relais des services et actions sociales locales.</p>
-            <a href="#contact" class="btn btn-primary" style="margin-top: 1rem; width: 100%; border-radius: 999px; font-size: 0.95rem; padding: 0.75rem 1.5rem; text-align: center; text-decoration: none; display: inline-block;" data-i18n="region.contact">Contacter la délégation</a>
+            <p id="region-text">Relais de proximité assurant le lien entre l'adhérent et la Fondation</p>
+            <a href="contact.html" class="btn btn-primary" style="margin-top: 1rem; width: 100%; border-radius: 999px; font-size: 0.95rem; padding: 0.75rem 1.5rem; text-align: center; text-decoration: none; display: inline-block;" data-i18n="region.contact">Contacter la délégation</a>
           </div>
         </div>
         <div class="map-stage">
@@ -489,7 +503,7 @@
           <article class="region-card reveal-on-scroll is-visible" id="region-card" aria-live="polite">
       <h3>Rabat-Salé-Kénitra</h3>
       <p class="region-subtitle">Relais du nord</p>
-      <p>Accueil et orientation des adhérents, relais des services et actions sociales locales.</p>
+      <p>Relais de proximité assurant le lien entre l'adhérent et la Fondation</p>
     </article>
         </div>
       </div>
@@ -517,7 +531,7 @@
         <div class="section-head reveal-on-scroll is-visible">
           <div>
             <div class="section-tag" data-i18n="partners.tag">Partenaires</div>
-            <h2 data-i18n="partners.title">Un réseau solide, public et privé, qui renforce l'impact des programmes</h2>
+            <h2 data-i18n="partners.title">Un réseau solide, qui renforce l'impact de nos programmes</h2>
           </div>
         </div>
         <div class="partners-marquee">
@@ -569,31 +583,6 @@
       </div>
     </section>
 
-    <section class="section contact-section" id="contact">
-      <div class="container contact-grid">
-        <div>
-          <div class="section-tag" data-i18n="contact.tag">Contact</div>
-          <h2 data-i18n="contact.title">Parlons de vos besoins</h2>
-          <p class="section-copy" data-i18n="contact.subtitle">Coordonnées officielles pour faciliter la prise de contact.</p>
-        </div>
-        <div>
-          <div class="contact-list">
-            <a class="contact-item reveal-on-scroll is-visible" href="tel:+212537774748">
-              <i class="fa-solid fa-phone"></i>
-              <span data-i18n="contact.phone1">+212 5 37 77 47 48</span>
-            </a>
-            <a class="contact-item reveal-on-scroll is-visible" href="mailto:fos-agri@fos-agri.ma">
-              <i class="fa-solid fa-envelope"></i>
-              <span>fos-agri@fos-agri.ma</span>
-            </a>
-            <a class="contact-item reveal-on-scroll is-visible" href="https://maps.app.goo.gl/mUGT2XwCk56UjA5KA" target="_blank">
-              <i class="fa-solid fa-location-dot"></i>
-              <span data-i18n="contact.address">461 Avenue Hassan II, Agdal - Rabat</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer">
@@ -608,22 +597,22 @@
           <strong>FOS-Agri</strong>
         </span>
         </a>
-        <p class="footer-copy" data-i18n="footer.about">Fondation pour la promotion des œuvres sociales du personnel du ministère de l'Agriculture.</p>
+        <p class="footer-copy" data-i18n="footer.about">Fondation pour la Promotion des Œuvres Sociales du Personnel du Ministère de l'Agriculture et de la Pêche Maritime - Département de l'Agriculture</p>
       </div>
       <div>
         <h3 data-i18n="footer.usefulTitle">Liens utiles</h3>
         <ul class="footer-links">
           <li><a href="#news" data-i18n="footer.useful1">Appels d'offres</a></li>
-          <li><a href="#contact" data-i18n="footer.useful2">FAQ</a></li>
+          <li><a href="contact.html" data-i18n="footer.useful2">FAQ</a></li>
           <li><a href="mailto:fos-agri@fos-agri.ma" data-i18n="footer.useful3">Newsletter</a></li>
         </ul>
       </div>
       <div>
         <h3 data-i18n="footer.quickTitle">Accès rapide</h3>
         <ul class="footer-links">
-          <li><a href="#member-space" data-i18n="footer.quick1">Portail agent</a></li>
-          <li><a href="#services" data-i18n="footer.quick2">Programme social</a></li>
-          <li><a href="#news" data-i18n="footer.quick3">Actualités</a></li>
+          <li><a href="espace-adherent.html" data-i18n="footer.quick1">Espace adhérent</a></li>
+          <li><a href="prestations.html" data-i18n="footer.quick2">Prestations</a></li>
+          <li><a href="espace-documentaire.html" data-i18n="footer.quick3">Espace documentaire</a></li>
         </ul>
       </div>
       <div>
@@ -636,9 +625,9 @@
             </a>
           </li>
           <li>
-            <a href="tel:+212537774748">
+            <a href="tel:+212537665540">
               <i class="fa-solid fa-phone"></i>
-              <span data-i18n="contact.phone1">+212 5 37 77 47 48</span>
+              <span>0537665540/39</span>
             </a>
           </li>
           <li>
@@ -664,10 +653,10 @@
     </div>
   </footer>
 
-  <script src="assets/data.js?v=10"></script>
+  <script src="assets/data.js?v=11"></script>
   <script src="assets/news-2026.js?v=4"></script>
-  <script src="assets/app.js?v=12"></script>
-  <script src="assets/home-nav-fix.js?v=7"></script>
+  <script src="assets/app.js?v=13"></script>
+  <script src="assets/home-nav-fix.js?v=8"></script>
   <script type="module" src="assets/motion-site.js?v=2"></script>
 
 </body>

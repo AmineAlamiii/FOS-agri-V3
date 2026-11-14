@@ -14,6 +14,8 @@
       prevoyance: 'Prévoyance médico-sociale',
       culture: 'Culture, loisirs, et voyages', scolarisation: 'Appui à la Scolarisation et Formation',
       logement: 'Accès au logement', projets: 'Appui aux projets personnels',
+      quotidien: 'Services du quotidien', club: 'Espace club',
+      searchBar: 'Rechercher sur le site…', docSpace: 'Espace documentaire',
       education: 'Éducation et culture',
       adherents: 'Nos adhérents & bénéficiaires',
       procedure: 'Procédure d’adhésion', cotisations: 'Cotisations',
@@ -45,6 +47,10 @@
       scolarisation: 'الدراسة والتكوين',
       logement: 'الولوج إلى السكن',
       projets: 'المشاريع الشخصية',
+      quotidien: 'خدمات الحياة اليومية',
+      club: 'فضاء النادي',
+      searchBar: 'ابحث في الموقع…',
+      docSpace: 'الفضاء الوثائقي',
       education: 'التربية والثقافة',
       adherents: 'المنخرطون والمستفيدون',
       procedure: 'مسطرة الانخراط',
@@ -80,6 +86,10 @@
       scolarisation: 'ⴰⵙⴳⵎⵉ ⴷ ⵜⵙⴳⵎⵉ',
       logement: 'ⴰⴽⵛⵓⵎ ⵖⵔ ⵜⴰⴷⴷⴰⵔⵜ',
       projets: 'ⵉⵙⵏⴼⴰⵔⵏ ⵉⵎⴰⵏⴰⵡⵏ',
+      quotidien: 'ⵉⵎⴰⵍⴰⵙⵙⵏ ⵏ ⵓⵙⵙ ⵙ ⵡⴰⵙⵙ',
+      club: 'ⴰⵙⴰⵢⵍⴰ ⵏ ⴽⵍⵓⴱ',
+      searchBar: 'ⵔⵣⵓ…',
+      docSpace: 'ⴰⵙⴰⵢⵍⴰ ⵏ ⵜⵉⴼⵔⴽⵉⵡⵉⵏ',
       education: 'ⴰⵙⴳⵎⵉ ⴷ ⵜⴷⵍⵙⴰ',
       adherents: 'ⵉⵎⵓⵏⵏ ⴷ ⵉⵎⵙⴼⵔⴽⵏ',
       procedure: 'ⵜⴰⵎⵙⵙⴰⵔⵜ ⵏ ⵓⵎⵓⵏ',
@@ -121,6 +131,8 @@
     { key: 'scolarisation', url: 'services/formation-scolarisation.html', icon: 'fa-graduation-cap' },
     { key: 'logement',      url: 'services/acces-logement.html',          icon: 'fa-house-chimney' },
     { key: 'projets',       url: 'services/projets-personnels.html',      icon: 'fa-lightbulb' },
+    { key: 'quotidien',     url: 'services/services-quotidien.html',      icon: 'fa-utensils' },
+    { key: 'docSpace',      url: 'espace-documentaire.html',              icon: 'fa-folder-open' },
     { key: 'education',     url: 'services/education-culture.html',       icon: 'fa-book-open' },
     { key: 'mediatheque',   url: 'mediatheque.html',                      icon: 'fa-photo-film' },
     { key: 'media2017',     url: 'mediatheque.html#galerie-2017',         icon: 'fa-images' },
@@ -154,6 +166,8 @@
     scolarisation: 'scolarisation formation coaching scolaire bourses excellence rentree education',
     logement: 'logement habitat aide logement credit banque promoteur immobilier',
     projets: 'projets personnels credits sociaux financement partenariat tarifs preferentiels',
+    quotidien: 'services du quotidien restauration collective restaurant cantine transport du personnel bus',
+    docSpace: 'espace documentaire documents telechargement fichiers ressources',
     education: 'education culture formation scolarisation enfants ecole',
     mediatheque: 'mediatheque galerie photos videos images media albums',
     media2017: 'galerie 2017 photos images mediatheque',
@@ -275,7 +289,8 @@
         { href: 'services/culture-loisirs-voyages.html', key: 'culture' },
         { href: 'services/formation-scolarisation.html', key: 'scolarisation' },
         { href: 'services/acces-logement.html',       key: 'logement' },
-        { href: 'services/projets-personnels.html',   key: 'projets' }
+        { href: 'services/projets-personnels.html',   key: 'projets' },
+        { href: 'services/services-quotidien.html',   key: 'quotidien' }
       ]),
       submenu('mediatheque', 'mediatheque.html', [
         { href: 'mediatheque.html#galerie-2017', key: 'media2017' },
@@ -293,6 +308,7 @@
         '<i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> ' + t('search') +
       '</button>',
       '<a class="member-link mobile-only btn-cta-nav" href="#member-space">' + t('member') + '</a>',
+      '<a class="member-link mobile-only btn-cta-nav btn-cta-nav--secondary" href="club-agri.html">' + t('club') + '</a>',
       '<div class="lang-toggle mobile-nav-lang" role="group" aria-label="Choix de langue">' +
         '<button class="lang-btn' + (l === 'fr' ? ' is-active' : '') + '" type="button" data-lang="fr">FR</button>' +
         '<button class="lang-btn' + (l === 'ar' ? ' is-active' : '') + '" type="button" data-lang="ar">AR</button>' +
@@ -300,6 +316,8 @@
       '</div>'
     ].join('');
 
+    renderNavActions();
+    renderHeaderSearchBar();
     bindNav(menu);
     ensureDesktopSearchBtn();
     bindSearchTriggers();
@@ -374,8 +392,8 @@
       });
     });
 
-    /* Language buttons in mobile drawer */
-    menu.querySelectorAll('.lang-btn').forEach(function (btn) {
+    /* Language buttons: mobile drawer + desktop header (.nav-actions) */
+    document.querySelectorAll('.site-header .lang-btn').forEach(function (btn) {
       btn.onclick = function () {
         var newLang = btn.dataset.lang || 'fr';
         localStorage.setItem('fosagri-lang', newLang);
@@ -391,23 +409,56 @@
     });
   }
 
-  /* Desktop: a single round search-icon button sits in .nav-actions
-     next to the language dropdown. Mobile: hidden by CSS — search
-     lives inside the opened menu instead. */
+  /* Desktop: the round search-icon button is replaced by a visible
+     search bar under the menu row (renderHeaderSearchBar). Remove any
+     leftover icon button. Mobile: search lives inside the opened menu. */
   function ensureDesktopSearchBtn() {
     var actions = document.querySelector('.nav-actions');
     if (!actions) return;
-    /* Remove any older duplicates first so we keep exactly one */
     actions.querySelectorAll('.nav-search-btn, [data-header-search]').forEach(function (el) { el.remove(); });
-    var btn = document.createElement('button');
-    btn.className = 'nav-search-btn';
-    btn.type = 'button';
-    btn.setAttribute('aria-label', t('search') || 'Recherche');
-    btn.setAttribute('data-header-search', 'true');
-    btn.innerHTML = '<i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>';
-    var langWrap = actions.querySelector('.lang-select-wrap');
-    if (langWrap && langWrap.nextSibling) actions.insertBefore(btn, langWrap.nextSibling);
-    else actions.appendChild(btn);
+  }
+
+  /* Desktop header actions: 3 visible language buttons (Ar / Am / Fr),
+     member CTA and club CTA. Hidden on mobile by CSS (.nav-actions). */
+  function renderNavActions() {
+    var actions = document.querySelector('.nav-actions');
+    if (!actions) return;
+    var l = getLang();
+    var langBtn = function (code, label) {
+      return '<button class="lang-btn' + (l === code ? ' is-active' : '') + '" type="button" data-lang="' + code +
+        '" aria-pressed="' + (l === code) + '">' + label + '</button>';
+    };
+    actions.innerHTML =
+      '<div class="lang-toggle header-lang-switch" role="group" aria-label="Choix de langue">' +
+        langBtn('ar', 'Ar') + langBtn('zgh', 'Am') + langBtn('fr', 'Fr') +
+      '</div>' +
+      '<a class="btn-cta-nav desktop-only" href="#member-space">' + t('member') + '</a>' +
+      '<a class="btn-cta-nav btn-cta-nav--secondary desktop-only" href="club-agri.html">' + t('club') + '</a>';
+  }
+
+  /* Desktop search bar under the menu row, inside the header container.
+     Submits to search.html?q=… (parameter read by search-page.js). */
+  function renderHeaderSearchBar() {
+    var header = document.querySelector('.site-header');
+    var shell = header && header.querySelector('.nav-shell');
+    if (!header || !shell) return;
+    var row = header.querySelector('.header-search-row');
+    if (!row) {
+      row = document.createElement('div');
+      row.className = 'container header-search-row';
+      shell.insertAdjacentElement('afterend', row);
+    }
+    var prev = row.querySelector('.header-search-input');
+    var current = prev ? prev.value : '';
+    row.innerHTML =
+      '<form class="header-search-form" role="search" action="search.html" method="get">' +
+        '<input class="header-search-input" type="search" name="q" placeholder="' + t('searchBar') +
+        '" aria-label="' + t('search') + '" autocomplete="off" spellcheck="false" />' +
+        '<button class="header-search-submit" type="submit" aria-label="' + t('search') + '">' +
+          '<i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>' +
+        '</button>' +
+      '</form>';
+    row.querySelector('.header-search-input').value = current;
   }
 
   function bindSearchTriggers() {

@@ -5134,3 +5134,215 @@ html[dir='rtl'] .search-result-item:hover .search-result-arrow {
   transform: scaleX(-1) translateX(2px);
 }
 
+
+/* ============================
+   Header — visible search bar, language buttons, club CTA (desktop)
+   ============================ */
+.header-lang-switch {
+  gap: 0.1rem;
+}
+
+.header-lang-switch .lang-btn {
+  padding: 0.5rem 0.7rem;
+  font-size: 0.82rem;
+  line-height: 1;
+}
+
+.btn-cta-nav--secondary {
+  background: transparent;
+  color: var(--gold);
+  border: 1.5px solid var(--gold);
+}
+
+.btn-cta-nav--secondary:hover,
+.btn-cta-nav--secondary:focus-visible {
+  background: var(--gold);
+  color: #fff;
+}
+
+.site-header:not(.is-scrolled) .btn-cta-nav--secondary {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.site-header:not(.is-scrolled) .btn-cta-nav--secondary:hover,
+.site-header:not(.is-scrolled) .btn-cta-nav--secondary:focus-visible {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+.header-search-row {
+  display: flex;
+  justify-content: center;
+  width: min(1480px, calc(100% - 1.5rem));
+  padding-bottom: 0.7rem;
+}
+
+.header-search-form {
+  display: flex;
+  align-items: center;
+  width: min(44rem, 100%);
+  height: 2.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(31, 106, 67, 0.16);
+  background: rgba(255, 255, 255, 0.95);
+  overflow: hidden;
+}
+
+.header-search-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0 1.1rem;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--green-deep);
+  outline: none;
+}
+
+.header-search-submit {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.9rem;
+  height: 100%;
+  border: 0;
+  background: var(--green);
+  color: #fff;
+  cursor: pointer;
+}
+
+.header-search-form:focus-within {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(200, 164, 77, 0.25);
+}
+
+.header-search-submit:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -2px;
+}
+
+.site-header:not(.is-scrolled) .header-search-form {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.site-header:not(.is-scrolled) .header-search-input {
+  color: #fff;
+}
+
+.site-header:not(.is-scrolled) .header-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 980px) {
+  .header-search-row {
+    display: none !important;
+  }
+}
+
+/* Wafa IMA contact band (under the hero) */
+.wafa-ima-band {
+  background: linear-gradient(135deg, var(--green-deep), var(--green));
+  color: #fff;
+  padding: 1.6rem 0;
+}
+
+.wafa-ima-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem 1.5rem;
+  text-align: center;
+}
+
+.wafa-ima-title {
+  margin: 0;
+  color: #fff;
+  font-size: 1.25rem;
+}
+
+.wafa-ima-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 2rem;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--green-deep);
+  font-weight: 800;
+  font-size: 1.2rem;
+  text-decoration: none;
+  unicode-bidi: isolate;
+  transition: background 0.22s ease, transform 0.22s ease;
+}
+
+.wafa-ima-btn:hover,
+.wafa-ima-btn:focus-visible {
+  background: #b9902f;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.wafa-ima-btn:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+/* About — scope list */
+.intro-scope-list {
+  margin: 0;
+  padding-inline-start: 1.15rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.intro-scope-list li::marker {
+  color: var(--gold);
+}
+
+/* Service cards — whole card clickable */
+.service-card-link {
+  display: flex;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 1.5rem;
+}
+
+.service-card-link > .service-card {
+  flex: 1 1 auto;
+}
+
+.service-card-link:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+
+/* Agenda — important events (gold legend) */
+.cal-day.has-event.is-important::after,
+.events-section .cal-day.has-event.is-important::after {
+  background: var(--gold);
+}
+
+.events-section .cal-day.has-event.is-important {
+  box-shadow: inset 0 0 0 2px var(--gold);
+}
+
+@media (min-width: 981px) and (max-width: 1439px) {
+  .site-header .nav-actions {
+    gap: 0.5rem;
+  }
+
+  .header-lang-switch .lang-btn {
+    padding: 0.45rem 0.5rem;
+  }
+
+  .nav-actions .btn-cta-nav {
+    padding: 0.55rem 0.85rem;
+    font-size: 0.8rem;
+  }
+}
