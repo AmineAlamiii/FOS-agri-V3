@@ -79,7 +79,7 @@
 
   const subIcons = {
     prevoyance: prevoyanceMenuItems.map((item) => item.icon),
-    culture: ['fa-circle-info', 'fa-umbrella-beach', 'fa-child-reaching', 'fa-language', 'fa-campground', 'fa-bus', 'fa-kaaba', 'fa-place-of-worship', 'fa-award', 'fa-handshake'],
+    culture: ['fa-circle-info', 'fa-umbrella-beach', 'fa-child-reaching', 'fa-language', 'fa-campground', 'fa-bus', 'fa-kaaba', 'fa-place-of-worship', 'fa-award', 'fa-handshake', 'fa-suitcase-medical'],
     formation: ['fa-chalkboard-user', 'fa-medal', 'fa-school', 'fa-book-open-reader'],
     logement: ['fa-house-user', 'fa-building-columns', 'fa-building', 'fa-helmet-safety'],
     projets: ['fa-building-columns', 'fa-car-burst', 'fa-utensils', 'fa-couch', 'fa-route']
@@ -1729,10 +1729,9 @@
     { name: 'Paati Academy', logo: 'assets/images/Partenariats/Paati-Academy.png', pdfs: [{ label: 'note', pdf: 'assets/formation/conventions/paaty-academy-note.pdf' }] }
   ];
 
-  function formationConventionsItemsFor(statut, offreLabel, noteLabel) {
+  function formationConventionsItemsFor(offreLabel, noteLabel) {
     return formationConventionsItems.map((it) => ({
       ...it,
-      statut,
       pdfs: it.pdfs.map((p) => ({ ...p, label: p.label === 'offre' ? offreLabel : noteLabel }))
     }));
   }
@@ -1773,7 +1772,7 @@
         ] },
       { navIndex: 6, type: 'culturePartners', icon: 'fa-handshake', badge: 'Conventions éducatives', title: 'Conventions éducatives',
         intro: ['Soucieuse de favoriser les conditions propices pour développer le capital linguistique et culturel aussi bien des adhérents que de leurs conjoints et enfants, et de faire de la diversité une source d’enrichissement, la FOS-Agri a conclu des conventions avec des centres culturels et de langues reconnus, notamment :', 'Bénéficiaires : les adhérents, leurs conjoints et enfants.'],
-        groups: [{ title: 'Centres culturels et de langues partenaires', items: formationConventionsItemsFor('Confirmé', 'Télécharger l’offre', 'Télécharger la note') }] }
+        groups: [{ title: 'Centres culturels et de langues partenaires', items: formationConventionsItemsFor('Télécharger l’offre', 'Télécharger la note') }] }
     ],
     ar: [
       formationCoachingSection.ar,
@@ -1806,7 +1805,7 @@
         ] },
       { navIndex: 6, type: 'culturePartners', icon: 'fa-handshake', badge: 'الاتفاقيات التربوية', title: 'الاتفاقيات التربوية',
         intro: ['حرصا منها على توفير الظروف الملائمة لتنمية الرصيد اللغوي والثقافي للمنخرطين وأزواجهم وأبنائهم، وجعل التنوع مصدر إغناء، أبرمت FOS-Agri اتفاقيات مع مراكز ثقافية ولغوية معترف بها، لا سيما:', 'المستفيدون: المنخرطون وأزواجهم وأبناؤهم.'],
-        groups: [{ title: 'المراكز الثقافية واللغوية الشريكة', items: formationConventionsItemsFor('مؤكد', 'تحميل العرض', 'تحميل المذكرة') }] }
+        groups: [{ title: 'المراكز الثقافية واللغوية الشريكة', items: formationConventionsItemsFor('تحميل العرض', 'تحميل المذكرة') }] }
     ],
     zgh: [
       formationCoachingSection.zgh,
@@ -1839,7 +1838,7 @@
         ] },
       { navIndex: 6, type: 'culturePartners', icon: 'fa-handshake', badge: 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵓⵙⵍⵎⴷ', title: 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵓⵙⵍⵎⴷ',
         intro: ['ⵙ ⵓⵙⵎⵓⵜⵜⵉ ⵏⵏⵙ ⵉ ⵓⵙⵏⴼⵍ ⵏ ⵜⵓⵜⵍⴰⵢⵜ ⴷ ⵜⴷⵍⵙⴰ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ, ⵜⵉⵔⴳⴰⵣⵉⵏ ⵏⵏⵙⵏ ⴷ ⵜⴰⵔⵡⴰ ⵏⵏⵙⵏ, ⵜⵙⴽⴰ FOS-Agri ⵉⵎⵙⴰⵡⴰⴹⵏ ⴷ ⵉⵣⴷⴰⵢⵏ ⵏ ⵜⵓⵜⵍⴰⵢⵜ ⵉⵜⵜⵓⵙⵙⵏⵏ:', 'ⵉⵎⵙⵜⴼⵉⴷⵏ: ⵉⵎⵏⵅⵔⴰⵟⵏ, ⵜⵉⵔⴳⴰⵣⵉⵏ ⵏⵏⵙⵏ ⴷ ⵜⴰⵔⵡⴰ ⵏⵏⵙⵏ.'],
-        groups: [{ title: 'ⵉⵣⴷⴰⵢⵏ ⵏ ⵜⵓⵜⵍⴰⵢⵜ ⵉⵣⴷⵉⵏ', items: formationConventionsItemsFor('ⵢⵜⵜⵓⵙⵙⵏ', 'ⵙⵉⴷⵔ ⴰⴼⵔⴰⵏ', 'ⵙⵉⴷⵔ ⵜⴰⴱⵔⴰⵜ') }] }
+        groups: [{ title: 'ⵉⵣⴷⴰⵢⵏ ⵏ ⵜⵓⵜⵍⴰⵢⵜ ⵉⵣⴷⵉⵏ', items: formationConventionsItemsFor('ⵙⵉⴷⵔ ⴰⴼⵔⴰⵏ', 'ⵙⵉⴷⵔ ⵜⴰⴱⵔⴰⵜ') }] }
     ]
   };
 
@@ -1866,10 +1865,9 @@
       ] }
   ];
 
-  function projetsAssurancesItemsFor(statut, offreLabel, avantagesLabel, conseilsLabel) {
+  function projetsAssurancesItemsFor(offreLabel, avantagesLabel, conseilsLabel) {
     return projetsAssurancesItems.map((it) => ({
       ...it,
-      statut,
       pdfs: it.pdfs ? it.pdfs.map((p) => ({ ...p, label: p.label === 'offre' ? offreLabel : p.label === 'avantages' ? avantagesLabel : conseilsLabel })) : undefined
     }));
   }
@@ -1881,8 +1879,8 @@
     { name: 'Mobilia Triangle d’Or', logo: 'assets/images/Partenariats/Mobilia-Triangle-dOr.png', pdf: 'assets/projets/ameublement/mobilia-triangle-or-offre.pdf' }
   ];
 
-  function projetsAmeublementItemsFor(statut, downloadLabel) {
-    return projetsAmeublementItems.map((it) => ({ ...it, statut, pdfs: [{ label: downloadLabel, pdf: it.pdf }] }));
+  function projetsAmeublementItemsFor(downloadLabel) {
+    return projetsAmeublementItems.map((it) => ({ ...it, pdfs: [{ label: downloadLabel, pdf: it.pdf }] }));
   }
 
   /* Organismes de transport — deux conventions distinctes (ONCF, Supratours). */
@@ -1891,8 +1889,8 @@
     { name: 'Supratours', logo: 'assets/images/Partenariats/supratours.svg', pdf: 'assets/projets/transport/supratours-offre.pdf' }
   ];
 
-  function projetsTransportItemsFor(statut, downloadLabel) {
-    return projetsTransportItems.map((it) => ({ ...it, statut, pdfs: [{ label: downloadLabel, pdf: it.pdf }] }));
+  function projetsTransportItemsFor(downloadLabel) {
+    return projetsTransportItems.map((it) => ({ ...it, pdfs: [{ label: downloadLabel, pdf: it.pdf }] }));
   }
 
   const projetsExtra = {
@@ -1909,7 +1907,7 @@
           'Bénéficiaires : les adhérents, leurs conjoints et leurs enfants.',
           'Modalités et pièces à fournir : se présenter directement auprès de l’organisme d’assurances conventionné, muni de la carte d’adhésion à la FOS-Agri.'
         ],
-        groups: [{ title: 'Organismes d’assurances partenaires', items: projetsAssurancesItemsFor('Confirmé', 'Télécharger l’offre', 'Avantages de l’offre', 'Conseils pratiques') }] },
+        groups: [{ title: 'Organismes d’assurances partenaires', items: projetsAssurancesItemsFor('Télécharger l’offre', 'Avantages de l’offre', 'Conseils pratiques') }] },
       { navIndex: 2, icon: 'fa-utensils', badge: 'Prestataires de restauration', title: 'Prestataires de restauration',
         intro: [
           'La FOS-Agri assure un service de restauration collective au profit du personnel des directions centrales, régionales et provinciales lors de leurs déplacements à Rabat, au niveau de trois restaurants : celui de la station Dbagh, celui du club de l’Agriculture et celui du siège de l’ONSSA.',
@@ -1924,7 +1922,7 @@
           'Bénéficiaires : tous les adhérents de la FOS-Agri.',
           'Modalités et pièces à fournir : se présenter directement auprès de l’organisme d’ameublement conventionné, muni de la carte d’adhésion à la FOS-Agri.'
         ],
-        groups: [{ title: 'Organismes d’ameublement partenaires', items: projetsAmeublementItemsFor('Confirmé', 'Télécharger l’offre') }] },
+        groups: [{ title: 'Organismes d’ameublement partenaires', items: projetsAmeublementItemsFor('Télécharger l’offre') }] },
       { navIndex: 4, type: 'culturePartners', icon: 'fa-route', badge: 'Organismes de transport', title: 'Organismes de transport',
         intro: [
           'La FOS-Agri a conclu deux conventions avec l’ONCF et la compagnie Supratours, afin de faire bénéficier ses adhérents d’une offre tarifaire préférentielle.',
@@ -1932,7 +1930,7 @@
           'Bénéficiaires : les adhérents, leurs conjoints et leurs enfants âgés de 4 à 21 ans.',
           'Modalités et pièces à fournir : se présenter directement auprès de la compagnie de transport conventionnée, muni de la carte d’adhésion à la FOS-Agri.'
         ],
-        groups: [{ title: 'Organismes de transport partenaires', items: projetsTransportItemsFor('Confirmé', 'Télécharger l’offre') }] }
+        groups: [{ title: 'Organismes de transport partenaires', items: projetsTransportItemsFor('Télécharger l’offre') }] }
     ],
     ar: [
       { navIndex: 0, type: 'bankOffers', category: 'consommation', icon: 'fa-building-columns', badge: 'مؤسسات التمويل', title: 'مؤسسات التمويل',
@@ -1947,7 +1945,7 @@
           'المستفيدون: المنخرطون وأزواجهم وأبناؤهم.',
           'كيفية الاستفادة والوثائق المطلوبة: التوجه مباشرة إلى مؤسسة التأمين المتعاقدة، مع الإدلاء ببطاقة الانخراط في FOS-Agri.'
         ],
-        groups: [{ title: 'مؤسسات التأمين الشريكة', items: projetsAssurancesItemsFor('مؤكد', 'تحميل العرض', 'مزايا العرض', 'نصائح عملية') }] },
+        groups: [{ title: 'مؤسسات التأمين الشريكة', items: projetsAssurancesItemsFor('تحميل العرض', 'مزايا العرض', 'نصائح عملية') }] },
       { navIndex: 2, icon: 'fa-utensils', badge: 'مقدمو خدمات الإطعام', title: 'مقدمو خدمات الإطعام',
         intro: [
           'تضمن FOS-Agri خدمة الإطعام الجماعي لفائدة موظفي المصالح المركزية والجهوية والإقليمية خلال تنقلاتهم إلى الرباط، وذلك على مستوى ثلاثة مطاعم: مطعم محطة الدباغ، ومطعم نادي الفلاحة، ومطعم مقر ONSSA.',
@@ -1962,7 +1960,7 @@
           'المستفيدون: جميع منخرطي FOS-Agri.',
           'كيفية الاستفادة والوثائق المطلوبة: التوجه مباشرة إلى مؤسسة التأثيث المتعاقدة، مع الإدلاء ببطاقة الانخراط في FOS-Agri.'
         ],
-        groups: [{ title: 'مؤسسات التأثيث الشريكة', items: projetsAmeublementItemsFor('مؤكد', 'تحميل العرض') }] },
+        groups: [{ title: 'مؤسسات التأثيث الشريكة', items: projetsAmeublementItemsFor('تحميل العرض') }] },
       { navIndex: 4, type: 'culturePartners', icon: 'fa-route', badge: 'مؤسسات النقل', title: 'مؤسسات النقل',
         intro: [
           'أبرمت FOS-Agri اتفاقيتين مع المكتب الوطني للسكك الحديدية (ONCF) وشركة Supratours، لتمكين منخرطيها من الاستفادة من عروض تعريفية تفضيلية.',
@@ -1970,7 +1968,7 @@
           'المستفيدون: المنخرطون وأزواجهم وأبناؤهم الذين تتراوح أعمارهم بين 4 و21 سنة.',
           'كيفية الاستفادة والوثائق المطلوبة: التوجه مباشرة إلى شركة النقل المتعاقدة، مع الإدلاء ببطاقة الانخراط في FOS-Agri.'
         ],
-        groups: [{ title: 'مؤسسات النقل الشريكة', items: projetsTransportItemsFor('مؤكد', 'تحميل العرض') }] }
+        groups: [{ title: 'مؤسسات النقل الشريكة', items: projetsTransportItemsFor('تحميل العرض') }] }
     ],
     zgh: [
       { navIndex: 0, type: 'bankOffers', category: 'consommation', icon: 'fa-building-columns', badge: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵔⴹ', title: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵔⴹ',
@@ -1985,7 +1983,7 @@
           'ⵉⵎⵙⵜⴼⵉⴷⵏ: ⵉⵎⵏⵅⵔⴰⵟⵏ, ⵜⵉⵔⴳⴰⵣⵉⵏ ⵏⵏⵙⵏ ⴷ ⵜⴰⵔⵡⴰ ⵏⵏⵙⵏ.',
           'ⵜⴰⵎⴰⵎⴽⵜ ⴷ ⵉⵙⴻⵎⴹⴰⵍ: ⵙⵉⴷⵔ ⵖⵔ ⵜⵎⴳⵓⵔⵜ ⵏ ⵜⵏⴰⵎⵎⴰⵍⵜ ⵉⵣⴷⵉⵏ, ⵙ ⵜⴽⴰⵔⴹⴰ ⵏ ⵓⵎⵓⵏ ⴳ FOS-Agri.'
         ],
-        groups: [{ title: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵜⵏⴰⵎⵎⴰⵍⵜ ⵉⵣⴷⵉⵏ', items: projetsAssurancesItemsFor('ⵢⵜⵜⵓⵙⵙⵏ', 'ⵙⵉⴷⵔ ⴰⴼⵔⴰⵏ', 'ⵜⵉⵡⵜⵜⴰⵙ ⵏ ⵓⴼⵔⴰⵏ', 'ⵉⵡⵉⵙⵉⵏ') }] },
+        groups: [{ title: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵜⵏⴰⵎⵎⴰⵍⵜ ⵉⵣⴷⵉⵏ', items: projetsAssurancesItemsFor('ⵙⵉⴷⵔ ⴰⴼⵔⴰⵏ', 'ⵜⵉⵡⵜⵜⴰⵙ ⵏ ⵓⴼⵔⴰⵏ', 'ⵉⵡⵉⵙⵉⵏ') }] },
       { navIndex: 2, icon: 'fa-utensils', badge: 'ⵉⵎⴰⵜⵜⴰⵢⵏ ⵏ ⵓⵙⵓⵎⵎⵓ', title: 'ⵉⵎⴰⵜⵜⴰⵢⵏ ⵏ ⵓⵙⵓⵎⵎⵓ',
         intro: [
           'ⵜⵙⴽⴰ FOS-Agri ⴰⵙⵓⵎⵎⵓ ⴰⴳⵔⴰⵡⴰⵏ ⵉ ⵉⵎⵣⵡⴰⵔⴰ ⵏ ⵜⵎⵙⵙⵓⵔⵉⵏ ⵜⵉⵏⴰⵎⵎⴰⵙⵉⵏ ⴷ ⵜⵉⵏⴰⵎⵓⵔⵉⵏ ⴳ ⵜⵉⵔⵣⴰ ⵏⵏⵙⵏ ⵖⵔ ⵕⵕⴱⴰⵟ, ⴳ ⴽⵕⴰⴹ ⵉⵎⴰⵜⵜⴰⵢⵏ: ⴰⵎⴰⵜⵜⴰⵢ ⵏ ⵜⴳⴰⵔⴰ Dbagh, ⴰⵎⴰⵜⵜⴰⵢ ⵏ ⴽⵍⵓⴱ ⵏ ⵜⴼⵍⴰⵃⵜ, ⴷ ⴰⵎⴰⵜⵜⴰⵢ ⵏ ONSSA.',
@@ -2000,14 +1998,14 @@
           'ⵉⵎⵙⵜⴼⵉⴷⵏ: ⵎⵔⵔⴰ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ FOS-Agri.',
           'ⵜⴰⵎⴰⵎⴽⵜ ⴷ ⵉⵙⴻⵎⴹⴰⵍ: ⵙⵉⴷⵔ ⵖⵔ ⵜⵎⴳⵓⵔⵜ ⵏ ⵓⵙⵎⵓⵜⵜⴳ ⵉⵣⴷⵉⵏ, ⵙ ⵜⴽⴰⵔⴹⴰ ⵏ ⵓⵎⵓⵏ ⴳ FOS-Agri.'
         ],
-        groups: [{ title: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ ⵉⵣⴷⵉⵏ', items: projetsAmeublementItemsFor('ⵢⵜⵜⵓⵙⵙⵏ', 'ⵙⵉⴷⵔ ⴰⴼⵔⴰⵏ') }] },
+        groups: [{ title: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ ⵉⵣⴷⵉⵏ', items: projetsAmeublementItemsFor('ⵙⵉⴷⵔ ⴰⴼⵔⴰⵏ') }] },
       { navIndex: 4, type: 'culturePartners', icon: 'fa-route', badge: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ', title: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ',
         intro: [
           'ⵜⵙⴽⴰ FOS-Agri ⵙⵉⵏ ⵉⵎⵙⴰⵡⴰⴹⵏ ⴷ ONCF ⴷ Supratours, ⵉ ⵓⵙⵎⵓⵜⵜⵉ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⴰⵢⵏ.',
           'ⵉⵎⵙⵜⴼⵉⴷⵏ: ⵉⵎⵏⵅⵔⴰⵟⵏ, ⵜⵉⵔⴳⴰⵣⵉⵏ ⵏⵏⵙⵏ ⴷ ⵜⴰⵔⵡⴰ ⵏⵏⵙⵏ ⵙⴳ 4 ⴰⵔ 21 ⵏ ⵉⵙⴳⴳⵯⴰⵙⵏ.',
           'ⵜⴰⵎⴰⵎⴽⵜ ⴷ ⵉⵙⴻⵎⴹⴰⵍ: ⵙⵉⴷⵔ ⵖⵔ ⵜⵎⴳⵓⵔⵜ ⵏ ⵓⵣⵣⵓⵖⵔ ⵉⵣⴷⵉⵏ, ⵙ ⵜⴽⴰⵔⴹⴰ ⵏ ⵓⵎⵓⵏ ⴳ FOS-Agri.'
         ],
-        groups: [{ title: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ ⵉⵣⴷⵉⵏ', items: projetsTransportItemsFor('ⵢⵜⵜⵓⵙⵙⵏ', 'ⵙⵉⴷⵔ ⴰⴼⵔⴰⵏ') }] }
+        groups: [{ title: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ ⵉⵣⴷⵉⵏ', items: projetsTransportItemsFor('ⵙⵉⴷⵔ ⴰⴼⵔⴰⵏ') }] }
     ]
   };
 
@@ -2022,7 +2020,8 @@
     { id: 'omra',              icon: 'fa-kaaba',            labels: { fr: 'Organisation des séjours de Omra', ar: 'تنظيم إقامات العمرة', zgh: 'ⴰⵙⵓⴷⴷⵙ ⵏ ⵜⵉⵖⵔⵎⵉⵏ ⵏ ⵓⵎⵔⴰ' } },
     { id: 'pelerinage',        icon: 'fa-place-of-worship', labels: { fr: 'Contribution aux frais de pèlerinage', ar: 'المساهمة في مصاريف الحج', zgh: 'ⴰⵜⵜⴽⵉ ⴳ ⵎⴰⵙⴰⵔⵉⴼ ⵏ ⵓⵃⵊⵊ' } },
     { id: 'celebrations',      icon: 'fa-award',            labels: { fr: 'Célébrations et cérémonies', ar: 'احتفالات ومراسيم', zgh: 'ⵜⵉⵎⵍⵉⵍⵉⵏ ⴷ ⵜⵎⵖⵔⵉⵡⵉⵏ' } },
-    { id: 'partenariats',      icon: 'fa-handshake',        labels: { fr: 'Partenariats', ar: 'الشراكات', zgh: 'ⵉⵣⴷⵡⵉⵢⵏ' } }
+    { id: 'partenariats',      icon: 'fa-handshake',        labels: { fr: 'Partenariats', ar: 'الشراكات', zgh: 'ⵉⵣⴷⵡⵉⵢⵏ' } },
+    { id: 'assurances-voyage', icon: 'fa-suitcase-medical', labels: { fr: 'Assurances voyage', ar: 'تأمين السفر', zgh: 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵓⵙⵉⴽⵍ' } }
   ];
   function localizedCultureMenu(currentLang = lang) {
     return cultureMenuItems.map((i) => ({ id: i.id, icon: i.icon, label: i.labels[currentLang] || i.labels.fr }));
@@ -2030,7 +2029,7 @@
 
   const cultureCenter = {
     badge: 'À propos', title: 'À propos',
-    intro: "La FOS-Agri offre une panoplie de services culturelles, de loisirs et de divertissements répondant aux aspirations de ses adhérents et favorisant leurs épanouissement et bien-être.",
+    intro: "La FOS-Agri propose une diversité de programmes et d'initiatives dédiés à l'épanouissement, à la détente et à l'évasion des adhérents et de leurs familles. À travers des activités culturelles, des séjours récréatifs, des voyages et des événements, elle contribue à enrichir leurs expériences et à favoriser les moments de partage et de convivialité.",
     items: [
       { navIndex: 91, icon: 'fa-users', title: 'Bénéficiaires', body: 'Tous les adhérents de la FOS-Agri' },
       { navIndex: 92, icon: 'fa-clipboard-check', title: 'Inscription et modalités', bullets: [
@@ -2043,7 +2042,7 @@
 
   const cultureExtra = [
     { navIndex: 1, type: 'cultureRubrique', icon: 'fa-umbrella-beach', badge: 'Appui aux vacances des adhérents', title: 'Appui aux vacances des adhérents',
-      intro: ["Dans le cadre de sa mission sociale et de son engagement en faveur du bien-être de ses adhérent(e)s, la Fondation met en œuvre, annuellement, une prestation d'appui aux vacances de ses adhérents visant à faciliter l'accès aux périodes de repos et de détente, tout en contribuant à l'allègement des charges financières liées aux séjours estivaux. À ce titre, une aide financière est accordée à raison de 700 dirhams par nuitée d'hébergement, dans la limite de sept (7) nuitées par adhérent(e) bénéficiaire, soit un montant maximal de 4 900 dirhams. Cette aide est versée directement au bénéficiaire, conformément aux conditions d'éligibilité et aux modalités fixées par la Fondation."],
+      intro: ["Dans le cadre de sa mission sociale et de son engagement en faveur du bien-être de ses adhérent(e)s, la Fondation met en œuvre, annuellement, une prestation d'appui aux vacances de ses adhérents visant à faciliter l'accès aux périodes de repos et de détente, tout en contribuant à l'allègement des charges financières liées aux séjours estivaux."],
       beneficiaires: 'Tous les adhérents de la FOS-Agri',
       inscription: [
         "L'inscription à cette prestation s'effectue à travers l'Espace Adhérent de la FOS-Agri,",
@@ -2051,10 +2050,9 @@
         "Les adhérents retenus sont informés des résultats de la sélection via leur Espace Adhérent ainsi que par les canaux de communication de la Fondation"
       ] },
     { navIndex: 2, type: 'cultureRubrique', icon: 'fa-child-reaching', badge: "Colonies de vacances d'été", title: "Colonies de vacances d'été",
-      apercu: ["La FOS-Agri organise chaque année une colonie de vacances au profit des enfants des adhérents. Les programmes de ces séjours sont minutieusement concoctés et les animateurs rigoureusement sélectionnés afin de garantir la sécurité des enfants et l'épanouissement des enfants"],
+      intro: ["La FOS-Agri organise chaque année une colonie de vacances au profit des enfants des adhérents. Les programmes de ces séjours sont minutieusement concoctés et les animateurs rigoureusement sélectionnés afin de garantir la sécurité des enfants et l'épanouissement des enfants."],
       beneficiaires: 'Tous les enfants éligibles des adhérents de la FOS-Agri.',
-      inscription: ['Inscription en ligne.'],
-      pieces: ["Demande en ligne", "Acte d'engagement signé", "Certificat médicale de l'enfant", "Copie de la CIN de l'adhérent", "Copie de l'acte de naissance de l'enfant", "Photo d'identité de l'enfant"] },
+      inscription: ["L'inscription à cette prestation s'effectue à travers l'Espace Adhérent de la FOS-Agri.", "La sélection des bénéficiaires est réalisée selon un système de scoring reposant sur des critères objectifs et transparents définis par la Fondation, garantissant l'équité dans l'attribution de la prestation.", "Les adhérents retenus sont informés des résultats de la sélection via leur Espace Adhérent ainsi que par les canaux de communication de la Fondation."] },
     { navIndex: 3, type: 'cultureRubrique', icon: 'fa-language', badge: 'Séjours culturels', title: 'Séjours culturels',
       apercu: ["Le séjour linguistique, culturel et éducatif est une prestation destinée aux enfants des adhérent(e)s, leur offrant l'opportunité de vivre une expérience nationale et internationale enrichissante alliant l'apprentissage d'une langue étrangère, la découverte d'un nouveau patrimoine culturel et la participation à des activités éducatives et de développement personnel. À travers ce programme, la Fondation contribue à l'ouverture sur le monde, au renforcement des compétences linguistiques et à l'épanouissement personnel des jeunes bénéficiaires."],
       beneficiaires: 'Les enfants des adhérent(e)s',
@@ -2072,10 +2070,9 @@
       pieces: ["Demande en ligne", "Copie de l'acte de naissance de l'enfant", "Photo d'identité de l'enfant"],
       destinations: ["Le Salon International de l'Agriculture de Meknès", "Le Salon du Cheval d'El Jadida", 'Autres.'] },
     { navIndex: 6, type: 'cultureRubrique', icon: 'fa-kaaba', badge: 'Organisation des séjours de Omra', title: 'Organisation des séjours de Omra',
-      apercu: ["La FOS-Agri organise annuellement au profit de ses adhérents l'opération d'aide au voyage aux lieux saints de l'islam pour l'accomplissement de la Omra. Une subvention et un prêt gratuit remboursable sont accordés au titre de cette opération en plus de tarifs préférentiels négociés avec des agences de voyages de renom et spécialisées dans le domaine."],
+      intro: ["La FOS-Agri organise annuellement au profit de ses adhérents l'opération d'aide au voyage aux lieux saints de l'islam pour l'accomplissement de la Omra.", "Une subvention ou un prêt gratuit remboursable sont accordés au titre de cette opération en plus de tarifs préférentiels négociés avec des agences de voyages de renom et spécialisées dans le domaine."],
       beneficiaires: 'Tous les adhérents de la FOS-Agri.',
-      inscription: ['Inscription en ligne.', 'La sélection des bénéficiaires de la subvention ou du Prêt se fait par le système de Scoring.', "Octroi d'une subvention de 5000 DH au profit de 15 bénéficiaires et un prêt gratuit de 5000 DH remboursable sur 10 mois pour 30 adhérents.", 'Les tarifs préférentiels bénéficient à tous les adhérents.'],
-      pieces: ['Inscription en ligne', 'Photocopie de passeport'] },
+      inscription: ['Inscription en ligne.', 'La sélection des bénéficiaires de la subvention ou du prêt se fait par le système de scoring.', 'Les tarifs préférentiels bénéficient à tous les adhérents.'] },
     { navIndex: 7, type: 'cultureRubrique', icon: 'fa-place-of-worship', badge: 'Contribution aux frais de pèlerinage', title: 'Contribution aux frais de pèlerinage',
       apercu: ["La FOS-Agri organise annuellement au profit de ses adhérents l'opération « aide au pèlerinage » en contribuant aux frais de pèlerinage moyennant des aides financières au profit des adhérents ayant effectué ce rite religieux durant l'année en cours."],
       beneficiaires: 'Tous les adhérents de la FOS-Agri.',
@@ -2104,15 +2101,21 @@
       intro: ['Pour les prestations : Veuillez consulter le fichier joint.'],
       groups: [
         { title: 'Hôtels et complexes touristiques', items: [
-          { name: 'Agence Location et Vacances', statut: 'Confirmé', logo: 'assets/images/Partenariats/Location et Vacances.png', pdf: 'assets/culture/partenariats/agence-location-vacances.pdf' }
+          { name: 'Agence Location et Vacances', logo: 'assets/images/Partenariats/Location et Vacances.png', pdf: 'assets/culture/partenariats/agence-location-vacances.pdf' }
         ] },
         { title: 'Établissements de loisirs conventionnés', items: [
-          { name: 'mWellness',              statut: 'Confirmé', logo: 'assets/images/Partenariats/mWellness.png', pdf: 'assets/culture/partenariats/mwellness.pdf' },
-          { name: 'Club STCO Oujda',        statut: 'Confirmé', logo: 'assets/images/Partenariats/Club STCO Oujda.webp', pdf: 'assets/culture/partenariats/club-stco-oujda.pdf' },
-          { name: 'Club Lixus Move Larache',statut: 'Confirmé', logo: 'assets/images/Partenariats/Club-Lixus-Move-Larache.png', pdf: 'assets/culture/partenariats/club-lixus.pdf' },
-          { name: 'Sonarges',               statut: 'Confirmé', logo: 'assets/images/Partenariats/sonarges.png', pdf: 'assets/culture/partenariats/sonarges.pdf' },
-          { name: 'Zoo de Rabat',           statut: 'Confirmé', logo: 'assets/images/Partenariats/Zoo de Rabat.png', pdf: 'assets/culture/partenariats/zoo-de-rabat.pdf' }
+          { name: 'mWellness',              logo: 'assets/images/Partenariats/mWellness.png', pdf: 'assets/culture/partenariats/mwellness.pdf' },
+          { name: 'Club STCO Oujda',        logo: 'assets/images/Partenariats/Club STCO Oujda.webp', pdf: 'assets/culture/partenariats/club-stco-oujda.pdf' },
+          { name: 'Club Lixus Move Larache',logo: 'assets/images/Partenariats/Club-Lixus-Move-Larache.png', pdf: 'assets/culture/partenariats/club-lixus.pdf' },
+          { name: 'Sonarges',               logo: 'assets/images/Partenariats/sonarges.png', pdf: 'assets/culture/partenariats/sonarges.pdf' }
         ] }
+      ] },
+    { navIndex: 10, type: 'culturePartners', icon: 'fa-suitcase-medical', badge: 'Assurances voyage', title: 'Assurances voyage',
+      intro: ["Afin de permettre à ses adhérents de voyager en toute sérénité, la FOS-Agri met à leur disposition des offres d'assurance voyage à des conditions préférentielles, négociées auprès de compagnies partenaires."],
+      beneficiaries: [{ number: '01', text: 'Tous les adhérents de la FOS-Agri, leurs conjoints et leurs enfants.' }],
+      groups: [
+        /* Format d'une future carte : { name, logo, pdf } */
+        { title: "Compagnies d'assurance partenaires", items: [] }
       ] }
   ];
 
@@ -2123,7 +2126,8 @@
       inscription: 'Inscription et modalités',
       pieces: 'Pièces à fournir',
       destinations: 'Destinations',
-      download: 'Télécharger'
+      download: 'Télécharger',
+      partnersSoon: 'Les offres partenaires seront bientôt disponibles.'
     },
     ar: {
       apercu: 'نظرة عامة',
@@ -2131,7 +2135,8 @@
       inscription: 'التسجيل والكيفيات',
       pieces: 'الوثائق المطلوبة',
       destinations: 'الوجهات',
-      download: 'تحميل'
+      download: 'تحميل',
+      partnersSoon: 'ستتوفر عروض الشركاء قريبا.'
     },
     zgh: {
       apercu: 'ⵜⴰⵎⵓⵖⵍⵉ',
@@ -2139,7 +2144,8 @@
       inscription: 'ⴰⵙⵙⴼⵜⵔ ⴷ ⵜⴳⴳⵓⵔⵉⵏ',
       pieces: 'ⵜⵉⵡⴰⵔⴰⵇⵉⵏ ⵉⵍⴰⵇⵏ',
       destinations: 'ⵜⵉⵎⵓⵔⴰ',
-      download: 'ⵙⵉⴷⵔ'
+      download: 'ⵙⵉⴷⵔ',
+      partnersSoon: 'ⵉⴼⵔⴰⵏ ⵏ ⵉⵣⴷⴰⵢⵏ ⴰⴷ ⴷ ⴰⵙⵏ ⵇⵔⵉⴱ.'
     }
   };
 
@@ -2149,7 +2155,7 @@
         icon: 'fa-circle-info',
         badge: 'À propos',
         title: 'À propos',
-        intro: "La FOS-Agri offre une panoplie de services culturelles, de loisirs et de divertissements répondant aux aspirations de ses adhérents et favorisant leurs épanouissement et bien-être.",
+        intro: "La FOS-Agri propose une diversité de programmes et d'initiatives dédiés à l'épanouissement, à la détente et à l'évasion des adhérents et de leurs familles. À travers des activités culturelles, des séjours récréatifs, des voyages et des événements, elle contribue à enrichir leurs expériences et à favoriser les moments de partage et de convivialité.",
         items: [
           { navIndex: 91, icon: 'fa-users', title: 'Bénéficiaires', body: 'Tous les adhérents de la FOS-Agri' },
           { navIndex: 92, icon: 'fa-clipboard-check', title: 'Inscription et modalités', bullets: [
@@ -2164,8 +2170,7 @@
           badge: 'Appui aux vacances des adhérents',
           title: 'Appui aux vacances des adhérents',
           intro: [
-            "Dans le cadre de sa mission sociale et de son engagement en faveur du bien-être de ses adhérent(e)s, la Fondation met en œuvre, annuellement, une prestation d'appui aux vacances de ses adhérents visant à faciliter l'accès aux périodes de repos et de détente, tout en contribuant à l'allègement des charges financières liées aux séjours estivaux.",
-            "À ce titre, une aide financière est accordée à raison de 700 dirhams par nuitée d'hébergement, dans la limite de sept (7) nuitées par adhérent(e) bénéficiaire, soit un montant maximal de 4 900 dirhams. Cette aide est versée directement au bénéficiaire, conformément aux conditions d'éligibilité et aux modalités fixées par la Fondation."
+            "Dans le cadre de sa mission sociale et de son engagement en faveur du bien-être de ses adhérent(e)s, la Fondation met en œuvre, annuellement, une prestation d'appui aux vacances de ses adhérents visant à faciliter l'accès aux périodes de repos et de détente, tout en contribuant à l'allègement des charges financières liées aux séjours estivaux."
           ],
           beneficiaires: 'Tous les adhérents de la FOS-Agri',
           inscription: [
@@ -2177,10 +2182,9 @@
         colonies: {
           badge: "Colonies de vacances d'été",
           title: "Colonies de vacances d'été",
-          apercu: ["La FOS-Agri organise chaque année une colonie de vacances au profit des enfants des adhérents. Les programmes de ces séjours sont minutieusement concoctés et les animateurs rigoureusement sélectionnés afin de garantir la sécurité des enfants et l'épanouissement des enfants."],
+          intro: ["La FOS-Agri organise chaque année une colonie de vacances au profit des enfants des adhérents. Les programmes de ces séjours sont minutieusement concoctés et les animateurs rigoureusement sélectionnés afin de garantir la sécurité des enfants et l'épanouissement des enfants."],
           beneficiaires: 'Tous les enfants éligibles des adhérents de la FOS-Agri.',
-          inscription: ['Inscription en ligne.'],
-          pieces: ["Demande en ligne", "Acte d'engagement signé", "Certificat médical de l'enfant", "Copie de la CIN de l'adhérent", "Copie de l'acte de naissance de l'enfant", "Photo d'identité de l'enfant"]
+          inscription: ["L'inscription à cette prestation s'effectue à travers l'Espace Adhérent de la FOS-Agri.", "La sélection des bénéficiaires est réalisée selon un système de scoring reposant sur des critères objectifs et transparents définis par la Fondation, garantissant l'équité dans l'attribution de la prestation.", "Les adhérents retenus sont informés des résultats de la sélection via leur Espace Adhérent ainsi que par les canaux de communication de la Fondation."]
         },
         'sejours-culturels': {
           badge: 'Séjours culturels',
@@ -2210,13 +2214,12 @@
         omra: {
           badge: 'Organisation des séjours de Omra',
           title: 'Organisation des séjours de Omra',
-          apercu: [
+          intro: [
             "La FOS-Agri organise annuellement au profit de ses adhérents l'opération d'aide au voyage aux lieux saints de l'islam pour l'accomplissement de la Omra.",
-            "Une subvention et un prêt gratuit remboursable sont accordés au titre de cette opération en plus de tarifs préférentiels négociés avec des agences de voyages de renom et spécialisées dans le domaine."
+            "Une subvention ou un prêt gratuit remboursable sont accordés au titre de cette opération en plus de tarifs préférentiels négociés avec des agences de voyages de renom et spécialisées dans le domaine."
           ],
           beneficiaires: 'Tous les adhérents de la FOS-Agri.',
-          inscription: ['Inscription en ligne.', 'La sélection des bénéficiaires de la subvention ou du prêt se fait par le système de scoring.', "Octroi d'une subvention de 5000 DH au profit de 15 bénéficiaires et un prêt gratuit de 5000 DH remboursable sur 10 mois pour 30 adhérents.", 'Les tarifs préférentiels bénéficient à tous les adhérents.'],
-          pieces: ['Inscription en ligne', 'Photocopie de passeport']
+          inscription: ['Inscription en ligne.', 'La sélection des bénéficiaires de la subvention ou du prêt se fait par le système de scoring.', 'Les tarifs préférentiels bénéficient à tous les adhérents.']
         },
         pelerinage: {
           badge: 'Contribution aux frais de pèlerinage',
@@ -2246,8 +2249,14 @@
           badge: 'Partenariats',
           title: 'Partenariats',
           intro: ['Pour les prestations : Veuillez consulter le fichier joint.'],
-          groupTitles: ['Hôtels et complexes touristiques', 'Établissements de loisirs conventionnés'],
-          status: 'Confirmé'
+          groupTitles: ['Hôtels et complexes touristiques', 'Établissements de loisirs conventionnés']
+        },
+        'assurances-voyage': {
+          badge: 'Assurances voyage',
+          title: 'Assurances voyage',
+          intro: ["Afin de permettre à ses adhérents de voyager en toute sérénité, la FOS-Agri met à leur disposition des offres d'assurance voyage à des conditions préférentielles, négociées auprès de compagnies partenaires."],
+          beneficiaries: [{ number: '01', text: 'Tous les adhérents de la FOS-Agri, leurs conjoints et leurs enfants.' }],
+          groupTitles: ["Compagnies d'assurance partenaires"]
         }
       }
     },
@@ -2256,7 +2265,7 @@
         icon: 'fa-circle-info',
         badge: 'حول الخدمة',
         title: 'حول الخدمة',
-        intro: 'تقدم FOS-Agri باقة من الخدمات الثقافية والترفيهية والسفر تستجيب لتطلعات منخرطيها وتساهم في ازدهارهم ورفاههم.',
+        intro: "تقترح FOS-Agri مجموعة متنوعة من البرامج والمبادرات المخصصة لازدهار المنخرطين وأسرهم وراحتهم واستجمامهم. ومن خلال الأنشطة الثقافية والإقامات الترفيهية والأسفار والتظاهرات، تساهم في إغناء تجاربهم وتعزيز لحظات التقاسم والألفة.",
         items: [
           { navIndex: 91, icon: 'fa-users', title: 'المستفيدون', body: 'جميع منخرطي FOS-Agri' },
           { navIndex: 92, icon: 'fa-clipboard-check', title: 'التسجيل والكيفيات', bullets: [
@@ -2271,8 +2280,7 @@
           badge: 'دعم عطل المنخرطين',
           title: 'دعم عطل المنخرطين',
           intro: [
-            'في إطار مهمتها الاجتماعية والتزامها برفاه منخرطيها، تضع المؤسسة سنويا خدمة لدعم عطل المنخرطين بهدف تسهيل الولوج إلى فترات الراحة والاستجمام والمساهمة في تخفيف الأعباء المالية المرتبطة بالإقامات الصيفية.',
-            'تمنح مساعدة مالية قدرها 700 درهم عن كل ليلة إقامة، في حدود سبع (7) ليال لكل منخرط مستفيد، أي بمبلغ أقصى قدره 4 900 درهم. وتدفع هذه المساعدة مباشرة للمستفيد وفق شروط الأهلية والكيفيات التي تحددها المؤسسة.'
+            'في إطار مهمتها الاجتماعية والتزامها برفاه منخرطيها، تضع المؤسسة سنويا خدمة لدعم عطل المنخرطين بهدف تسهيل الولوج إلى فترات الراحة والاستجمام والمساهمة في تخفيف الأعباء المالية المرتبطة بالإقامات الصيفية.'
           ],
           beneficiaires: 'جميع منخرطي FOS-Agri',
           inscription: [
@@ -2284,10 +2292,9 @@
         colonies: {
           badge: 'مخيمات العطلة الصيفية',
           title: 'مخيمات العطلة الصيفية',
-          apercu: ['تنظم FOS-Agri كل سنة مخيما صيفيا لفائدة أبناء المنخرطين. ويتم إعداد برامج هذه الإقامات بعناية وانتقاء المؤطرين بدقة لضمان سلامة الأطفال ومساعدتهم على النمو والانفتاح.'],
+          intro: ['تنظم FOS-Agri كل سنة مخيما صيفيا لفائدة أبناء المنخرطين. ويتم إعداد برامج هذه الإقامات بعناية وانتقاء المؤطرين بدقة لضمان سلامة الأطفال ومساعدتهم على النمو والانفتاح.'],
           beneficiaires: 'جميع أبناء منخرطي FOS-Agri المؤهلين.',
-          inscription: ['التسجيل عبر الإنترنت.'],
-          pieces: ['طلب عبر الإنترنت', 'التزام موقع', 'شهادة طبية للطفل', 'نسخة من البطاقة الوطنية للمنخرط', 'نسخة من عقد ازدياد الطفل', 'صورة تعريفية للطفل']
+          inscription: ["يتم التسجيل في هذه الخدمة عبر فضاء المنخرط لدى FOS-Agri.", "تتم عملية انتقاء المستفيدين وفق نظام تنقيط مبني على معايير موضوعية وشفافة تحددها المؤسسة، بما يضمن الإنصاف في منح الخدمة.", "يتم إخبار المنخرطين المقبولين بنتائج الانتقاء عبر فضاء المنخرط ومن خلال قنوات التواصل التابعة للمؤسسة."]
         },
         'sejours-culturels': {
           badge: 'إقامات ثقافية',
@@ -2317,10 +2324,9 @@
         omra: {
           badge: 'تنظيم إقامات العمرة',
           title: 'تنظيم إقامات العمرة',
-          apercu: ['تنظم FOS-Agri سنويا لفائدة منخرطيها عملية المساعدة على السفر إلى الديار المقدسة لأداء العمرة.', 'تمنح في إطار هذه العملية منحة وقرض مجاني قابل للسداد، إضافة إلى أسعار تفضيلية يتم التفاوض بشأنها مع وكالات سفر معروفة ومتخصصة في هذا المجال.'],
+          intro: ['تنظم FOS-Agri سنويا لفائدة منخرطيها عملية المساعدة على السفر إلى الديار المقدسة لأداء العمرة.', 'تمنح في إطار هذه العملية منحة أو قرض مجاني قابل للسداد، إضافة إلى أسعار تفضيلية يتم التفاوض بشأنها مع وكالات سفر معروفة ومتخصصة في هذا المجال.'],
           beneficiaires: 'جميع منخرطي FOS-Agri.',
-          inscription: ['التسجيل عبر الإنترنت.', 'يتم انتقاء المستفيدين من المنحة أو القرض بواسطة نظام التنقيط.', 'منح دعم قدره 5000 درهم لفائدة 15 مستفيدا وقرض مجاني قدره 5000 درهم قابل للسداد على 10 أشهر لفائدة 30 منخرطا.', 'تستفيد جميع المنخرطات والمنخرطين من الأسعار التفضيلية.'],
-          pieces: ['التسجيل عبر الإنترنت', 'نسخة من جواز السفر']
+          inscription: ['التسجيل عبر الإنترنت.', 'يتم انتقاء المستفيدين من المنحة أو القرض بواسطة نظام التنقيط.', 'تستفيد جميع المنخرطات والمنخرطين من الأسعار التفضيلية.']
         },
         pelerinage: {
           badge: 'المساهمة في مصاريف الحج',
@@ -2350,8 +2356,14 @@
           badge: 'الشراكات',
           title: 'الشراكات',
           intro: ['للاطلاع على الخدمات: يرجى الرجوع إلى الملف المرفق.'],
-          groupTitles: ['فنادق ومركبات سياحية', 'مؤسسات ترفيهية متعاقدة'],
-          status: 'مؤكد'
+          groupTitles: ['فنادق ومركبات سياحية', 'مؤسسات ترفيهية متعاقدة']
+        },
+        'assurances-voyage': {
+          badge: 'تأمين السفر',
+          title: 'تأمين السفر',
+          intro: ['حرصا على تمكين منخرطيها من السفر بكل اطمئنان، تضع FOS-Agri رهن إشارتهم عروضا لتأمين السفر بشروط تفضيلية، متفاوض بشأنها مع شركات شريكة.'],
+          beneficiaries: [{ number: '01', text: 'جميع منخرطي FOS-Agri وأزواجهم وأبناؤهم.' }],
+          groupTitles: ['شركات التأمين الشريكة']
         }
       }
     },
@@ -2360,7 +2372,7 @@
         icon: 'fa-circle-info',
         badge: 'ⵅⴼ ⵜⵏⴼⵍⵉⵜ',
         title: 'ⵅⴼ ⵜⵏⴼⵍⵉⵜ',
-        intro: 'FOS-Agri ⵜⵙⵙⵓⴼⵖ ⵢⴰⵜ ⵜⴳⵔⵓⵎⵎⴰ ⵏ ⵜⵏⴼⴰⵙ ⵜⵉⴷⵍⵙⴰⵏⵉⵏ, ⵜⵉⵔⴰⵔⵉⵏ ⴷ ⵓⵙⴰⴼⴰⵔ ⵉⵣⵎⵔⵏ ⴰⴷ ⵙⵙⵎⴷⵏ ⵜⵉⵔⴰⵜⵉⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴷ ⴰⴷ ⵙⵙⵎⵖⵓⵔⵏ ⴰⵙⴼⵓⵍⴽⵉ ⴷ ⵜⵎⵓⵏⵜ ⵏⵙⵏ.',
+        intro: "FOS-Agri ⵜⵙⵙⵓⴼⵓⵖ ⵜⴰⴳⵔⵓⵎⵎⴰ ⵏ ⵉⵙⵏⴰⵎⴰⵍⵏ ⴷ ⵜⵙⵓⵜⵔⵉⵏ ⵉⵎⵣⴰⵔⴰⵢⵏ ⵉ ⵓⴼⵓⵍⴽⵉ, ⴰⵙⵓⵏⴼⵓ ⴷ ⵓⵙⴼⴼⵓⵖ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴷ ⵜⵡⴰⵛⵓⵍⵉⵏ ⵏⵏⵙⵏ. ⵙ ⵜⵉⵔⵎⴰⴷ ⵜⵉⴷⵍⵙⴰⵏⵉⵏ, ⵜⵉⵖⵔⵎⵉⵏ ⵏ ⵓⵔⴰⵔ, ⵉⵙⵉⴽⵍⵏ ⴷ ⵜⵎⵙⴽⵔⵉⵏ, ⵜⵙⵙⵏⵔⵏⴰⵢ ⵜⵉⵔⵎⵉⵜⵉⵏ ⵏⵏⵙⵏ ⴷ ⵜⵙⵙⵉⵊⵀⴷ ⵜⵉⵣⵉⵡⵉⵏ ⵏ ⵓⴱⵟⵟⵓ ⴷ ⵜⴷⵓⴽⴽⵍⴰ.",
         items: [
           { navIndex: 91, icon: 'fa-users', title: 'ⵉⵎⵙⵜⴼⴰⴷⵏ', body: 'ⴽⵓⵍⵍⵓ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ FOS-Agri' },
           { navIndex: 92, icon: 'fa-clipboard-check', title: 'ⴰⵙⵙⴼⵜⵔ ⴷ ⵜⴳⴳⵓⵔⵉⵏ', bullets: [
@@ -2375,8 +2387,7 @@
           badge: 'ⴰⴼⵓⵙ ⵉ ⵓⵙⴳⵓⵏⴼⵓ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ',
           title: 'ⴰⴼⵓⵙ ⵉ ⵓⵙⴳⵓⵏⴼⵓ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ',
           intro: [
-            'ⴳ ⵓⴼⵓⵙ ⵏ ⵜⵎⵙⵉⴳⵍⵜ ⵜⴰⵎⵜⵜⵉⵡⵜ ⴷ ⵓⵎⵢⴰⵡⴰⵙ ⵉ ⵓⵙⴼⵓⵍⴽⵉ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ, ⵜⵙⵙⵓⴷⵓⵙ ⵜⵙⴷⴰⵡⵉⵜ ⴽⵓ ⴰⵙⴳⴳⵯⴰⵙ ⵜⵏⴼⵍⵉⵜ ⵏ ⵓⴼⵓⵙ ⵉ ⵓⵙⴳⵓⵏⴼⵓ ⴰⴼⴰⴷ ⴰⴷ ⵜⵙⵙⵔⵙ ⴰⵡⴷⵓⴼ ⵙ ⵉⵎⵓⴷⴰⵏ ⵏ ⵓⵙⵉⵙⵓ ⴷ ⵓⵙⴳⵓⵏⴼⵓ.',
-            'ⵜⴰⵙⴷⵔⵉⵎⵜ ⵏ 700 DH ⵜⵜⵓⵎⵓⵛⵛ ⵉ ⴽⵓ ⵉⴹ ⵏ ⵜⵖⵔⵎⵜ, ⴳ ⵓⵣⵔⴼ ⵏ 7 ⵡⵓⵙⵙⴰⵏ ⵉ ⴽⵓ ⴰⵎⵏⵅⵔⴰⵟ ⴰⵎⵙⵜⴼⴰⴷ, ⵙ ⵓⵎⴰⵙ ⴰⴷ ⵉⵙⴽⵔ 4 900 DH. ⵜⵜⵓⵣⵔⴰ ⵜⴰⵙⴷⵔⵉⵎⵜ ⵉ ⵓⵎⵙⵜⴼⴰⴷ ⵙ ⵓⵙⵔⵉⴷ ⵙ ⵉⵍⵓⴳⵏ ⵏ ⵓⵙⵜⴼⴰⴷ.'
+            'ⴳ ⵓⴼⵓⵙ ⵏ ⵜⵎⵙⵉⴳⵍⵜ ⵜⴰⵎⵜⵜⵉⵡⵜ ⴷ ⵓⵎⵢⴰⵡⴰⵙ ⵉ ⵓⵙⴼⵓⵍⴽⵉ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ, ⵜⵙⵙⵓⴷⵓⵙ ⵜⵙⴷⴰⵡⵉⵜ ⴽⵓ ⴰⵙⴳⴳⵯⴰⵙ ⵜⵏⴼⵍⵉⵜ ⵏ ⵓⴼⵓⵙ ⵉ ⵓⵙⴳⵓⵏⴼⵓ ⴰⴼⴰⴷ ⴰⴷ ⵜⵙⵙⵔⵙ ⴰⵡⴷⵓⴼ ⵙ ⵉⵎⵓⴷⴰⵏ ⵏ ⵓⵙⵉⵙⵓ ⴷ ⵓⵙⴳⵓⵏⴼⵓ.'
           ],
           beneficiaires: 'ⴽⵓⵍⵍⵓ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ FOS-Agri',
           inscription: ['ⴰⵙⵙⴼⵜⵔ ⵉ ⵜⵏⴼⵍⵉⵜ ⴰⴷ ⵉⵜⵜⴳ ⵙ ⵓⵙⵉⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ ⵏ FOS-Agri.', 'ⵜⴰⵙⵜⴰⵢⵜ ⵏ ⵉⵎⵙⵜⴼⴰⴷⵏ ⵜⵜⴳ ⵙ ⵓⵙⵎⵉⵍ ⵏ ⵓⵙⴽⵓⵔ ⵉⵙⵙⴰⵙⵏ ⴷ ⵉⴼⵔⴰⵔⵏ.', 'ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵜⵜⵓⵙⵜⴰⵢⵏ ⵜⵜⵓⵙⵙⵏⵏ ⵙ ⵉⵎⴽⴽⵉⵏ ⵏ ⵜⵙⵜⴰⵢⵜ.']
@@ -2384,10 +2395,9 @@
         colonies: {
           badge: 'ⵜⵉⵎⵥⵥⵉⵢⵏ ⵏ ⵓⵙⴳⵓⵏⴼⵓ ⵏ ⵓⵏⴱⴷⵓ',
           title: 'ⵜⵉⵎⵥⵥⵉⵢⵏ ⵏ ⵓⵙⴳⵓⵏⴼⵓ ⵏ ⵓⵏⴱⴷⵓ',
-          apercu: ['FOS-Agri ⵜⵙⵙⵓⴷⵓⵙ ⴽⵓ ⴰⵙⴳⴳⵯⴰⵙ ⵢⴰⵜ ⵜⵎⵥⵥⵉⵜ ⵏ ⵓⵙⴳⵓⵏⴼⵓ ⵉ ⵡⴰⵔⵔⴰⵡ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ. ⵜⵜⵓⵙⴽⴰⵔⵏ ⵉⵙⵏⴼⴰⵔⵏ ⵙ ⵜⵡⴰⵍⴰ, ⴷ ⵉⵎⵙⵙⵓⴷⴰⵙ ⵜⵜⵓⵙⵜⴰⵢⵏ ⵙ ⵜⴷⵇⵇⵉ ⴰⴼⴰⴷ ⴰⴷ ⵉⵍⵉ ⵓⵎⴰⵏ ⴷ ⵓⵙⴼⵓⵍⴽⵉ ⵏ ⵡⴰⵔⵔⴰⵡ.'],
+          intro: ['FOS-Agri ⵜⵙⵙⵓⴷⵓⵙ ⴽⵓ ⴰⵙⴳⴳⵯⴰⵙ ⵢⴰⵜ ⵜⵎⵥⵥⵉⵜ ⵏ ⵓⵙⴳⵓⵏⴼⵓ ⵉ ⵡⴰⵔⵔⴰⵡ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ. ⵜⵜⵓⵙⴽⴰⵔⵏ ⵉⵙⵏⴼⴰⵔⵏ ⵙ ⵜⵡⴰⵍⴰ, ⴷ ⵉⵎⵙⵙⵓⴷⴰⵙ ⵜⵜⵓⵙⵜⴰⵢⵏ ⵙ ⵜⴷⵇⵇⵉ ⴰⴼⴰⴷ ⴰⴷ ⵉⵍⵉ ⵓⵎⴰⵏ ⴷ ⵓⵙⴼⵓⵍⴽⵉ ⵏ ⵡⴰⵔⵔⴰⵡ.'],
           beneficiaires: 'ⴽⵓⵍⵍⵓ ⵡⴰⵔⵔⴰⵡ ⵉⵙⵜⴼⴰⴷⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ FOS-Agri.',
-          inscription: ['ⴰⵙⵙⴼⵜⵔ ⵙ ⵓⵏⵜⵉⵔⵏⵉⵜ.'],
-          pieces: ['ⴰⵙⵓⵜⵔ ⵙ ⵓⵏⵜⵉⵔⵏⵉⵜ', 'ⴰⵏⴳⴳⵉⴷ ⵉⵜⵜⵓⵙⵖⵏⵏ', 'ⵜⴰⵛⵔⴰⴹⵜ ⵜⴰⴷⵓⵙⵜ ⵏ ⵓⴼⵔⵓⵅ', 'ⵜⴰⵏⵖⵍⵜ ⵏ CIN ⵏ ⵓⵎⵏⵅⵔⴰⵟ', 'ⵜⴰⵏⵖⵍⵜ ⵏ ⵜⴰⵍⴰⵍⵉⵜ ⵏ ⵓⴼⵔⵓⵅ', 'ⵜⴰⵡⵍⴰⴼⵜ ⵏ ⵓⴼⵔⵓⵅ']
+          inscription: ["ⴰⵙⵙⴼⵜⵔ ⵉ ⵜⵏⴼⵍⵉⵜ ⴰⴷ ⵉⵜⵜⴳ ⵙ ⵓⵙⵉⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ ⵏ FOS-Agri.", "ⵜⴰⵙⵜⴰⵢⵜ ⵏ ⵉⵎⵙⵜⴼⴰⴷⵏ ⵜⵜⴳ ⵙ ⵓⵙⵎⵉⵍ ⵏ ⵓⵙⴽⵓⵔ ⵉⵙⵙⴰⵙⵏ ⴷ ⵉⴼⵔⴰⵔⵏ ⵉⵜⵜⵓⵙⴷⴷⵉⵏ ⵙⴳ ⵜⵙⴷⴰⵡⵉⵜ, ⴰⴼⴰⴷ ⴰⴷ ⵉⵍⵉ ⵓⵏⴱⴰⴹ ⵉⵎⵥⵍⵉ.", "ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵜⵜⵓⵙⵜⴰⵢⵏ ⵜⵜⵓⵙⵙⵏⵏ ⵙ ⵉⵎⴽⴽⵉⵏ ⵏ ⵜⵙⵜⴰⵢⵜ ⵙ ⵓⵙⵉⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ ⴷ ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵜⵙⴷⴰⵡⵉⵜ."]
         },
         'sejours-culturels': {
           badge: 'ⵜⵉⵖⵔⵎⵉⵏ ⵜⵉⴷⵍⵙⴰⵏⵉⵏ',
@@ -2417,10 +2427,9 @@
         omra: {
           badge: 'ⴰⵙⵓⴷⴷⵙ ⵏ ⵜⵉⵖⵔⵎⵉⵏ ⵏ ⵓⵎⵔⴰ',
           title: 'ⴰⵙⵓⴷⴷⵙ ⵏ ⵜⵉⵖⵔⵎⵉⵏ ⵏ ⵓⵎⵔⴰ',
-          apercu: ['FOS-Agri ⵜⵙⵙⵓⴷⵓⵙ ⴽⵓ ⴰⵙⴳⴳⵯⴰⵙ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵜⴰⵎⴰⴷⵔⴰⵡⵜ ⵏ ⵓⴼⵓⵙ ⵉ ⵓⵙⴰⴼⴰⵔ ⵖⵔ ⵉⵎⴽⴰⵏⵏ ⵉⵇⴷⵙⵏ ⵉ ⵓⵙⴽⴰⵔ ⵏ ⵓⵎⵔⴰ.', 'ⵜⵜⵓⵎⵓⵛⵛ ⵜⴰⵙⴷⵔⵉⵎⵜ ⴷ ⵓⵙⴽⵉⵍ ⴰⴱⵍⴰ ⵓⵙⴽⴽⵓ ⵉⵜⵜⵓⵔⴰⵔⵏ, ⵖⵉⴽ ⴷ ⵜⵎⵣⵍⴰⵢⵜ ⵏ ⵉⵎⵏⴰⵢⵏ ⵉⵜⵜⵓⵙⴰⵡⴰⵍⵏ ⴷ ⵉⵙⵙⵓⴼⵓⵖⵏ ⵏ ⵓⵙⴰⴼⴰⵔ.'],
+          intro: ['FOS-Agri ⵜⵙⵙⵓⴷⵓⵙ ⴽⵓ ⴰⵙⴳⴳⵯⴰⵙ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵜⴰⵎⴰⴷⵔⴰⵡⵜ ⵏ ⵓⴼⵓⵙ ⵉ ⵓⵙⴰⴼⴰⵔ ⵖⵔ ⵉⵎⴽⴰⵏⵏ ⵉⵇⴷⵙⵏ ⵉ ⵓⵙⴽⴰⵔ ⵏ ⵓⵎⵔⴰ.', 'ⵜⵜⵓⵎⵓⵛⵛ ⵜⴰⵙⴷⵔⵉⵎⵜ ⵏⵖ ⵓⵙⴽⵉⵍ ⴰⴱⵍⴰ ⵓⵙⴽⴽⵓ ⵉⵜⵜⵓⵔⴰⵔⵏ, ⵖⵉⴽ ⴷ ⵜⵎⵣⵍⴰⵢⵜ ⵏ ⵉⵎⵏⴰⵢⵏ ⵉⵜⵜⵓⵙⴰⵡⴰⵍⵏ ⴷ ⵉⵙⵙⵓⴼⵓⵖⵏ ⵏ ⵓⵙⴰⴼⴰⵔ.'],
           beneficiaires: 'ⴽⵓⵍⵍⵓ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ FOS-Agri.',
-          inscription: ['ⴰⵙⵙⴼⵜⵔ ⵙ ⵓⵏⵜⵉⵔⵏⵉⵜ.', 'ⵜⴰⵙⵜⴰⵢⵜ ⵏ ⵉⵎⵙⵜⴼⴰⴷⵏ ⵏ ⵜⴰⵙⴷⵔⵉⵎⵜ ⵏⵖ ⵓⵙⴽⵉⵍ ⵜⵜⴳ ⵙ ⵓⵙⵎⵉⵍ ⵏ scoring.', 'ⵜⵜⵓⵎⵓⵛⵛ 5000 DH ⵉ 15 ⵉⵎⵙⵜⴼⴰⴷⵏ ⴷ ⵓⵙⴽⵉⵍ 5000 DH ⵉ 30 ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵜⵜⵓⵔⴰⵔⵏ ⴳ 10 ⵡⴰⵢⵢⵓⵔⵏ.', 'ⵉⵎⵏⴰⵢⵏ ⵉⵎⵥⵍⵉⵢⵏ ⵜⵜⵙⵜⴼⴰⴷⵏ ⵙⴳⵙⵏ ⴽⵓⵍⵍⵓ ⵉⵎⵏⵅⵔⴰⵟⵏ.'],
-          pieces: ['ⴰⵙⵙⴼⵜⵔ ⵙ ⵓⵏⵜⵉⵔⵏⵉⵜ', 'ⵜⴰⵏⵖⵍⵜ ⵏ ⵓⵙⴰⴼⴰⵔ']
+          inscription: ['ⴰⵙⵙⴼⵜⵔ ⵙ ⵓⵏⵜⵉⵔⵏⵉⵜ.', 'ⵜⴰⵙⵜⴰⵢⵜ ⵏ ⵉⵎⵙⵜⴼⴰⴷⵏ ⵏ ⵜⴰⵙⴷⵔⵉⵎⵜ ⵏⵖ ⵓⵙⴽⵉⵍ ⵜⵜⴳ ⵙ ⵓⵙⵎⵉⵍ ⵏ scoring.', 'ⵉⵎⵏⴰⵢⵏ ⵉⵎⵥⵍⵉⵢⵏ ⵜⵜⵙⵜⴼⴰⴷⵏ ⵙⴳⵙⵏ ⴽⵓⵍⵍⵓ ⵉⵎⵏⵅⵔⴰⵟⵏ.']
         },
         pelerinage: {
           badge: 'ⴰⵜⵜⴽⵉ ⴳ ⵎⴰⵙⴰⵔⵉⴼ ⵏ ⵓⵃⵊⵊ',
@@ -2450,8 +2459,14 @@
           badge: 'ⵉⵣⴷⵡⵉⵢⵏ',
           title: 'ⵉⵣⴷⵡⵉⵢⵏ',
           intro: ['ⵉ ⵜⵏⴼⴰⵙ: ⵔⵥⵎ ⴰⴼⴰⵢⵍⵓ ⵉⵍⵍⴰⵏ ⴳ ⵓⵙⴰⴷⵓ.'],
-          groupTitles: ['ⵉⵙⵏⵙⴰ ⴷ ⵉⵎⵙⵔⴰⵢⵏ ⵏ ⵜⵣⵓⵔⵉⵙⵜ', 'ⵜⵉⵎⵙⵙⵓⵔⵜⵉⵏ ⵏ ⵓⵔⴰⵔ ⵉⵣⴷⵉⵏ'],
-          status: 'ⵉⵜⵜⵓⵙⵙⵏⵜⵎ'
+          groupTitles: ['ⵉⵙⵏⵙⴰ ⴷ ⵉⵎⵙⵔⴰⵢⵏ ⵏ ⵜⵣⵓⵔⵉⵙⵜ', 'ⵜⵉⵎⵙⵙⵓⵔⵜⵉⵏ ⵏ ⵓⵔⴰⵔ ⵉⵣⴷⵉⵏ']
+        },
+        'assurances-voyage': {
+          badge: 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵓⵙⵉⴽⵍ',
+          title: 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵓⵙⵉⴽⵍ',
+          intro: ['ⴰⴼⴰⴷ ⴰⴷ ⵙⵉⴽⵍⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵙ ⵓⵏⵣⴳⵓⵎ ⴰⵎⴰⵏ, FOS-Agri ⵜⵙⵙⵓⴼⵓⵖ ⴰⵙⵏ ⵉⴼⵔⴰⵏ ⵏ ⵜⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵓⵙⵉⴽⵍ ⵙ ⵜⵙⴰⴳⴰⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ, ⵉⵜⵜⵓⵙⵎⵙⴰⵙⴰⵏ ⴷ ⵜⴽⵓⵎⴱⴰⵏⵉⵢⵉⵏ ⵉⵣⴷⵉⵏ.'],
+          beneficiaries: [{ number: '01', text: 'ⴽⵓⵍⵍⵓ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ FOS-Agri, ⵉⵡⵜⵎⴰⵏ ⵏⵏⵙⵏ ⴷ ⵜⴰⵔⵡⴰ ⵏⵏⵙⵏ.' }],
+          groupTitles: ['ⵜⵉⴽⵓⵎⴱⴰⵏⵉⵢⵉⵏ ⵏ ⵜⵏⴰⵎⵎⴰⵍⵜ ⵉⵣⴷⵉⵏ']
         }
       }
     }
@@ -2534,7 +2549,8 @@
     const groups = (section.groups || []).map((g) => `
       <div class="culture-partner-group">
         <h3 class="culture-partner-group-title"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> ${esc(g.title)}</h3>
-        <div class="bank-offers-grid culture-partner-grid">
+        ${g.items.length ? '' : `<p class="culture-partner-empty">${esc(labels.partnersSoon || '')}</p>`}
+        <div class="bank-offers-grid culture-partner-grid"${g.items.length ? '' : ' hidden'}>
           ${g.items.map((it) => `
             <article class="bank-offer-card culture-partner-card">
               <div class="bank-card-logo culture-partner-logo${it.logo ? '' : ' is-fallback'}">
@@ -2559,6 +2575,13 @@
             <h2>${esc(section.title)}</h2>
             ${section.intro && section.intro.length ? renderParagraphs(section.intro) : ''}
           </article>
+          ${section.beneficiaries?.length ? `
+            <div class="prestation-extra-block">
+              <div class="prestation-amc-block-head">
+                <span class="section-tag"><i class="fa-solid fa-people-roof" aria-hidden="true"></i> ${esc(section.beneficiariesTitle || labels.beneficiaires)}</span>
+              </div>
+              ${renderExtraMiniCards(section.beneficiaries)}
+            </div>` : ''}
           ${groups}
         </div>
       </section>`;
