@@ -3172,3 +3172,34 @@ html[dir='rtl'] .prestation-keypoints-panel::before {
   font-size: 0.78rem;
 }
 .culture-partner-status i { color: #1f6a43; }
+
+/* Prévoyance — lien « Voir plus » dans l'accordéon À propos */
+.prestation-see-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.75rem;
+  color: var(--green, #1f6a43);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.prestation-see-more:hover,
+.prestation-see-more:focus-visible {
+  color: var(--gold, #c8a44d);
+  text-decoration: underline;
+}
+
+html[dir='rtl'] .prestation-see-more i {
+  transform: scaleX(-1);
+}
+
+/* AMC — mention à côté du titre des options */
+.prestation-amc-option-head .prestation-amc-option-note {
+  display: inline;
+  margin-inline-start: 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.92);
+}

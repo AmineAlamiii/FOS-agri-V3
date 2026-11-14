@@ -110,9 +110,7 @@
       flow2: 'Consulter la prestation', flow2Body: 'Comprendre les garanties, les plafonds et les partenaires disponibles.',
       flow3: 'Préparer le dossier', flow3Body: 'Rassembler les justificatifs selon la prestation concernée.',
       flow4: 'Contacter la Fondation', flow4Body: 'Être orienté par les équipes FOS-Agri ou les relais régionaux.',
-      ctaTitle: 'Besoin d’une orientation personnalisée ?',
-      ctaBody: 'Les équipes FOS-Agri peuvent orienter les adhérents vers la prestation, le partenaire ou le relais régional adapté.',
-      highlights: 'Repères clés',
+      seeMore: 'Voir plus',
       rubriques: 'Rubriques',
       subrubriques: 'Sous-rubriques',
       icons2d: 'Icônes 2D',
@@ -179,9 +177,7 @@
       flow2: 'الاطلاع على الخدمة', flow2Body: 'فهم الضمانات والأسقف والشركاء المتاحين.',
       flow3: 'إعداد الملف', flow3Body: 'تجميع الوثائق حسب الخدمة المطلوبة.',
       flow4: 'التواصل مع المؤسسة', flow4Body: 'توجيه المنخرط من طرف فرق FOS-Agri أو المنسقين الجهويين.',
-      ctaTitle: 'هل تحتاج إلى توجيه خاص؟',
-      ctaBody: 'يمكن لفرق FOS-Agri توجيه المنخرط نحو الخدمة أو الشريك أو المنسق الجهوي المناسب.',
-      highlights: 'معطيات أساسية',
+      seeMore: 'عرض المزيد',
       rubriques: 'خانات',
       subrubriques: 'الخدمات الفرعية',
       icons2d: 'أيقونات 2D',
@@ -248,9 +244,7 @@
       flow2: 'ⵥⵕ ⵜⴰⵏⴼⵓⵙⵜ', flow2Body: 'ⴰⴷ ⵜⵙⵙⵏⴷ ⵜⵉⵣⴳⴰⵣ, ⵉⵙⵡⵉⵔⵏ ⴷ ⵉⵣⴷⴰⵢⵏ.',
       flow3: 'ⵙⵎⵓⵜⵜⴳ ⴰⴼⴰⵢⵍⵓ', flow3Body: 'ⵙⵎⵓⵏ ⵜⵉⴽⴰⵔⴹⵉⵡⵉⵏ ⵙ ⵎⴽ ⵜⴳⴰ ⵜⴰⵏⴼⵓⵙⵜ.',
       flow4: 'ⵎⵢⴰⵡⴰⵍ ⴷ ⵜⵙⴷⴰⵡⵉⵜ', flow4Body: 'ⴰⴷ ⴽ ⵙⵙⴷⵓⵏ ⵉⵎⵙⵙⵓⵔⵉⵏ ⵏ FOS-Agri ⵏⵖ ⵉⵎⵙⵏⴰⵡⵏ.',
-      ctaTitle: 'ⵜⵔⵉⴷ ⴰⵙⴷⵓ ⵉⵎⵥⵍⵉ?',
-      ctaBody: 'ⵉⵎⵙⵙⵓⵔⵉⵏ ⵏ FOS-Agri ⵣⵎⵔⵏ ⴰⴷ ⴽ ⵙⵙⴷⵓⵏ ⵖⵔ ⵜⴰⵏⴼⵓⵙⵜ, ⴰⵣⴷⴰⵢ ⵏⵖ ⴰⵎⵙⵏⴰⵡ.',
-      highlights: 'ⵉⵙⴰⵍⵏ',
+      seeMore: 'ⵥⵕ ⵓⴳⴳⴰⵔ',
       rubriques: 'ⵜⵉⵙⴳⴰⵔ',
       subrubriques: 'ⵜⵉⵙⴳⴰⵔ ⵜⵉⵎⵥⵥⵉⵢⵏ',
       icons2d: 'ⵉⴽⵓⵏⵏ 2D',
@@ -306,6 +300,7 @@
   };
 
   const amcDetailFr = {
+    tagLabel: 'Assurance Maladie Complémentaire (AMC)',
     title: 'Assurance Maladie Complémentaire',
     subtitle: 'Une couverture complémentaire à l’AMO-CNOPS permettant le remboursement ou la prise en charge d’une partie ou de la totalité des frais restant à la charge de l’adhérent, au Maroc et à l’étranger.',
     dispositionsTitle: 'Dispositions contractuelles',
@@ -321,7 +316,7 @@
       {
         icon: 'fa-file-shield',
         title: 'Objet de la garantie',
-        body: ['En cas de maladie ou d’accident, Sanlam Maroc s’engage à rembourser ou à prendre en charge, dans le cadre de l’Assurance Maladie Complémentaire en complément à l’AMO-CNOPS, une partie ou la totalité des frais restant à la charge de l’adhérent, suite à des dépenses de santé engagées au Maroc et à l’étranger, couvertes ou non par l’AMO-CNOPS, conformément aux taux, bases et plafonds de remboursement définis par le contrat.']
+        body: ['En cas de maladie ou d’accident, Sanlam Maroc s’engage à rembourser ou à prendre en charge, dans le cadre de l’Assurance Maladie Complémentaire en complément à l’AMO-CNOPS, une partie ou la totalité des frais restant à la charge de l’adhérent, suite à des dépenses de santé engagées au Maroc et à l’étranger, conformément aux taux, bases et plafonds de remboursement définis par le contrat.']
       },
       {
         icon: 'fa-percent',
@@ -331,8 +326,9 @@
       {
         icon: 'fa-people-roof',
         title: 'Bénéficiaires',
-        body: ['Option 1 et 2 : L’Adhérent-Assuré actif et retraité, sans limite d’âge.', 'Pour les options 1 et 2 :'],
-        bullets: ['Le ou les conjoints sans limite d’âge.', 'Les veuves et orphelins jusqu’à l’âge de 26 ans révolus, du personnel décédé.', 'Les enfants à charge jusqu’à l’âge de 26 ans révolus.']
+        body: ['Option 1 : Couvre tous les adhérents de la Fondation, à savoir :'],
+        bullets: ['L’Adhérent-Assuré (actif et retraité) sans limite d’âge.', 'Le(s) conjoint(s) sans limite d’âge.', 'Les veuves et orphelins jusqu’à l’âge de 26 ans révolus, du personnel décédé.', 'Les enfants à charge jusqu’à l’âge de 26 ans révolus.', 'Les enfants handicapés sans limite d’âge.'],
+        bodyAfter: ['Option 2 : Couvre tous les adhérents de la fondation ayant souscrit à cette option moyennant le paiement de la prime annuelle de 115 Dhs.']
       },
       {
         icon: 'fa-clock',
@@ -343,6 +339,7 @@
     options: [
       {
         title: 'Option 1',
+        note: '( Couverture de base pour tous les adhérent(e)s entièrement à la charge de la Fondation)',
         kicker: 'Affections ALD-ALC, soins courants et hospitalisations',
         guarantees: [
           {
@@ -369,7 +366,7 @@
             assured: 'Hospitalisations chirurgicales et/ou médicales.',
             benefits: [
               'Hospitalisation médicale ou chirurgicale au Maroc : sur présentation de la facture et des pièces justificatives, remboursement au taux contractuel de la différence entre les frais engagés à concurrence du barème de la convention FMSAR / Association Nationale des Cliniques Privées, et le règlement effectué ou à effectuer par l’AMO-CNOPS.',
-              'Hospitalisation médicale ou chirurgicale à l’étranger : sur présentation de la facture et des pièces justificatives, remboursement au taux contractuel de la différence entre les frais engagés et le règlement effectué ou à effectuer par l’AMO-CNOPS.'
+              'Hospitalisation médicale ou chirurgicale à l’étranger : sur présentation de la facture et des pièces justificatives, remboursement au taux contractuel de la différence entre les frais engagés à concurrence du barème de la convention FMSAR / Association Nationale des Cliniques Privées, et le règlement effectué ou à effectuer par l’AMO-CNOPS.'
             ]
           }
         ],
@@ -395,6 +392,7 @@
       },
       {
         title: 'Option 2',
+        note: "( Couverture au choix plus étendue, en complément de l'option 1, moyennant une contribution annuelle de 115 dirhams, avec un engagement d'une durée minimale de 3 ans. )",
         kicker: 'Soins ambulatoires hors ALD/ALC',
         guarantees: [
           {
@@ -426,6 +424,7 @@
 
   const amcDetailAr = {
     ...amcDetailFr,
+    tagLabel: 'التأمين الصحي التكميلي (AMC)',
     title: 'التأمين الصحي التكميلي',
     subtitle: 'تغطية تكميلية لنظام AMO-CNOPS تتيح تعويض أو تحمل جزء من المصاريف الصحية المتبقية على عاتق المنخرط، داخل المغرب وخارجه.',
     dispositionsTitle: 'المقتضيات التعاقدية',
@@ -441,7 +440,7 @@
       {
         icon: 'fa-file-shield',
         title: 'موضوع الضمان',
-        body: ['في حالة المرض أو الحادث، تلتزم Sanlam Maroc، في إطار التأمين الصحي التكميلي وبصفة مكملة لنظام AMO-CNOPS، بتعويض أو تحمل جزء أو مجموع المصاريف الصحية المتبقية على عاتق المنخرط، سواء تعلق الأمر بمصاريف داخل المغرب أو خارجه، مغطاة أو غير مغطاة من طرف AMO-CNOPS، وذلك وفق النسب والأسس والأسقف المحددة في العقد.']
+        body: ['في حالة المرض أو الحادث، تلتزم Sanlam Maroc، في إطار التأمين الصحي التكميلي وبصفة مكملة لنظام AMO-CNOPS، بتعويض أو تحمل جزء أو مجموع المصاريف الصحية المتبقية على عاتق المنخرط، سواء تعلق الأمر بمصاريف داخل المغرب أو خارجه، وذلك وفق النسب والأسس والأسقف المحددة في العقد.']
       },
       {
         icon: 'fa-percent',
@@ -451,8 +450,9 @@
       {
         icon: 'fa-people-roof',
         title: 'المستفيدون',
-        body: ['الخياران 1 و2: المنخرط المؤمن النشيط أو المتقاعد دون حد للسن.', 'بالنسبة للخيارين 1 و2:'],
-        bullets: ['الزوج أو الأزواج دون حد للسن.', 'الأرامل والأيتام إلى غاية 26 سنة كاملة بالنسبة لموظف متوفى.', 'الأطفال المتكفل بهم إلى غاية 26 سنة كاملة.']
+        body: ['الخيار 1: يشمل جميع منخرطي المؤسسة، وهم:'],
+        bullets: ['المنخرط المؤمَّن (العامل والمتقاعد) دون حد للسن.', 'الزوج(ة) أو الأزواج دون حد للسن.', 'الأرامل والأيتام إلى غاية بلوغ 26 سنة كاملة، من ذوي الموظفين المتوفين.', 'الأبناء المتكفل بهم إلى غاية بلوغ 26 سنة كاملة.', 'الأبناء في وضعية إعاقة دون حد للسن.'],
+        bodyAfter: ['الخيار 2: يشمل جميع منخرطي المؤسسة الذين اشتركوا في هذا الخيار مقابل أداء قسط سنوي قدره 115 درهما.']
       },
       {
         icon: 'fa-clock',
@@ -463,6 +463,7 @@
     options: [
       {
         title: 'الخيار 1',
+        note: '(تغطية أساسية لجميع المنخرطين والمنخرطات تتحملها المؤسسة بالكامل)',
         kicker: 'الأمراض طويلة الأمد والمكلفة، العلاجات الجارية والاستشفاء',
         guarantees: [
           {
@@ -489,7 +490,7 @@
             assured: 'الاستشفاء الجراحي و/أو الطبي.',
             benefits: [
               'الاستشفاء الطبي أو الجراحي بالمغرب: بعد الإدلاء بالفاتورة والوثائق التبريرية، يتم التعويض وفق النسبة التعاقدية للفرق بين المصاريف المتحملة في حدود تعريفة اتفاقية FMSAR / الجمعية الوطنية للمصحات الخاصة، والتسوية المنجزة أو التي يتعين إنجازها من طرف AMO-CNOPS.',
-              'الاستشفاء الطبي أو الجراحي بالخارج: بعد الإدلاء بالفاتورة والوثائق التبريرية، يتم التعويض وفق النسبة التعاقدية للفرق بين المصاريف المتحملة والتسوية المنجزة أو التي يتعين إنجازها من طرف AMO-CNOPS.'
+              'الاستشفاء الطبي أو الجراحي بالخارج: بعد الإدلاء بالفاتورة والوثائق التبريرية، يتم التعويض وفق النسبة التعاقدية للفرق بين المصاريف المتحملة في حدود تعريفة اتفاقية FMSAR / الجمعية الوطنية للمصحات الخاصة، والتسوية المنجزة أو التي يتعين إنجازها من طرف AMO-CNOPS.'
             ]
           }
         ],
@@ -515,6 +516,7 @@
       },
       {
         title: 'الخيار 2',
+        note: '(تغطية اختيارية أوسع، مكملة للخيار 1، مقابل مساهمة سنوية قدرها 115 درهما، مع التزام لمدة لا تقل عن 3 سنوات.)',
         kicker: 'العلاجات المتنقلة خارج ALD/ALC',
         guarantees: [
           {
@@ -546,6 +548,7 @@
 
   const amcDetailZgh = {
     ...amcDetailFr,
+    tagLabel: 'ⴰⵙⵙⵓⵔⴰⵏⵙ ⴰⴷⵓⵙⴰⵏ ⴰⵎⵔⵏⴰⵡ (AMC)',
     title: 'ⴰⵙⵉⴽⵍ ⴰⴷⵓⵙⴰⵏ ⴰⵎⵙⵎⴰⴷ',
     subtitle: 'ⵜⴰⴳⴳⵓⵔⵜ ⵜⴰⵎⵙⵎⴰⴷⵜ ⵉ AMO-CNOPS ⵉ ⵓⵔⴰⵔⵓ ⵏ ⵎⴽ ⵉⴳⴰ ⵏ ⵜⵡⵓⵔⵉⵡⵉⵏ ⵏ ⵜⴰⴷⵓⵙⵉ ⵉⵇⵇⵉⵎⵏ ⵅⴼ ⵓⵎⵏⵅⵔⴰⵟ, ⴳ ⵍⵎⵖⵔⵉⴱ ⴷ ⴱⵕⵕⴰ.',
     dispositionsTitle: 'ⵜⵉⵎⵙⴰⵔⵉⵏ ⵏ ⵓⵎⵙⴰⵡⴰⴹ',
@@ -571,8 +574,9 @@
       {
         icon: 'fa-people-roof',
         title: 'ⵉⵎⵙⵜⴼⴰⴷⴰⵏ',
-        body: ['ⵜⴰⴼⵔⵏⵉⵡⵉⵏ 1 ⴷ 2: ⴰⵎⵏⵅⵔⴰⵟ ⴰⵎⴰⵍⵍⴰⵍ ⵏⵖ ⴰⵎⵇⵇⵔⴰⵏ, ⴱⵍⴰ ⵜⵉⵍⴰⵍ ⵏ ⵓⵙⴳⴳⵯⴰⵙ.', 'ⵉ ⵜⴼⵔⵏⵉⵡⵉⵏ 1 ⴷ 2:'],
-        bullets: ['ⴰⵙⵍⵉ ⵏⵖ ⵉⵙⵍⴰⵏ ⴱⵍⴰ ⵜⵉⵍⴰⵍ ⵏ ⵓⵙⴳⴳⵯⴰⵙ.', 'ⵜⵉⴳⵯⵊⴷⴰⵏ ⴷ ⵉⴳⵓⵊⵉⵍⵏ ⴰⵔ 26 ⵏ ⵓⵙⴳⴳⵯⴰⵙ.', 'ⵉⴼⵔⵅⴰⵏ ⵉⵜⵜⵓⵙⵜⴰⵍⵏ ⴰⵔ 26 ⵏ ⵓⵙⴳⴳⵯⴰⵙ.']
+        body: ['ⵜⴰⴼⵔⵏⵜ 1 : ⵉⵙⵙⵓⴷⵓⵙ ⴽⵓⵍⵍⵓ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ ⵜⵙⴷⴰⵡⵉⵜ, ⵏⵉⵜⵏⵉ :'],
+        bullets: ['ⴰⵎⵏⵅⵔⴰⵟ ⴰⵎⵙⵜⴰⵎⵏ (ⴰⵎⵙⵡⵓⵔⵉ ⴷ ⵓⵎⴷⴽⴽⵯⴰⵍ) ⴱⵍⴰ ⵜⵉⵍⵉⵙⵜ ⵏ ⵓⵙⴳⴳⵯⴰⵙ.', 'ⴰⵡⵜⵎ ⵏⵖ ⵜⴰⵡⵜⵎⵜ (ⵉⵡⵜⵎⴰⵏ) ⴱⵍⴰ ⵜⵉⵍⵉⵙⵜ ⵏ ⵓⵙⴳⴳⵯⴰⵙ.', 'ⵜⵉⴷⴰⵢⵏ ⴷ ⵉⴳⵓⵊⵉⵍⵏ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ ⵉⵎⵎⵓⵜⵏ, ⴰⵔ ⴰⵙⴳⴳⵯⴰⵙ ⵡⵉⵙⵙ 26 ⵉⵎⵎⴷⵏ.', 'ⵜⴰⵔⵡⴰ ⵉⵍⵍⴰⵏ ⵖⴼ ⵓⵎⵏⵅⵔⴰⵟ ⴰⵔ ⴰⵙⴳⴳⵯⴰⵙ ⵡⵉⵙⵙ 26 ⵉⵎⵎⴷⵏ.', 'ⵜⴰⵔⵡⴰ ⵙ ⵓⵏⴳⴰⵡ ⴱⵍⴰ ⵜⵉⵍⵉⵙⵜ ⵏ ⵓⵙⴳⴳⵯⴰⵙ.'],
+        bodyAfter: ['ⵜⴰⴼⵔⵏⵜ 2 : ⵉⵙⵙⵓⴷⵓⵙ ⴽⵓⵍⵍⵓ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ ⵜⵙⴷⴰⵡⵉⵜ ⵉⵙⵙⴽⵛⵎⵏ ⴳ ⵓⴼⵔⴰⵏ ⴰⴷ ⵙ ⵓⵙⵙⵉⵍⵍⴻⵖ ⵏ ⵜⵡⵙⵉⵡⵜ ⵏ ⵓⵙⴳⴳⵯⴰⵙ ⵏ 115 DH.']
       },
       {
         icon: 'fa-clock',
@@ -583,6 +587,7 @@
     options: [
       {
         title: 'ⵜⴰⴼⵔⵏⵜ 1',
+        note: '(ⴰⵙⴷⴰⴷ ⴰⴷⵙⵍⴰⵏ ⵉ ⴽⵓⵍⵍⵓ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴷ ⵜⵎⵏⵅⵔⴰⵟⵉⵏ, ⵜⵜⵔⴰⴼⴰ ⵜ ⵜⵙⴷⴰⵡⵉⵜ ⵙ ⵓⵎⴰⵜⴰ)',
         kicker: 'ALD-ALC, ⵜⴰⵡⵙⵉⵡⵉⵏ ⴷ ⵓⵙⵏⴰⴼⴰ',
         guarantees: amcDetailFr.options[0].guarantees.map((guarantee) => ({
           ...guarantee,
@@ -612,6 +617,7 @@
       },
       {
         title: 'ⵜⴰⴼⵔⵏⵜ 2',
+        note: '(ⴰⵙⴷⴰⴷ ⵙ ⵓⴼⵔⴰⵏ ⵢⵓⴳⴳⴰⵔ, ⵉⵙⵎⴷⴰⵏ ⵜⴰⴼⵔⵏⵜ 1, ⵙ ⵜⵡⵙⵉⵡⵜ ⵏ ⵓⵙⴳⴳⵯⴰⵙ ⵏ 115 DH, ⴷ ⵓⵏⴳⴳⵉⴷ ⵏ 3 ⵉⵙⴳⴳⵯⴰⵙⵏ ⵓⴳⴳⴰⵔ.)',
         kicker: 'ⵜⴰⵡⵙⵉⵡⵉⵏ ⴱⵕⵕⴰ ⵏ ALD/ALC',
         guarantees: [{
           title: 'ⵜⴰⵡⵙⵉⵡⵉⵏ ⴱⵕⵕⴰ ⵏ ALD/ALC',
@@ -824,7 +830,7 @@
           title: 'Spécialités au niveau régional',
           icon: 'fa-map-location-dot',
           items: [
-            { title: 'Région de Béni Mellal - Khénifra', titleZgh: 'ⵜⴰⵎⵏⴰⴹⵜ ⵏ ⴱⵏⵉ ⵎⵍⵍⴰⵍ - ⵅⵏⵉⴼⵔⴰ', icon: 'fa-location-dot', rows: [['Statut', 'en cours']] },
+            { title: 'Région de Béni Mellal - Khénifra', titleZgh: 'ⵜⴰⵎⵏⴰⴹⵜ ⵏ ⴱⵏⵉ ⵎⵍⵍⴰⵍ - ⵅⵏⵉⴼⵔⴰ', icon: 'fa-location-dot', rows: [['Médecin', 'DR OULD LACHHAB ILIAS'], ['Adresse', "BD DE L'ARMEE ROYALE, ROUTE AL MASSIRA 2, A COTE CAFE AL WATAN - BENI MELLAL"], ['Prise de RDV', '0526 12 10 10'], ['Relais régional', 'MME MALIHI AMAL'], ['Téléphone du relais', '0657 83 18 94']] },
             { title: 'Région de Casablanca - Settat', titleZgh: 'ⵜⴰⵎⵏⴰⴹⵜ ⵏ ⴰⵏⴼⴰ - ⵙⵟⴰⵜ', icon: 'fa-location-dot', rows: [['Médecin', 'Docteur MOUFTADI ABDELFATTAH'], ['Adresse', 'Avenue Bir Anzarane N° 16, El Jadida'], ['Prise de RDV', '0523 39 42 03'], ['Relais régional', 'GUADDA MOHAMED'], ['Téléphone du relais', '06 57 83 16 36']] },
             { title: 'Région de Dakhla - Oued Eddahab', titleZgh: 'ⵜⴰⵎⵏⴰⴹⵜ ⵏ ⴷⴰⵅⵍⴰ - ⴰⵙⵉⴼ ⴷⴰⵀⴰⴱ', icon: 'fa-location-dot', rows: [['Médecin', 'Docteur SADIK YOUNESS'], ['Adresse', 'App N°4, N° 17/1105, rue mosquée, Hay Massira, Dakhla'], ['Prise de RDV', '0528 89 77 05'], ['Relais régional', 'MINA SAAD ALLAH'], ['Téléphone du relais', '0657 83 17 87']] },
             { title: 'Région de Drâa - Tafilalet', titleZgh: 'ⵜⴰⵎⵏⴰⴹⵜ ⵏ ⴷⵔⴰⵄⴰ - ⵜⴰⴼⵉⵍⴰⵍⵜ', icon: 'fa-location-dot', rows: [['Médecin', 'Docteur GHANEME ABDELAZIZ'], ['Adresse', '14, Rue de la mosquée, Errachidia'], ['Prise de RDV', '0535 57 27 76'], ['Relais régional', 'BRITEL ABDESSAMAD'], ['Téléphone du relais', '06 68 90 90 84']] },
@@ -844,7 +850,7 @@
       navIndex: 4,
       badge: 'AIDES AUX PERSONNES AUX BESOINS SPECIFIQUES',
       title: 'AIDES AUX PERSONNES AUX BESOINS SPECIFIQUES',
-      intro: 'La FOS-Agri a mis en place un programme d’aide aux enfants des adhérents en situations d’handicap présentant des besoins spécifiques, en contribuant à la prise en charge de leurs besoins particuliers à travers une aide d’un montant de 5 000 DH.',
+      intro: 'La FOS-Agri a mis en place un programme d’aide aux enfants des adhérents en situations d’handicap présentant des besoins spécifiques, en contribuant à la prise en charge de leurs besoins particuliers à travers une aide.',
       beneficiariesTitle: 'Bénéficiaires',
       beneficiaries: [{ number: '01', text: 'Tous les enfants des adhérents de la FOS-Agri en situation d’handicap moteur ou mental, justifiée par une attestation délivrée par les autorités publiques compétentes, et n’exerçant aucune activité génératrice de revenu.' }],
       blocks: [
@@ -891,7 +897,7 @@
           title: 'التخصصات على المستوى الجهوي',
           icon: 'fa-map-location-dot',
           items: [
-            { title: 'جهة بني ملال - خنيفرة', icon: 'fa-location-dot', rows: [['الحالة', 'قيد الإنجاز']] },
+            { title: 'جهة بني ملال - خنيفرة', icon: 'fa-location-dot', rows: [['الطبيب', 'DR OULD LACHHAB ILIAS'], ['العنوان', "BD DE L'ARMEE ROYALE, ROUTE AL MASSIRA 2, A COTE CAFE AL WATAN - BENI MELLAL"], ['أخذ الموعد', '0526 12 10 10'], ['المنسق الجهوي', 'MME MALIHI AMAL'], ['هاتف المنسق', '0657 83 18 94']] },
             { title: 'جهة الدار البيضاء - سطات', icon: 'fa-location-dot', rows: [['الطبيب', 'Docteur MOUFTADI ABDELFATTAH'], ['العنوان', 'Avenue Bir Anzarane N° 16, El Jadida'], ['أخذ الموعد', '0523 39 42 03'], ['المنسق الجهوي', 'GUADDA MOHAMED'], ['هاتف المنسق', '06 57 83 16 36']] },
             { title: 'جهة الداخلة - وادي الذهب', icon: 'fa-location-dot', rows: [['الطبيب', 'Docteur SADIK YOUNESS'], ['العنوان', 'App N°4, N° 17/1105, rue mosquée, Hay Massira, Dakhla'], ['أخذ الموعد', '0528 89 77 05'], ['المنسق الجهوي', 'MINA SAAD ALLAH'], ['هاتف المنسق', '0657 83 17 87']] },
             { title: 'جهة درعة - تافيلالت', icon: 'fa-location-dot', rows: [['الطبيب', 'Docteur GHANEME ABDELAZIZ'], ['العنوان', '14, Rue de la mosquée, Errachidia'], ['أخذ الموعد', '0535 57 27 76'], ['المنسق الجهوي', 'BRITEL ABDESSAMAD'], ['هاتف المنسق', '06 68 90 90 84']] },
@@ -911,7 +917,7 @@
       navIndex: 4,
       badge: 'دعم الأشخاص ذوي الاحتياجات الخاصة',
       title: 'دعم الأشخاص ذوي الاحتياجات الخاصة',
-      intro: 'وضعت FOS-Agri برنامجا لمساعدة أبناء المنخرطين في وضعية إعاقة ولديهم احتياجات خاصة، عبر المساهمة في التكفل باحتياجاتهم الخاصة بمنحة قدرها 5 000 درهم.',
+      intro: 'وضعت FOS-Agri برنامجا لمساعدة أبناء المنخرطين في وضعية إعاقة ولديهم احتياجات خاصة، عبر المساهمة في التكفل باحتياجاتهم الخاصة من خلال مساعدة.',
       beneficiariesTitle: 'المستفيدون',
       beneficiaries: [{ number: '01', text: 'جميع أبناء منخرطي FOS-Agri الموجودين في وضعية إعاقة حركية أو ذهنية، مثبتة بشهادة إعاقة صادرة عن السلطات العمومية المختصة، والذين لا يمارسون أي نشاط مدر للدخل.' }],
       blocks: [
@@ -976,7 +982,7 @@
       navIndex: 4,
       badge: 'ⴰⵎⵓⴷⴷⵓ ⵉ ⵉⵎⵓⵔⴰⵏ ⵉⵎⵥⵍⵉⵢⵏ',
       title: 'ⴰⵎⵓⴷⴷⵓ ⵉ ⵉⵎⵓⵔⴰⵏ ⵉⵎⵥⵍⵉⵢⵏ',
-      intro: 'FOS-Agri ⵜⵙⵎⵓⵜⵜⴳ ⵢⴰⵜ ⵜⴰⵏⴼⵓⵙⵜ ⵉ ⵉⴼⵔⵅⴰⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴳ ⵓⵙⵔⵓⵜ ⵉⵎⵥⵍⵉ, ⵙ ⵓⵎⵓⴷⴷⵓ ⵏ 5 000 DH ⵉ ⵓⵙⵎⵔⵙ ⵏ ⵉⵙⵡⵉⵔⵏ ⵏⵏⵙⵏ.',
+      intro: 'FOS-Agri ⵜⵙⵎⵓⵜⵜⴳ ⵢⴰⵜ ⵜⴰⵏⴼⵓⵙⵜ ⵉ ⵉⴼⵔⵅⴰⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴳ ⵓⵙⵔⵓⵜ ⵉⵎⵥⵍⵉ, ⵙ ⵓⵎⵓⴷⴷⵓ ⵉ ⵓⵙⵎⵔⵙ ⵏ ⵉⵙⵡⵉⵔⵏ ⵏⵏⵙⵏ.',
       beneficiariesTitle: 'ⵉⵎⵏⴼⴰⵄⵏ',
       beneficiaries: [{ number: '01', text: 'ⵎⴰⵕⵕⴰ ⵉⴼⵔⵅⴰⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ FOS-Agri ⵉⵍⵍⴰⵏ ⴳ ⵓⵙⵔⵓⵜ ⵉⵎⵥⵍⵉ, ⵙ ⵜⴰⵙⵍⴽⵉⵏⵜ ⵏ ⵓⵙⵔⵓⵜ ⵙⵖⵓⵔ ⵜⵎⵙⵙⵓⵜⵉⵏ ⵉⵎⵣⴰⵔⴰⵢⵏ, ⴷ ⵓⵔ ⵉⵙⴽⴰⵔⵏ ⴽⵔⴰ ⵏ ⵜⵡⵓⵔⵉ ⵜⴰⵙⵙⵏⴼⴰⵍⵜ.' }],
       blocks: [
@@ -1019,7 +1025,8 @@
           items: [
             {
               icon: 'fa-shield-heart',
-              title: 'AMC',
+              title: 'Assurance Maladie Complémentaire (AMC)',
+              seeMore: true,
               body: [
                 'La FOS-Agri soutient ses adhérents face aux aléas de la santé à travers l’Assurance Maladie Complémentaire permettant le bénéfice d’une large couverture familiale des soins de santé.',
                 'La convention conclue avec la compagnie SANLAM garantit aux adhérents :'
@@ -1032,7 +1039,8 @@
             {
               icon: 'fa-truck-medical',
               navIndex: 2,
-              title: 'AMTS',
+              title: 'Assistance Médicale et Transport Sanitaire (AMTS)',
+              seeMore: true,
               body: [
                 'La FOS-Agri soutient ses adhérents pendant les moments difficiles à travers le service d’Assistance Médicale et Transport Sanitaire contracté avec la compagnie Wafa IMA Assistance.',
                 'Cette assistance porte sur une large gamme de garanties, en cas d’événements imprévisibles et urgents (accident, maladie, décès…) et également dans le cas de voyages à l’étranger à travers notamment l’évacuation sanitaire pour les pathologies non traitables au Maroc ainsi que la conciergerie médicale.'
@@ -1042,14 +1050,16 @@
               icon: 'fa-hands-holding-child',
               navIndex: 4,
               title: 'AIDES AUX PERSONNES AUX BESOINS SPECIFIQUES',
+              seeMore: true,
               body: [
-                'La FOS-Agri a mis en place un programme d’aide aux enfants des adhérents en situations d’handicap présentant des besoins spécifiques, et ce en contribuant à la prise en charge de leurs besoins particuliers à travers une aide d’un montant de 5000 dhs.'
+                'La FOS-Agri a mis en place un programme d’aide aux enfants des adhérents en situations d’handicap présentant des besoins spécifiques, et ce en contribuant à la prise en charge de leurs besoins particuliers à travers une aide.'
               ]
             },
             {
               icon: 'fa-file-contract',
               navIndex: 5,
               title: 'CONVENTIONS ET PARTENARIATS MEDICALES',
+              seeMore: true,
               body: [
                 'Consultez le réseau des partenaires médicaux conventionnés : laboratoires, médecins, cabinets, cliniques, opticiens, pharmacies et centres de soins, avec un accès par région et par catégorie.'
               ]
@@ -1077,7 +1087,8 @@
           items: [
             {
               icon: 'fa-shield-heart',
-              title: 'AMC',
+              title: 'التأمين الصحي التكميلي (AMC)',
+              seeMore: true,
               body: [
                 'تدعم FOS-Agri منخرطيها في مواجهة تقلبات الوضع الصحي عبر التأمين الصحي التكميلي، بما يتيح الاستفادة من تغطية عائلية واسعة للعلاجات الصحية.',
                 'تضمن الاتفاقية المبرمة مع شركة SANLAM للمنخرطين:'
@@ -1090,7 +1101,8 @@
             {
               icon: 'fa-truck-medical',
               navIndex: 2,
-              title: 'AMTS',
+              title: 'المساعدة الطبية والنقل الصحي (AMTS)',
+              seeMore: true,
               body: [
                 'تدعم FOS-Agri منخرطيها في اللحظات الصعبة من خلال خدمة المساعدة الطبية والنقل الصحي المتعاقد بشأنها مع شركة Wafa IMA Assistance.',
                 'تشمل هذه المساعدة مجموعة واسعة من الضمانات في حالة الأحداث غير المتوقعة والمستعجلة (حادث، مرض، وفاة...)، وكذلك أثناء السفر إلى الخارج، ولا سيما الإجلاء الصحي بالنسبة للحالات المرضية غير القابلة للعلاج بالمغرب وخدمة المواكبة الطبية.'
@@ -1100,14 +1112,16 @@
               icon: 'fa-hands-holding-child',
               navIndex: 4,
               title: 'دعم الأشخاص ذوي الاحتياجات الخاصة',
+              seeMore: true,
               body: [
-                'أطلقت FOS-Agri برنامج دعم لفائدة أطفال المنخرطين في وضعية إعاقة ممن لديهم احتياجات خاصة، وذلك بالمساهمة في التكفل باحتياجاتهم الخاصة عبر منحة قدرها 5000 درهم.'
+                'أطلقت FOS-Agri برنامج دعم لفائدة أطفال المنخرطين في وضعية إعاقة ممن لديهم احتياجات خاصة، وذلك بالمساهمة في التكفل باحتياجاتهم الخاصة من خلال مساعدة.'
               ]
             },
             {
               icon: 'fa-file-contract',
               navIndex: 5,
               title: 'الاتفاقيات والشراكات الطبية',
+              seeMore: true,
               body: [
                 'اطلعوا على شبكة الشركاء الطبيين المتعاقدين: مختبرات، أطباء، عيادات، مصحات، نظارات، صيدليات ومراكز علاج، مع إمكانية البحث حسب الجهة والفئة.'
               ]
@@ -1135,7 +1149,8 @@
           items: [
             {
               icon: 'fa-shield-heart',
-              title: 'AMC',
+              title: 'ⴰⵙⵙⵓⵔⴰⵏⵙ ⴰⴷⵓⵙⴰⵏ ⴰⵎⵔⵏⴰⵡ (AMC)',
+              seeMore: true,
               body: [
                 'FOS-Agri ⵜⴻⵜⵜⴰⵍⵍⴰⵍ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴳ ⵉⵎⵓⵔⴰⵏ ⵏ ⵜⴰⴷⵓⵙⵉ ⵙ AMC ⵉ ⵓⵙⵖⵉⵎ ⵏ ⵜⴳⵯⵎⵉ ⵜⴰⴷⵓⵙⴰⵏⵜ ⵏ ⵜⵡⴰⵛⵓⵍⵜ.',
                 'ⴰⵎⵙⴰⵡⴰⴹ ⴷ SANLAM ⵉⵜⵜⴰⵡⵙ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ:'
@@ -1148,7 +1163,8 @@
             {
               icon: 'fa-truck-medical',
               navIndex: 2,
-              title: 'AMTS',
+              title: 'ⵜⴰⵍⵍⴰⵍⵜ ⵜⴰⴷⵓⵙⴰⵏⵜ ⴷ ⵓⵙⵉⵡⴹ ⴰⴷⵓⵙⴰⵏ (AMTS)',
+              seeMore: true,
               body: [
                 'FOS-Agri ⵜⴻⵜⵜⴰⵍⵍⴰⵍ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴳ ⵉⵎⵓⵔⴰⵏ ⵉⵙⵙⴷⴰⵔⵏ ⵙ AMTS ⴷ Wafa IMA Assistance.',
                 'ⵜⴰⵍⵍⴰⵍⵜ ⴰⴷ ⵜⵙⵎⵓⵏ ⵉⴳⵔⴰⵏ ⵏ ⵓⵙⵙⵉⴹⵏ, ⵓⵎⵓⵔⵙ, ⵜⵎⵜⵜⴰⵏⵜ, ⴷ ⵓⵙⵉⵡⴹ ⴰⴷⵓⵙⴰⵏ ⵖⵔ ⴱⵕⵕⴰ ⵉ ⵉⵎⵓⵔⴰⵏ ⵓⵔ ⵉⵜⵜⵓⵙⵙⵓⵊⵊⴰⵏ ⴳ ⵍⵎⵖⵔⵉⴱ.'
@@ -1158,14 +1174,16 @@
               icon: 'fa-hands-holding-child',
               navIndex: 4,
               title: 'ⴰⵎⵓⴷⴷⵓ ⵉ ⵉⵙⵡⵉⵔⵏ ⵉⵎⵥⵍⵉⵢⵏ',
+              seeMore: true,
               body: [
-                'FOS-Agri ⵜⵙⵎⵓⵜⵜⴳ ⵢⴰⵜ ⵜⴰⵏⴼⵓⵙⵜ ⵉ ⵉⴼⵔⵅⴰⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴳ ⵓⵙⵔⵓⵜ, ⵙ ⵓⵎⵓⴷⴷⵓ ⵏ 5000 DH.'
+                'FOS-Agri ⵜⵙⵎⵓⵜⵜⴳ ⵢⴰⵜ ⵜⴰⵏⴼⵓⵙⵜ ⵉ ⵉⴼⵔⵅⴰⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴳ ⵓⵙⵔⵓⵜ, ⵙ ⵓⵎⵓⴷⴷⵓ.'
               ]
             },
             {
               icon: 'fa-file-contract',
               navIndex: 5,
               title: 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⴷ ⵉⵣⴷⴰⵢⵏ ⵉⴷⵓⵙⴰⵏⵏ',
+              seeMore: true,
               body: [
                 'ⵙⵙⵏ ⴰⵥⴰⵡⴰⵏ ⵏ ⵉⵣⴷⴰⵢⵏ ⵉⴷⵓⵙⴰⵏⵏ: ⵉⵎⵣⵣⴰⵔⵏ, ⵉⵎⵙⵙⵉⵊⵊⵉⵏ, ⵜⵉⵔⵣⴰ, ⵉⵙⵉⴱⵉⵜⴰⵍⵏ, ⵉⵎⵙⵡⴰⵍⵏ ⵏ ⵜⵉⵟⵟ, ⵜⵉⴼⴰⵔⵎⴰⵙⵉⵜⵉⵏ ⴷ ⵉⵎⵎⴰⵙⵏ ⵏ ⵓⵅⵙⴰⵏ, ⵙ ⵓⵙⵙⵉⴷⴼ ⵙ ⵜⵎⵏⴰⴹⵜ ⴷ ⵜⴰⴳⴳⴰⵢⵜ.'
               ]
@@ -2649,6 +2667,7 @@
                 <div class="prestation-accordion-content" hidden>
                   ${renderParagraphs(entry.body)}
                   ${renderBulletList(entry.bullets)}
+                  ${entry.seeMore ? `<a class="prestation-see-more" href="#${subrubriqueId(Number.isInteger(entry.navIndex) ? entry.navIndex : index + 1)}">${esc(t('seeMore'))} <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>` : ''}
                 </div>
               </article>`).join('')}
           </div>
@@ -2667,6 +2686,7 @@
         <div class="prestation-amc-card-copy" id="${copyId}">
           ${renderParagraphs(card.body)}
           ${renderBulletList(card.bullets)}
+          ${renderParagraphs(card.bodyAfter)}
         </div>
         <button class="prestation-amc-card-toggle" type="button" data-amc-card-toggle aria-expanded="false" aria-controls="${copyId}" aria-label="${esc(detail.expandLabel)} : ${esc(card.title)}">
           <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
@@ -2717,7 +2737,7 @@
     return `
       <section class="prestation-amc-option-panel" data-amc-option-panel="${index}" ${index === 0 ? '' : 'hidden'}>
         <div class="prestation-amc-option-head">
-          <span>${esc(option.title)}</span>
+          <span>${esc(option.title)}${option.note ? ` <small class="prestation-amc-option-note">${esc(option.note)}</small>` : ''}</span>
           <p>${esc(option.kicker)}</p>
         </div>
         <div class="prestation-amc-guarantee-list" data-amc-guarantees>
@@ -2741,14 +2761,14 @@
       <section class="section page-section-soft prestation-amc-section" id="assurance-maladie-complementaire" data-prestation-amc-panel hidden>
         <div class="container">
           <div class="prestation-amc-hero">
-            <span class="section-tag"><i class="fa-solid fa-shield-heart" aria-hidden="true"></i> AMC</span>
+            <span class="section-tag"><i class="fa-solid fa-shield-heart" aria-hidden="true"></i> ${esc(detail.tagLabel || 'AMC')}</span>
             <h2>${esc(detail.title)}</h2>
             <p>${esc(detail.subtitle)}</p>
           </div>
 
           <div class="prestation-amc-block">
             <div class="prestation-amc-block-head">
-              <span class="section-tag"><i class="fa-solid fa-file-contract" aria-hidden="true"></i> AMC</span>
+              <span class="section-tag"><i class="fa-solid fa-file-contract" aria-hidden="true"></i> ${esc(detail.tagLabel || 'AMC')}</span>
               <h2 class="prestation-amc-block-title">${esc(detail.dispositionsTitle)}</h2>
             </div>
             <div class="prestation-amc-card-grid" data-amc-card-carousel>
@@ -3521,9 +3541,6 @@
       'prestations-title': t('catalogueTitle'),
       'prestations-body': t('catalogueBody'),
       'prestations-flow-title': t('flowTitle'),
-      'prestations-flow-body': t('flowBody'),
-      'prestations-cta-title': t('ctaTitle'),
-      'prestations-cta-body': t('ctaBody'),
       'prestations-explore': t('explore'),
       'prestations-contact': t('contact')
     };
@@ -3551,7 +3568,6 @@
           <span class="prestations-category-icon"><i class="fa-solid ${icons[key]}" aria-hidden="true"></i></span>
           <span>
             <strong>${esc(item.title)}</strong>
-            <small>${esc(item.meta)}</small>
           </span>
         </button>`;
     }).join('');
@@ -3562,7 +3578,6 @@
       return `
         <section class="prestations-category-detail" data-prestation-panel="${esc(key)}" style="--image: url('${esc(asset(image[key]))}')" ${active ? '' : 'hidden'}>
           <div class="prestations-panel-body">
-            <span class="section-tag"><i class="fa-solid ${icons[key]}" aria-hidden="true"></i> ${esc(item.meta)}</span>
             <h3>${esc(item.title)}</h3>
             <p>${esc(item.summary)}</p>
             <ul class="prestations-subcategory-list">
@@ -4035,7 +4050,6 @@
     const key = body.dataset.service;
     if (!mount || !services[key]) return;
     const item = serviceText(key);
-    const shouldRenderStandaloneKeypoints = (item.centerMedical || key === 'projets') && item.highlights?.length;
     const detailMenuItems = item.menuItems || item.chips.map((chip, index) => ({
       id: `subrubrique-${index + 1}`,
       icon: subIcons[key]?.[index] || 'fa-circle-check',
@@ -4083,36 +4097,12 @@
             <h2>${esc(t('details'))}</h2>
             <p>${esc(item.overview)}</p>
           </article>
-          ${item.centerMedical ? '' : `
-          <aside class="prestation-panel">
-            <h3>${esc(t('highlights'))}</h3>
-            <ul class="prestation-highlight-list">
-              ${item.highlights.map((entry) => `<li><i class="fa-solid fa-check" aria-hidden="true"></i><span>${esc(entry)}</span></li>`).join('')}
-            </ul>
-          </aside>`}
         </div>
       </section>`}
       ${renderCenterMedicalSection(item)}
       ${renderAmcDetailSection(item)}
       ${renderAmtsDetailSection(item)}
       ${renderExtraPrestationSections(item)}
-      ${shouldRenderStandaloneKeypoints ? `
-      <section class="section page-section-soft prestation-keypoints-section" id="keypoints">
-        <div class="container">
-          <aside class="prestation-center-keypoints prestation-keypoints-panel">
-            <div class="prestation-keypoints-head">
-              <span><i class="fa-solid fa-list-check" aria-hidden="true"></i></span>
-              <div>
-                <small>${esc(item.meta)}</small>
-                <h3>${esc(t('highlights'))}</h3>
-              </div>
-            </div>
-            <ul class="prestation-highlight-list">
-              ${item.highlights.map((entry) => `<li><i class="fa-solid fa-check" aria-hidden="true"></i><span>${esc(entry)}</span></li>`).join('')}
-            </ul>
-          </aside>
-        </div>
-      </section>` : ''}
       ${item.centerMedical || key === 'projets' ? '' : `
       <section class="section page-section-soft" id="subrubriques">
         <div class="container">
@@ -4144,18 +4134,7 @@
             ${item.partners.map((partner) => `<article class="prestation-partner-card"><h3>${esc(partner)}</h3></article>`).join('')}
           </div>
         </div>
-      </section>`}
-      <section class="section">
-        <div class="container">
-          <div class="prestation-cta-panel">
-            <div>
-              <h2>${esc(t('ctaTitle'))}</h2>
-              <p>${esc(t('ctaBody'))}</p>
-            </div>
-            <a class="btn btn-primary" href="../contact.html">${esc(t('contact'))}</a>
-          </div>
-        </div>
-      </section>`;
+      </section>`}`;
 
     const navLinks = mount.querySelectorAll('.prestation-nav-chip');
     const centerPanel = mount.querySelector('.prestation-center-section');
