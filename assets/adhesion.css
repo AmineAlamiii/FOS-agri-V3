@@ -336,6 +336,11 @@ html[dir='rtl'] .adhesion-catalog-media span {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+/* Nos adhérents : 4 situations d'adhésion sur une ligne (desktop) */
+.adhesion-feature-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .adhesion-feature-card,
 .adhesion-procedure-card,
 .adhesion-fee-card {
