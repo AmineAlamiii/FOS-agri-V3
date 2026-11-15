@@ -105,8 +105,6 @@ window.siteData = {
       },
       contact: {
         tag: "Contact",
-        title: "Parlons de vos besoins",
-        subtitle: "Coordonnées officielles pour faciliter la prise de contact.",
         phone1: "+212 5 37 77 47 48",
         address: "461 Avenue Hassan II, Agdal - Rabat"
       },
@@ -261,8 +259,6 @@ window.siteData = {
       },
       contact: {
         tag: "اتصل بنا",
-        title: "لنتحدث عن احتياجاتكم",
-        subtitle: "بيانات الاتصال الرسمية لتسهيل التواصل.",
         phone1: "+212 5 37 77 47 48",
         address: "461 شارع الحسن الثاني، أكدال - الرباط"
       },
@@ -417,8 +413,6 @@ window.siteData = {
       },
       contact: {
         tag: "ⴰⵎⵢⴰⵡⴰⴹ",
-        title: "ⴰⴷ ⵏⵎⵎⴰⵍ ⵅⴼ ⵉⵙⵔⵙⴰⵏ ⵏⵏⵓⵏ",
-        subtitle: "ⵉⵙⴰⵍⵏ ⵏ ⵓⵎⵢⴰⵡⴰⴹ ⵉⵏⵙⵎⵉⵔⵏ ⵉ ⵓⵙⴻⵀⵀⴻⵍ ⵏ ⵓⵎⵢⴰⵡⴰⴹ.",
         phone1: "+212 5 37 77 47 48",
         address: "461 Avenue Hassan II, Agdal - Rabat"
       },
