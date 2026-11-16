@@ -51,14 +51,14 @@
       'minister.breadcrumb.foundation': 'ⵜⴰⵙⵓⴷⴰⵙⵜ',
       'minister.breadcrumb.page': 'ⴰⵡⴰⵍ ⵏ ⵓⵎⵏⵣⴰⵡ',
       'minister.name': 'M. Khalid Hatimi',
-      'minister.position': 'Amasay n Tflah t Bher t Tnmi n Udrar d Waman d Ixfawn',
+      'minister.position': 'ⴰⵎⴰⵡⴰⵙ ⵏ ⵜⴼⵍⵍⴰⵃⵜ, ⴷ ⵓⵙⵍⴰⵢ ⴰⴱⵃⵔⵉ, ⴷ ⵓⵙⵏⴼⵍⵓⵍ ⴰⵔⵓⵔⴰⵍ, ⴷ ⵡⴰⵎⴰⵏ ⴷ ⵜⴰⴳⴰⵏⵜ',
       'minister.message.paragraph1': 'ⵙⴳ ⵓⵙⵏⵓⵍⴼⵓⵢ-ⵉⵙ, FOS-Agri ⵜⴻⵜⵜⴻⴷⴷⵓ ⴷⴻⴳ ⵓⵎⴻⵛⵡⴰⵔ ⵏ ⵓⵎⴷⵉⵇ ⵏ ⵜⴰⵍⵍⴰⵍⵜ ⵜⴰⵏⵎⴻⵜⵜⵉⵜ ⵜⴰⵎⴻⵣⴷⴰⵢⵜ ⵉ ⵜⵍⴰⵡⵉⵏ ⴷ ⵉⵔⴳⴰⵣⴻⵏ ⵏ ⵓⵇⵟⴰⴻ ⴰⴼⴻⵍⵍⴰⵃⵉ.',
       'minister.message.paragraph2': 'ⵙ ⵍⵎⴷⴷ ⵏ ⵉⵎⴻⵣⵍⴰ, ⵉⵙⴻⵏⴼⴰⵔⴻⵏ ⵏ ⵜⴰⵍⵍⴰⵍⵜ ⴷ ⵓⵎⴻⵏⴷⴰⵡⴰⵔ, ⵜⴰⵙⴷⴰⵡⵉⵜ ⵜⴻⵜⵜⴻⵄⴰⵡⴰⵏ ⵉ ⵓⵙⴻⵎⵊⴻⴷ ⵏ ⵜⵎⵓⴷⴻⵎⵜ, ⵜⴰⵎⴰⵣⵓⵏⵜ ⴷ ⵜⵇⵡⴰⵍⵉⵜⵢⵜ ⵏ ⵉⵎⴻⵣⵍⴰ.',
       'minister.message.paragraph3': 'ⵜⴰⴳⵓⵔⵉ ⵉⴼⴰⵣⴻⵏ, ⵜⴰⴼⴰⵜ, ⴰⵙⴼⵍⵉ ⴷ ⵓⵙⵏⴻⵔⵏⵉ ⴰⵎⴻⵖⵍⴰⵍ ⵇⵇⵉⵎⴻⵏ ⴷⴻⴳ ⵓⵍ ⵏ ⵜⵉⴳⴰⵡⵜ-ⵏⵏⴻⵖ.',
       'minister.signature.label': 'ⴰⵙⵉⴳⵏⴰ',
       'minister.signature.name': 'M. Khalid Hatimi',
-      'minister.signature.position': 'Amasay n Tflah t Bher t Tnmi n Udrar d Waman d Ixfawn',
-      'minister.image.alt': 'Tawlaft n M. Khalid Hatimi',
+      'minister.signature.position': 'ⴰⵎⴰⵡⴰⵙ ⵏ ⵜⴼⵍⵍⴰⵃⵜ, ⴷ ⵓⵙⵍⴰⵢ ⴰⴱⵃⵔⵉ, ⴷ ⵓⵙⵏⴼⵍⵓⵍ ⴰⵔⵓⵔⴰⵍ, ⴷ ⵡⴰⵎⴰⵏ ⴷ ⵜⴰⴳⴰⵏⵜ',
+      'minister.image.alt': 'ⵜⴰⵡⵍⴰⴼⵜ ⵏ M. Khalid Hatimi',
       'minister.seo.title': 'FOS-Agri | ⴰⵡⴰⵍ ⵏ ⵓⵎⵏⵣⴰⵡ',
       'minister.seo.description': 'ⴰⵡⴰⵍ ⵏ ⵓⵎⵏⵣⴰⵡ ⵖⴼ ⵜⵎⵉⵙⵙⵉⵓⵏⵜ ⵜⴰⵏⵎⴻⵜⵜⵉⵜ ⵏ FOS-Agri.'
     }
