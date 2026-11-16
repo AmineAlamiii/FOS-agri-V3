@@ -652,17 +652,17 @@ window.siteData = {
       icon: "fa-graduation-cap",
       fr: {
         title: "Éducation & Formation",
-        excerpt: "Bourses d'excellence et aides scolaires pour la réussite de vos enfants.",
+        excerpt: "Bourse d'excellence et aides scolaires pour la réussite de vos enfants.",
         detail: "Bourses, appui à la scolarisation et accompagnement des parcours de formation."
       },
       ar: {
         title: "التربية والتكوين",
-        excerpt: "منح التميز ومساعدات مدرسية لضمان نجاح أبنائكم.",
+        excerpt: "منحة التميز ومساعدات مدرسية لضمان نجاح أبنائكم.",
         detail: "منح ومواكبة للتمدرس ودعم لمسارات التكوين."
       },
       zgh: {
         title: "ⴰⵙⵍⵎⴷ ⴷ ⵓⵙⴳⵎⵉ",
-        excerpt: "ⵜⵉⵎⵏⴰⵢ ⵏ ⵓⴼⴰⵔⵙ ⴷ ⵜⵉⵡⵉⵙⵉ ⵏ ⵓⵙⴽⵯⵍ ⵉ ⵓⵙⵙⴳⵎⴹ ⵏ ⵜⴰⵔⵡⴰ ⵏⵏⵓⵏ.",
+        excerpt: "ⵜⴰⵎⵓⴷⴰ ⵏ ⵜⵎⵥⵉ ⴷ ⵜⵉⵡⵉⵙⵉ ⵏ ⵓⵙⴽⵯⵍ ⵉ ⵓⵙⵙⴳⵎⴹ ⵏ ⵜⴰⵔⵡⴰ ⵏⵏⵓⵏ.",
         detail: "ⵜⵉⵎⵏⴰⵢ, ⴰⵎⵎⴰⵏ ⵏ ⵓⵙⴽⵯⵍ ⴷ ⵓⵎⵎⴰⵏ ⵏ ⵉⴱⵔⵉⴷⵏ ⵏ ⵓⵙⴳⵎⵉ."
       }
     },

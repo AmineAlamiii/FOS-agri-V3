@@ -88,6 +88,7 @@
       'timeline.2019.2': 'Nomination des relais régionaux afin de garantir une coordination optimale à l\'échelle régionale.',
       'timeline.2019.3': 'Lancement de la plateforme E-services d\'adhésion et prestations sociales.',
 
+      'timeline.2020.title': 'Adaptation et digitalisation',
       'timeline.2020.1': 'Adaptation de l\'offre à la situation sanitaire.',
       'timeline.2020.2': 'Lancement de l\'application FOSAGRI.',
       'timeline.2020.3': 'Déploiement de la communication digitale.',
@@ -183,6 +184,7 @@
       'timeline.2019.2': 'تعيين المنسقين الجهويين لضمان تنسيق أمثل على المستوى الجهوي.',
       'timeline.2019.3': 'إطلاق منصة الخدمات الإلكترونية للانخراط والخدمات الاجتماعية.',
 
+      'timeline.2020.title': 'التكيّف والرقمنة',
       'timeline.2020.1': 'ملاءمة العرض مع الوضعية الصحية.',
       'timeline.2020.2': 'إطلاق تطبيق FOSAGRI.',
       'timeline.2020.3': 'تعزيز التواصل الرقمي.',
@@ -277,7 +279,8 @@
       'timeline.2019.2': 'ⴰⵙⵙⵓⴷⵙ ⵏ ⵉⵎⵙⵏⴰⵡⵏ ⵉⵎⵏⴰⴹⵏ ⴰⴼⴰⴷ ⴰⴷ ⵉⵍⵉ ⵓⵙⵎⵙⴰⵙⴰ ⵉⴼⵓⵍⴽⵉⵏ ⴳ ⵓⵙⵡⵉⵔ ⴰⵎⵏⴰⴹ.',
       'timeline.2019.3': 'ⴰⵙⵏⵜⵉ ⵏ ⵜⵖⵍⴰⵢⵜ ⵏ ⵉⵎⴰⵍⴰⵙⵙⵏ ⵉⵍⵉⴽⵜⵔⵓⵏⵉⵢⵏ ⵏ ⵓⵎⵓⵏ ⴷ ⵉⵎⴰⵍⴰⵙⵙⵏ ⵉⵏⵎⴰⵍⴰⵏ.',
 
-      'timeline.2020.1': 'ⴰⵙⵎⵙⴰⵙⴰ ⵏ ⵓⵙⵓⴼⵖ ⴷ ⵜⵡⴰⵍⵜ ⵜⴰⴷⵓⵙⴰⵏⵜ.',
+      'timeline.2020.title': 'ⴰⵎⵙⴰⵙⴰ ⴷ ⵓⵙⴷⴷⵉⵇ ⴰⵎⵓⵟⵟⵓⵏ',
+      'timeline.2020.1': 'ⴰⵎⵙⴰⵙⴰ ⵏ ⵓⵙⵓⴼⵖ ⴷ ⵜⵡⴰⵍⵜ ⵜⴰⴷⵓⵙⴰⵏⵜ.',
       'timeline.2020.2': 'ⴰⵙⵏⵜⵉ ⵏ ⵓⵙⵏⵙ FOSAGRI.',
       'timeline.2020.3': 'ⴰⵙⵎⵔⵙ ⵏ ⵓⵎⵢⴰⵡⴰⴹ ⴰⵏⵓⵎⴰⵏ.',
 
@@ -385,6 +388,7 @@
     },
     {
       id: '2020', year: '2020', order: 4, isActive: true, icon: 'fa-solid fa-mobile-screen',
+      titleKey: 'timeline.2020.title',
       items: [
         { id: '2020-1', textKey: 'timeline.2020.1' },
         { id: '2020-2', textKey: 'timeline.2020.2' },
