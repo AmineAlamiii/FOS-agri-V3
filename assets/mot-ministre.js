@@ -67,7 +67,7 @@
   const DEFAULT_DATA = {
     id: 'minister-message',
     isActive: true,
-    image: '../../bouari.png',
+    image: '../../assets/images/ministre-khalid-hatimi.webp',
     nameKey: 'minister.name',
     positionKey: 'minister.position',
     messageKeys: [
@@ -144,7 +144,7 @@
       '<div class="minister-grid">' +
         '<div class="minister-media">' +
           '<div class="minister-portrait-wrap">' +
-            '<img class="minister-portrait" src="' + escapeHtml(data.image || '../../bouari.png') + '" alt="' + escapeHtml(t(data.imageAltKey || 'minister.image.alt', lang)) + '" loading="eager" decoding="async" />' +
+            '<img class="minister-portrait" src="' + escapeHtml(data.image || '../../assets/images/ministre-khalid-hatimi.webp') + '" alt="' + escapeHtml(t(data.imageAltKey || 'minister.image.alt', lang)) + '" loading="eager" decoding="async" />' +
           '</div>' +
         '</div>' +
         '<div class="minister-content">' +
