@@ -106,7 +106,7 @@ const NORMALIZE = `(() => {
   };
   const head = ['title=' + document.title];
   for (const el of [document.documentElement, document.body]) {
-    head.push('<' + el.tagName.toLowerCase() + ' ' + [...el.attributes].map((a) => a.name + '=' + JSON.stringify(normAttr(a.name, a.value))).sort().join(' ') + '>');
+    head.push('<' + el.tagName.toLowerCase() + ' ' + [...el.attributes].filter((a) => !isIgnoredAttr(el, a.name, a.value)).map((a) => a.name + '=' + JSON.stringify(normAttr(a.name, a.value))).sort().join(' ') + '>');
   }
   walk(document.body, 0);
   return head.concat(out).join('\\n');
