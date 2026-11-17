@@ -24,8 +24,21 @@ export default defineConfig({
   base: process.env.BASE_PATH || '/',
   root: pagesDir,
   publicDir: fileURLToPath(new URL('./public', import.meta.url)),
-  // Runtime JSX maison : isole les nombres en arabe comme l'ancien site.
-  plugins: [react({ jsxImportSource: '@/lib/jsx' })],
+  plugins: [
+    // Runtime JSX maison : isole les nombres en arabe comme l'ancien site.
+    react({ jsxImportSource: '@/lib/jsx' }),
+    {
+      // Ce runtime fait partie du code du projet : il ne doit pas être figé dans le
+      // cache des dépendances de Vite (sinon ses modifications ne sont pas prises en compte).
+      name: 'fos-jsx-runtime-from-source',
+      config(config) {
+        const isRuntime = (id) => id.startsWith('@/lib/jsx');
+        config.optimizeDeps = config.optimizeDeps || {};
+        config.optimizeDeps.include = (config.optimizeDeps.include || []).filter((id) => !isRuntime(id));
+        config.optimizeDeps.exclude = [...(config.optimizeDeps.exclude || []), '@/lib/jsx/jsx-runtime', '@/lib/jsx/jsx-dev-runtime'];
+      }
+    }
+  ],
   resolve: {
     alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) }
   },
@@ -38,6 +51,14 @@ export default defineConfig({
     emptyOutDir: true,
     // public/assets holds the site media; keep bundles in a separate folder.
     assetsDir: 'static',
-    rollupOptions: { input }
+    // Les deux cartes SVG (accueil, conventions médicales) pèsent ~1,2 Mo chacune.
+    chunkSizeWarningLimit: 1500,
+    rollupOptions: {
+      input,
+      output: {
+        // React et les bibliothèques dans un fichier commun, mis en cache entre les pages.
+        manualChunks: (id) => (id.includes('node_modules') ? 'vendor' : undefined)
+      }
+    }
   }
 });

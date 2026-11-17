@@ -7,12 +7,12 @@ These instructions are for Codex and AI assistants working on this repo.
 Before editing, read:
 
 - README.md
-- PROJECT_RULES.md
-- ARCHITECTURE.md
-- CONTENT_STRUCTURE.md
-- SEO_I18N_RULES.md
-- NO_DATABASE_PLAN.md
-- BACKLOG.md
+- docs/PROJECT_RULES.md
+- docs/ARCHITECTURE.md
+- docs/CONTENT_STRUCTURE.md
+- docs/SEO_I18N_RULES.md
+- docs/NO_DATABASE_PLAN.md
+- docs/BACKLOG.md
 
 ## Homepage protection
 
@@ -24,11 +24,14 @@ Allowed homepage edits are limited to safe menu/header link fixes.
 
 ## Development rules
 
-- Keep Phase 1 static.
-- Do not add dependencies.
+- The site is a React + Vite multi-page app (approved migration). Output stays static.
+- Do not add dependencies without approval (current: react, react-dom, motion, vite).
 - Do not add a backend.
 - Do not add a database.
-- Keep GitHub Pages compatibility.
+- Keep GitHub Pages compatibility (build with BASE_PATH=/<repo>/).
+- Never create JSX at module level: text must be rendered inside components so the
+  Arabic number isolation (src/lib/jsx) applies.
+- After visual changes, run scripts/migration/compare-legacy.mjs on the affected pages.
 - Make small commits.
 - Summarize all changed files after each commit.
 

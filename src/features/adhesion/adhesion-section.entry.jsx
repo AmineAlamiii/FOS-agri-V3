@@ -1,5 +1,4 @@
-import '@/app/secondaryEntry';
-import '@/styles/adhesion.css';
+import '@/styles/pages/adhesion.css';
 import { mountPage } from '@/app/mountPage';
 import AdhesionSectionPage from './AdhesionSectionPage';
 

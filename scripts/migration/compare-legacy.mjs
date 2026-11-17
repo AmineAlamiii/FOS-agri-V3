@@ -7,10 +7,20 @@
  *   1. le DOM normalisé (balises, attributs, textes) ;
  *   2. une capture d'écran de la zone visible.
  *
+ * Préparer l'ancien site (branche main, avant migration) :
+ *   git worktree add .claude/worktrees/legacy-site <commit-avant-migration>
+ *   puis lancer le serveur « legacy » de .claude/launch.json (et « react » : npm run dev).
+ *
  * Usage :
  *   node scripts/migration/compare-legacy.mjs --legacy http://localhost:8091 \
  *     --react http://localhost:5173 --out /tmp/compare contact.html [autres pages…]
- * Options : --langs fr,ar,zgh  --viewports desktop,mobile  --wait 2500
+ * Options :
+ *   --langs fr,ar,zgh  --viewports desktop,mobile  --wait 2500
+ *   --switch           charger en FR puis changer de langue en direct
+ *   --scroll bottom    capture en bas de page
+ *   --actions "<js>"   script exécuté dans les deux versions avant la capture
+ *   --probe "<js>"     expression affichée pour les deux versions (débogage)
+ *   --init "<js>"      script injecté au début de la page (débogage)
  */
 import { spawn } from 'node:child_process';
 import { mkdirSync, writeFileSync, mkdtempSync } from 'node:fs';

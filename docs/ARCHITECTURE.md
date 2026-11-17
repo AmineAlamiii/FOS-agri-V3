@@ -2,38 +2,29 @@
 
 ## Current architecture
 
-The project is currently a static website for GitHub Pages.
+React + Vite multi-page site (one HTML entry per URL, same URLs as the former static site).
+See README.md for the folder layout.
 
 ```text
-/
-├── index.html
-├── fondation.html
-├── adhesion.html
-├── prestations.html
-├── actualites.html
-├── agenda-solidaire.html
-├── mediatheque.html
-├── contact.html
-├── espace-adherent.html
-├── club-agri.html
-├── services/
-└── assets/
+pages/            HTML entries (index.html, contact.html, services/…, la-fondation/…)
+public/assets/    media (images, PDF, video) served as-is
+src/features/     one folder per site area (home, fondation, adhesion, prestations, …)
+src/components/   shared layout (header, menu, footer, search, floating button)
+src/i18n/         current language + shared translations (FR / AR / ZGH)
+src/styles/       original CSS, unchanged; src/styles/pages/ keeps the original load order
 ```
 
 ## Approved homepage
 
-`index.html` is client-approved and should be treated as locked visually. The homepage is the design reference for all secondary pages.
+`src/features/home` is client-approved and must stay visually locked. It keeps its own
+header/footer markup (the former index.html + home-nav-fix.js behaviour).
 
-`assets/home-nav-fix.js` connects the approved homepage menu to the separate pages without redesigning the homepage.
+## Shared behaviour
 
-## Static shared assets
-
-- `assets/styles.css`: current visual system and homepage styles
-- `assets/app.js`: current homepage behavior
-- `assets/data.js`: current static data
-- `assets/secondary-pages.css`: secondary-page styles
-- `assets/secondary-pages.js`: secondary-page menu/footer/language behavior
-- `assets/nav-submenu.css`: submenu styling
+- `src/components/layout/`: secondary-page header, menu, footer, search, floating social button
+- `src/hooks/`: scroll header, scroll reveal, motion animations, anchor scroll on load
+- `src/lib/jsx/`: project JSX runtime — isolates numbers in Arabic like the former site
+- `scripts/migration/compare-legacy.mjs`: DOM + screenshot comparison with the former site
 
 ## Future Next.js migration plan
 

@@ -1,5 +1,4 @@
-import '@/app/secondaryEntry';
-import '@/styles/search-page.css';
+import '@/styles/pages/search.css';
 import { mountPage } from '@/app/mountPage';
 import SearchPage from './SearchPage';
 

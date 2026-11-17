@@ -21,6 +21,24 @@ export function getActiveLang() {
   return globalThis[STATE_KEY];
 }
 
+const SUSPEND_KEY = '__fosAgriNumberIsolationSuspended';
+
+/**
+ * Crée des éléments JSX sans isolation des nombres. Sert à reproduire
+ * l'accueil d'origine, dont le menu était rendu après l'isolation.
+ */
+export function withoutNumberIsolation(render) {
+  const previous = globalThis[SUSPEND_KEY];
+  globalThis[SUSPEND_KEY] = true;
+  try {
+    return render();
+  } finally {
+    globalThis[SUSPEND_KEY] = previous;
+  }
+}
+
+export const isNumberIsolationSuspended = () => Boolean(globalThis[SUSPEND_KEY]);
+
 export function hasNumber(text) {
   NUMBER_PATTERN.lastIndex = 0;
   return NUMBER_PATTERN.test(text);

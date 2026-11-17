@@ -4,15 +4,36 @@
     {
       "name": "react",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev", "--", "--port", "5173", "--strictPort"],
+      "runtimeArgs": [
+        "run",
+        "dev",
+        "--",
+        "--port",
+        "5173",
+        "--strictPort"
+      ],
       "port": 5173
     },
     {
       "name": "legacy",
       "runtimeExecutable": "node",
-      "runtimeArgs": [".claude/serve.cjs"],
-      "env": { "PORT": "8090", "ROOT": "/private/tmp/claude-501/-Users-aminealami--claude-spares-spare-MSTekz/76ce2f8a-1989-4908-9420-f3fb949c9bd1/scratchpad/legacy" },
+      "runtimeArgs": [
+        ".claude/serve.cjs"
+      ],
+      "env": {
+        "PORT": "8090",
+        "ROOT": ".claude/worktrees/legacy-site"
+      },
       "port": 8090
+    },
+    {
+      "name": "prod",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "npm run build && npm run preview -- --port 4173 --strictPort"
+      ],
+      "port": 4173
     }
   ]
 }

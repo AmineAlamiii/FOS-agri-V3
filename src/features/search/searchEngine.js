@@ -26,10 +26,10 @@ export function getNewsSearchEntries(lang) {
 }
 
 /** Résultats de la recherche rapide (fenêtre de recherche du menu). */
-export function quickSearch(query, lang, translate) {
+export function quickSearch(query, lang, translate, index = SEARCH_INDEX) {
   const q = normalize(query).trim();
   if (!q) return null;
-  return SEARCH_INDEX.concat(getNewsSearchEntries(lang))
+  return index.concat(getNewsSearchEntries(lang))
     .map((entry) => ({ entry, label: entry.label || translate(entry.key) || entry.key }))
     .filter(({ entry, label }) =>
       normalize([label, entry.key, entry.url, entry.searchText || '', SEARCH_KEYWORDS[entry.key] || ''].join(' ')).includes(q)

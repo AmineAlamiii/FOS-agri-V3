@@ -1,0 +1,6 @@
+/* Styles de la page, dans le même ordre que l'ancien site (l'ordre compte). */
+@import '../styles.css';
+@import '../secondary-pages.css';
+@import '../gouvernance.css';
+@import '../notre-organisation.css';
+@import '../nav-submenu.css';

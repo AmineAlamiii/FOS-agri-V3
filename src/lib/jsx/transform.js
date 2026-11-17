@@ -1,5 +1,5 @@
 import { jsx as reactJsx } from 'react/jsx-runtime';
-import { getActiveLang, hasNumber, splitNumbers } from '../arabicNumbers.js';
+import { getActiveLang, hasNumber, isNumberIsolationSuspended, splitNumbers } from '../arabicNumbers.js';
 
 // Éléments dont le texte ne doit jamais être modifié (comme l'ancien site).
 const SKIPPED = new Set([
@@ -21,7 +21,7 @@ function isolate(child, index) {
 
 /** Applique l'isolation des nombres aux enfants texte d'un élément HTML. */
 export function transformProps(type, props) {
-  if (getActiveLang() !== 'ar' || typeof type !== 'string' || SKIPPED.has(type)) return props;
+  if (getActiveLang() !== 'ar' || isNumberIsolationSuspended() || typeof type !== 'string' || SKIPPED.has(type)) return props;
   if (!props || props.children == null || props['data-no-number-ltr'] != null) return props;
   const { children } = props;
   if (Array.isArray(children)) {

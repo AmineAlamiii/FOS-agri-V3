@@ -2,11 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { quickSearch } from '@/features/search/searchEngine';
 import { useLanguage } from '@/i18n/LanguageProvider';
+import { withoutNumberIsolation } from '@/lib/arabicNumbers';
 import { url } from '@/lib/paths';
 import { useLayout } from './LayoutContext';
 
 /** Fenêtre de recherche rapide ouverte depuis le menu mobile. */
-export default function SearchModal({ t }) {
+export default function SearchModal({ t, index, isolateNumbers = true }) {
   const { lang } = useLanguage();
   const { searchOpen, setSearchOpen } = useLayout();
   const [query, setQuery] = useState('');
@@ -32,9 +33,9 @@ export default function SearchModal({ t }) {
     window.location.href = `${url('search.html')}${q ? `?q=${encodeURIComponent(q)}` : ''}`;
   };
 
-  const hits = quickSearch(query, lang, t);
+  const hits = quickSearch(query, lang, t, index);
 
-  return createPortal(
+  const render = () => createPortal(
     <div id="site-search-modal" className="search-modal" role="dialog" aria-modal="true" aria-label={t('search') || 'Recherche'} hidden={!searchOpen}>
       <div className="search-modal-backdrop" onClick={close}></div>
       <div className="search-modal-box">
@@ -63,4 +64,6 @@ export default function SearchModal({ t }) {
     </div>,
     document.body
   );
+  // Accueil : la fenêtre de recherche n'était pas concernée par l'isolation des nombres.
+  return isolateNumbers ? render() : withoutNumberIsolation(render);
 }

@@ -73,3 +73,8 @@ export const SEARCH_PAGE_KEYWORDS = {
   ...SEARCH_KEYWORDS,
   news: 'actualites annonces nouvelles communiques conventions campagnes programmes blog article articles'
 };
+
+// L'accueil propose aussi l'ancienne page « Éducation et culture ».
+export const HOME_SEARCH_INDEX = SEARCH_INDEX.flatMap((entry) => (
+  entry.key === 'docSpace' ? [entry, { key: 'education', url: 'services/education-culture.html', icon: 'fa-book-open' }] : [entry]
+));

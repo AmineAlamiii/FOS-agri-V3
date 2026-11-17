@@ -1,7 +1,10 @@
 import { useEffect } from 'react';
 
-/** En-tête qui se masque en descendant et réapparaît en remontant. */
-export function useScrollHeader(headerRef) {
+/**
+ * En-tête qui se masque en descendant et réapparaît en remontant.
+ * `home` : variante de l'accueil (en-tête transparent tant qu'on ne remonte pas).
+ */
+export function useScrollHeader(headerRef, { home = false } = {}) {
   useEffect(() => {
     const header = headerRef.current;
     if (!header) return undefined;
@@ -19,7 +22,8 @@ export function useScrollHeader(headerRef) {
       header.style.pointerEvents = 'auto';
     };
     const hide = () => {
-      header.classList.add('is-hidden', 'is-scrolled');
+      header.classList.add('is-hidden');
+      header.classList.toggle('is-scrolled', !home);
       header.style.transform = 'translateY(calc(-100% - 0.75rem))';
       header.style.opacity = '0';
       header.style.pointerEvents = 'none';
@@ -35,7 +39,7 @@ export function useScrollHeader(headerRef) {
       }
       if (delta > directionThreshold && scrollTop > hideThreshold) hide();
       else if (delta < -directionThreshold) show(true);
-      else if (!header.classList.contains('is-hidden')) show(true);
+      else if (!home && !header.classList.contains('is-hidden')) show(true);
       lastScrollTop = Math.max(0, scrollTop);
       ticking = false;
     };
@@ -47,5 +51,5 @@ export function useScrollHeader(headerRef) {
     window.addEventListener('scroll', onScroll, { passive: true });
     update();
     return () => window.removeEventListener('scroll', onScroll);
-  }, [headerRef]);
+  }, [headerRef, home]);
 }

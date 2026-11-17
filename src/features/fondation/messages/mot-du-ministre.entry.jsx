@@ -1,5 +1,4 @@
-import '@/app/secondaryEntry';
-import '@/styles/mot-ministre.css';
+import '@/styles/pages/mot-ministre.css';
 import { mountPage } from '@/app/mountPage';
 import InstitutionalMessagePage from './InstitutionalMessagePage';
 import { ministerI18n } from './minister.i18n';
