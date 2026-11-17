@@ -8,7 +8,7 @@ import { useLanguage } from './LanguageProvider';
 export function usePageT(dictionary) {
   const { lang } = useLanguage();
   return useCallback(
-    (key) => dictionary[lang]?.[key] ?? dictionary.fr?.[key] ?? key,
+    (key) => dictionary[lang]?.[key] || dictionary.fr?.[key] || key,
     [dictionary, lang]
   );
 }
