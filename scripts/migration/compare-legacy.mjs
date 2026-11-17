@@ -42,9 +42,12 @@ const NORMALIZE = `(() => {
   const SKIP = new Set(['SCRIPT', 'NOSCRIPT', 'STYLE', 'LINK', 'META', 'TEMPLATE']);
   const IGNORED_ATTRS = new Set(['data-vite-dev-id']);
   // Marqueurs de traduction de l'ancien site (sans effet visuel).
+  // Les attributs data-* servaient de « crochets » au JavaScript de l'ancien site.
+  // On ne garde que ceux utilisés par le CSS (donc visibles).
+  const CSS_DATA_ATTRS = new Set(['data-header-search', 'data-service', 'data-scroll-reveal', 'data-region', 'data-state', 'data-reveal-style', 'data-page', 'data-lang']);
   const isIgnoredAttr = (el, name, value) => IGNORED_ATTRS.has(name)
-    || /^data-([a-z]+-)*i18n(-[a-z]+)*$/.test(name)
-    || (name === 'value' && el.tagName === 'INPUT' && value === '');
+    || (name.startsWith('data-') && !CSS_DATA_ATTRS.has(name))
+    || (name === 'value' && el.tagName === 'INPUT');
   const BLOCKISH = (el) => {
     if (!el || el.nodeType !== 1) return true;
     const d = getComputedStyle(el).display;
@@ -92,6 +95,8 @@ const NORMALIZE = `(() => {
         .filter((a) => !isIgnoredAttr(ch, a.name, a.value))
         .map((a) => a.name + '=' + JSON.stringify(a.name === 'style' ? normAttr('style', ch.style.cssText) : normAttr(a.name, a.value)))
         .sort();
+      // Valeur réellement affichée dans les champs de saisie.
+      if (ch.tagName === 'INPUT' && ch.value) attrs.push('(value)=' + JSON.stringify(ch.value));
       out.push('  '.repeat(depth) + '<' + ch.tagName.toLowerCase() + (attrs.length ? ' ' + attrs.join(' ') : '') + '>');
       walk(ch, depth + 1);
     }

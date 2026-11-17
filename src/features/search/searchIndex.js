@@ -67,3 +67,9 @@ export const SEARCH_KEYWORDS = {
   social: 'reseaux sociaux facebook linkedin youtube partage contact',
   member: 'espace adherent portail agent compte services accompagnement suivi'
 };
+
+// La page de recherche indexe aussi « blog / article » pour les actualités.
+export const SEARCH_PAGE_KEYWORDS = {
+  ...SEARCH_KEYWORDS,
+  news: 'actualites annonces nouvelles communiques conventions campagnes programmes blog article articles'
+};

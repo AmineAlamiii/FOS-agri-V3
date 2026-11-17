@@ -15,6 +15,7 @@ export function getNewsSearchEntries(lang) {
       url: `actualite.html?article=${encodeURIComponent(slug)}`,
       icon: 'fa-newspaper',
       label: content.title || slug,
+      summary: content.excerpt || content.detail || '',
       searchText: [
         slug,
         item.date || '',
