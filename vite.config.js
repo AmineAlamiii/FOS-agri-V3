@@ -8,8 +8,9 @@ const root = fileURLToPath(new URL('.', import.meta.url));
 
 /**
  * Hébergement statique (GitHub Pages) : chaque adresse du site doit renvoyer
- * index.html, où React prend le relais. On copie donc index.html dans un dossier
- * par page (/contact/index.html…) et en 404.html (anciennes adresses .html).
+ * index.html, où React prend le relais. Le build copie donc index.html pour chaque
+ * page (dist/contact.html sert l'adresse /contact, sans redirection) et en 404.html.
+ * Ces copies sont générées : le code source ne contient aucune page HTML.
  */
 function staticRoutesPlugin() {
   return {
@@ -20,8 +21,9 @@ function staticRoutesPlugin() {
       const source = readFileSync(join(root, 'src/app/routes.js'), 'utf8');
       const paths = [...source.matchAll(/path: '([^']+)'/g)].map((match) => match[1]).filter((path) => path !== '/');
       paths.forEach((path) => {
-        mkdirSync(join(dist, path), { recursive: true });
-        copyFileSync(join(dist, 'index.html'), join(dist, path, 'index.html'));
+        const file = join(dist, `${path}.html`);
+        mkdirSync(join(file, '..'), { recursive: true });
+        copyFileSync(join(dist, 'index.html'), file);
       });
       copyFileSync(join(dist, 'index.html'), join(dist, '404.html'));
     }
