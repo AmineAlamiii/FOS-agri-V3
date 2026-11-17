@@ -9,7 +9,8 @@ mêmes textes sont conservés.
 | Sujet | Choix | Pourquoi |
 | --- | --- | --- |
 | Outil | Vite + React 18 | Léger, rapide, sortie 100 % statique (GitHub Pages). |
-| Structure | Site multi-pages (`pages/*.html`) | Mêmes adresses qu'avant, chaque page ne charge que son CSS (comme avant). |
+| Structure | Application React Router (`src/app/routes.js`), aucun HTML de page | Pages séparées en composants, navigation sans rechargement, base prête pour un backend. Anciennes adresses `.html` redirigées. |
+| Styles par page | CSS injecté à l'affichage de la page, retiré en la quittant (`PageStyles`) | Comme avant, une page ne reçoit que ses propres styles, dans le même ordre. |
 | Styles | CSS d'origine inchangés (`src/styles/`) | Garantit le rendu identique. `src/styles/pages/` reprend l'ordre de chargement d'origine. |
 | Langues | `LanguageProvider` + dictionnaires par espace | Même clé `localStorage` (`fosagri-lang`), même bascule RTL. |
 | Nombres en arabe | Runtime JSX du projet (`src/lib/jsx`) | L'ancien site entourait chaque nombre d'un `<span class="ar-number-ltr">` après coup ; c'est maintenant fait au rendu. |

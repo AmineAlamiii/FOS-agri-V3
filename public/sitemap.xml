@@ -6,12 +6,12 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://zakdri.github.io/FOS-agri-V3/fondation.html</loc>
+    <loc>https://zakdri.github.io/FOS-agri-V3/fondation</loc>
     <lastmod>2026-05-11</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://zakdri.github.io/FOS-agri-V3/histoire-mission-valeurs.html</loc>
+    <loc>https://zakdri.github.io/FOS-agri-V3/histoire-mission-valeurs</loc>
     <lastmod>2026-05-12</lastmod>
     <priority>0.7</priority>
   </url>
@@ -21,102 +21,102 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://zakdri.github.io/FOS-agri-V3/adhesion.html</loc>
+    <loc>https://zakdri.github.io/FOS-agri-V3/adhesion</loc>
     <lastmod>2026-05-11</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://zakdri.github.io/FOS-agri-V3/adhesion/adherents-beneficiaires.html</loc>
+    <loc>https://zakdri.github.io/FOS-agri-V3/adhesion/adherents-beneficiaires</loc>
     <lastmod>2026-07-05</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://zakdri.github.io/FOS-agri-V3/adhesion/procedure-adhesion.html</loc>
+    <loc>https://zakdri.github.io/FOS-agri-V3/adhesion/procedure-adhesion</loc>
     <lastmod>2026-07-05</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://zakdri.github.io/FOS-agri-V3/adhesion/cotisations.html</loc>
+    <loc>https://zakdri.github.io/FOS-agri-V3/adhesion/cotisations</loc>
     <lastmod>2026-07-05</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://zakdri.github.io/FOS-agri-V3/prestations.html</loc>
+    <loc>https://zakdri.github.io/FOS-agri-V3/prestations</loc>
     <lastmod>2026-05-11</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://zakdri.github.io/FOS-agri-V3/actualites.html</loc>
+    <loc>https://zakdri.github.io/FOS-agri-V3/actualites</loc>
     <lastmod>2026-05-11</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://zakdri.github.io/FOS-agri-V3/agenda-solidaire.html</loc>
+    <loc>https://zakdri.github.io/FOS-agri-V3/agenda-solidaire</loc>
     <lastmod>2026-05-11</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://zakdri.github.io/FOS-agri-V3/mediatheque.html</loc>
+    <loc>https://zakdri.github.io/FOS-agri-V3/mediatheque</loc>
     <lastmod>2026-05-11</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://zakdri.github.io/FOS-agri-V3/contact.html</loc>
+    <loc>https://zakdri.github.io/FOS-agri-V3/contact</loc>
     <lastmod>2026-05-11</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://zakdri.github.io/FOS-agri-V3/search.html</loc>
+    <loc>https://zakdri.github.io/FOS-agri-V3/search</loc>
     <lastmod>2026-06-01</lastmod>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://zakdri.github.io/FOS-agri-V3/espace-adherent.html</loc>
+    <loc>https://zakdri.github.io/FOS-agri-V3/espace-adherent</loc>
     <lastmod>2026-05-11</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://zakdri.github.io/FOS-agri-V3/club-agri.html</loc>
+    <loc>https://zakdri.github.io/FOS-agri-V3/club-agri</loc>
     <lastmod>2026-05-11</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://zakdri.github.io/FOS-agri-V3/services/prevoyance.html</loc>
+    <loc>https://zakdri.github.io/FOS-agri-V3/services/prevoyance</loc>
     <lastmod>2026-05-11</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://zakdri.github.io/FOS-agri-V3/services/culture-loisirs-voyages.html</loc>
+    <loc>https://zakdri.github.io/FOS-agri-V3/services/culture-loisirs-voyages</loc>
     <lastmod>2026-05-11</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://zakdri.github.io/FOS-agri-V3/services/formation-scolarisation.html</loc>
+    <loc>https://zakdri.github.io/FOS-agri-V3/services/formation-scolarisation</loc>
     <lastmod>2026-05-11</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://zakdri.github.io/FOS-agri-V3/services/acces-logement.html</loc>
+    <loc>https://zakdri.github.io/FOS-agri-V3/services/acces-logement</loc>
     <lastmod>2026-05-11</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://zakdri.github.io/FOS-agri-V3/services/projets-personnels.html</loc>
+    <loc>https://zakdri.github.io/FOS-agri-V3/services/projets-personnels</loc>
     <lastmod>2026-05-11</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://zakdri.github.io/FOS-agri-V3/services/education-culture.html</loc>
+    <loc>https://zakdri.github.io/FOS-agri-V3/services/education-culture</loc>
     <lastmod>2026-05-11</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://zakdri.github.io/FOS-agri-V3/espace-documentaire.html</loc>
+    <loc>https://zakdri.github.io/FOS-agri-V3/espace-documentaire</loc>
     <lastmod>2026-11-14</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://zakdri.github.io/FOS-agri-V3/services/services-quotidien.html</loc>
+    <loc>https://zakdri.github.io/FOS-agri-V3/services/services-quotidien</loc>
     <lastmod>2026-11-14</lastmod>
     <priority>0.7</priority>
   </url>

@@ -2,11 +2,13 @@
 
 ## Current architecture
 
-React + Vite multi-page site (one HTML entry per URL, same URLs as the former static site).
-See README.md for the folder layout.
+React + Vite single-page application with React Router: each page is a React component,
+declared in `src/app/routes.js` (clean URLs, legacy `.html` URLs redirect). Only `index.html`
+boots React. See README.md for the folder layout.
 
 ```text
-pages/            HTML entries (index.html, contact.html, services/…, la-fondation/…)
+index.html        React bootstrap only
+src/app/          router, routes table, per-page setup (title, body class, styles)
 public/assets/    media (images, PDF, video) served as-is
 src/features/     one folder per site area (home, fondation, adhesion, prestations, …)
 src/components/   shared layout (header, menu, footer, search, floating button)

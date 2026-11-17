@@ -9,10 +9,12 @@ export function LayoutProvider({ children }) {
 
   useEffect(() => {
     document.body.classList.toggle('menu-open', menuOpen);
+    return () => document.body.classList.remove('menu-open');
   }, [menuOpen]);
 
   useEffect(() => {
     document.body.classList.toggle('search-modal-open', searchOpen);
+    return () => document.body.classList.remove('search-modal-open');
   }, [searchOpen]);
 
   const value = useMemo(() => ({ menuOpen, setMenuOpen, searchOpen, setSearchOpen }), [menuOpen, searchOpen]);

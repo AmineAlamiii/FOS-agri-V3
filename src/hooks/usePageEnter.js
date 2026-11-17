@@ -11,6 +11,9 @@ export function usePageEnter() {
     if (document.readyState === 'complete') done();
     else window.addEventListener('load', done, { once: true });
     const safety = window.setTimeout(clear, 4000);
-    return () => window.clearTimeout(safety);
+    return () => {
+      window.clearTimeout(safety);
+      clear();
+    };
   }, []);
 }

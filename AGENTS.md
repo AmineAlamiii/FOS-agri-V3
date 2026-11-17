@@ -24,8 +24,9 @@ Allowed homepage edits are limited to safe menu/header link fixes.
 
 ## Development rules
 
-- The site is a React + Vite multi-page app (approved migration). Output stays static.
-- Do not add dependencies without approval (current: react, react-dom, motion, vite).
+- The site is a React + Vite app with React Router (approved migration): pages are
+  components declared in src/app/routes.js, no page HTML files. Output stays static.
+- Do not add dependencies without approval (current: react, react-dom, react-router-dom, motion, vite).
 - Do not add a backend.
 - Do not add a database.
 - Keep GitHub Pages compatibility (build with BASE_PATH=/<repo>/).

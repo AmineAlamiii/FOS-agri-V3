@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { useNavigate } from 'react-router-dom';
 import { quickSearch } from '@/features/search/searchEngine';
 import { useLanguage } from '@/i18n/LanguageProvider';
 import { withoutNumberIsolation } from '@/lib/arabicNumbers';
@@ -12,6 +13,7 @@ export default function SearchModal({ t, index, isolateNumbers = true }) {
   const { searchOpen, setSearchOpen } = useLayout();
   const [query, setQuery] = useState('');
   const inputRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!searchOpen) return undefined;
@@ -30,7 +32,8 @@ export default function SearchModal({ t, index, isolateNumbers = true }) {
   const submit = (event) => {
     event.preventDefault();
     const q = query.trim();
-    window.location.href = `${url('search.html')}${q ? `?q=${encodeURIComponent(q)}` : ''}`;
+    setSearchOpen(false);
+    navigate(`/search${q ? `?q=${encodeURIComponent(q)}` : ''}`);
   };
 
   const hits = quickSearch(query, lang, t, index);

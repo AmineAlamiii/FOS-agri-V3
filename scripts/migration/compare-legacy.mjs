@@ -77,7 +77,8 @@ const NORMALIZE = `(() => {
     try {
       const u = new URL(value, location.href);
       if (u.origin !== location.origin) return u.href;
-      const path = u.pathname.replace(/^\\/FOS-agri-V3\\//, '/').replace(/\\/index\\.html$/, '/');
+      // Adresses propres (React) et anciennes adresses .html : même forme.
+      const path = u.pathname.replace(/^\\/FOS-agri-V3\\//, '/').replace(/\\/index\\.html$/, '/').replace(/\\.html$/, '').replace(/(.)\\/$/, '$1');
       const search = u.search.replace(/([?&])v=[^&]*&?/, '$1').replace(/[?&]$/, '');
       return path + search + u.hash;
     } catch { return value; }
@@ -199,7 +200,8 @@ async function capture(cdp, url, lang, viewport) {
     await new Promise((r) => setTimeout(r, 1200));
   }
   if (actions) {
-    await s('Runtime.evaluate', { expression: `(async () => { ${actions} })()`, awaitPromise: true });
+    // Une action peut charger une autre page (ancien site) : l'évaluation est alors interrompue.
+    await s('Runtime.evaluate', { expression: `(async () => { ${actions} })()`, awaitPromise: true }).catch(() => {});
     await new Promise((r) => setTimeout(r, 1500));
   }
   if (scroll === 'bottom') {

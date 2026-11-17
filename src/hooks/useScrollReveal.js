@@ -71,6 +71,7 @@ export function useScrollReveal() {
     mutations.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] });
     return () => {
       cancelAnimationFrame(firstFrame);
+      root.classList.remove('scroll-motion-ready');
       observer.disconnect();
       mutations.disconnect();
     };

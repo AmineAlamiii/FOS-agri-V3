@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import SecondaryLayout from '@/components/layout/SecondaryLayout';
 import PageHero from '@/components/ui/PageHero';
 import { useLanguage } from '@/i18n/LanguageProvider';
@@ -9,7 +10,6 @@ import { NEWS, localizedNews, newsArticleUrl, newsImageUrl, newsMeta } from './n
 const PER_PAGE = 6;
 const TOTAL_PAGES = Math.max(1, Math.ceil(NEWS.length / PER_PAGE));
 const clampPage = (page) => Math.min(Math.max(page, 1), TOTAL_PAGES);
-const pageFromUrl = () => Number(new URLSearchParams(window.location.search).get('page')) || 1;
 const pageUrl = (page) => `${url('actualites.html')}${page > 1 ? `?page=${page}` : ''}`;
 
 function NewsCard({ item, index }) {
@@ -64,23 +64,18 @@ function Pagination({ current, onNavigate }) {
 function ActualitesContent() {
   const t = useSecondaryT();
   const { lang } = useLanguage();
-  const [page, setPage] = useState(() => clampPage(pageFromUrl()));
+  const [searchParams] = useSearchParams();
+  const navigateTo = useNavigate();
+  // Page courante lue dans l'adresse (?page=2) : le bouton « Retour » fonctionne naturellement.
+  const page = clampPage(Number(searchParams.get('page')) || 1);
 
   useEffect(() => {
     document.title = `FOS-Agri | ${t('newsTitle')}`;
   }, [t]);
 
-  // Retour arrière du navigateur : même comportement que l'ancien site.
-  useEffect(() => {
-    const onPop = () => setPage(clampPage(pageFromUrl()));
-    window.addEventListener('popstate', onPop);
-    return () => window.removeEventListener('popstate', onPop);
-  }, []);
-
   const navigate = (next) => {
     const target = clampPage(next);
-    window.history.pushState(null, '', pageUrl(target));
-    setPage(target);
+    navigateTo(`/actualites${target > 1 ? `?page=${target}` : ''}`);
   };
 
   const start = (page - 1) * PER_PAGE;

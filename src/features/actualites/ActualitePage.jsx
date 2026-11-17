@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import SecondaryLayout from '@/components/layout/SecondaryLayout';
 import PageHero from '@/components/ui/PageHero';
 import { useLanguage } from '@/i18n/LanguageProvider';
@@ -37,7 +38,8 @@ function Attachment({ attachment, index, title }) {
 function ActualiteContent() {
   const t = useSecondaryT();
   const { lang } = useLanguage();
-  const slug = new URLSearchParams(window.location.search).get('article');
+  const [searchParams] = useSearchParams();
+  const slug = searchParams.get('article');
   const index = NEWS.findIndex((item, itemIndex) => newsSlug(item, itemIndex) === slug);
   const item = NEWS[index];
   const content = item ? localizedNews(item, lang) : null;

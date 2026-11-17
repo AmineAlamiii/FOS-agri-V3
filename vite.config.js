@@ -1,29 +1,36 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { fileURLToPath, URL } from 'node:url';
-import { readdirSync, statSync } from 'node:fs';
-import { join, relative } from 'node:path';
+import { copyFileSync, mkdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
 
-const pagesDir = fileURLToPath(new URL('./pages', import.meta.url));
+const root = fileURLToPath(new URL('.', import.meta.url));
 
-/** Every .html file under pages/ is one public URL (multi-page app). */
-function collectPages(dir) {
-  return readdirSync(dir).flatMap((name) => {
-    const full = join(dir, name);
-    if (statSync(full).isDirectory()) return collectPages(full);
-    return name.endsWith('.html') ? [full] : [];
-  });
+/**
+ * Hébergement statique (GitHub Pages) : chaque adresse du site doit renvoyer
+ * index.html, où React prend le relais. On copie donc index.html dans un dossier
+ * par page (/contact/index.html…) et en 404.html (anciennes adresses .html).
+ */
+function staticRoutesPlugin() {
+  return {
+    name: 'fos-static-routes',
+    apply: 'build',
+    closeBundle() {
+      const dist = join(root, 'dist');
+      const source = readFileSync(join(root, 'src/app/routes.js'), 'utf8');
+      const paths = [...source.matchAll(/path: '([^']+)'/g)].map((match) => match[1]).filter((path) => path !== '/');
+      paths.forEach((path) => {
+        mkdirSync(join(dist, path), { recursive: true });
+        copyFileSync(join(dist, 'index.html'), join(dist, path, 'index.html'));
+      });
+      copyFileSync(join(dist, 'index.html'), join(dist, '404.html'));
+    }
+  };
 }
 
-const input = Object.fromEntries(
-  collectPages(pagesDir).map((file) => [relative(pagesDir, file).replace(/\.html$/, ''), file])
-);
-
 export default defineConfig({
-  // GitHub Pages serves the site from /<repo>/ — set BASE_PATH in CI.
+  // GitHub Pages sert le site depuis /<dépôt>/ — BASE_PATH est défini dans le workflow.
   base: process.env.BASE_PATH || '/',
-  root: pagesDir,
-  publicDir: fileURLToPath(new URL('./public', import.meta.url)),
   plugins: [
     // Runtime JSX maison : isole les nombres en arabe comme l'ancien site.
     react({ jsxImportSource: '@/lib/jsx' }),
@@ -37,24 +44,21 @@ export default defineConfig({
         config.optimizeDeps.include = (config.optimizeDeps.include || []).filter((id) => !isRuntime(id));
         config.optimizeDeps.exclude = [...(config.optimizeDeps.exclude || []), '@/lib/jsx/jsx-runtime', '@/lib/jsx/jsx-dev-runtime'];
       }
-    }
+    },
+    staticRoutesPlugin()
   ],
   resolve: {
     alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) }
   },
   server: {
-    port: 5173,
-    fs: { allow: [fileURLToPath(new URL('.', import.meta.url))] }
+    port: 5173
   },
   build: {
-    outDir: fileURLToPath(new URL('./dist', import.meta.url)),
-    emptyOutDir: true,
-    // public/assets holds the site media; keep bundles in a separate folder.
+    // public/assets contient les médias du site : les fichiers compilés vont dans static/.
     assetsDir: 'static',
     // Les deux cartes SVG (accueil, conventions médicales) pèsent ~1,2 Mo chacune.
     chunkSizeWarningLimit: 1500,
     rollupOptions: {
-      input,
       output: {
         // React et les bibliothèques dans un fichier commun, mis en cache entre les pages.
         manualChunks: (id) => (id.includes('node_modules') ? 'vendor' : undefined)

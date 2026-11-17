@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import SecondaryLayout from '@/components/layout/SecondaryLayout';
 import PageHero from '@/components/ui/PageHero';
 import { useLanguage } from '@/i18n/LanguageProvider';
@@ -8,12 +9,12 @@ import { getNewsSearchEntries } from './searchEngine';
 import { SEARCH_INDEX, SEARCH_PAGE_KEYWORDS } from './searchIndex';
 import { searchPageLabels } from './searchPageLabels';
 
-const currentQuery = () => (new URLSearchParams(window.location.search).get('q') || '').trim();
-
 function SearchContent() {
   const { lang } = useLanguage();
   const t = (key) => searchPageLabels[lang]?.[key] || searchPageLabels.fr[key] || key;
-  const query = currentQuery();
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const query = (searchParams.get('q') || '').trim();
   const [value, setValue] = useState(query);
 
   useEffect(() => setValue(query), [query]);
@@ -21,7 +22,7 @@ function SearchContent() {
   const submit = (event) => {
     event.preventDefault();
     const q = value.trim();
-    window.location.href = `${url('search.html')}${q ? `?q=${encodeURIComponent(q)}` : ''}`;
+    navigate(`/search${q ? `?q=${encodeURIComponent(q)}` : ''}`);
   };
 
   const q = normalize(query);
