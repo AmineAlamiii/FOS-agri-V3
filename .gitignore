@@ -11,3 +11,5 @@ Thumbs.db
 
 # Claude Code worktrees — never push these to GitHub
 .claude/worktrees/
+node_modules/
+dist/

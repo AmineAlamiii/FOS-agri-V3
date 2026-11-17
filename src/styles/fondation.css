@@ -2,7 +2,7 @@
 .fondation-hero {
   background:
     linear-gradient(135deg, rgba(14, 61, 38, 0.9), rgba(17, 94, 58, 0.72)),
-    url('images/moroccan-family.jpg') center/cover no-repeat;
+    url('/assets/images/moroccan-family.jpg') center/cover no-repeat;
 }
 
 .foundation-hero-actions {

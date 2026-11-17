@@ -4,7 +4,7 @@
   padding: 10rem 0 5rem;
   background:
     linear-gradient(135deg, rgba(14, 61, 38, 0.92), rgba(17, 94, 58, 0.78)),
-    url('images/moroccan-family.jpg') center/cover no-repeat;
+    url('/assets/images/moroccan-family.jpg') center/cover no-repeat;
   color: #fff;
   position: relative;
   overflow: hidden;

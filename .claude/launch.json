@@ -2,11 +2,17 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "local",
+      "name": "react",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--", "--port", "5173", "--strictPort"],
+      "port": 5173
+    },
+    {
+      "name": "legacy",
       "runtimeExecutable": "node",
-      "runtimeArgs": [".claude/serve.js"],
-      "port": 8080,
-      "autoPort": true
+      "runtimeArgs": [".claude/serve.cjs"],
+      "env": { "PORT": "8090", "ROOT": "/private/tmp/claude-501/-Users-aminealami--claude-spares-spare-MSTekz/76ce2f8a-1989-4908-9420-f3fb949c9bd1/scratchpad/legacy" },
+      "port": 8090
     }
   ]
 }

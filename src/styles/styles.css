@@ -1260,7 +1260,7 @@ html[dir="rtl"] textarea {
    SERVICES SECTION
    ============================ */
 .services-section {
-  background-image: url('images/moroccan-family.jpg');
+  background-image: url('/assets/images/moroccan-family.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -1612,25 +1612,25 @@ html[dir="rtl"] .partners-track {
 .news-media-1 {
   background-image:
     linear-gradient(180deg, transparent, rgba(24, 79, 52, 0.08)),
-    url("./images/news-vacances-2025.webp");
+    url("/assets/images/news-vacances-2025.webp");
 }
 
 .news-media-2 {
   background-image:
     linear-gradient(180deg, transparent, rgba(24, 79, 52, 0.08)),
-    url("./images/news-pathologie-bouregreg.jpg");
+    url("/assets/images/news-pathologie-bouregreg.jpg");
 }
 
 .news-media-3 {
   background-image:
     linear-gradient(180deg, transparent, rgba(24, 79, 52, 0.08)),
-    url("./images/news-omra-2025.jpg");
+    url("/assets/images/news-omra-2025.jpg");
 }
 
 .news-media-4 {
   background-image:
     linear-gradient(180deg, transparent, rgba(24, 79, 52, 0.08)),
-    url("./images/news-partenariat-sportif.jpg");
+    url("/assets/images/news-partenariat-sportif.jpg");
 }
 
 .news-media-5 {
@@ -1642,7 +1642,7 @@ html[dir="rtl"] .partners-track {
 .news-media-6 {
   background-image:
     linear-gradient(180deg, transparent, rgba(24, 79, 52, 0.08)),
-    url("./images/news-campagne-info.jpg");
+    url("/assets/images/news-campagne-info.jpg");
 }
 
 .news-body {
@@ -1736,7 +1736,7 @@ html[dir="rtl"] .partners-track {
   top: 0;
   bottom: 0;
   width: 40%;
-  background: url('./images/hero-2.jpg') center/cover no-repeat;
+  background: url('/assets/images/hero-2.jpg') center/cover no-repeat;
   border-radius: 2rem 0 0 2rem;
   opacity: 0.65;
   -webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 0.8) 10%, rgba(0, 0, 0, 0.4) 55%, transparent 95%);
@@ -3024,7 +3024,7 @@ html[dir="rtl"] .partners-track {
   background:
     linear-gradient(90deg, rgba(24, 79, 52, 0.92) 0%, rgba(24, 79, 52, 0.78) 42%, rgba(24, 79, 52, 0.28) 100%),
     linear-gradient(180deg, rgba(18, 43, 30, 0.2), rgba(18, 43, 30, 0.05)),
-    url("./images/temoignage.jpg") center/cover no-repeat;
+    url("/assets/images/temoignage.jpg") center/cover no-repeat;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -3387,7 +3387,7 @@ html[dir="rtl"] .testimonial-arrow i {
   background:
     linear-gradient(90deg, rgba(150, 115, 40, 0.56) 0%, rgba(180, 138, 50, 0.48) 42%, rgba(200, 164, 77, 0.18) 100%),
     linear-gradient(180deg, rgba(100, 70, 10, 0.1), rgba(100, 70, 10, 0.02)),
-    url('images/espace-adherent.jpg') center/cover no-repeat;
+    url('/assets/images/espace-adherent.jpg') center/cover no-repeat;
   color: #fff;
 }
 
@@ -3406,7 +3406,7 @@ html[dir="rtl"] .testimonial-arrow i {
   background:
     linear-gradient(90deg, rgba(24, 79, 52, 0.58) 0%, rgba(24, 79, 52, 0.48) 42%, rgba(24, 79, 52, 0.18) 100%),
     linear-gradient(180deg, rgba(18, 43, 30, 0.1), rgba(18, 43, 30, 0.02)),
-    url('images/club-agri.jpg') center/cover no-repeat;
+    url('/assets/images/club-agri.jpg') center/cover no-repeat;
   color: #fff;
 }
 
