@@ -63,6 +63,7 @@ function Pagination({ current, onNavigate }) {
 
 function ActualitesContent() {
   const t = useSecondaryT();
+  const { lang } = useLanguage();
   const [page, setPage] = useState(() => clampPage(pageFromUrl()));
 
   useEffect(() => {
@@ -90,7 +91,8 @@ function ActualitesContent() {
         <div className="container">
           <div className="page-news-grid">
             {NEWS.slice(start, start + PER_PAGE).map((item, offset) => (
-              <NewsCard key={item.slug || start + offset} item={item} index={start + offset} />
+              // Clé liée à la langue : les cartes sont recréées (et réanimées) comme avant.
+              <NewsCard key={`${lang}-${item.slug || start + offset}`} item={item} index={start + offset} />
             ))}
           </div>
           <Pagination current={page} onNavigate={navigate} />

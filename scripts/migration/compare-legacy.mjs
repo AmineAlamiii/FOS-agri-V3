@@ -31,6 +31,8 @@ const langs = opt('langs', 'fr,ar,zgh').split(',');
 const viewports = opt('viewports', 'desktop,mobile').split(',');
 const wait = Number(opt('wait', '2500'));
 const scroll = opt('scroll', 'top');
+// --switch : charger en FR puis cliquer sur le bouton de langue (changement en direct).
+const liveSwitch = args.includes('--switch') ? (args.splice(args.indexOf('--switch'), 1), true) : false;
 const pages = args.length ? args : ['contact.html'];
 const CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const SIZES = { desktop: [1440, 900, false], mobile: [390, 844, true] };
@@ -169,11 +171,16 @@ async function capture(cdp, url, lang, viewport) {
   await s('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile });
   await s('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] });
   // Langue enregistrée avant le chargement de la page.
-  await s('Page.addScriptToEvaluateOnNewDocument', { source: `try { localStorage.setItem('fosagri-lang', ${JSON.stringify(lang)}); } catch (e) {}` });
+  await s('Page.addScriptToEvaluateOnNewDocument', { source: `try { if (!sessionStorage.getItem('fos-init')) { sessionStorage.setItem('fos-init', '1'); localStorage.setItem('fosagri-lang', ${JSON.stringify(liveSwitch ? 'fr' : lang)}); } } catch (e) {}` });
   const loaded = cdp.once('Page.loadEventFired', sessionId);
   await s('Page.navigate', { url });
   await loaded;
   await new Promise((r) => setTimeout(r, wait));
+  if (liveSwitch) {
+    const click = `(() => { const b = [...document.querySelectorAll('.lang-btn[data-lang="${lang}"], [data-lang="${lang}"]')].find((el) => el.offsetParent !== null) || document.querySelector('[data-lang="${lang}"]'); b && b.click(); return !!b; })()`;
+    await s('Runtime.evaluate', { expression: click });
+    await new Promise((r) => setTimeout(r, 1200));
+  }
   if (scroll === 'bottom') {
     await s('Runtime.evaluate', { expression: 'window.scrollTo(0, document.body.scrollHeight)' });
     await new Promise((r) => setTimeout(r, 800));

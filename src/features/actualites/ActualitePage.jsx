@@ -53,7 +53,7 @@ function ActualiteContent() {
         <PageHero className="actualite-detail-hero" kicker={kicker} title={t('articleNotFoundTitle')} body={t('articleNotFoundBody')} />
         <section className="section">
           <div className="container actualite-detail">
-            <div className="page-card actualite-detail-card actualite-detail-empty">
+            <div key={lang} className="page-card actualite-detail-card actualite-detail-empty">
               <p>{t('articleNotFoundBody')}</p>
               <a className="article-back-link" href={url('actualites.html')}>{t('articleBack')}</a>
             </div>
@@ -69,7 +69,8 @@ function ActualiteContent() {
       <PageHero className="actualite-detail-hero" kicker={kicker} title={content.title || ''} body={content.excerpt || ''} />
       <section className="section">
         <div className="container actualite-detail">
-          <div className="page-card actualite-detail-card">
+          {/* Recréée à chaque changement de langue, comme l'ancien rendu. */}
+          <div key={lang} className="page-card actualite-detail-card">
             <div className="actualite-detail-media" style={{ backgroundImage: `url("${newsImageUrl(index, item)}")` }} aria-hidden="true"></div>
             <div className="actualite-detail-content">
               <span className="page-date">{newsMeta(index, item, lang)}</span>
