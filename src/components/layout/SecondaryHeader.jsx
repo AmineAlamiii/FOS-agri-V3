@@ -7,7 +7,7 @@ import NavActions from './NavActions';
 import SiteNav from './SiteNav';
 
 /** En-tête commun des pages secondaires. */
-export default function SecondaryHeader({ activePage, brandLabel }) {
+export default function SecondaryHeader({ activePage, brandLabel, headerId = 'top' }) {
   const headerRef = useRef(null);
   const toggleRef = useRef(null);
   const { menuOpen, setMenuOpen } = useLayout();
@@ -26,7 +26,7 @@ export default function SecondaryHeader({ activePage, brandLabel }) {
   }, [setMenuOpen]);
 
   return (
-    <header className="site-header" id="top" ref={headerRef}>
+    <header className="site-header" id={headerId || undefined} ref={headerRef}>
       <div className="container nav-shell">
         <a className="brand" href={url('index.html')} aria-label={brandLabel}>
           <span className="brand-mark"><img src={url('assets/images/logo.png')} alt="Logo FOS-Agri" width="78" height="60" decoding="async" /></span>

@@ -34,6 +34,10 @@ const scroll = opt('scroll', 'top');
 // --switch : charger en FR puis cliquer sur le bouton de langue (changement en direct).
 const liveSwitch = args.includes('--switch') ? (args.splice(args.indexOf('--switch'), 1), true) : false;
 const probe = opt('probe', '');
+// --actions : JavaScript exécuté dans les deux versions avant la comparaison (clics, saisie…).
+const actions = opt('actions', '');
+// --init : JavaScript injecté au tout début de la page (débogage).
+const initScript = opt('init', '');
 const pages = args.length ? args : ['contact.html'];
 const CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const SIZES = { desktop: [1440, 900, false], mobile: [390, 844, true] };
@@ -50,6 +54,7 @@ const NORMALIZE = `(() => {
   const CSS_DATA_ATTRS = new Set(['data-header-search', 'data-service', 'data-scroll-reveal', 'data-region', 'data-state', 'data-reveal-style', 'data-page', 'data-lang']);
   const isIgnoredAttr = (el, name, value) => IGNORED_ATTRS.has(name)
     || (name.startsWith('data-') && !CSS_DATA_ATTRS.has(name))
+    || /^on[a-z]+$/.test(name)
     || (name === 'value' && el.tagName === 'INPUT');
   const BLOCKISH = (el) => {
     if (!el || el.nodeType !== 1) return true;
@@ -173,6 +178,7 @@ async function capture(cdp, url, lang, viewport) {
   await s('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] });
   // Langue enregistrée avant le chargement de la page.
   await s('Page.addScriptToEvaluateOnNewDocument', { source: `try { if (!sessionStorage.getItem('fos-init')) { sessionStorage.setItem('fos-init', '1'); localStorage.setItem('fosagri-lang', ${JSON.stringify(liveSwitch ? 'fr' : lang)}); } } catch (e) {}` });
+  if (initScript) await s('Page.addScriptToEvaluateOnNewDocument', { source: initScript });
   const loaded = cdp.once('Page.loadEventFired', sessionId);
   await s('Page.navigate', { url });
   await loaded;
@@ -181,6 +187,10 @@ async function capture(cdp, url, lang, viewport) {
     const click = `(() => { const b = [...document.querySelectorAll('.lang-btn[data-lang="${lang}"], [data-lang="${lang}"]')].find((el) => el.offsetParent !== null) || document.querySelector('[data-lang="${lang}"]'); b && b.click(); return !!b; })()`;
     await s('Runtime.evaluate', { expression: click });
     await new Promise((r) => setTimeout(r, 1200));
+  }
+  if (actions) {
+    await s('Runtime.evaluate', { expression: `(async () => { ${actions} })()`, awaitPromise: true });
+    await new Promise((r) => setTimeout(r, 1500));
   }
   if (scroll === 'bottom') {
     await s('Runtime.evaluate', { expression: 'window.scrollTo(0, document.body.scrollHeight)' });

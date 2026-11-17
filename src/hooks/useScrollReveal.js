@@ -57,7 +57,8 @@ export function useScrollReveal() {
       });
     };
 
-    register();
+    // Premier passage à l'image suivante : le contenu rendu au montage est alors en place.
+    const firstFrame = requestAnimationFrame(register);
     const mutations = new MutationObserver((records) => {
       records.forEach((record) => {
         const el = record.target;
@@ -69,6 +70,7 @@ export function useScrollReveal() {
     });
     mutations.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] });
     return () => {
+      cancelAnimationFrame(firstFrame);
       observer.disconnect();
       mutations.disconnect();
     };

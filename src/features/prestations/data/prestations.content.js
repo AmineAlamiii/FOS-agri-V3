@@ -1,0 +1,2625 @@
+/* eslint-disable */
+/**
+ * Contenu des prestations (FR / AR / ZGH) — repris tel quel de l'ancien
+ * assets/prestations.js : menus des sous-rubriques, textes, conventions,
+ * offres et données d'affichage. Aucune logique d'interface ici.
+ *
+ * `serviceText(key, lang)` renvoie le contenu localisé d'une prestation
+ * (menu, centre « À propos », sections complémentaires…).
+ */
+const icons = {
+  prevoyance: 'fa-heart-pulse',
+  culture: 'fa-plane-departure',
+  formation: 'fa-graduation-cap',
+  logement: 'fa-house-chimney',
+  projets: 'fa-hand-holding-dollar',
+  quotidien: 'fa-utensils'
+};
+
+const prevoyanceMenuItems = [
+  {
+    id: 'a-propos',
+    icon: 'fa-circle-info',
+    labels: {
+      fr: 'À PROPOS',
+      ar: 'حول الخدمة',
+      zgh: 'ⵅⴼ ⵜⴰⵏⴼⵓⵜ'
+    }
+  },
+  {
+    id: 'amc',
+    icon: 'fa-shield-heart',
+    labels: {
+      fr: 'ASSURANCE MALADIE COMPLÉMENTAIRE',
+      ar: 'التأمين الصحي التكميلي',
+      zgh: 'ⴰⵙⵙⵓⵔⴰⵏⵙ ⴰⴷⵓⵙⴰⵏ ⴰⵎⵔⵏⴰⵡ'
+    }
+  },
+  {
+    id: 'amts',
+    icon: 'fa-truck-medical',
+    labels: {
+      fr: 'ASSISTANCE MÉDICALE ET TRANSPORT SANITAIRE',
+      ar: 'المساعدة والنقل الصحي',
+      zgh: 'ⵜⴰⵍⵍⴰⵍⵜ ⵜⴰⴷⵓⵙⴰⵏⵜ ⴷ ⵓⵙⵉⵡⴹ ⴰⴷⵓⵙⴰⵏ'
+    }
+  },
+  {
+    id: 'centre-medico-social',
+    icon: 'fa-house-medical',
+    labels: {
+      fr: 'CENTRE MEDICO-SOCIAL',
+      ar: 'المركز الطبي الاجتماعي',
+      zgh: 'ⴰⵎⵎⴰⵙ ⴰⴷⵓⵙⴰⵏ ⴰⵏⴰⵎⵓⵏ'
+    }
+  },
+  {
+    id: 'aides-besoins-specifiques',
+    icon: 'fa-hands-holding-child',
+    labels: {
+      fr: 'AIDES AUX PERSONNES AUX BESOINS SPECIFIQUES',
+      ar: 'دعم الأشخاص ذوي الاحتياجات الخاصة',
+      zgh: 'ⴰⵎⵓⴷⴷⵓ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵙ ⵉⵙⵡⵉⵔⵏ ⵉⵎⵥⵍⵉⵢⵏ'
+    }
+  },
+  {
+    id: 'conventions-medicales',
+    icon: 'fa-file-contract',
+    labels: {
+      fr: 'CONVENTIONS ET PARTENARIATS MEDICALES',
+      ar: 'الاتفاقيات والشراكات الطبية',
+      zgh: 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⴷ ⵉⵣⴷⴰⵢⵏ ⵉⴷⵓⵙⴰⵏⵏ'
+    }
+  }
+];
+
+const subIcons = {
+  prevoyance: prevoyanceMenuItems.map((item) => item.icon),
+  culture: ['fa-circle-info', 'fa-umbrella-beach', 'fa-child-reaching', 'fa-language', 'fa-campground', 'fa-bus', 'fa-kaaba', 'fa-place-of-worship', 'fa-award', 'fa-handshake', 'fa-suitcase-medical'],
+  formation: ['fa-circle-info', 'fa-chalkboard-user', 'fa-medal', 'fa-hand-holding-heart', 'fa-sack-dollar', 'fa-handshake'],
+  logement: ['fa-circle-info', 'fa-hand-holding-heart', 'fa-building-columns', 'fa-building', 'fa-helmet-safety'],
+  projets: ['fa-circle-info', 'fa-hand-holding-dollar', 'fa-credit-card', 'fa-car-burst', 'fa-couch', 'fa-route'],
+  quotidien: ['fa-circle-info', 'fa-utensils', 'fa-bus']
+};
+
+const image = {
+  prevoyance: 'assets/images/prestation-prevoyance-hero.png',
+  culture: 'assets/images/prestation-culture-hero.png',
+  formation: 'assets/images/prestation-formation-hero.png',
+  logement: 'assets/images/prestation-logement-hero.png',
+  projets: 'assets/images/prestation-projets-hero.png',
+  /* Image provisoire : à remplacer par un visuel dédié aux services du quotidien. */
+  quotidien: 'assets/images/prestation-projets-hero.png'
+};
+
+
+const labels = {
+  fr: {
+    kicker: 'Prestations sociales',
+    discover: 'Découvrir',
+    contact: 'Nous contacter',
+    back: 'Toutes les prestations',
+    explore: 'Voir les prestations',
+    catalogueTitle: 'Prestations FOS-Agri',
+    catalogueBody: 'Découvrez les prestations sociales de la Fondation : santé, culture, scolarisation, logement et projets personnels.',
+    flowTitle: 'Choisir une prestation',
+    flowBody: 'Sélectionnez une prestation pour afficher ses services et accéder à sa page dédiée.',
+    flow1: 'Identifier le besoin', flow1Body: 'Santé, scolarité, logement, loisirs ou projet personnel.',
+    flow2: 'Consulter la prestation', flow2Body: 'Comprendre les garanties, les plafonds et les partenaires disponibles.',
+    flow3: 'Préparer le dossier', flow3Body: 'Rassembler les justificatifs selon la prestation concernée.',
+    flow4: 'Contacter la Fondation', flow4Body: 'Être orienté par les équipes FOS-Agri ou les relais régionaux.',
+    seeMore: 'Voir plus',
+    rubriques: 'Rubriques',
+    subrubriques: 'Sous-rubriques',
+    icons2d: 'Icônes 2D',
+    details: 'Détails de la prestation',
+    partners: 'Conventions et partenaires',
+    steps: 'Parcours adhérent',
+    bankOffers: {
+      title: 'Offres bancaires à des taux de crédits préférentiels',
+      intro: 'La FOS-Agri négocie avec des banques partenaires des offres de crédit immobilier à des conditions préférentielles. Téléchargez la fiche de chaque banque pour consulter l’offre et l’âge limite de crédit.',
+      ageLabel: 'Âge limite de crédit',
+      download: 'Télécharger l’offre'
+    },
+    medicalPartners: {
+      badge: 'Conventions médicales',
+      title: 'Conventions et partenariats médicaux',
+      intro: 'La FOS-Agri met à la disposition de ses adhérents un réseau de conventions médicales pensé pour faciliter l’accès à des prestations de santé de proximité. Les partenaires sont consultables par région grâce à la carte interactive, tandis que les conventions relevant du niveau central sont regroupées dans un espace dédié afin d’identifier rapidement les laboratoires, cliniques, cabinets, opticiens, pharmacies et praticiens conventionnés.',
+      regionalTitle: 'Partenaires par région',
+      regionalIntro: 'Carte interactive des partenaires médicaux régionaux.',
+      centralTitle: 'Au Niveau Central',
+      centralIntro: 'Conventions et partenaires rattachés au niveau central.',
+      search: 'Rechercher',
+      searchPlaceholder: 'Médecin, organisme, spécialité, adresse ou ville',
+      city: 'Ville',
+      allCities: 'Toutes les villes',
+      category: 'Catégorie',
+      allCategories: 'Toutes les catégories',
+      region: 'Région',
+      allRegions: 'Toutes les régions',
+      results: 'résultat(s)',
+      noResults: 'Aucun partenaire ne correspond aux filtres.',
+      noRegional: 'Aucun partenaire régional renseigné pour cette région.',
+      selectRegionalFilter: 'Sélectionnez une région ou une catégorie pour afficher les partenaires.',
+      selectCentralFilter: 'Sélectionnez une catégorie pour afficher les partenaires du niveau central.',
+      downloadNotice: 'Télécharger avis',
+      downloadContact: 'Télécharger contact',
+      downloadUnavailable: 'Avis indisponible',
+      status: 'Statut',
+      openingDate: "Date d'ouverture",
+      address: 'Adresse',
+      phone: 'Téléphone',
+      fax: 'Fax',
+      email: 'Email',
+      doctor: 'Médecin',
+      organization: 'Organisme',
+      selectedRegion: 'Région sélectionnée',
+      mapLabel: 'Carte interactive des régions du Maroc',
+      regionsListLabel: 'Sélection rapide des régions',
+      pageLabel: 'Page',
+      previousPage: 'Précédent',
+      nextPage: 'Suivant'
+    }
+  },
+  ar: {
+    kicker: 'الخدمات الاجتماعية',
+    discover: 'اكتشف',
+    contact: 'اتصل بنا',
+    back: 'كل الخدمات',
+    explore: 'استكشاف الخانات',
+    catalogueTitle: 'خدمات FOS-Agri',
+    catalogueBody: 'فهرس منظم للخدمات الاجتماعية للمؤسسة: الصحة، الثقافة، التمدرس، السكن والمشاريع الشخصية.',
+    flowTitle: 'التصفح حسب الحاجة',
+    flowBody: 'اختر خانة للاطلاع على خدماتها الفرعية والولوج إلى صفحتها.',
+    flow1: 'تحديد الحاجة', flow1Body: 'الصحة، الدراسة، السكن، الترفيه أو المشروع الشخصي.',
+    flow2: 'الاطلاع على الخدمة', flow2Body: 'فهم الضمانات والأسقف والشركاء المتاحين.',
+    flow3: 'إعداد الملف', flow3Body: 'تجميع الوثائق حسب الخدمة المطلوبة.',
+    flow4: 'التواصل مع المؤسسة', flow4Body: 'توجيه المنخرط من طرف فرق FOS-Agri أو المنسقين الجهويين.',
+    seeMore: 'عرض المزيد',
+    rubriques: 'خانات',
+    subrubriques: 'الخدمات الفرعية',
+    icons2d: 'أيقونات 2D',
+    details: 'تفاصيل الخدمة',
+    partners: 'الاتفاقيات والشركاء',
+    steps: 'مسار المنخرط',
+    bankOffers: {
+      title: 'عروض بنكية بنسب قروض تفضيلية',
+      intro: 'تتفاوض FOS-Agri مع أبناك شريكة حول عروض القروض العقارية بشروط تفضيلية. حمّل بطاقة كل بنك للاطلاع على العرض والسن الأقصى للقرض.',
+      ageLabel: 'السن الأقصى للقرض',
+      download: 'تحميل العرض'
+    },
+    medicalPartners: {
+      badge: 'اتفاقيات طبية',
+      title: 'الاتفاقيات والشراكات الطبية',
+      intro: 'تضع FOS-Agri رهن إشارة منخرطيها شبكة من الاتفاقيات الطبية لتسهيل الولوج إلى خدمات صحية قريبة وملائمة. يمكن الاطلاع على الشركاء حسب الجهة عبر الخريطة التفاعلية، بينما تجمع اتفاقيات المستوى المركزي في فضاء مستقل يساعد على التعرف بسرعة على المختبرات والمصحات والعيادات والنظارات والصيدليات والممارسين المتعاقدين.',
+      regionalTitle: 'الشركاء حسب الجهة',
+      regionalIntro: 'خريطة تفاعلية للشركاء الطبيين الجهويين.',
+      centralTitle: 'على المستوى المركزي',
+      centralIntro: 'اتفاقيات وشركاء مرتبطون بالمستوى المركزي.',
+      search: 'بحث',
+      searchPlaceholder: 'طبيب، مؤسسة، تخصص، عنوان أو مدينة',
+      city: 'المدينة',
+      allCities: 'كل المدن',
+      category: 'الفئة',
+      allCategories: 'كل الفئات',
+      region: 'الجهة',
+      allRegions: 'كل الجهات',
+      results: 'نتيجة',
+      noResults: 'لا يوجد شريك مطابق للمرشحات.',
+      noRegional: 'لا يوجد شريك جهوي مسجل لهذه الجهة.',
+      selectRegionalFilter: 'اختر جهة أو فئة لعرض الشركاء.',
+      selectCentralFilter: 'اختر فئة لعرض شركاء المستوى المركزي.',
+      downloadNotice: 'تحميل الإشعار',
+      downloadContact: 'تحميل جهة الاتصال',
+      downloadUnavailable: 'الإشعار غير متوفر',
+      status: 'الوضعية',
+      openingDate: 'تاريخ الافتتاح',
+      address: 'العنوان',
+      phone: 'الهاتف',
+      fax: 'الفاكس',
+      email: 'البريد الإلكتروني',
+      doctor: 'الطبيب',
+      organization: 'المؤسسة',
+      selectedRegion: 'الجهة المختارة',
+      mapLabel: 'خريطة تفاعلية لجهات المغرب',
+      regionsListLabel: 'اختيار سريع للجهات',
+      pageLabel: 'صفحة',
+      previousPage: 'السابق',
+      nextPage: 'التالي'
+    }
+  },
+  zgh: {
+    kicker: 'ⵜⵉⵏⴼⴰⵙ ⵜⵉⵎⴰⴷⴰⵏⵉⵏ',
+    discover: 'ⵙⵙⵏ',
+    contact: 'ⵎⵢⴰⵡⴰⵍ',
+    back: 'ⴽⵔⴰ ⵜⵉⵏⴼⴰⵙ',
+    explore: 'ⵙⵙⵏ ⵜⵉⵙⴳⴰⵔ',
+    catalogueTitle: 'ⵜⵉⵏⴼⴰⵙ ⵏ FOS-Agri',
+    catalogueBody: 'ⴰⵙⵎⵓⵜⵜⴳ ⵏ ⵜⵉⵏⴼⴰⵙ: ⵜⴰⴷⵓⵙⵉ, ⵜⴰⴷⵍⵙⴰ, ⴰⵙⵍⵎⴷ, ⴰⵙⵖⵉⵎ ⴷ ⵉⵎⵙⴰⵍⵏ.',
+    flowTitle: 'ⴰⵙⵙⵏ ⵙ ⵓⵙⵔⵓⵜ',
+    flowBody: 'ⴼⵔⵏ ⵜⴰⵙⴳⴰ ⴰⴷ ⵜⵥⵕⴷ ⵜⵉⵙⴳⴰⵔ ⵜⵉⵎⵥⵥⵉⵢⵏ.',
+    flow1: 'ⵙⵙⵏ ⴰⵙⵔⵓⵜ', flow1Body: 'ⵜⴰⴷⵓⵙⵉ, ⴰⵙⵍⵎⴷ, ⴰⵙⵖⵉⵎ, ⴰⵙⴰⵢⴰⵕ ⵏⵖ ⴰⵙⵏⴼⴰⵔ.',
+    flow2: 'ⵥⵕ ⵜⴰⵏⴼⵓⵙⵜ', flow2Body: 'ⴰⴷ ⵜⵙⵙⵏⴷ ⵜⵉⵣⴳⴰⵣ, ⵉⵙⵡⵉⵔⵏ ⴷ ⵉⵣⴷⴰⵢⵏ.',
+    flow3: 'ⵙⵎⵓⵜⵜⴳ ⴰⴼⴰⵢⵍⵓ', flow3Body: 'ⵙⵎⵓⵏ ⵜⵉⴽⴰⵔⴹⵉⵡⵉⵏ ⵙ ⵎⴽ ⵜⴳⴰ ⵜⴰⵏⴼⵓⵙⵜ.',
+    flow4: 'ⵎⵢⴰⵡⴰⵍ ⴷ ⵜⵙⴷⴰⵡⵉⵜ', flow4Body: 'ⴰⴷ ⴽ ⵙⵙⴷⵓⵏ ⵉⵎⵙⵙⵓⵔⵉⵏ ⵏ FOS-Agri ⵏⵖ ⵉⵎⵙⵏⴰⵡⵏ.',
+    seeMore: 'ⵥⵕ ⵓⴳⴳⴰⵔ',
+    rubriques: 'ⵜⵉⵙⴳⴰⵔ',
+    subrubriques: 'ⵜⵉⵙⴳⴰⵔ ⵜⵉⵎⵥⵥⵉⵢⵏ',
+    icons2d: 'ⵉⴽⵓⵏⵏ 2D',
+    details: 'ⵜⵉⴼⵔⵓⵔⵉⵏ',
+    partners: 'ⵉⵣⴷⴰⵢⵏ',
+    steps: 'ⴰⴱⵔⵉⴷ ⵏ ⵓⵎⵏⵅⵔⴰⵟ',
+    bankOffers: {
+      title: 'ⵉⴼⵔⴰⵏ ⵏ ⵉⴱⴰⵏⴽⵏ ⵙ ⵜⵎⴰⵏⴰⵡⵜ ⵉⵎⵥⵍⵉⵢⵏ',
+      intro: 'ⵜⵙⵎⵓⵏ FOS-Agri ⴷ ⵉⴱⴰⵏⴽⵏ ⵉⵣⴷⵉⵏ ⵉⴼⵔⴰⵏ ⵏ ⵓⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵖⵉⵎ. ⵙⵉⴷⵔ ⵜⴰⴽⴰⵔⴹⴰ ⵏ ⴽⵓ ⴱⴰⵏⴽ.',
+      ageLabel: 'ⵜⵉⵍⴰⵍ ⵏ ⵓⴽⵔⵉⴹⵉ',
+      download: 'ⵙⵉⴷⵔ ⴰⴼⵔⴰⵏ'
+    },
+    medicalPartners: {
+      badge: 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⵉⴷⵓⵙⴰⵏⵏ',
+      title: 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⴷ ⵉⵣⴷⴰⵢⵏ ⵉⴷⵓⵙⴰⵏⵏ',
+      intro: 'FOS-Agri ⵜⵙⵙⵓⴼⵖ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵙ ⴰⵣⵟⵟⴰ ⵏ ⵉⵎⵙⴰⵡⴰⴹⵏ ⵉⴷⵓⵙⴰⵏⵏ ⴰⴷ ⵉⵙⵙⴼⵙⵓⵙ ⴰⴽⵛⵛⵓⵎ ⵖⵔ ⵜⵏⴼⴰⵙ ⵏ ⵜⴰⴷⵓⵙⵉ ⵉⵇⵇⵔⴱⵏ. ⵉⵣⴷⴰⵢⵏ ⴰⴷ ⵜⵜⵓⵥⵕⴰⵏ ⵙ ⵜⵎⵏⴰⴹⵜ ⵙ ⵜⴽⴰⵕⴹⴰ ⵜⴰⵎⵢⴰⵡⴰⴹⵜ, ⴰⵎⵎⴰ ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵓⵙⵡⵉⵔ ⴰⵎⵎⴰⵙ ⵜⵜⵓⵙⵎⵓⵏⵏ ⴳ ⵜⵙⴳⴰ ⵉⵎⵥⵍⵉⵢⵏ ⴰⴷ ⵙⵙⵉⵡⵍⵏ ⵙ ⵜⵉⵣⵉ ⵖⵔ ⵉⵎⵣⵣⴰⵔⵏ, ⵉⵙⵉⴱⵉⵜⴰⵍⵏ, ⵜⵉⵔⵣⴰ, ⵉⵎⵙⵡⴰⵍⵏ ⵏ ⵜⵉⵟⵟ, ⵜⵉⴼⴰⵔⵎⴰⵙⵉⵜⵉⵏ ⴷ ⵉⵎⵙⵙⵉⵊⵊⵉⵏ.',
+      regionalTitle: 'ⵉⵣⴷⴰⵢⵏ ⵙ ⵜⵎⵏⴰⴹⵜ',
+      regionalIntro: 'ⵜⴰⴽⴰⵕⴹⴰ ⵜⴰⵎⵢⴰⵡⴰⴹⵜ ⵏ ⵉⵣⴷⴰⵢⵏ ⵉⵏⵏⴰⵡⵏ.',
+      centralTitle: 'ⴳ ⵓⵙⵡⵉⵔ ⴰⵎⵎⴰⵙ',
+      centralIntro: 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⴷ ⵉⵣⴷⴰⵢⵏ ⵏ ⵓⵙⵡⵉⵔ ⴰⵎⵎⴰⵙ.',
+      search: 'ⵔⵣⵓ',
+      searchPlaceholder: 'ⴰⵎⵙⵙⵉⵊⵊⵉ, ⴰⵎⴰⵙⵙⴰⵙ, ⵜⴰⵎⵥⵍⴰ, ⵜⴰⵏⵙⴰ ⵏⵖ ⵜⴰⵎⴷⵉⵏⵜ',
+      city: 'ⵜⴰⵎⴷⵉⵏⵜ',
+      allCities: 'ⴽⵓ ⵜⵉⵎⴷⵉⵏⵉⵏ',
+      category: 'ⵜⴰⴳⴳⴰⵢⵜ',
+      allCategories: 'ⴽⵓ ⵜⵉⴳⴳⴰⵢⵉⵏ',
+      region: 'ⵜⴰⵎⵏⴰⴹⵜ',
+      allRegions: 'ⴽⵓ ⵜⵉⵎⵏⴰⴹⵉⵏ',
+      results: 'ⵜⵉⴼⵔⵉⵏ',
+      noResults: 'ⵓⵔ ⵉⵍⵍⵉ ⵓⵣⴷⴰⵢ ⵉⵎⵙⴰⵙⴰⵏ ⴷ ⵉⵙⵜⴰⵢⵏ.',
+      noRegional: 'ⵓⵔ ⵉⵍⵍⵉ ⵓⵣⴷⴰⵢ ⴰⵏⵏⴰⵡ ⵉ ⵜⵎⵏⴰⴹⵜ ⴰⴷ.',
+      selectRegionalFilter: 'ⴼⵔⵏ ⵜⴰⵎⵏⴰⴹⵜ ⵏⵖ ⵜⴰⴳⴳⴰⵢⵜ ⴰⴷ ⵜⵙⴽⵏⴷ ⵉⵣⴷⴰⵢⵏ.',
+      selectCentralFilter: 'ⴼⵔⵏ ⵜⴰⴳⴳⴰⵢⵜ ⴰⴷ ⵜⵙⴽⵏⴷ ⵉⵣⴷⴰⵢⵏ ⵏ ⵓⵙⵡⵉⵔ ⴰⵎⵎⴰⵙ.',
+      downloadNotice: 'ⵙⵉⴷⵔ ⴰⵙⴰⵍⵉ',
+      downloadContact: 'ⵙⵉⴷⵔ ⴰⵎⵢⴰⵡⴰⴹ',
+      downloadUnavailable: 'ⴰⵙⴰⵍⵉ ⵓⵔ ⵉⵍⵍⵉ',
+      status: 'ⴰⴷⴷⴰⴷ',
+      openingDate: 'ⴰⵙⴰⴽⵓⴷ ⵏ ⵓⵍⴷⴰⵢ',
+      address: 'ⵜⴰⵏⵙⴰ',
+      phone: 'ⵜⵉⵍⵉⴼⵓⵏ',
+      fax: 'ⴼⴰⴽⵙ',
+      email: 'ⵉⵎⴰⵢⵍ',
+      doctor: 'ⴰⵎⵙⵙⵉⵊⵊⵉ',
+      organization: 'ⴰⵎⴰⵙⵙⴰⵙ',
+      selectedRegion: 'ⵜⴰⵎⵏⴰⴹⵜ ⵉⵜⵜⵓⴼⵔⵏ',
+      mapLabel: 'ⵜⴰⴽⴰⵕⴹⴰ ⵜⴰⵎⵢⴰⵡⴰⴹⵜ ⵏ ⵜⵎⵏⴰⴹⵉⵏ ⵏ ⵍⵎⵖⵔⵉⴱ',
+      regionsListLabel: 'ⴰⵙⵜⴰⵢ ⴰⵙⵔⵉⴷ ⵏ ⵜⵎⵏⴰⴹⵉⵏ',
+      pageLabel: 'ⵜⴰⵙⵏⴰ',
+      previousPage: 'ⵓⵣⵡⵉⵔ',
+      nextPage: 'ⵓⴹⴼⵉⵔ'
+    }
+  }
+};
+
+const amcDetailFr = {
+  tagLabel: 'Assurance Maladie Complémentaire (AMC)',
+  title: 'Assurance Maladie Complémentaire',
+  subtitle: 'Une couverture complémentaire à l’AMO-CNOPS permettant le remboursement ou la prise en charge d’une partie ou de la totalité des frais restant à la charge de l’adhérent, au Maroc et à l’étranger.',
+  dispositionsTitle: 'Dispositions contractuelles',
+  prestationsTitle: 'Prestations garanties',
+  casesTitle: 'Cas particuliers',
+  noteTitle: 'Note importante',
+  assuredLabel: 'Affections et actes médicaux assurés',
+  benefitsLabel: 'Prestations garanties',
+  expandLabel: 'Afficher le détail',
+  collapseLabel: 'Réduire le détail',
+  paginationLabel: 'Cartes des dispositions contractuelles AMC',
+  dispositions: [
+    {
+      icon: 'fa-file-shield',
+      title: 'Objet de la garantie',
+      body: ['En cas de maladie ou d’accident, Sanlam Maroc s’engage à rembourser ou à prendre en charge, dans le cadre de l’Assurance Maladie Complémentaire en complément à l’AMO-CNOPS, une partie ou la totalité des frais restant à la charge de l’adhérent, suite à des dépenses de santé engagées au Maroc et à l’étranger, conformément aux taux, bases et plafonds de remboursement définis par le contrat.']
+    },
+    {
+      icon: 'fa-percent',
+      title: 'Taux de remboursement',
+      body: ['Les remboursements sont effectués à hauteur de 100% de la différence entre les frais engagés par l’Adhérent-Assuré et le règlement effectué ou à effectuer par le régime de l’Assurance Maladie Obligatoire AMO, géré par la Caisse Nationale des Organismes de Prévoyance Sociale CNOPS.']
+    },
+    {
+      icon: 'fa-people-roof',
+      title: 'Bénéficiaires',
+      body: ['Option 1 : Couvre tous les adhérents de la Fondation, à savoir :'],
+      bullets: ['L’Adhérent-Assuré (actif et retraité) sans limite d’âge.', 'Le(s) conjoint(s) sans limite d’âge.', 'Les veuves et orphelins jusqu’à l’âge de 26 ans révolus, du personnel décédé.', 'Les enfants à charge jusqu’à l’âge de 26 ans révolus.', 'Les enfants handicapés sans limite d’âge.'],
+      bodyAfter: ['Option 2 : Couvre tous les adhérents de la fondation ayant souscrit à cette option moyennant le paiement de la prime annuelle de 115 Dhs.']
+    },
+    {
+      icon: 'fa-clock',
+      title: 'Délais de règlement des prestations',
+      body: ['Le règlement est effectué par Sanlam Maroc à l’Adhérent-Assuré, soit par virement bancaire, soit par mandat postal, dans un délai maximum de quinze 15 jours. Ce délai commence à courir à compter du jour qui suit la date de réception par l’assureur de la copie du dossier et des pièces justificatives.']
+    }
+  ],
+  options: [
+    {
+      title: 'Option 1',
+      note: '( Couverture de base pour tous les adhérent(e)s entièrement à la charge de la Fondation)',
+      kicker: 'Affections ALD-ALC, soins courants et hospitalisations',
+      guarantees: [
+        {
+          title: 'Soins ambulatoires relatifs aux affections ALD-ALC',
+          assured: 'Sont couverts les frais de santé engagés, liés à une Affection Longue Durée ALD ou une Affection Lourde et Coûteuse ALC, tels que définis par le régime AMO-CNOPS et faisant l’objet d’une intervention de la couverture AMO-CNOPS, suite à une maladie ou un accident.',
+          benefits: [
+            'Consultations et visites médicales : remboursement des frais de consultations et visites de médecins effectuées le jour, la nuit, y compris les jours fériés.',
+            'Actes médicaux et actes fournis par les auxiliaires médicaux : les actes médicaux courants et ceux fournis par les auxiliaires médicaux donnent droit au remboursement.',
+            'Analyses et imageries médicales : les analyses prescrites par ordonnance médicale et les examens d’imagerie donnent droit au remboursement complémentaire.',
+            'Pharmacie : remboursement complémentaire des médicaments prescrits par ordonnance médicale et pris en charge par l’AMO-CNOPS, sur la base du prix des génériques ou des princeps.'
+          ]
+        },
+        {
+          title: 'Soins ambulatoires hors ALD/ALC',
+          assured: 'Soins ambulatoires ne concernant pas des affections ALD/ALC.',
+          benefits: [
+            'Consultations et visites médicales : remboursées dans la limite d’un plafond de 2 500 Dhs par personne et par an.',
+            'Actes médicaux et actes fournis par les auxiliaires médicaux : remboursés à hauteur d’un plafond de 1 500 Dhs par personne et par an.',
+            'Pharmacie : médicaments prescrits par ordonnance médicale et pris en charge par l’AMO-CNOPS, avec un plafond de remboursement fixé à 2 500 Dhs par personne et par an.'
+          ]
+        },
+        {
+          title: 'Hospitalisations chirurgicales et/ou médicales',
+          assured: 'Hospitalisations chirurgicales et/ou médicales.',
+          benefits: [
+            'Hospitalisation médicale ou chirurgicale au Maroc : sur présentation de la facture et des pièces justificatives, remboursement au taux contractuel de la différence entre les frais engagés à concurrence du barème de la convention FMSAR / Association Nationale des Cliniques Privées, et le règlement effectué ou à effectuer par l’AMO-CNOPS.',
+            'Hospitalisation médicale ou chirurgicale à l’étranger : sur présentation de la facture et des pièces justificatives, remboursement au taux contractuel de la différence entre les frais engagés à concurrence du barème de la convention FMSAR / Association Nationale des Cliniques Privées, et le règlement effectué ou à effectuer par l’AMO-CNOPS.'
+          ]
+        }
+      ],
+      cases: [
+        ['fa-eye', 'Optique', 'Plafond de 600 Dhs pour verres progressifs + monture ou lentilles. Plafond de 400 Dhs pour verres non progressifs + monture ou lentilles. Par personne et par période de 24 mois pour les adultes et 12 mois pour les enfants de moins de 18 ans.'],
+        ['fa-x-ray', 'Scanner', 'Plafond de 750 Dhs par personne, par maladie et par an.'],
+        ['fa-magnet', 'IRM', 'Plafond de 1 500 Dhs par personne, par maladie et par an.'],
+        ['fa-tooth', 'Soins dentaires', 'Plafond de 1 500 Dhs par personne et par an.'],
+        ['fa-teeth', 'Orthodontie ODF', 'Plafond de 2 000 Dhs par semestre, par enfant de moins de 16 ans révolus, dans la limite de 6 semestres.'],
+        ['fa-person-walking', 'Rééducation', 'Plafond de 2 000 Dhs par maladie, par personne et par an.'],
+        ['fa-ear-listen', 'Prothèse auditive', 'Plafond de 5 000 Dhs par personne, par unité et par an.'],
+        ['fa-head-side-virus', 'Implants cochléaires', 'Plafond de 70 000 Dhs par personne et par an.'],
+        ['fa-stethoscope', 'Colonoscopie', 'Plafond de 500 Dhs par personne et par an.'],
+        ['fa-vial', 'Frottis', 'Plafond de 400 Dhs par personne et par an.'],
+        ['fa-ribbon', 'Mammographie', 'Plafond de 500 Dhs par personne et par an.'],
+        ['fa-wave-square', 'Echographie mammaire', 'Plafond de 500 Dhs par personne et par an.'],
+        ['fa-baby', 'Frais de mise en couveuse', 'Plafond de 700 Dhs par jour.'],
+        ['fa-flask-vial', 'Analyses médicales', 'Les analyses prescrites par ordonnance médicale donnent droit au remboursement complémentaire sans plafond.'],
+        ['fa-radiation', 'Petscan', 'Plafond de 6 000 Dhs par personne et par an.'],
+        ['fa-notes-medical', 'Fibroscan', 'Plafond de 400 Dhs par personne, par maladie et par an.'],
+        ['fa-crutch', 'Appareils orthopédiques et de prothèses hors prothèse dentaire', 'Plafond de 3 000 Dhs par personne et par an.']
+      ]
+    },
+    {
+      title: 'Option 2',
+      note: "( Couverture au choix plus étendue, en complément de l'option 1, moyennant une contribution annuelle de 115 dirhams, avec un engagement d'une durée minimale de 3 ans. )",
+      kicker: 'Soins ambulatoires hors ALD/ALC',
+      guarantees: [
+        {
+          title: 'Soins ambulatoires hors ALD/ALC',
+          assured: 'Soins ambulatoires ne concernant pas des affections ALD/ALC. Le remboursement de ces soins s’effectue dans la limite de 150% du Tarif National de Référence, sans aucun plafond par prestation.',
+          benefits: [
+            'Consultations et visites médicales : remboursement des frais de consultations et visites de médecins effectuées le jour, la nuit, y compris les jours fériés.',
+            'Actes médicaux et actes fournis par les auxiliaires médicaux : les actes médicaux courants et ceux fournis par les auxiliaires médicaux donnent droit au remboursement.',
+            'Pharmacie : médicaments prescrits par ordonnance médicale et pris en charge par l’AMO-CNOPS, sur la base du prix des génériques ou princeps.',
+            'Actes de radiologie et d’imagerie : remboursement complémentaire des actes de radiologie et d’imagerie réalisés par les auxiliaires médicaux.'
+          ]
+        }
+      ],
+      cases: [
+        ['fa-tooth', 'Prothèses dentaires', 'Plafond de 1 000 Dhs par personne et par an.'],
+        ['fa-baby-carriage', 'Accouchement normal', 'Plafond de 2 000 Dhs par personne et par an.'],
+        ['fa-hospital-user', 'Césarienne', 'À hauteur de 100% du ticket modérateur par personne et par an.'],
+        ['fa-eye', 'OCT', 'Plafond de 1 000 Dhs par personne et par an.'],
+        ['fa-radiation', 'VMAT', 'Plafond de 10 000 Dhs par personne et par an.'],
+        ['fa-x-ray', 'Coroscaner', 'Plafond de 2 000 Dhs par personne et par an.'],
+        ['fa-teeth-open', 'Dentascan', 'Plafond de 1 000 Dhs par personne et par an.'],
+        ['fa-bolt', 'Rapidarc', 'Plafond de 4 000 Dhs par personne et par an.'],
+        ['fa-file-medical', 'Radios hors nomenclature', 'Sur prescription médicale. Plafond de 2 500 Dhs par personne et par an.']
+      ]
+    }
+  ],
+  note: 'N.B : Les déclarations de maladie ou d’accident doivent parvenir chez Sanlam Maroc à travers ses agents gestionnaires AMC dans un délai maximal de 90 jours suivant la date de survenance du sinistre.'
+};
+
+const amcDetailAr = {
+  ...amcDetailFr,
+  tagLabel: 'التأمين الصحي التكميلي (AMC)',
+  title: 'التأمين الصحي التكميلي',
+  subtitle: 'تغطية تكميلية لنظام AMO-CNOPS تتيح تعويض أو تحمل جزء من المصاريف الصحية المتبقية على عاتق المنخرط، داخل المغرب وخارجه.',
+  dispositionsTitle: 'المقتضيات التعاقدية',
+  prestationsTitle: 'الخدمات المضمونة',
+  casesTitle: 'حالات خاصة',
+  noteTitle: 'ملاحظة مهمة',
+  assuredLabel: 'الأمراض والأعمال الطبية المؤمن عليها',
+  benefitsLabel: 'الخدمات المضمونة',
+  expandLabel: 'عرض التفاصيل',
+  collapseLabel: 'إخفاء التفاصيل',
+  paginationLabel: 'بطاقات المقتضيات التعاقدية للتأمين الصحي التكميلي',
+  dispositions: [
+    {
+      icon: 'fa-file-shield',
+      title: 'موضوع الضمان',
+      body: ['في حالة المرض أو الحادث، تلتزم Sanlam Maroc، في إطار التأمين الصحي التكميلي وبصفة مكملة لنظام AMO-CNOPS، بتعويض أو تحمل جزء أو مجموع المصاريف الصحية المتبقية على عاتق المنخرط، سواء تعلق الأمر بمصاريف داخل المغرب أو خارجه، وذلك وفق النسب والأسس والأسقف المحددة في العقد.']
+    },
+    {
+      icon: 'fa-percent',
+      title: 'نسبة التعويض',
+      body: ['تتم التعويضات في حدود 100% من الفرق بين المصاريف التي تحملها المنخرط المؤمن والتسوية المنجزة أو التي يتعين إنجازها من طرف نظام التأمين الإجباري عن المرض AMO، المسير من طرف الصندوق الوطني لمنظمات الاحتياط الاجتماعي CNOPS.']
+    },
+    {
+      icon: 'fa-people-roof',
+      title: 'المستفيدون',
+      body: ['الخيار 1: يشمل جميع منخرطي المؤسسة، وهم:'],
+      bullets: ['المنخرط المؤمَّن (العامل والمتقاعد) دون حد للسن.', 'الزوج(ة) أو الأزواج دون حد للسن.', 'الأرامل والأيتام إلى غاية بلوغ 26 سنة كاملة، من ذوي الموظفين المتوفين.', 'الأبناء المتكفل بهم إلى غاية بلوغ 26 سنة كاملة.', 'الأبناء في وضعية إعاقة دون حد للسن.'],
+      bodyAfter: ['الخيار 2: يشمل جميع منخرطي المؤسسة الذين اشتركوا في هذا الخيار مقابل أداء قسط سنوي قدره 115 درهما.']
+    },
+    {
+      icon: 'fa-clock',
+      title: 'آجال تسوية الخدمات',
+      body: ['تتم التسوية من طرف Sanlam Maroc لفائدة المنخرط المؤمن، إما بواسطة تحويل بنكي أو حوالة بريدية، داخل أجل أقصاه خمسة عشر 15 يوما. ويبتدئ هذا الأجل من اليوم الموالي لتاريخ توصل المؤمن بنسخة الملف والوثائق التبريرية.']
+    }
+  ],
+  options: [
+    {
+      title: 'الخيار 1',
+      note: '(تغطية أساسية لجميع المنخرطين والمنخرطات تتحملها المؤسسة بالكامل)',
+      kicker: 'الأمراض طويلة الأمد والمكلفة، العلاجات الجارية والاستشفاء',
+      guarantees: [
+        {
+          title: 'العلاجات المتنقلة المتعلقة بأمراض ALD-ALC',
+          assured: 'تتم تغطية المصاريف الصحية المرتبطة بمرض طويل الأمد ALD أو مرض ثقيل ومكلف ALC، كما يعرفها نظام AMO-CNOPS، عندما تكون موضوع تدخل من تغطية AMO-CNOPS إثر مرض أو حادث.',
+          benefits: [
+            'الاستشارات والزيارات الطبية: تعويض مصاريف الاستشارات وزيارات الأطباء خلال النهار والليل، بما في ذلك أيام العطل.',
+            'الأعمال الطبية وأعمال المساعدين الطبيين: تخول الأعمال الطبية الجارية وأعمال المساعدين الطبيين الحق في التعويض.',
+            'التحاليل والتصوير الطبي: تخول التحاليل الموصوفة بوصفة طبية وفحوصات التصوير الحق في التعويض التكميلي.',
+            'الأدوية: تعويض تكميلي للأدوية الموصوفة بوصفة طبية والمقبولة من طرف AMO-CNOPS، على أساس ثمن الأدوية الجنيسة أو الأصلية.'
+          ]
+        },
+        {
+          title: 'العلاجات المتنقلة خارج ALD/ALC',
+          assured: 'العلاجات المتنقلة التي لا تتعلق بأمراض ALD/ALC.',
+          benefits: [
+            'الاستشارات والزيارات الطبية: تعوض في حدود سقف 2 500 درهم للشخص في السنة.',
+            'الأعمال الطبية وأعمال المساعدين الطبيين: تعوض في حدود سقف 1 500 درهم للشخص في السنة.',
+            'الأدوية: الأدوية الموصوفة بوصفة طبية والمقبولة من طرف AMO-CNOPS، بسقف تعويض قدره 2 500 درهم للشخص في السنة.'
+          ]
+        },
+        {
+          title: 'الاستشفاء الجراحي و/أو الطبي',
+          assured: 'الاستشفاء الجراحي و/أو الطبي.',
+          benefits: [
+            'الاستشفاء الطبي أو الجراحي بالمغرب: بعد الإدلاء بالفاتورة والوثائق التبريرية، يتم التعويض وفق النسبة التعاقدية للفرق بين المصاريف المتحملة في حدود تعريفة اتفاقية FMSAR / الجمعية الوطنية للمصحات الخاصة، والتسوية المنجزة أو التي يتعين إنجازها من طرف AMO-CNOPS.',
+            'الاستشفاء الطبي أو الجراحي بالخارج: بعد الإدلاء بالفاتورة والوثائق التبريرية، يتم التعويض وفق النسبة التعاقدية للفرق بين المصاريف المتحملة في حدود تعريفة اتفاقية FMSAR / الجمعية الوطنية للمصحات الخاصة، والتسوية المنجزة أو التي يتعين إنجازها من طرف AMO-CNOPS.'
+          ]
+        }
+      ],
+      cases: [
+        ['fa-eye', 'البصريات', 'سقف 600 درهم للزجاج التدريجي مع الإطار أو العدسات. سقف 400 درهم للزجاج غير التدريجي مع الإطار أو العدسات. لكل شخص خلال 24 شهرا للراشدين و12 شهرا للأطفال أقل من 18 سنة.'],
+        ['fa-x-ray', 'Scanner', 'سقف 750 درهما لكل شخص، لكل مرض وفي السنة.'],
+        ['fa-magnet', 'IRM', 'سقف 1 500 درهم لكل شخص، لكل مرض وفي السنة.'],
+        ['fa-tooth', 'علاجات الأسنان', 'سقف 1 500 درهم لكل شخص وفي السنة.'],
+        ['fa-teeth', 'تقويم الأسنان ODF', 'سقف 2 000 درهم لكل فصل دراسي، لكل طفل أقل من 16 سنة كاملة، في حدود 6 فصول.'],
+        ['fa-person-walking', 'إعادة التأهيل', 'سقف 2 000 درهم لكل مرض، لكل شخص وفي السنة.'],
+        ['fa-ear-listen', 'الأجهزة السمعية', 'سقف 5 000 درهم لكل شخص، لكل وحدة وفي السنة.'],
+        ['fa-head-side-virus', 'الغرسات القوقعية', 'سقف 70 000 درهم لكل شخص وفي السنة.'],
+        ['fa-stethoscope', 'تنظير القولون', 'سقف 500 درهم لكل شخص وفي السنة.'],
+        ['fa-vial', 'الفحص المخبري', 'سقف 400 درهم لكل شخص وفي السنة.'],
+        ['fa-ribbon', 'Mammographie', 'سقف 500 درهم لكل شخص وفي السنة.'],
+        ['fa-wave-square', 'فحص الصدى للثدي', 'سقف 500 درهم لكل شخص وفي السنة.'],
+        ['fa-baby', 'مصاريف الحاضنة', 'سقف 700 درهم في اليوم.'],
+        ['fa-flask-vial', 'التحاليل الطبية', 'التحاليل الموصوفة بوصفة طبية تخول الحق في التعويض التكميلي دون سقف.'],
+        ['fa-radiation', 'Petscan', 'سقف 6 000 درهم لكل شخص وفي السنة.'],
+        ['fa-notes-medical', 'Fibroscan', 'سقف 400 درهم لكل شخص، لكل مرض وفي السنة.'],
+        ['fa-crutch', 'الأجهزة التقويمية والتعويضية خارج تعويضات الأسنان', 'سقف 3 000 درهم لكل شخص وفي السنة.']
+      ]
+    },
+    {
+      title: 'الخيار 2',
+      note: '(تغطية اختيارية أوسع، مكملة للخيار 1، مقابل مساهمة سنوية قدرها 115 درهما، مع التزام لمدة لا تقل عن 3 سنوات.)',
+      kicker: 'العلاجات المتنقلة خارج ALD/ALC',
+      guarantees: [
+        {
+          title: 'العلاجات المتنقلة خارج ALD/ALC',
+          assured: 'العلاجات المتنقلة التي لا تتعلق بأمراض ALD/ALC. يتم تعويض هذه العلاجات في حدود 150% من التعريفة الوطنية المرجعية، دون أي سقف حسب الخدمة.',
+          benefits: [
+            'الاستشارات والزيارات الطبية: تعويض مصاريف الاستشارات وزيارات الأطباء خلال النهار والليل، بما في ذلك أيام العطل.',
+            'الأعمال الطبية وأعمال المساعدين الطبيين: تخول الأعمال الطبية الجارية وأعمال المساعدين الطبيين الحق في التعويض.',
+            'الأدوية: الأدوية الموصوفة بوصفة طبية والمقبولة من طرف AMO-CNOPS، على أساس ثمن الأدوية الجنيسة أو الأصلية.',
+            'أعمال الأشعة والتصوير: يكتسب الحق في التعويض التكميلي لأعمال الأشعة والتصوير المنجزة من طرف المساعدين الطبيين.'
+          ]
+        }
+      ],
+      cases: [
+        ['fa-tooth', 'تعويضات الأسنان', 'سقف 1 000 درهم لكل شخص وفي السنة.'],
+        ['fa-baby-carriage', 'الولادة الطبيعية', 'سقف 2 000 درهم لكل شخص وفي السنة.'],
+        ['fa-hospital-user', 'الولادة القيصرية', 'في حدود 100% من التذكرة المعدلة لكل شخص وفي السنة.'],
+        ['fa-eye', 'OCT', 'سقف 1 000 درهم لكل شخص وفي السنة.'],
+        ['fa-radiation', 'VMAT', 'سقف 10 000 درهم لكل شخص وفي السنة.'],
+        ['fa-x-ray', 'Coroscaner', 'سقف 2 000 درهم لكل شخص وفي السنة.'],
+        ['fa-teeth-open', 'Dentascan', 'سقف 1 000 درهم لكل شخص وفي السنة.'],
+        ['fa-bolt', 'Rapidarc', 'سقف 4 000 درهم لكل شخص وفي السنة.'],
+        ['fa-file-medical', 'أشعة خارج التسمية', 'بناء على وصفة طبية. سقف 2 500 درهم لكل شخص وفي السنة.']
+      ]
+    }
+  ],
+  note: 'ملاحظة: يجب أن تصل تصريحات المرض أو الحادث إلى Sanlam Maroc عبر وكلائها المكلفين بتدبير AMC داخل أجل أقصاه 90 يوما ابتداء من تاريخ وقوع الحادث أو المرض.'
+};
+
+const amcDetailZgh = {
+  ...amcDetailFr,
+  tagLabel: 'ⴰⵙⵙⵓⵔⴰⵏⵙ ⴰⴷⵓⵙⴰⵏ ⴰⵎⵔⵏⴰⵡ (AMC)',
+  title: 'ⴰⵙⵉⴽⵍ ⴰⴷⵓⵙⴰⵏ ⴰⵎⵙⵎⴰⴷ',
+  subtitle: 'ⵜⴰⴳⴳⵓⵔⵜ ⵜⴰⵎⵙⵎⴰⴷⵜ ⵉ AMO-CNOPS ⵉ ⵓⵔⴰⵔⵓ ⵏ ⵎⴽ ⵉⴳⴰ ⵏ ⵜⵡⵓⵔⵉⵡⵉⵏ ⵏ ⵜⴰⴷⵓⵙⵉ ⵉⵇⵇⵉⵎⵏ ⵅⴼ ⵓⵎⵏⵅⵔⴰⵟ, ⴳ ⵍⵎⵖⵔⵉⴱ ⴷ ⴱⵕⵕⴰ.',
+  dispositionsTitle: 'ⵜⵉⵎⵙⴰⵔⵉⵏ ⵏ ⵓⵎⵙⴰⵡⴰⴹ',
+  prestationsTitle: 'ⵜⵉⵏⴼⴰⵙ ⵉⵜⵜⵓⵙⴳⴳⴷⵏ',
+  casesTitle: 'ⵜⵉⵎⵓⵔⴰ ⵜⵉⵎⵥⵍⴰⵢⵉⵏ',
+  noteTitle: 'ⵜⴰⵎⴰⵡⵜ ⵜⴰⵎⵇⵔⴰⵏⵜ',
+  assuredLabel: 'ⵜⵉⵎⵓⵔⴰ ⴷ ⵜⵉⴳⴰⵡⵉⵏ ⵜⵉⴷⵓⵙⴰⵏⵉⵏ',
+  benefitsLabel: 'ⵜⵉⵏⴼⴰⵙ ⵉⵜⵜⵓⵙⴳⴳⴷⵏ',
+  expandLabel: 'ⵙⵙⴽⵏ ⵓⴳⴳⴰⵔ',
+  collapseLabel: 'ⵙⵎⴷ ⴰⵙⵏⴼⵍ',
+  paginationLabel: 'ⵜⵉⴽⴰⵕⴹⵉⵡⵉⵏ ⵏ AMC',
+  dispositions: [
+    {
+      icon: 'fa-file-shield',
+      title: 'ⴰⵙⵏⵜⵍ ⵏ ⵜⵣⵎⵎⴰⵔⵜ',
+      body: ['ⵎⴰ ⵉⵍⵍⴰ ⵓⵟⵟⴰⵏ ⵏⵖ ⴰⵎⵓⴽⵔⵉⵙ, Sanlam Maroc ⵜⵜⴰⵔⴰ ⵏⵖ ⵜⵜⴰⵡⵙ ⴳ ⵓⵙⵉⴽⵍ ⴰⴷⵓⵙⴰⵏ ⴰⵎⵙⵎⴰⴷ, ⴰⵎⵙⵎⴰⴷ ⵉ AMO-CNOPS, ⵙ ⵓⵔⴰⵔⵓ ⵏ ⵓⵣⴳⵏ ⵏⵖ ⴰⴽⴽⵯ ⵏ ⵎⴰⵕⵕⴰ ⵉⵇⵇⵉⵎⵏ ⵅⴼ ⵓⵎⵏⵅⵔⴰⵟ.']
+    },
+    {
+      icon: 'fa-percent',
+      title: 'ⴰⵙⴰⴽⵓⴷ ⵏ ⵓⵔⴰⵔⵓ',
+      body: ['ⵉⵜⵜⴳⴰ ⵓⵔⴰⵔⵓ ⵙ 100% ⵏ ⵓⴼⵔⴰⵇ ⴳⵔ ⵎⴰⵕⵕⴰ ⵉⵙⵙⵓⴼⵖ ⵓⵎⵏⵅⵔⴰⵟ ⴷ ⵓⵔⴰⵔⵓ ⵏ AMO ⵉⵜⵜⵓⵙⵙⴼⵔⴽⵏ ⵙ CNOPS.']
+    },
+    {
+      icon: 'fa-people-roof',
+      title: 'ⵉⵎⵙⵜⴼⴰⴷⴰⵏ',
+      body: ['ⵜⴰⴼⵔⵏⵜ 1 : ⵉⵙⵙⵓⴷⵓⵙ ⴽⵓⵍⵍⵓ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ ⵜⵙⴷⴰⵡⵉⵜ, ⵏⵉⵜⵏⵉ :'],
+      bullets: ['ⴰⵎⵏⵅⵔⴰⵟ ⴰⵎⵙⵜⴰⵎⵏ (ⴰⵎⵙⵡⵓⵔⵉ ⴷ ⵓⵎⴷⴽⴽⵯⴰⵍ) ⴱⵍⴰ ⵜⵉⵍⵉⵙⵜ ⵏ ⵓⵙⴳⴳⵯⴰⵙ.', 'ⴰⵡⵜⵎ ⵏⵖ ⵜⴰⵡⵜⵎⵜ (ⵉⵡⵜⵎⴰⵏ) ⴱⵍⴰ ⵜⵉⵍⵉⵙⵜ ⵏ ⵓⵙⴳⴳⵯⴰⵙ.', 'ⵜⵉⴷⴰⵢⵏ ⴷ ⵉⴳⵓⵊⵉⵍⵏ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ ⵉⵎⵎⵓⵜⵏ, ⴰⵔ ⴰⵙⴳⴳⵯⴰⵙ ⵡⵉⵙⵙ 26 ⵉⵎⵎⴷⵏ.', 'ⵜⴰⵔⵡⴰ ⵉⵍⵍⴰⵏ ⵖⴼ ⵓⵎⵏⵅⵔⴰⵟ ⴰⵔ ⴰⵙⴳⴳⵯⴰⵙ ⵡⵉⵙⵙ 26 ⵉⵎⵎⴷⵏ.', 'ⵜⴰⵔⵡⴰ ⵙ ⵓⵏⴳⴰⵡ ⴱⵍⴰ ⵜⵉⵍⵉⵙⵜ ⵏ ⵓⵙⴳⴳⵯⴰⵙ.'],
+      bodyAfter: ['ⵜⴰⴼⵔⵏⵜ 2 : ⵉⵙⵙⵓⴷⵓⵙ ⴽⵓⵍⵍⵓ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ ⵜⵙⴷⴰⵡⵉⵜ ⵉⵙⵙⴽⵛⵎⵏ ⴳ ⵓⴼⵔⴰⵏ ⴰⴷ ⵙ ⵓⵙⵙⵉⵍⵍⴻⵖ ⵏ ⵜⵡⵙⵉⵡⵜ ⵏ ⵓⵙⴳⴳⵯⴰⵙ ⵏ 115 DH.']
+    },
+    {
+      icon: 'fa-clock',
+      title: 'ⵜⵉⵣⵉ ⵏ ⵓⵔⴰⵔⵓ',
+      body: ['ⵉⵜⵜⴳⴰ ⵓⵔⴰⵔⵓ ⵙ Sanlam Maroc ⵉ ⵓⵎⵏⵅⵔⴰⵟ, ⵙ ⵓⵙⴼⴰⴹ ⴰⴱⴰⵏⴽⵉ ⵏⵖ ⵙ ⵓⵎⴰⵏⴷⴰ ⴰⴱⵓⵙⵟⵉ, ⴳ 15 ⵏ ⵡⴰⵙⵙⵏ ⵙ ⵓⴳⴳⴰⵔ.']
+    }
+  ],
+  options: [
+    {
+      title: 'ⵜⴰⴼⵔⵏⵜ 1',
+      note: '(ⴰⵙⴷⴰⴷ ⴰⴷⵙⵍⴰⵏ ⵉ ⴽⵓⵍⵍⵓ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴷ ⵜⵎⵏⵅⵔⴰⵟⵉⵏ, ⵜⵜⵔⴰⴼⴰ ⵜ ⵜⵙⴷⴰⵡⵉⵜ ⵙ ⵓⵎⴰⵜⴰ)',
+      kicker: 'ALD-ALC, ⵜⴰⵡⵙⵉⵡⵉⵏ ⴷ ⵓⵙⵏⴰⴼⴰ',
+      guarantees: amcDetailFr.options[0].guarantees.map((guarantee) => ({
+        ...guarantee,
+        title: guarantee.title.replace('Soins ambulatoires', 'ⵜⴰⵡⵙⵉⵡⵉⵏ').replace('Hospitalisations chirurgicales et/ou médicales', 'ⴰⵙⵏⴰⴼⴰ ⴰⵊⵉⵔⵓⵔⵊⵉ ⴷ/ⵏⵖ ⴰⴷⵓⵙⴰⵏ'),
+        assured: 'ⴰⵎⵓⴷⴷⵓ ⴰⵎⵙⵎⴰⴷ ⵉ ⵜⵡⵓⵔⵉⵡⵉⵏ ⵏ ⵜⴰⴷⵓⵙⵉ ⵉⵜⵜⵓⵙⴳⴳⴷⵏ ⵙ AMO-CNOPS, ⵙ ⵎⴽ ⵉⵍⵍⴰ ⴳ ⵓⵎⵙⴰⵡⴰⴹ.',
+        benefits: ['ⴰⵔⴰⵔⵓ ⵏ ⵜⵎⵙⵉⵔⵉⵏ ⴷ ⵓⵙⵏⵓⴱⴳ ⴰⴷⵓⵙⴰⵏ.', 'ⵜⵉⴳⴰⵡⵉⵏ ⵜⵉⴷⵓⵙⴰⵏⵉⵏ ⴷ ⵏ ⵉⵎⴰⵡⴰⵙⵏ ⵉⴷⵓⵙⴰⵏⵏ.', 'ⵜⵉⵎⵣⵣⴰⵔ ⴷ ⵜⵎⵓⵔⵉ ⵏ ⵓⵙⵎⵓⵏ ⵜⵜⴰⵔⴰⵏ ⵙ ⵓⵎⵙⵎⴰⴷ.', 'ⴰⵙⴼⴰⵔ: ⴰⵔⴰⵔⵓ ⵏ ⵉⵙⴼⴰⵔⵏ ⵉⵜⵜⵓⵙⵎⴰⵔⵏ ⵙ ⵜⴰⵙⴼⵜⴰⵔⵜ.']
+      })),
+      cases: [
+        ['fa-eye', 'ⵜⵉⵟⵟⴰⵡⵉⵏ', 'ⴰⵙⵇⴼ 600 DH ⵉ ⵡⴰⵍⵍⴰⵏ ⵉⵎⵎⵔⵏ ⴷ ⵜⵎⵓⵔⵜ, ⴷ 400 DH ⵉ ⵡⴰⵍⵍⴰⵏ ⵓⵔ ⵉⵎⵎⵔⵏ.'],
+        ['fa-x-ray', 'Scanner', 'ⴰⵙⵇⴼ 750 DH ⵉ ⴽⵓ ⵢⴰⵏ, ⵉ ⴽⵓ ⵓⵟⵟⴰⵏ, ⴳ ⵓⵙⴳⴳⵯⴰⵙ.'],
+        ['fa-magnet', 'IRM', 'ⴰⵙⵇⴼ 1 500 DH ⵉ ⴽⵓ ⵢⴰⵏ, ⵉ ⴽⵓ ⵓⵟⵟⴰⵏ, ⴳ ⵓⵙⴳⴳⵯⴰⵙ.'],
+        ['fa-tooth', 'ⵜⴰⵡⵙⴰ ⵏ ⵓⵅⵙⴰⵏ', 'ⴰⵙⵇⴼ 1 500 DH ⵉ ⴽⵓ ⵢⴰⵏ ⴳ ⵓⵙⴳⴳⵯⴰⵙ.'],
+        ['fa-teeth', 'Orthodontie ODF', 'ⴰⵙⵇⴼ 2 000 DH ⵉ ⴽⵓ ⵙⵎⵙⵜⵔ, ⵉ ⵓⴼⵔⵓⵅ ⴷⴷⴰⵡ 16 ⵏ ⵓⵙⴳⴳⵯⴰⵙ.'],
+        ['fa-person-walking', 'ⴰⵙⵏⵓⴱⴳ ⴰⵎⴰⵢⵏⵓ', 'ⴰⵙⵇⴼ 2 000 DH ⵉ ⴽⵓ ⵓⵟⵟⴰⵏ, ⵉ ⴽⵓ ⵢⴰⵏ ⴳ ⵓⵙⴳⴳⵯⴰⵙ.'],
+        ['fa-ear-listen', 'ⵜⴰⵙⴼⵍⴷⵜ', 'ⴰⵙⵇⴼ 5 000 DH ⵉ ⴽⵓ ⵢⴰⵏ, ⵉ ⴽⵓ ⵜⴰⵡⵓⵔⵉ, ⴳ ⵓⵙⴳⴳⵯⴰⵙ.'],
+        ['fa-head-side-virus', 'ⵜⵉⴳⵔⴰ ⵜⵉⵙⴼⵍⴷⵉⵏ', 'ⴰⵙⵇⴼ 70 000 DH ⵉ ⴽⵓ ⵢⴰⵏ ⴳ ⵓⵙⴳⴳⵯⴰⵙ.'],
+        ['fa-stethoscope', 'Colonoscopie', 'ⴰⵙⵇⴼ 500 DH ⵉ ⴽⵓ ⵢⴰⵏ ⴳ ⵓⵙⴳⴳⵯⴰⵙ.'],
+        ['fa-vial', 'Frottis', 'ⴰⵙⵇⴼ 400 DH ⵉ ⴽⵓ ⵢⴰⵏ ⴳ ⵓⵙⴳⴳⵯⴰⵙ.'],
+        ['fa-ribbon', 'Mammographie', 'ⴰⵙⵇⴼ 500 DH ⵉ ⴽⵓ ⵢⴰⵏ ⴳ ⵓⵙⴳⴳⵯⴰⵙ.'],
+        ['fa-wave-square', 'Echographie mammaire', 'ⴰⵙⵇⴼ 500 DH ⵉ ⴽⵓ ⵢⴰⵏ ⴳ ⵓⵙⴳⴳⵯⴰⵙ.'],
+        ['fa-baby', 'ⵜⴰⵙⵇⵇⴰ ⵏ ⵓⴼⵔⵓⵅ', 'ⴰⵙⵇⴼ 700 DH ⵉ ⵡⴰⵙⵙ.'],
+        ['fa-flask-vial', 'ⵜⵉⵎⵣⵣⴰⵔ ⵜⵉⴷⵓⵙⴰⵏⵉⵏ', 'ⵜⵉⵎⵣⵣⴰⵔ ⵙ ⵜⴰⵙⴼⵜⴰⵔⵜ ⵜⵜⴰⵔⴰⵏ ⵙ ⵓⵎⵙⵎⴰⴷ ⴱⵍⴰ ⴰⵙⵇⴼ.'],
+        ['fa-radiation', 'Petscan', 'ⴰⵙⵇⴼ 6 000 DH ⵉ ⴽⵓ ⵢⴰⵏ ⴳ ⵓⵙⴳⴳⵯⴰⵙ.'],
+        ['fa-notes-medical', 'Fibroscan', 'ⴰⵙⵇⴼ 400 DH ⵉ ⴽⵓ ⵢⴰⵏ, ⵉ ⴽⵓ ⵓⵟⵟⴰⵏ, ⴳ ⵓⵙⴳⴳⵯⴰⵙ.'],
+        ['fa-crutch', 'ⵉⵎⴰⵙⵙⵏ ⵏ orthopédie', 'ⴰⵙⵇⴼ 3 000 DH ⵉ ⴽⵓ ⵢⴰⵏ ⴳ ⵓⵙⴳⴳⵯⴰⵙ.']
+      ]
+    },
+    {
+      title: 'ⵜⴰⴼⵔⵏⵜ 2',
+      note: '(ⴰⵙⴷⴰⴷ ⵙ ⵓⴼⵔⴰⵏ ⵢⵓⴳⴳⴰⵔ, ⵉⵙⵎⴷⴰⵏ ⵜⴰⴼⵔⵏⵜ 1, ⵙ ⵜⵡⵙⵉⵡⵜ ⵏ ⵓⵙⴳⴳⵯⴰⵙ ⵏ 115 DH, ⴷ ⵓⵏⴳⴳⵉⴷ ⵏ 3 ⵉⵙⴳⴳⵯⴰⵙⵏ ⵓⴳⴳⴰⵔ.)',
+      kicker: 'ⵜⴰⵡⵙⵉⵡⵉⵏ ⴱⵕⵕⴰ ⵏ ALD/ALC',
+      guarantees: [{
+        title: 'ⵜⴰⵡⵙⵉⵡⵉⵏ ⴱⵕⵕⴰ ⵏ ALD/ALC',
+        assured: 'ⵜⴰⵡⵙⵉⵡⵉⵏ ⵓⵔ ⵉⵍⵍⵉⵏ ⴳ ALD/ALC. ⵉⵜⵜⴳⴰ ⵓⵔⴰⵔⵓ ⵙ 150% ⵏ ⵜⵎⵓⵜⵜⴳⴰ ⵜⴰⵏⴰⵎⵓⵔⵜ, ⴱⵍⴰ ⴰⵙⵇⴼ ⵅⴼ ⴽⵓ ⵜⴰⵏⴼⵓⵜ.',
+        benefits: ['ⴰⵔⴰⵔⵓ ⵏ ⵜⵎⵙⵉⵔⵉⵏ ⴷ ⵓⵙⵏⵓⴱⴳ ⴰⴷⵓⵙⴰⵏ.', 'ⵜⵉⴳⴰⵡⵉⵏ ⵜⵉⴷⵓⵙⴰⵏⵉⵏ ⴷ ⵏ ⵉⵎⴰⵡⴰⵙⵏ ⵉⴷⵓⵙⴰⵏⵏ.', 'ⴰⵙⴼⴰⵔ ⵉⵜⵜⵓⵙⵎⴰⵔⵏ ⵙ ⵜⴰⵙⴼⵜⴰⵔⵜ.', 'ⵜⵉⴳⴰⵡⵉⵏ ⵏ radiologie ⴷ imagerie ⵜⵜⴰⵔⴰⵏ ⵙ ⵓⵎⵙⵎⴰⴷ.']
+      }],
+      cases: [
+        ['fa-tooth', 'ⵜⵉⵙⴷⵉⴷⵉⵏ ⵏ ⵓⵅⵙⴰⵏ', 'ⴰⵙⵇⴼ 1 000 DH ⵉ ⴽⵓ ⵢⴰⵏ ⴳ ⵓⵙⴳⴳⵯⴰⵙ.'],
+        ['fa-baby-carriage', 'ⵜⴰⵔⵡⴰ ⵜⴰⵎⴰⴳⴰⵏⵜ', 'ⴰⵙⵇⴼ 2 000 DH ⵉ ⴽⵓ ⵢⴰⵏ ⴳ ⵓⵙⴳⴳⵯⴰⵙ.'],
+        ['fa-hospital-user', 'ⵜⴰⵡⵍⴰⴼⵜ ⵙ ⵓⵙⵏⴰⵙ', 'ⴰⵔ 100% ⵏ ⵓⴼⵔⴰⴳ ⵉⵜⵜⴳⴰⵏ ⵅⴼ ⵓⵎⵏⵅⵔⴰⵟ ⵉ ⴽⵓ ⵢⴰⵏ ⴳ ⵓⵙⴳⴳⵯⴰⵙ.'],
+        ['fa-eye', 'OCT', 'ⴰⵙⵇⴼ 1 000 DH ⵉ ⴽⵓ ⵢⴰⵏ ⴳ ⵓⵙⴳⴳⵯⴰⵙ.'],
+        ['fa-radiation', 'VMAT', 'ⴰⵙⵇⴼ 10 000 DH ⵉ ⴽⵓ ⵢⴰⵏ ⴳ ⵓⵙⴳⴳⵯⴰⵙ.'],
+        ['fa-x-ray', 'Coroscaner', 'ⴰⵙⵇⴼ 2 000 DH ⵉ ⴽⵓ ⵢⴰⵏ ⴳ ⵓⵙⴳⴳⵯⴰⵙ.'],
+        ['fa-teeth-open', 'Dentascan', 'ⴰⵙⵇⴼ 1 000 DH ⵉ ⴽⵓ ⵢⴰⵏ ⴳ ⵓⵙⴳⴳⵯⴰⵙ.'],
+        ['fa-bolt', 'Rapidarc', 'ⴰⵙⵇⴼ 4 000 DH ⵉ ⴽⵓ ⵢⴰⵏ ⴳ ⵓⵙⴳⴳⵯⴰⵙ.'],
+        ['fa-file-medical', 'Radios hors nomenclature', 'ⵙ ⵜⴰⵙⴼⵜⴰⵔⵜ ⵜⴰⴷⵓⵙⴰⵏⵜ. ⴰⵙⵇⴼ 2 500 DH ⵉ ⴽⵓ ⵢⴰⵏ ⴳ ⵓⵙⴳⴳⵯⴰⵙ.']
+      ]
+    }
+  ],
+  note: 'ⵜⴰⵎⴰⵡⵜ: ⵉⵙⴼⴽ ⴰⴷ ⵉⵡⴹ ⵓⵙⵎⵓⵜⵜⴳ ⵏ ⵓⵟⵟⴰⵏ ⵏⵖ ⴰⵎⵓⴽⵔⵉⵙ ⵖⵔ Sanlam Maroc ⴳ 90 ⵏ ⵡⴰⵙⵙⵏ ⵙⴳ ⵡⴰⵙⵙ ⵏ ⵓⵎⵓⴽⵔⵉⵙ.'
+};
+
+const amtsDetailFr = {
+  title: 'Assistance Médicale et Transport Sanitaire',
+  badge: 'AMTS',
+  subtitle: [
+    'La FOS-Agri soutient ses adhérents pendant les moments difficiles à travers le service d’Assistance Médicale et Transport Sanitaire contracté avec la compagnie Wafa IMA Assistance.',
+    'Cette assistance porte sur une large gamme de garanties en cas d’événements imprévisibles et urgents : accident, maladie, décès, voyages à l’étranger, évacuation sanitaire pour les pathologies non traitables au Maroc et conciergerie médicale.'
+  ],
+  beneficiariesTitle: 'Bénéficiaires',
+  prestationsTitle: 'Prestations garanties',
+  funeralTitle: 'Processus de demande d’octroi',
+  funeralSubtitle: 'Pièces à fournir',
+  contactTitle: 'Comment contacter Wafa IMA ?',
+  contactIntro: 'Pour toute demande d’assistance, le plateau est opérationnel 24h/24, 7j/7, et met en place les solutions prévues contractuellement.',
+  contactInstruction: 'L’adhérent se fait identifier par son nom, prénom, numéro d’adhésion à la Fondation ou numéro de CIN.',
+  phone: '+212 52 90 751 00',
+  beneficiaries: [
+    ['01', 'L’adhérent et son ou ses conjoints.'],
+    ['02', 'Ses enfants déclarés, à charge de l’assuré, âgés de moins de 21 ans ou au plus 26 ans s’ils poursuivent leurs études.'],
+    ['03', 'Les enfants handicapés sans limite d’âge, ainsi que les ayants droit : orphelins des adhérents décédés, veuve ou veuf.'],
+    ['04', 'Le couple d’ascendants pour lequel la surprime de 65 DH a été payée à Wafa IMA Assistance par l’adhérent concerné.']
+  ],
+  groups: [
+    {
+      title: 'Assistance médicale au Maroc',
+      icon: 'fa-house-medical',
+      services: [
+        ['Transport sanitaire urbain au Maroc (aller / retour)', 'Prise en charge du transport sanitaire vers une unité hospitalière de la même ville choisie par l’adhérent.'],
+        ['Transport sanitaire interurbain au Maroc (aller / retour)', 'Prise en charge du transport sanitaire vers l’unité hospitalière la plus proche et la mieux équipée pour la pathologie ou maladie à traiter en urgence, en commun accord entre le médecin traitant et celui de Wafa IMA.'],
+        ['Déplacement de l’adhérent vers une unité hospitalière', 'Lorsque l’aller vers une unité hospitalière est assuré par l’adhérent, le retour à domicile peut être pris en charge par Wafa IMA, à condition de l’informer dans un délai de 5 jours à compter du jour de l’incident.'],
+        ['Transport répétitif pour chimiothérapie, radiothérapie et curiethérapie', 'Wafa IMA Assistance couvre les évacuations répétitives pour effectuer les séances de chimiothérapie, radiothérapie, curiethérapie ou autres actes liés au cancer, à condition que le transport soit dûment justifié médicalement, dans la limite de douze fois par année.'],
+        ['Hospitalisation et admission', ['Avance pour admission dans une unité hospitalière au Maroc à hauteur de 10 000 DH, à restituer par l’adhérent.', 'Prise de rendez-vous dans une structure hospitalière en France.']],
+        ['Assistance médicale à domicile', ['Visite médicale à domicile 24h/24 et 7j/7 dans 68 villes du Royaume à 120 DH.', 'Envoi de médicaments suite à la visite médicale, avec frais des médicaments à la charge de l’adhérent.', 'Visite d’infirmier, avec coût des médicaments et du matériel à la charge de l’adhérent.', 'Orientation vers la pharmacie la plus proche du lieu de résidence.']],
+        ['Évacuation et transport sanitaire', ['Évacuation sanitaire du Maroc vers l’étranger pour les pathologies non traitables au Maroc.', 'Garantie des frais médicaux en cas d’évacuation sanitaire avec un plafond de 80 000 DH, à restituer par l’adhérent.', 'Prise en charge du proche parent accompagnateur ou présence auprès de la personne assurée hospitalisée non accompagnée au Maroc et à l’étranger, à demander au préalable.', 'Titre de transport aller-retour.', 'Au Maroc : 500 DH par nuit pendant 8 nuits.', 'À l’étranger : 900 DH par nuit pendant 7 nuits.']],
+        ['Post-hospitalisation', ['Prise en charge de l’évacuation pour contrôle et suivi médical post-hospitalisation au Maroc, au maximum à 2 reprises dans un délai de 24 mois.', 'Frais de prolongation du séjour après hospitalisation : au Maroc 500 DH par nuit pendant 8 nuits au maximum, à l’étranger 900 DH par nuit pendant 7 nuits au maximum.', 'Retour au domicile après hospitalisation de la personne assurée à l’étranger.']],
+        ['Prime de naissance', ['En cas de naissance d’un nouveau-né, le bénéficiaire doit déposer les documents dans un délai de 90 jours à compter de la date de naissance afin de bénéficier d’une prime de 350 DH.', 'Avis ou certificat de naissance.', 'Extrait d’acte de naissance original.', 'Relevé d’Identité Bancaire de l’adhérent.', 'Copie de la Carte Nationale d’Identité de l’adhérent.', 'Copie de la carte d’adhésion à la FOS-Agri.']]
+      ]
+    },
+    {
+      title: 'Transport et assistance funéraire',
+      icon: 'fa-ribbon',
+      services: [
+        ['Transport funéraire', ['Transport de la personne assurée décédée jusqu’au lieu d’inhumation.', 'Prise en charge des formalités permettant le transport.', 'Accompagnement de la dépouille isolée.']],
+        ['Forfait funéraire', 'Le forfait funéraire accompagne les ayants droit selon la situation du décès et les pièces justificatives prévues.']
+      ]
+    }
+  ],
+  funeralCards: [
+    ['Décès de l’adhérent', ['Acte de décès.', 'Copie d’acte de mariage.', 'RIB du conjoint survivant.', 'Copie CIN et copie carte d’adhérent.', 'En cas d’absence de conjoint : attestation de lien de parenté avec le défunt, acte d’hérédité et RIB du bénéficiaire.']],
+    ['Décès du conjoint', ['Acte de décès.', 'Copie d’acte de mariage.', 'CIN du conjoint survivant.', 'RIB du conjoint survivant.']],
+    ['Décès de l’enfant', ['Acte de décès du défunt.', 'Acte de naissance du défunt.', 'RIB du bénéficiaire.', 'Copie CIN et copie carte d’adhérent.']],
+    ['Contribution financière', ['7 000 DH en cas de décès de l’adhérent.', '2 500 DH en cas de décès du conjoint.', '1 000 DH en cas de décès d’un enfant.']]
+  ]
+};
+
+const amtsDetailAr = {
+  ...amtsDetailFr,
+  title: 'المساعدة الطبية والنقل الصحي',
+  subtitle: [
+    'تدعم FOS-Agri منخرطيها خلال الفترات الصعبة عبر خدمة المساعدة الطبية والنقل الصحي المتعاقد بشأنها مع شركة Wafa IMA Assistance.',
+    'تشمل هذه المساعدة ضمانات متعددة في الحالات غير المتوقعة والمستعجلة، مثل الحوادث والمرض والوفاة، إضافة إلى السفر إلى الخارج والإجلاء الصحي للحالات غير القابلة للعلاج بالمغرب وخدمات المواكبة الطبية.'
+  ],
+  beneficiariesTitle: 'المستفيدون',
+  prestationsTitle: 'الخدمات المضمونة',
+  funeralTitle: 'مسطرة طلب الاستفادة',
+  funeralSubtitle: 'الوثائق المطلوبة',
+  contactTitle: 'كيف يمكن الاتصال بـ Wafa IMA ؟',
+  contactIntro: 'لكل طلب مساعدة، يعمل مركز النداء 24 ساعة على 24 و7 أيام على 7 لتفعيل الحلول المنصوص عليها تعاقديا.',
+  contactInstruction: 'يتعين على المنخرط التعريف بنفسه عبر الاسم والنسب ورقم الانخراط بالمؤسسة أو رقم البطاقة الوطنية.',
+  beneficiaries: [
+    ['01', 'المنخرط وزوجه أو أزواجه.'],
+    ['02', 'الأطفال المصرح بهم والذين هم في كفالة المؤمن، أقل من 21 سنة أو إلى غاية 26 سنة إذا كانوا يتابعون دراستهم.'],
+    ['03', 'الأطفال في وضعية إعاقة دون حد للسن، وذوو الحقوق من أيتام المنخرطين المتوفين والأرملة أو الأرمل.'],
+    ['04', 'الأصول الذين تم أداء الزيادة الخاصة بهم 65 درهما لفائدة Wafa IMA Assistance من طرف المنخرط المعني.']
+  ],
+  groups: [
+    {
+      title: 'المساعدة الطبية بالمغرب',
+      icon: 'fa-house-medical',
+      services: [
+        ['النقل الصحي الحضري بالمغرب (ذهابا وإيابا)', 'التكفل بالنقل الصحي نحو مؤسسة استشفائية داخل نفس المدينة التي يختارها المنخرط.'],
+        ['النقل الصحي بين المدن بالمغرب (ذهابا وإيابا)', 'التكفل بالنقل الصحي نحو أقرب مؤسسة استشفائية وأكثرها تجهيزا لعلاج الحالة المرضية أو المرض المستعجل، بتنسيق مشترك بين الطبيب المعالج وطبيب Wafa IMA.'],
+        ['تنقل المنخرط نحو مؤسسة استشفائية', 'إذا تكفل المنخرط بالتنقل نحو المؤسسة الاستشفائية، يمكن لـ Wafa IMA التكفل بالعودة إلى المنزل شريطة إخبارها داخل أجل 5 أيام ابتداء من يوم وقوع الحادث.'],
+        ['النقل المتكرر لحصص العلاج الكيميائي والإشعاعي والكوريترابي', 'تغطي Wafa IMA Assistance عمليات الإجلاء المتكررة لإجراء حصص العلاج الكيميائي أو الإشعاعي أو الكوريترابي أو غيرها من الأعمال المرتبطة بالسرطان، شريطة أن يكون النقل مبررا طبيا، في حدود اثنتي عشرة مرة في السنة.'],
+        ['الاستشفاء والقبول', ['تسبيق للقبول في مؤسسة استشفائية بالمغرب في حدود 10 000 درهم، يسترجعه المنخرط لاحقا.', 'أخذ موعد داخل مؤسسة استشفائية بفرنسا.']],
+        ['المساعدة الطبية بالمنزل', ['زيارة طبية منزلية 24 ساعة على 24 و7 أيام على 7 في 68 مدينة بالمملكة مقابل 120 درهما.', 'إرسال الأدوية بعد الزيارة الطبية، مع بقاء مصاريف الأدوية على عاتق المنخرط.', 'زيارة ممرض، مع بقاء تكلفة الأدوية والمعدات على عاتق المنخرط.', 'توجيه المنخرط نحو أقرب صيدلية من محل السكن.']],
+        ['الإجلاء والنقل الصحي', ['الإجلاء الصحي من المغرب إلى الخارج بالنسبة للحالات غير القابلة للعلاج بالمغرب.', 'ضمان مصاريف العلاج في حالة الإجلاء الصحي بسقف 80 000 درهم، يسترجعه المنخرط لاحقا.', 'التكفل بالقريب المرافق أو الحضور بجانب الشخص المؤمن المستشفى دون مرافق بالمغرب أو بالخارج، شريطة طلب ذلك مسبقا.', 'تذكرة سفر ذهابا وإيابا.', 'بالمغرب: 500 درهم لليلة لمدة 8 ليال.', 'بالخارج: 900 درهم لليلة لمدة 7 ليال.']],
+        ['ما بعد الاستشفاء', ['التكفل بالإجلاء للمراقبة والتتبع الطبي بعد الاستشفاء بالمغرب، في حدود مرتين كحد أقصى داخل أجل 24 شهرا.', 'مصاريف تمديد الإقامة بعد الاستشفاء: بالمغرب 500 درهم لليلة لمدة 8 ليال كحد أقصى، وبالخارج 900 درهم لليلة لمدة 7 ليال كحد أقصى.', 'العودة إلى المنزل بعد استشفاء الشخص المؤمن بالخارج.']],
+        ['منحة الولادة', ['في حالة ولادة مولود جديد، يجب على المستفيد إيداع الوثائق داخل أجل 90 يوما ابتداء من تاريخ الولادة للاستفادة من منحة قدرها 350 درهما.', 'إشعار أو شهادة الولادة.', 'نسخة أصلية من عقد الازدياد.', 'كشف التعريف البنكي للمنخرط.', 'نسخة من البطاقة الوطنية للتعريف للمنخرط.', 'نسخة من بطاقة الانخراط في FOS-Agri.']]
+      ]
+    },
+    {
+      title: 'النقل والمساعدة الجنائزية',
+      icon: 'fa-ribbon',
+      services: [
+        ['النقل الجنائزي', ['نقل الشخص المؤمن المتوفى إلى مكان الدفن.', 'التكفل بالإجراءات التي تسمح بالنقل.', 'مرافقة الجثمان المعزول.']],
+        ['المنحة الجنائزية', 'تواكب المنحة الجنائزية ذوي الحقوق حسب حالة الوفاة والوثائق المثبتة المطلوبة.']
+      ]
+    }
+  ],
+  funeralCards: [
+    ['وفاة المنخرط', ['عقد الوفاة.', 'نسخة من عقد الزواج.', 'كشف التعريف البنكي للزوج أو الزوجة الباقية على قيد الحياة.', 'نسخة من البطاقة الوطنية ونسخة من بطاقة الانخراط.', 'في حالة غياب الزوج أو الزوجة: شهادة صلة القرابة بالمتوفى، رسم الإراثة وكشف التعريف البنكي للمستفيد.']],
+    ['وفاة الزوج أو الزوجة', ['عقد الوفاة.', 'نسخة من عقد الزواج.', 'البطاقة الوطنية للزوج أو الزوجة الباقية على قيد الحياة.', 'كشف التعريف البنكي للزوج أو الزوجة الباقية على قيد الحياة.']],
+    ['وفاة الطفل', ['عقد وفاة المتوفى.', 'عقد ازدياد المتوفى.', 'كشف التعريف البنكي للمستفيد.', 'نسخة من البطاقة الوطنية ونسخة من بطاقة الانخراط.']],
+    ['المساهمة المالية', ['7 000 درهم في حالة وفاة المنخرط.', '2 500 درهم في حالة وفاة الزوج أو الزوجة.', '1 000 درهم في حالة وفاة طفل.']]
+  ]
+};
+
+const amtsDetailZgh = {
+  ...amtsDetailFr,
+  title: 'ⵜⴰⵍⵍⴰⵍⵜ ⵜⴰⴷⵓⵙⴰⵏⵜ ⴷ ⵓⵙⵉⵡⴹ ⴰⴷⵓⵙⴰⵏ',
+  subtitle: [
+    'FOS-Agri ⵜⵜⴰⵍⵍⴰ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴳ ⵜⵉⵣⵉ ⵉⵎⵇⵇⵓⵔⵏ ⵙ ⵜⴰⵍⵍⴰⵍⵜ ⵜⴰⴷⵓⵙⴰⵏⵜ ⴷ ⵓⵙⵉⵡⴹ ⴰⴷⵓⵙⴰⵏ ⵙ Wafa IMA Assistance.',
+    'ⵜⴰⵏⴼⵓⵙⵜ ⴰⴷ ⵜⴳⴰ ⵉⴳⵔⴰⵡⵏ ⵏ ⵜⴰⵍⵍⴰⵍⵜ ⴳ ⵉⵎⵓⵔⵙⵏ ⵉⵎⵥⵍⵉⵢⵏ: ⴰⵙⵙⵉⴹⵏ, ⴰⵎⵓⵔⵙ, ⵜⴰⵎⵜⵜⴰⵏⵜ, ⴰⵙⴰⴼⴰⵔ ⴷ ⵓⵙⵉⵡⴹ ⴰⴷⵓⵙⴰⵏ.'
+  ],
+  beneficiariesTitle: 'ⵉⵎⵏⴼⴰⵄⵏ',
+  prestationsTitle: 'ⵜⵉⵏⴼⵓⵙⵉⵏ ⵉⵜⵜⵓⴹⵎⴰⵏⵏ',
+  funeralTitle: 'ⴰⵙⴽⴰⵔ ⵏ ⵓⵙⵓⵜⵔ',
+  funeralSubtitle: 'ⵜⵉⵡⴰⵔⴰⵇⵉⵏ ⵉⵍⴰⵇⵏ',
+  contactTitle: 'ⵎⴰⵎⵏⴽ ⴰⴷ ⵜⵏⵢⵉⵍⵉ ⴷ Wafa IMA ?',
+  contactIntro: 'ⴰⵙⴰⵜⵉ ⵏ ⵜⴰⵍⵍⴰⵍⵜ ⵉⵍⵍⴰ 24h/24 ⴷ 7j/7 ⵉ ⵓⵙⴽⵔ ⵏ ⵉⴼⵔⴰⵏ ⵉⵍⵍⴰⵏ ⴳ ⵓⵎⵙⴰⵡⴰⴹ.',
+  contactInstruction: 'ⴰⵎⵏⵅⵔⴰⵟ ⴰⴷ ⵉⵙⵎⵓⵏ ⵉⵙⵎ, ⵉⵙⵎ ⵏ ⵜⵡⴰⵛⵓⵍⵜ, ⵓⵟⵟⵓⵏ ⵏ ⵓⵏⵅⵔⴰⵟ ⵏⵖ CIN.',
+  beneficiaries: [
+    ['01', 'ⴰⵎⵏⵅⵔⴰⵟ ⴷ ⵓⵙⵍⵉ ⵏⵏⵙ.'],
+    ['02', 'ⵉⴼⵔⵅⴰⵏ ⵉⵜⵜⵓⵙⵙⵏⵖⵎⵙⵏ ⵉⵍⵍⴰⵏ ⴳ ⵓⵙⵔⵓⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ, ⵓⵔ ⵙⵙⴰⵡⴹⵏ 21 ⵏⵖ ⴰⵔ 26 ⵎⴰ ⴰⴷ ⵙⵙⵎⴷⵏ ⵜⵉⵖⵔⵉ.'],
+    ['03', 'ⵉⴼⵔⵅⴰⵏ ⴳ ⵓⵙⵔⵓⵜ ⵉⵎⵥⵍⵉ ⴱⵍⴰ ⵜⵉⵍⴰⵍ ⵏ ⵓⵙⴳⴳⵯⴰⵙ, ⴷ ⵉⵎⵏⴼⴰⵄⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵎⵎⵓⵜⵏ, ⵜⴰⵊⵊⴰⵍⵜ ⵏⵖ ⴰⵊⵊⴰⵍ.'],
+    ['04', 'ⵉⵎⵖⴰⵔⵏ ⵉ ⴼⴽⴰ ⵓⵎⵏⵅⵔⴰⵟ 65 DH ⵉ Wafa IMA Assistance.']
+  ],
+  groups: [
+    {
+      title: 'ⵜⴰⵍⵍⴰⵍⵜ ⵜⴰⴷⵓⵙⴰⵏⵜ ⴳ ⵍⵎⵖⵔⵉⴱ',
+      icon: 'fa-house-medical',
+      services: [
+        ['ⴰⵙⵉⵡⴹ ⴰⴷⵓⵙⴰⵏ ⴳ ⵜⵎⴷⵉⵏⵜ', 'ⴰⵎⵓⴷⴷⵓ ⵏ ⵓⵙⵉⵡⴹ ⴰⴷⵓⵙⴰⵏ ⵖⵔ ⵓⵎⵎⴰⵙ ⴰⵙⵉⴱⵉⵜⴰⵍ ⴳ ⵢⴰⵜ ⵜⵎⴷⵉⵏⵜ ⵉⵅⵜⴰⵔ ⵓⵎⵏⵅⵔⴰⵟ.'],
+        ['ⴰⵙⵉⵡⴹ ⴰⴷⵓⵙⴰⵏ ⴳⵔ ⵜⵎⴷⵉⵏⵉⵏ', 'ⴰⵎⵓⴷⴷⵓ ⵏ ⵓⵙⵉⵡⴹ ⵖⵔ ⵓⵎⵎⴰⵙ ⴰⵙⵉⴱⵉⵜⴰⵍ ⴰⵇⵔⴰⴱ ⴷ ⴰⵎⵙⴰⵔⵓ ⵉ ⵓⵎⵓⵔⵙ ⴰⵎⵥⵍⵉ, ⵙ ⵓⵎⵙⴰⵡⴰⴹ ⴳⵔ ⵓⵎⵙⵙⵉⵊⵊⵉ ⴷ ⵓⵎⵙⵙⵉⵊⵊⵉ ⵏ Wafa IMA.'],
+        ['ⴰⵙⵉⵡⴹ ⵏ ⵓⵎⵏⵅⵔⴰⵟ ⵖⵔ ⵓⵎⵎⴰⵙ ⴰⵙⵉⴱⵉⵜⴰⵍ', 'ⵎⴰ ⵉⵙⵉⵡⴹ ⵓⵎⵏⵅⵔⴰⵟ ⵉⵎⴰⵏ ⵏⵏⵙ ⵖⵔ ⵓⵎⵎⴰⵙ, Wafa IMA ⵜⵣⵎⵔ ⴰⴷ ⵜⴰⵎⵓⴷⴷⵓ ⴰⵔⵔⴰ ⵖⵔ ⵜⴰⴷⴷⴰⵔⵜ ⵎⴰ ⵉⵜⵜⵓⵙⵙⵏⵖⵎⵙ ⴳ 5 ⵡⴰⵙⵙⵏ.'],
+        ['ⴰⵙⵉⵡⴹ ⵉⵜⵜⵓⵄⴰⵡⴷⵏ ⵉ ⵙⵉⴰⵏⵚ ⵏ ⵜⵙⵙⵉⵊⵊⵉ', 'Wafa IMA Assistance ⵜⴰⵎⵓⴷⴷⵓ ⵉⵙⵉⵡⴹⵏ ⵉⵜⵜⵓⵄⴰⵡⴷⵏ ⵉ ⵜⵉⵙⵉⴰⵏⵚ ⵏ ⵜⵙⵙⵉⵊⵊⵉ ⵏ ⵓⵙⵎⵎⵓⵎ, ⵏ ⵜⵔⴰⴷⵢⵓⵜ, ⴷ ⵜⵓⵔⴰⴷⵢⵓⵜ ⵏⵖ ⵉⵎⵓⴷⴷⵓⵏ ⵉⵣⴷⵉⵏ ⴷ ⵓⵎⵓⵔⵙ ⵏ ⵓⴽⴰⵏⵙⵉⵔ, ⵎⴰ ⵉⵍⵍⴰ ⵓⵙⵖⵏⵎⵙ ⴰⴷⵓⵙⴰⵏ, ⴰⵔ 12 ⵜⵉⴽⴽⴰⵍ ⴳ ⵓⵙⴳⴳⵯⴰⵙ.'],
+        ['ⴰⵙⵉⴱⵉⵜⴰⵍ ⴷ ⵓⵇⴱⴰⵍ', ['ⴰⵙⵍⴼ ⵉ ⵓⵇⴱⴰⵍ ⴳ ⵓⵎⵎⴰⵙ ⴰⵙⵉⴱⵉⵜⴰⵍ ⴳ ⵍⵎⵖⵔⵉⴱ ⴰⵔ 10 000 DH, ⴰⴷ ⵉⵜⵜⵓⵔⴰⵔⴰ ⵙⵖⵓⵔ ⵓⵎⵏⵅⵔⴰⵟ.', 'ⴰⵙⴽⵔ ⵏ ⵜⵉⵣⵉ ⵏ ⵜⵉⵔⵣⴰ ⴳ ⵓⵎⵎⴰⵙ ⴰⵙⵉⴱⵉⵜⴰⵍ ⴳ ⴼⵔⴰⵏⵙⴰ.']],
+        ['ⵜⴰⵍⵍⴰⵍⵜ ⵜⴰⴷⵓⵙⴰⵏⵜ ⴳ ⵜⴰⴷⴷⴰⵔⵜ', ['ⵜⵉⵔⵣⴰ ⵏ ⵓⵎⵙⵙⵉⵊⵊⵉ ⵖⵔ ⵜⴰⴷⴷⴰⵔⵜ 24h/24 ⴷ 7j/7 ⴳ 68 ⵜⵎⴷⵉⵏⵜ ⵙ 120 DH.', 'ⴰⵙⵉⵡⴹ ⵏ ⵉⴷⵡⴰⵢⵏ ⴹⴼⵕ ⵜⵉⵔⵣⴰ ⵜⴰⴷⵓⵙⴰⵏⵜ, ⵎⴰⵛⴰ ⵉⵙⵎⵏ ⵏ ⵉⴷⵡⴰⵢⵏ ⵅⴼ ⵓⵎⵏⵅⵔⴰⵟ.', 'ⵜⵉⵔⵣⴰ ⵏ ⵓⵎⵙⴰⴳⵏ, ⵉⵙⵎⵏ ⵏ ⵉⴷⵡⴰⵢⵏ ⴷ ⵓⵎⵙⴰⵔⵓ ⵅⴼ ⵓⵎⵏⵅⵔⴰⵟ.', 'ⴰⵙⴷⵓ ⵖⵔ ⵜⴰⴼⴰⵔⵎⴰⵙⵉⵜ ⵜⴰⵇⵔⴰⴱⵜ ⵉ ⵜⴰⴷⴷⴰⵔⵜ.']],
+        ['ⴰⵙⵉⵡⴹ ⴰⴷⵓⵙⴰⵏ ⴷ ⵓⵙⴰⴼⴰⵔ', ['ⴰⵙⵉⵡⴹ ⴰⴷⵓⵙⴰⵏ ⵙⴳ ⵍⵎⵖⵔⵉⴱ ⵖⵔ ⴱⵕⵕⴰ ⵉ ⵉⵎⵓⵔⵙⵏ ⵓⵔ ⵉⵜⵜⵓⵙⵙⵉⵊⵊⴰⵏ ⴳ ⵍⵎⵖⵔⵉⴱ.', 'ⴰⴹⵎⴰⵏ ⵏ ⵉⵙⵎⵏ ⵏ ⵜⵙⵙⵉⵊⵊⵉ ⴳ ⵓⵙⵉⵡⴹ ⴰⴷⵓⵙⴰⵏ ⴰⵔ 80 000 DH, ⴰⴷ ⵉⵜⵜⵓⵔⴰⵔⴰ ⵙⵖⵓⵔ ⵓⵎⵏⵅⵔⴰⵟ.', 'ⴰⵎⵓⴷⴷⵓ ⵏ ⵓⵇⵔⵉⴱ ⴰⵎⵓⵏ ⵏⵖ ⵜⵉⵍⵉ ⵖⵔ ⵓⵎⵏⵅⵔⴰⵟ ⵉⵍⵍⴰⵏ ⴳ ⵓⵙⵉⴱⵉⵜⴰⵍ, ⵙ ⵓⵙⵓⵜⵔ ⴰⵎⵣⵡⴰⵔⵓ.', 'ⵜⵉⴽⵉⵜ ⵏ ⵓⵙⴰⴼⴰⵔ ⵔⴰⵢ ⴷ ⴰⵔⵔⴰ.', 'ⴳ ⵍⵎⵖⵔⵉⴱ: 500 DH ⵉ ⵢⵉⴹ ⴳ 8 ⵡⵓⵙⵙⴰⵏ.', 'ⴳ ⴱⵕⵕⴰ: 900 DH ⵉ ⵢⵉⴹ ⴳ 7 ⵡⵓⵙⵙⴰⵏ.']],
+        ['ⴹⴼⵕ ⴰⵙⵉⴱⵉⵜⴰⵍ', ['ⴰⵎⵓⴷⴷⵓ ⵏ ⵓⵙⵉⵡⴹ ⵉ ⵓⵙⵙⵓⴷⵙ ⴷ ⵓⵜⵜⴰⴱⴰⵄ ⴰⴷⵓⵙⴰⵏ ⴹⴼⵕ ⴰⵙⵉⴱⵉⵜⴰⵍ ⴳ ⵍⵎⵖⵔⵉⴱ, ⴰⵔ 2 ⵜⵉⴽⴽⴰⵍ ⴳ 24 ⴰⵢⵢⵓⵔ.', 'ⵉⵙⵎⵏ ⵏ ⵓⵙⵖⵔⵙ ⵏ ⵓⵙⵖⵉⵎ ⴹⴼⵕ ⴰⵙⵉⴱⵉⵜⴰⵍ: ⴳ ⵍⵎⵖⵔⵉⴱ 500 DH ⵉ ⵢⵉⴹ ⴰⵔ 8 ⵡⵓⵙⵙⴰⵏ, ⴳ ⴱⵕⵕⴰ 900 DH ⵉ ⵢⵉⴹ ⴰⵔ 7 ⵡⵓⵙⵙⴰⵏ.', 'ⴰⵔⵔⴰ ⵖⵔ ⵜⴰⴷⴷⴰⵔⵜ ⴹⴼⵕ ⴰⵙⵉⴱⵉⵜⴰⵍ ⴳ ⴱⵕⵕⴰ.']],
+        ['ⵜⴰⵎⵓⵏⵜ ⵏ ⵓⵍⴰⵍ', ['ⵎⴰ ⵉⵍⵍⴰ ⵓⵍⴰⵍ ⵏ ⵓⴼⵔⵓⵅ ⴰⵎⴰⵢⵏⵓ, ⴰⵎⵏⴼⴰⵄ ⴰⴷ ⵉⴼⴽ ⵉⵙⵍⴽⴰⵎⵏ ⴳ 90 ⵡⴰⵙⵙⵏ ⵙⴳ ⵜⵉⵣⵉ ⵏ ⵓⵍⴰⵍ ⵉ 350 DH.', 'ⵜⴰⵙⵍⴽⵉⵏⵜ ⵏ ⵓⵍⴰⵍ.', 'ⵏⵙⵅⴰ ⵜⴰⵙⵍⴽⵉⵏⵜ ⵜⴰⵙⵍⵉⵜ ⵏ ⵓⵍⴰⵍ.', 'RIB ⵏ ⵓⵎⵏⵅⵔⴰⵟ.', 'ⵏⵙⵅⴰ ⵏ CIN ⵏ ⵓⵎⵏⵅⵔⴰⵟ.', 'ⵏⵙⵅⴰ ⵏ ⵜⴽⴰⵕⴹⴰ ⵏ ⵓⵏⵅⵔⴰⵟ ⵏ FOS-Agri.']]
+      ]
+    },
+    {
+      title: 'ⴰⵙⵉⵡⴹ ⴷ ⵜⴰⵍⵍⴰⵍⵜ ⵏ ⵜⵎⵜⵜⴰⵏⵜ',
+      icon: 'fa-ribbon',
+      services: [
+        ['ⴰⵙⵉⵡⴹ ⵏ ⵜⵎⵜⵜⴰⵏⵜ', ['ⴰⵙⵉⵡⴹ ⵏ ⵓⵎⵏⵅⵔⴰⵟ ⵉⵎⵎⵓⵜ ⵖⵔ ⵓⵎⴹⴰⵍ ⵏ ⵓⵎⴹⴰⵍ.', 'ⴰⵎⵓⴷⴷⵓ ⵏ ⵉⵙⴽⴰⵔⵏ ⵉ ⵓⵙⵉⵡⴹ.', 'ⴰⵎⵓⵏ ⵏ ⵓⴳⴹⵉⴹ ⵉⵎⵍⵉ.']],
+        ['ⵜⴰⵎⵓⵏⵜ ⵏ ⵜⵎⵜⵜⴰⵏⵜ', 'ⵜⴰⵎⵓⵏⵜ ⵏ ⵜⵎⵜⵜⴰⵏⵜ ⵜⵜⴰⵍⵍⴰ ⵉ ⵉⵎⵏⴼⴰⵄⵏ ⵙ ⵓⴳⴰⵎⴰ ⵏ ⵜⵎⵜⵜⴰⵏⵜ ⴷ ⵉⵙⵍⴽⴰⵎⵏ ⵉⵜⵜⵓⵙⵓⵜⵔⵏ.']
+      ]
+    }
+  ],
+  funeralCards: [
+    ['ⵜⴰⵎⵜⵜⴰⵏⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ', ['ⵜⴰⵙⵍⴽⵉⵏⵜ ⵏ ⵜⵎⵜⵜⴰⵏⵜ.', 'ⵏⵙⵅⴰ ⵏ ⵓⵎⵙⵍⴰⵢ ⵏ ⵓⵣⵡⴰⵊ.', 'RIB ⵏ ⵓⵙⵍⵉ ⵉⴷⴷⵔⵏ.', 'ⵏⵙⵅⴰ ⵏ CIN ⴷ ⵏⵙⵅⴰ ⵏ ⵜⴽⴰⵕⴹⴰ ⵏ ⵓⵏⵅⵔⴰⵟ.', 'ⵎⴰ ⵓⵔ ⵉⵍⵍⵉ ⵓⵙⵍⵉ: ⵜⴰⵙⵍⴽⵉⵏⵜ ⵏ ⵓⵣⴷⴰⵢ ⵏ ⵜⵡⴰⵛⵓⵍⵜ, ⵜⴰⵙⵍⴽⵉⵏⵜ ⵏ ⵜⵔⵉⴽⴰ ⴷ RIB ⵏ ⵓⵎⵏⴼⴰⵄ.']],
+    ['ⵜⴰⵎⵜⵜⴰⵏⵜ ⵏ ⵓⵙⵍⵉ', ['ⵜⴰⵙⵍⴽⵉⵏⵜ ⵏ ⵜⵎⵜⵜⴰⵏⵜ.', 'ⵏⵙⵅⴰ ⵏ ⵓⵎⵙⵍⴰⵢ ⵏ ⵓⵣⵡⴰⵊ.', 'CIN ⵏ ⵓⵙⵍⵉ ⵉⴷⴷⵔⵏ.', 'RIB ⵏ ⵓⵙⵍⵉ ⵉⴷⴷⵔⵏ.']],
+    ['ⵜⴰⵎⵜⵜⴰⵏⵜ ⵏ ⵓⴼⵔⵓⵅ', ['ⵜⴰⵙⵍⴽⵉⵏⵜ ⵏ ⵜⵎⵜⵜⴰⵏⵜ ⵏ ⵓⵎⵎⵓⵜ.', 'ⵜⴰⵙⵍⴽⵉⵏⵜ ⵏ ⵓⵍⴰⵍ ⵏ ⵓⵎⵎⵓⵜ.', 'RIB ⵏ ⵓⵎⵏⴼⴰⵄ.', 'ⵏⵙⵅⴰ ⵏ CIN ⴷ ⵏⵙⵅⴰ ⵏ ⵜⴽⴰⵕⴹⴰ ⵏ ⵓⵏⵅⵔⴰⵟ.']],
+    ['ⵜⴰⵎⵓⵏⵜ ⵜⴰⴷⵔⵉⵎⵜ', ['7 000 DH ⴳ ⵜⵎⵜⵜⴰⵏⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ.', '2 500 DH ⴳ ⵜⵎⵜⵜⴰⵏⵜ ⵏ ⵓⵙⵍⵉ.', '1 000 DH ⴳ ⵜⵎⵜⵜⴰⵏⵜ ⵏ ⵓⴼⵔⵓⵅ.']]
+  ]
+};
+
+const prevoyanceExtraFr = [
+      {
+    navIndex: 3,
+    badge: 'CENTRE MEDICO-SOCIAL',
+    title: 'CENTRE MEDICO-SOCIAL',
+    intro: ['La FOS-Agri assure via son centre médico-social :', 'Les consultations données par une équipe médicale spécialisée et performante', 'L’accompagnement et le suivi des adhérents en situation de pré ou post hospitalisation', 'Le conseil et l’orientation des adhérents.'],
+    beneficiariesTitle: 'Bénéficiaires',
+    beneficiaries: [{ number: '01', text: "L'adhérent" }, { number: '02', text: "Le(s) conjoint(s) de l'adhérent" }, { number: '03', text: 'Leurs enfants.' }],
+    blocks: [
+      {
+        title: 'Spécialités au niveau central',
+        icon: 'fa-stethoscope',
+        items: [
+          { title: 'Médecine interne', icon: 'fa-user-doctor', rows: [['Lieu', 'Bureau médico-social'], ['Jour', 'Lundi'], ['Heure', '8h30'], ['Téléphone', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'Cardiologie', icon: 'fa-heart-pulse', rows: [['Lieu', 'Bureau médico-social'], ['Jour', 'Jeudi'], ['Heure', '10h'], ['Téléphone', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'ORL', icon: 'fa-ear-listen', rows: [['Lieu', 'Cabinet du médecin'], ['Créneaux', 'Lundi 12h, Mardi, Jeudi, Vendredi'], ['Téléphone', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'Urologie', icon: 'fa-notes-medical', rows: [['Lieu', 'Cabinet du médecin'], ['Créneaux', 'Lundi 11h, Mardi, Mercredi, Jeudi, Vendredi'], ['Téléphone', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'Gynécologie', icon: 'fa-venus', rows: [['Lieu', 'Bureau médico-social'], ['Jour', 'Mercredi'], ['Heure', '09h30'], ['Téléphone', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'Dermatologie', icon: 'fa-hand-sparkles', rows: [['Lieu', 'Bureau médico-social'], ['Jour', 'Jeudi'], ['Heure', '08h30'], ['Téléphone', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'Endocrinologie', icon: 'fa-vial-circle-check', rows: [['Lieu', 'Cabinet du médecin'], ['Jour', 'Jeudi'], ['Heure', '10h'], ['Téléphone', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'Gastro-entérologie', icon: 'fa-pills', rows: [['Lieu', 'Bureau médico-social'], ['Jour', 'Mardi'], ['Heure', '09h'], ['Téléphone', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'Allergo-phtisiologie', icon: 'fa-lungs', rows: [['Lieu', 'Bureau médico-social'], ['Jour', 'Mercredi'], ['Heure', '08h30'], ['Téléphone', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'Traumatologie', icon: 'fa-bone', rows: [['Lieu', 'Cabinet du médecin'], ['Jour', 'Vendredi'], ['Heure', '09h'], ['Téléphone', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'Kinésithérapie', icon: 'fa-person-walking', rows: [['Lieu', 'Bureau médico-social'], ['Créneaux', 'Lundi, mercredi et vendredi de 9h à 13h'], ['Téléphone', '05 37 10 35 14 / 06 57 83 15 17']] }
+        ]
+      },
+      {
+        title: 'Spécialités au niveau régional',
+        icon: 'fa-map-location-dot',
+        items: [
+          { title: 'Région de Béni Mellal - Khénifra', titleZgh: 'ⵜⴰⵎⵏⴰⴹⵜ ⵏ ⴱⵏⵉ ⵎⵍⵍⴰⵍ - ⵅⵏⵉⴼⵔⴰ', icon: 'fa-location-dot', rows: [['Médecin', 'DR OULD LACHHAB ILIAS'], ['Adresse', "BD DE L'ARMEE ROYALE, ROUTE AL MASSIRA 2, A COTE CAFE AL WATAN - BENI MELLAL"], ['Prise de RDV', '0526 12 10 10'], ['Relais régional', 'MME MALIHI AMAL'], ['Téléphone du relais', '0657 83 18 94']] },
+          { title: 'Région de Casablanca - Settat', titleZgh: 'ⵜⴰⵎⵏⴰⴹⵜ ⵏ ⴰⵏⴼⴰ - ⵙⵟⴰⵜ', icon: 'fa-location-dot', rows: [['Médecin', 'Docteur MOUFTADI ABDELFATTAH'], ['Adresse', 'Avenue Bir Anzarane N° 16, El Jadida'], ['Prise de RDV', '0523 39 42 03'], ['Relais régional', 'GUADDA MOHAMED'], ['Téléphone du relais', '06 57 83 16 36']] },
+          { title: 'Région de Dakhla - Oued Eddahab', titleZgh: 'ⵜⴰⵎⵏⴰⴹⵜ ⵏ ⴷⴰⵅⵍⴰ - ⴰⵙⵉⴼ ⴷⴰⵀⴰⴱ', icon: 'fa-location-dot', rows: [['Médecin', 'Docteur SADIK YOUNESS'], ['Adresse', 'App N°4, N° 17/1105, rue mosquée, Hay Massira, Dakhla'], ['Prise de RDV', '0528 89 77 05'], ['Relais régional', 'MINA SAAD ALLAH'], ['Téléphone du relais', '0657 83 17 87']] },
+          { title: 'Région de Drâa - Tafilalet', titleZgh: 'ⵜⴰⵎⵏⴰⴹⵜ ⵏ ⴷⵔⴰⵄⴰ - ⵜⴰⴼⵉⵍⴰⵍⵜ', icon: 'fa-location-dot', rows: [['Médecin', 'Docteur GHANEME ABDELAZIZ'], ['Adresse', '14, Rue de la mosquée, Errachidia'], ['Prise de RDV', '0535 57 27 76'], ['Relais régional', 'BRITEL ABDESSAMAD'], ['Téléphone du relais', '06 68 90 90 84']] },
+          { title: 'Région de Fès - Meknès', titleZgh: 'ⵜⴰⵎⵏⴰⴹⵜ ⵏ ⴼⴰⵙ - ⵎⴽⵏⴰⵙ', icon: 'fa-location-dot', rows: [['Médecin', 'Docteur DBAB Mohamed'], ['Adresse', '4, Rue Omar Ben Chamsi (Ex rue Acora) Hamria, Meknès'], ['Prise de RDV', '0535 52 10 87'], ['Relais régional', 'SAID AIT BERRI'], ['Téléphone du relais', '0657 83 20 37']] },
+          { title: 'Région de Guelmim - Oued Noun', titleZgh: 'ⵜⴰⵎⵏⴰⴹⵜ ⵏ ⴳⵯⵍⵎⵉⵎ - ⴰⵙⵉⴼ ⵏⵓⵏ', icon: 'fa-location-dot', rows: [['Médecin', 'Docteur HAIDAR KHAIR'], ['Adresse', 'Imm Assafae, 3ème étage, App N°9, Bir Inzarane, Guelmim'], ['Prise de RDV', '0528 87 34 61'], ['Relais régional', 'LATIF AIDA'], ['Téléphone du relais', '0657 83 15 04']] },
+          { title: 'Région de Laâyoune - Sakia El Hamra', titleZgh: 'ⵜⴰⵎⵏⴰⴹⵜ ⵏ ⵍⵄⵢⵓⵏ - ⵙⴰⵇⵢⴰ ⵍⵃⴰⵎⵔⴰ', icon: 'fa-location-dot', rows: [['Médecin', 'Docteur LAJOUAD BAIHI'], ['Adresse', 'Av Hassan II, Phosboukraâ, LAAYOUNE'], ['Prise de RDV', '0528 99 15 15'], ['Relais régional', 'MOUSSAOUI MOHAMED ALI'], ['Téléphone du relais', '0657 83 20 46']] },
+          { title: 'Région de Marrakech - Safi', titleZgh: 'ⵜⴰⵎⵏⴰⴹⵜ ⵏ ⵎⵕⵕⴰⴽⵛ - ⴰⵙⴼⵉ', icon: 'fa-location-dot', rows: [['Médecin', 'Docteur BELAHNECH ABDOULMOUTTALIB'], ['Adresse', '49, Bd Rabat, Safi'], ['Prise de RDV', '05 24 46 37 97'], ['Relais régional', 'SERFATI CHAKIB'], ['Téléphone du relais', '06 57 83 17 37']] },
+          { title: "Région de l'Oriental", titleZgh: 'ⵜⴰⵎⵏⴰⴹⵜ ⵏ ⵓⵛⵛⵔⵇ', icon: 'fa-location-dot', rows: [['Médecin', 'Docteur DRISS MOUHSINE'], ['Adresse', 'N° 29, Bd Mouad Ibn Jabal, Oujda'], ['Prise de RDV', '0538 93 60 06'], ['Relais régional', 'RACHID BOUNOUA'], ['Téléphone du relais', '0657 83 17 02']] },
+          { title: 'Région de Rabat - Salé - Kénitra', titleZgh: 'ⵜⴰⵎⵏⴰⴹⵜ ⵏ ⵕⴱⴰⵟ - ⵙⵍⴰ - ⵇⵏⵉⵟⵔⴰ', icon: 'fa-location-dot', rows: [['Médecin', 'Docteur IBNABDALLAH MOHAMED'], ['Adresse', '15, Rue Jabel El Ayachi, Centre Khmisset'], ['Prise de RDV', '0537 55 05 00'], ['Relais régional', 'EL BERIRI SAMIRA'], ['Téléphone du relais', '06 57 83 16 63']] },
+          { title: 'Région de Souss - Massa', titleZgh: 'ⵜⴰⵎⵏⴰⴹⵜ ⵏ ⵙⵓⵙ - ⵎⴰⵙⴰ', icon: 'fa-location-dot', rows: [['Statut', 'en cours']] },
+          { title: 'Région de Tanger - Tétouan - Al Hoceima', titleZgh: 'ⵜⴰⵎⵏⴰⴹⵜ ⵏ ⵟⵏⵊⴰ - ⵜⵉⵟⵟⴰⵡⵉⵏ - ⵍⵃⵓⵙⵉⵎⴰ', icon: 'fa-location-dot', rows: [['Statut', 'en cours']] }
+        ]
+      }
+    ]
+  },
+  {
+    navIndex: 4,
+    badge: 'AIDES AUX PERSONNES AUX BESOINS SPECIFIQUES',
+    title: 'AIDES AUX PERSONNES AUX BESOINS SPECIFIQUES',
+    intro: 'La FOS-Agri a mis en place un programme d’aide aux enfants des adhérents en situations d’handicap présentant des besoins spécifiques, en contribuant à la prise en charge de leurs besoins particuliers à travers une aide.',
+    beneficiariesTitle: 'Bénéficiaires',
+    beneficiaries: [{ number: '01', text: 'Tous les enfants des adhérents de la FOS-Agri en situation d’handicap moteur ou mental, justifiée par une attestation délivrée par les autorités publiques compétentes, et n’exerçant aucune activité génératrice de revenu.' }],
+    blocks: [
+      { title: 'Inscription et modalités', icon: 'fa-clipboard-check', items: [{ title: 'Modalités', icon: 'fa-list-check', bullets: ['Inscription en ligne.', 'Toutes les demandes respectant les conditions sont acceptées.'] }] },
+      { title: 'Pièces à fournir', icon: 'fa-folder-open', items: [{ title: 'Dossier justificatif', icon: 'fa-file-medical', bullets: ['Copie du dossier médical de l’intéressé.', 'Copie du formulaire relatif au type d’handicap portant l’avis de la commission médicale provinciale.', 'Pour continuer à bénéficier de l’aide, les adhérents concernés doivent fournir chaque année un certificat de vie.', 'Pour les enfants dont l’handicap n’est pas définitif, un nouveau dossier médical doit être fourni chaque année.'] }] }
+    ]
+  },
+  {
+    navIndex: 5,
+    type: 'medicalPartners',
+    badge: 'CONVENTIONS ET PARTENARIATS MEDICALES',
+    title: labels.fr.medicalPartners.title,
+    intro: labels.fr.medicalPartners.intro
+  }
+];
+
+const prevoyanceExtraAr = [
+      {
+    navIndex: 3,
+    badge: 'المركز الطبي الاجتماعي',
+    title: 'المركز الطبي الاجتماعي',
+    intro: ['تضمن FOS-Agri عبر مركزها الطبي الاجتماعي:', 'استشارات تقدمها فرق طبية متخصصة وذات كفاءة', 'مواكبة وتتبع المنخرطين قبل أو بعد الاستشفاء', 'النصح والتوجيه.'],
+    beneficiariesTitle: 'المستفيدون',
+    beneficiaries: [{ number: '01', text: 'المنخرط' }, { number: '02', text: 'زوج أو أزواج المنخرط' }, { number: '03', text: 'أبناؤهم.' }],
+    blocks: [
+      {
+        title: 'التخصصات على المستوى المركزي',
+        icon: 'fa-stethoscope',
+        items: [
+          { title: 'الطب الباطني', icon: 'fa-user-doctor', rows: [['المكان', 'المكتب الطبي الاجتماعي'], ['اليوم', 'الاثنين'], ['الساعة', '8h30'], ['الهاتف', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'أمراض القلب', icon: 'fa-heart-pulse', rows: [['المكان', 'المكتب الطبي الاجتماعي'], ['اليوم', 'الخميس'], ['الساعة', '10h'], ['الهاتف', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'الأنف والأذن والحنجرة', icon: 'fa-ear-listen', rows: [['المكان', 'عيادة الطبيب'], ['المواعيد', 'الاثنين 12h، الثلاثاء، الخميس، الجمعة'], ['الهاتف', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'المسالك البولية', icon: 'fa-notes-medical', rows: [['المكان', 'عيادة الطبيب'], ['المواعيد', 'الاثنين 11h، الثلاثاء، الأربعاء، الخميس، الجمعة'], ['الهاتف', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'أمراض النساء', icon: 'fa-venus', rows: [['المكان', 'المكتب الطبي الاجتماعي'], ['اليوم', 'الأربعاء'], ['الساعة', '09h30'], ['الهاتف', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'الأمراض الجلدية', icon: 'fa-hand-sparkles', rows: [['المكان', 'المكتب الطبي الاجتماعي'], ['اليوم', 'الخميس'], ['الساعة', '08h30'], ['الهاتف', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'أمراض الغدد', icon: 'fa-vial-circle-check', rows: [['المكان', 'عيادة الطبيب'], ['اليوم', 'الخميس'], ['الساعة', '10h'], ['الهاتف', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'أمراض الجهاز الهضمي', icon: 'fa-pills', rows: [['المكان', 'المكتب الطبي الاجتماعي'], ['اليوم', 'الثلاثاء'], ['الساعة', '09h'], ['الهاتف', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'الحساسية والأمراض الصدرية', icon: 'fa-lungs', rows: [['المكان', 'المكتب الطبي الاجتماعي'], ['اليوم', 'الأربعاء'], ['الساعة', '08h30'], ['الهاتف', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'جراحة العظام والرضوض', icon: 'fa-bone', rows: [['المكان', 'عيادة الطبيب'], ['اليوم', 'الجمعة'], ['الساعة', '09h'], ['الهاتف', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'الترويض الطبي', icon: 'fa-person-walking', rows: [['المكان', 'المكتب الطبي الاجتماعي'], ['المواعيد', 'الاثنين والأربعاء والجمعة من 9h إلى 13h'], ['الهاتف', '05 37 10 35 14 / 06 57 83 15 17']] }
+        ]
+      },
+      {
+        title: 'التخصصات على المستوى الجهوي',
+        icon: 'fa-map-location-dot',
+        items: [
+          { title: 'جهة بني ملال - خنيفرة', icon: 'fa-location-dot', rows: [['الطبيب', 'DR OULD LACHHAB ILIAS'], ['العنوان', "BD DE L'ARMEE ROYALE, ROUTE AL MASSIRA 2, A COTE CAFE AL WATAN - BENI MELLAL"], ['أخذ الموعد', '0526 12 10 10'], ['المنسق الجهوي', 'MME MALIHI AMAL'], ['هاتف المنسق', '0657 83 18 94']] },
+          { title: 'جهة الدار البيضاء - سطات', icon: 'fa-location-dot', rows: [['الطبيب', 'Docteur MOUFTADI ABDELFATTAH'], ['العنوان', 'Avenue Bir Anzarane N° 16, El Jadida'], ['أخذ الموعد', '0523 39 42 03'], ['المنسق الجهوي', 'GUADDA MOHAMED'], ['هاتف المنسق', '06 57 83 16 36']] },
+          { title: 'جهة الداخلة - وادي الذهب', icon: 'fa-location-dot', rows: [['الطبيب', 'Docteur SADIK YOUNESS'], ['العنوان', 'App N°4, N° 17/1105, rue mosquée, Hay Massira, Dakhla'], ['أخذ الموعد', '0528 89 77 05'], ['المنسق الجهوي', 'MINA SAAD ALLAH'], ['هاتف المنسق', '0657 83 17 87']] },
+          { title: 'جهة درعة - تافيلالت', icon: 'fa-location-dot', rows: [['الطبيب', 'Docteur GHANEME ABDELAZIZ'], ['العنوان', '14, Rue de la mosquée, Errachidia'], ['أخذ الموعد', '0535 57 27 76'], ['المنسق الجهوي', 'BRITEL ABDESSAMAD'], ['هاتف المنسق', '06 68 90 90 84']] },
+          { title: 'جهة فاس - مكناس', icon: 'fa-location-dot', rows: [['الطبيب', 'Docteur DBAB Mohamed'], ['العنوان', '4, Rue Omar Ben Chamsi (Ex rue Acora) Hamria, Meknès'], ['أخذ الموعد', '0535 52 10 87'], ['المنسق الجهوي', 'SAID AIT BERRI'], ['هاتف المنسق', '0657 83 20 37']] },
+          { title: 'جهة كلميم - واد نون', icon: 'fa-location-dot', rows: [['الطبيب', 'Docteur HAIDAR KHAIR'], ['العنوان', 'Imm Assafae, 3ème étage, App N°9, Bir Inzarane, Guelmim'], ['أخذ الموعد', '0528 87 34 61'], ['المنسق الجهوي', 'LATIF AIDA'], ['هاتف المنسق', '0657 83 15 04']] },
+          { title: 'جهة العيون - الساقية الحمراء', icon: 'fa-location-dot', rows: [['الطبيب', 'Docteur LAJOUAD BAIHI'], ['العنوان', 'Av Hassan II, Phosboukraâ, LAAYOUNE'], ['أخذ الموعد', '0528 99 15 15'], ['المنسق الجهوي', 'MOUSSAOUI MOHAMED ALI'], ['هاتف المنسق', '0657 83 20 46']] },
+          { title: 'جهة مراكش - آسفي', icon: 'fa-location-dot', rows: [['الطبيب', 'Docteur BELAHNECH ABDOULMOUTTALIB'], ['العنوان', '49, Bd Rabat, Safi'], ['أخذ الموعد', '05 24 46 37 97'], ['المنسق الجهوي', 'SERFATI CHAKIB'], ['هاتف المنسق', '06 57 83 17 37']] },
+          { title: 'جهة الشرق', icon: 'fa-location-dot', rows: [['الطبيب', 'Docteur DRISS MOUHSINE'], ['العنوان', 'N° 29, Bd Mouad Ibn Jabal, Oujda'], ['أخذ الموعد', '0538 93 60 06'], ['المنسق الجهوي', 'RACHID BOUNOUA'], ['هاتف المنسق', '0657 83 17 02']] },
+          { title: 'جهة الرباط - سلا - القنيطرة', icon: 'fa-location-dot', rows: [['الطبيب', 'Docteur IBNABDALLAH MOHAMED'], ['العنوان', '15, Rue Jabel El Ayachi, Centre Khmisset'], ['أخذ الموعد', '0537 55 05 00'], ['المنسق الجهوي', 'EL BERIRI SAMIRA'], ['هاتف المنسق', '06 57 83 16 63']] },
+          { title: 'جهة سوس - ماسة', icon: 'fa-location-dot', rows: [['الحالة', 'قيد الإنجاز']] },
+          { title: 'جهة طنجة - تطوان - الحسيمة', icon: 'fa-location-dot', rows: [['الحالة', 'قيد الإنجاز']] }
+        ]
+      }
+    ]
+  },
+  {
+    navIndex: 4,
+    badge: 'دعم الأشخاص ذوي الاحتياجات الخاصة',
+    title: 'دعم الأشخاص ذوي الاحتياجات الخاصة',
+    intro: 'وضعت FOS-Agri برنامجا لمساعدة أبناء المنخرطين في وضعية إعاقة ولديهم احتياجات خاصة، عبر المساهمة في التكفل باحتياجاتهم الخاصة من خلال مساعدة.',
+    beneficiariesTitle: 'المستفيدون',
+    beneficiaries: [{ number: '01', text: 'جميع أبناء منخرطي FOS-Agri الموجودين في وضعية إعاقة حركية أو ذهنية، مثبتة بشهادة إعاقة صادرة عن السلطات العمومية المختصة، والذين لا يمارسون أي نشاط مدر للدخل.' }],
+    blocks: [
+      { title: 'التسجيل والكيفيات', icon: 'fa-clipboard-check', items: [{ title: 'الكيفيات', icon: 'fa-list-check', bullets: ['التسجيل عبر الإنترنت.', 'تقبل جميع الطلبات التي تستوفي الشروط.'] }] },
+      { title: 'الوثائق المطلوبة', icon: 'fa-folder-open', items: [{ title: 'الملف المثبت', icon: 'fa-file-medical', bullets: ['نسخة من الملف الطبي للمعني بالأمر.', 'نسخة من الاستمارة المتعلقة بنوع الإعاقة، تحمل رأي اللجنة الطبية الإقليمية.', 'لمواصلة الاستفادة، يجب على المنخرطين المعنيين الإدلاء كل سنة بشهادة الحياة.', 'بالنسبة للأطفال الذين ليست إعاقتهم نهائية، يجب الإدلاء كل سنة بملف طبي جديد.'] }] }
+    ]
+  },
+  {
+    navIndex: 5,
+    type: 'medicalPartners',
+    badge: 'الاتفاقيات والشراكات الطبية',
+    title: labels.ar.medicalPartners.title,
+    intro: labels.ar.medicalPartners.intro
+  }
+];
+
+const prevoyanceExtraZgh = [
+      {
+    navIndex: 3,
+    badge: 'ⴰⵎⵎⴰⵙ ⴰⴷⵓⵙⴰⵏ ⴰⵏⴰⵎⵓⵏ',
+    title: 'ⴰⵎⵎⴰⵙ ⴰⴷⵓⵙⴰⵏ ⴰⵏⴰⵎⵓⵏ',
+    intro: ['FOS-Agri ⵜⴰⵎⵓⴷⴷⵓ ⵙ ⵓⵎⵎⴰⵙ ⴰⴷⵓⵙⴰⵏ ⴰⵏⴰⵎⵓⵏ:', 'ⵜⵉⵔⵣⴰ ⵏ ⵢⴰⵜ ⵜⴰⵔⴱⴰⵄⵜ ⵜⴰⴷⵓⵙⴰⵏⵜ ⵜⵉⵎⵥⵍⵉⵢⵜ', 'ⴰⵎⵓⴷⴷⵓ ⴷ ⵓⵜⵜⴰⴱⴰⵄ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴷⴰⵜ ⵏⵖ ⴹⴼⵕ ⴰⵙⵉⴱⵉⵜⴰⵍ', 'ⴰⵙⴷⵓ ⴷ ⵜⵎⵙⵍⵉⵡⵜ.'],
+    beneficiariesTitle: 'ⵉⵎⵏⴼⴰⵄⵏ',
+    beneficiaries: [{ number: '01', text: 'ⴰⵎⵏⵅⵔⴰⵟ' }, { number: '02', text: 'ⴰⵙⵍⵉ ⵏ ⵓⵎⵏⵅⵔⴰⵟ' }, { number: '03', text: 'ⵉⴼⵔⵅⴰⵏ ⵏⵏⵙⵏ.' }],
+    blocks: [
+      {
+        title: 'ⵜⵉⵎⵥⵍⵉⵢⵉⵏ ⴳ ⵓⵎⵎⴰⵙ',
+        icon: 'fa-stethoscope',
+        items: [
+          { title: 'ⵜⴰⴷⵓⵙⵉ ⵜⴰⴳⵏⵙⴰⵏⵜ', icon: 'fa-user-doctor', rows: [['ⴰⴷⵖⴰⵔ', 'ⴰⵎⵎⴰⵙ ⴰⴷⵓⵙⴰⵏ ⴰⵏⴰⵎⵓⵏ'], ['ⴰⵙⵙ', 'ⴰⵢⵏⴰⵙ'], ['ⵜⴰⵙⵔⴰⴳⵜ', '8h30'], ['ⵜⵉⵍⵉⴼⵓⵏ', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'ⵜⴰⴷⵓⵙⵉ ⵏ ⵓⵍ', icon: 'fa-heart-pulse', rows: [['ⴰⴷⵖⴰⵔ', 'ⴰⵎⵎⴰⵙ ⴰⴷⵓⵙⴰⵏ ⴰⵏⴰⵎⵓⵏ'], ['ⴰⵙⵙ', 'ⴰⴽⵡⴰⵙ'], ['ⵜⴰⵙⵔⴰⴳⵜ', '10h'], ['ⵜⵉⵍⵉⴼⵓⵏ', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'ORL', icon: 'fa-ear-listen', rows: [['ⴰⴷⵖⴰⵔ', 'ⵜⵉⵔⵣⴰ ⵏ ⵓⵎⵙⵙⵉⵊⵊⵉ'], ['ⵜⵉⵣⵉ', 'ⴰⵢⵏⴰⵙ 12h, ⴰⵙⵉⵏⴰⵙ, ⴰⴽⵡⴰⵙ, ⴰⵙⵉⵎⵡⴰⵙ'], ['ⵜⵉⵍⵉⴼⵓⵏ', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'ⵜⴰⴷⵓⵙⵉ ⵏ ⵓⵙⵔⴰⴼ', icon: 'fa-notes-medical', rows: [['ⴰⴷⵖⴰⵔ', 'ⵜⵉⵔⵣⴰ ⵏ ⵓⵎⵙⵙⵉⵊⵊⵉ'], ['ⵜⵉⵣⵉ', 'ⴰⵢⵏⴰⵙ 11h, ⴰⵙⵉⵏⴰⵙ, ⴰⴽⵕⴰⵙ, ⴰⴽⵡⴰⵙ, ⴰⵙⵉⵎⵡⴰⵙ'], ['ⵜⵉⵍⵉⴼⵓⵏ', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'ⵜⴰⴷⵓⵙⵉ ⵏ ⵜⵎⵖⴰⵔⵜ', icon: 'fa-venus', rows: [['ⴰⴷⵖⴰⵔ', 'ⴰⵎⵎⴰⵙ ⴰⴷⵓⵙⴰⵏ ⴰⵏⴰⵎⵓⵏ'], ['ⴰⵙⵙ', 'ⴰⴽⵕⴰⵙ'], ['ⵜⴰⵙⵔⴰⴳⵜ', '09h30'], ['ⵜⵉⵍⵉⴼⵓⵏ', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'ⵜⴰⴷⵓⵙⵉ ⵏ ⵉⴳⵍⵎⴰⵎⵏ', icon: 'fa-hand-sparkles', rows: [['ⴰⴷⵖⴰⵔ', 'ⴰⵎⵎⴰⵙ ⴰⴷⵓⵙⴰⵏ ⴰⵏⴰⵎⵓⵏ'], ['ⴰⵙⵙ', 'ⴰⴽⵡⴰⵙ'], ['ⵜⴰⵙⵔⴰⴳⵜ', '08h30'], ['ⵜⵉⵍⵉⴼⵓⵏ', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'ⵜⴰⴷⵓⵙⵉ ⵏ ⵉⵙⵓⴷⴰⵔ', icon: 'fa-vial-circle-check', rows: [['ⴰⴷⵖⴰⵔ', 'ⵜⵉⵔⵣⴰ ⵏ ⵓⵎⵙⵙⵉⵊⵊⵉ'], ['ⴰⵙⵙ', 'ⴰⴽⵡⴰⵙ'], ['ⵜⴰⵙⵔⴰⴳⵜ', '10h'], ['ⵜⵉⵍⵉⴼⵓⵏ', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'ⵜⴰⴷⵓⵙⵉ ⵏ ⵓⵙⴳⵍ', icon: 'fa-pills', rows: [['ⴰⴷⵖⴰⵔ', 'ⴰⵎⵎⴰⵙ ⴰⴷⵓⵙⴰⵏ ⴰⵏⴰⵎⵓⵏ'], ['ⴰⵙⵙ', 'ⴰⵙⵉⵏⴰⵙ'], ['ⵜⴰⵙⵔⴰⴳⵜ', '09h'], ['ⵜⵉⵍⵉⴼⵓⵏ', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'ⵜⴰⴷⵓⵙⵉ ⵏ ⵓⵙⵎⵎⵓⴹ ⴷ ⵓⴼⴼⵓⵙ', icon: 'fa-lungs', rows: [['ⴰⴷⵖⴰⵔ', 'ⴰⵎⵎⴰⵙ ⴰⴷⵓⵙⴰⵏ ⴰⵏⴰⵎⵓⵏ'], ['ⴰⵙⵙ', 'ⴰⴽⵕⴰⵙ'], ['ⵜⴰⵙⵔⴰⴳⵜ', '08h30'], ['ⵜⵉⵍⵉⴼⵓⵏ', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'ⵜⴰⴷⵓⵙⵉ ⵏ ⵉⵖⵙⴰⵏ', icon: 'fa-bone', rows: [['ⴰⴷⵖⴰⵔ', 'ⵜⵉⵔⵣⴰ ⵏ ⵓⵎⵙⵙⵉⵊⵊⵉ'], ['ⴰⵙⵙ', 'ⴰⵙⵉⵎⵡⴰⵙ'], ['ⵜⴰⵙⵔⴰⴳⵜ', '09h'], ['ⵜⵉⵍⵉⴼⵓⵏ', '05 37 10 35 14 / 06 57 83 15 17']] },
+          { title: 'ⴽⵉⵏⵉⵣⵉⵜⵉⵔⴰⴱⵉ', icon: 'fa-person-walking', rows: [['ⴰⴷⵖⴰⵔ', 'ⴰⵎⵎⴰⵙ ⴰⴷⵓⵙⴰⵏ ⴰⵏⴰⵎⵓⵏ'], ['ⵜⵉⵣⵉ', 'ⴰⵢⵏⴰⵙ, ⴰⴽⵕⴰⵙ ⴷ ⴰⵙⵉⵎⵡⴰⵙ ⵙⴳ 9h ⴰⵔ 13h'], ['ⵜⵉⵍⵉⴼⵓⵏ', '05 37 10 35 14 / 06 57 83 15 17']] }
+        ]
+      },
+      {
+        title: 'ⵜⵉⵎⵥⵍⵉⵢⵉⵏ ⴳ ⵜⵎⵏⴰⴹⵉⵏ',
+        icon: 'fa-map-location-dot',
+        items: prevoyanceExtraFr[0].blocks[1].items.map((entry) => ({
+          title: entry.titleZgh || entry.title.replace('Région de ', 'ⵜⴰⵎⵏⴰⴹⵜ ⵏ '),
+          icon: 'fa-location-dot',
+          rows: entry.rows.map(([label, value]) => [{
+            'Médecin': 'ⴰⵎⵙⵙⵉⵊⵊⵉ',
+            'Adresse': 'ⵜⴰⵏⵙⴰ',
+            'Prise de RDV': 'ⵜⵉⵣⵉ ⵏ ⵜⵉⵔⵣⴰ',
+            'Relais régional': 'ⴰⵎⵙⵏⴰⵡ ⵏ ⵜⵎⵏⴰⴹⵜ',
+            'Téléphone du relais': 'ⵜⵉⵍⵉⴼⵓⵏ ⵏ ⵓⵎⵙⵏⴰⵡ',
+            'Statut': 'ⴰⴷⴷⴰⴷ'
+          }[label] || label, value === 'en cours' ? 'ⴳ ⵓⵙⵎⴰⵜⵜⴳ' : value])
+        }))
+      }
+    ]
+  },
+  {
+    navIndex: 4,
+    badge: 'ⴰⵎⵓⴷⴷⵓ ⵉ ⵉⵎⵓⵔⴰⵏ ⵉⵎⵥⵍⵉⵢⵏ',
+    title: 'ⴰⵎⵓⴷⴷⵓ ⵉ ⵉⵎⵓⵔⴰⵏ ⵉⵎⵥⵍⵉⵢⵏ',
+    intro: 'FOS-Agri ⵜⵙⵎⵓⵜⵜⴳ ⵢⴰⵜ ⵜⴰⵏⴼⵓⵙⵜ ⵉ ⵉⴼⵔⵅⴰⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴳ ⵓⵙⵔⵓⵜ ⵉⵎⵥⵍⵉ, ⵙ ⵓⵎⵓⴷⴷⵓ ⵉ ⵓⵙⵎⵔⵙ ⵏ ⵉⵙⵡⵉⵔⵏ ⵏⵏⵙⵏ.',
+    beneficiariesTitle: 'ⵉⵎⵏⴼⴰⵄⵏ',
+    beneficiaries: [{ number: '01', text: 'ⵎⴰⵕⵕⴰ ⵉⴼⵔⵅⴰⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ FOS-Agri ⵉⵍⵍⴰⵏ ⴳ ⵓⵙⵔⵓⵜ ⵉⵎⵥⵍⵉ, ⵙ ⵜⴰⵙⵍⴽⵉⵏⵜ ⵏ ⵓⵙⵔⵓⵜ ⵙⵖⵓⵔ ⵜⵎⵙⵙⵓⵜⵉⵏ ⵉⵎⵣⴰⵔⴰⵢⵏ, ⴷ ⵓⵔ ⵉⵙⴽⴰⵔⵏ ⴽⵔⴰ ⵏ ⵜⵡⵓⵔⵉ ⵜⴰⵙⵙⵏⴼⴰⵍⵜ.' }],
+    blocks: [
+      { title: 'ⴰⵙⵙⴼⵜⵔ ⴷ ⵜⵎⴰⵎⴽⵜ', icon: 'fa-clipboard-check', items: [{ title: 'ⵜⵎⴰⵎⴽⵜ', icon: 'fa-list-check', bullets: ['ⴰⵙⵙⴼⵜⵔ ⵙ ⵉⵏⵜⵉⵔⵏⵉⵜ.', 'ⵎⴰⵕⵕⴰ ⵉⵙⵓⵜⴰⵔ ⵉⵙⵎⴷⵏ ⵜⵉⵡⵜⵉⵍⵉⵏ ⵜⵜⵓⵙⵇⴱⴰⵍⵏ.'] }] },
+      { title: 'ⵉⵙⵍⴽⴰⵎⵏ ⵉⵍⴰⵇⵏ', icon: 'fa-folder-open', items: [{ title: 'ⴰⴼⴰⵢⵍⵓ', icon: 'fa-file-medical', bullets: ['ⵏⵙⵅⴰ ⵏ ⵓⴼⴰⵢⵍⵓ ⴰⴷⵓⵙⴰⵏ ⵏ ⵓⵎⵙⵍⴰⵢ.', 'ⵏⵙⵅⴰ ⵏ ⵓⴼⵓⵔⵎⵓⵍⵉⵔ ⵏ ⵓⵏⴰⵡ ⵏ ⵓⵙⵔⵓⵜ ⵙ ⵓⵔⴰⵢ ⵏ ⵜⴽⵎⵉⵙⵢⵓⵏ ⵜⴰⴷⵓⵙⴰⵏⵜ ⵜⴰⵎⵏⴰⴹⵜ.', 'ⵉ ⵓⵙⵙⵎⴷ ⵏ ⵓⵙⵎⵔⵙ, ⵉⵎⵏⵅⵔⴰⵟⵏ ⴰⴷ ⴼⴽⵏ ⴽⵓ ⴰⵙⴳⴳⵯⴰⵙ ⵜⴰⵙⵍⴽⵉⵏⵜ ⵏ ⵜⵓⴷⵔⵜ.', 'ⵉ ⵉⴼⵔⵅⴰⵏ ⵓⵔ ⵉⵙⵙⴷⵓⵙⵏ ⵓⵙⵔⵓⵜ ⵏⵏⵙⵏ, ⵉⵍⴰⵇ ⴽⵓ ⴰⵙⴳⴳⵯⴰⵙ ⴰⴼⴰⵢⵍⵓ ⴰⴷⵓⵙⴰⵏ ⴰⵎⴰⵢⵏⵓ.'] }] }
+    ]
+  },
+  {
+    navIndex: 5,
+    type: 'medicalPartners',
+    badge: 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⴷ ⵉⵣⴷⴰⵢⵏ ⵉⴷⵓⵙⴰⵏⵏ',
+    title: labels.zgh.medicalPartners.title,
+    intro: labels.zgh.medicalPartners.intro
+  }
+];
+
+const services = {
+  prevoyance: {
+    href: 'services/prevoyance.html',
+    fr: {
+      title: 'Prévoyance médico-sociale',
+      meta: 'Santé, protection sociale et bien-être',
+      summary: 'Un dispositif de santé et de protection sociale pour accompagner les adhérents et leurs familles face aux aléas médicaux, aux urgences et aux besoins spécifiques.',
+      stats: [['100%', 'du ticket modérateur AMC selon contrat'], ['1 MDH', 'de plafond général annuel par personne'], ['5 000 DH', 'd’aide aux enfants en situation de handicap']],
+      overview: 'La FOS-Agri a érigé le volet santé en priorité avec l’assurance maladie complémentaire, l’accompagnement médico-social, l’assistance médicale et le transport sanitaire, ainsi qu’un réseau de conventions médicales au niveau régional.',
+      highlights: ['Remboursement ou prise en charge complémentaire en lien avec l’AMO/CNOPS.', 'Assistance médicale et transport sanitaire via Wafa IMA Assistance.', 'Aide de 5 000 DH pour les enfants des adhérents en situation de handicap.', 'Conventions avec laboratoires, cliniques, médecins, opticiens, pharmacies et centres de soins.'],
+      amcDetail: amcDetailFr,
+      amtsDetail: amtsDetailFr,
+      features: [
+        ['À PROPOS', 'Accompagnement, orientation et écoute autour des besoins de santé et de bien-être des adhérents.'],
+        ['Assurance Maladie Complémentaire', 'Sanlam Maroc rembourse ou prend en charge tout ou partie du reste à charge selon les taux, bases et plafonds contractuels.'],
+        ['Assistance Médicale et Transport Sanitaire', 'Wafa IMA Assistance couvre les situations urgentes, les transports sanitaires, l’assistance à domicile et l’évacuation sanitaire selon conditions.'],
+        ['AIDES AUX PERSONNES AUX BESOINS SPECIFIQUES', 'Contribution à la prise en charge des besoins particuliers des enfants des adhérents.'],
+        ['CONVENTIONS ET PARTENARIATS MEDICALES', 'Réseau de prestataires répartis dans plusieurs régions du Royaume avec la contribution des relais régionaux.']
+      ],
+      centerMedical: {
+        badge: 'À PROPOS',
+        title: 'Accompagnement médico-social',
+        intro: 'La FOS-Agri a érigé le volet santé en une place de choix à travers la mise en place d’un dispositif de santé composé de l’assurance maladie complémentaire, de l’accompagnement médico-social, de l’assistance médicale et transport sanitaire et d’une série de conventions avec des praticiens de renom dans le domaine médical au niveau de plusieurs régions du Royaume avec la précieuse collaboration des relais régionaux.',
+        items: [
+          {
+            icon: 'fa-shield-heart',
+            title: 'Assurance Maladie Complémentaire (AMC)',
+            seeMore: true,
+            body: [
+              'La FOS-Agri soutient ses adhérents face aux aléas de la santé à travers l’Assurance Maladie Complémentaire permettant le bénéfice d’une large couverture familiale des soins de santé.',
+              'La convention conclue avec la compagnie SANLAM garantit aux adhérents :'
+            ],
+            bullets: [
+              'Le remboursement ou la prise en charge de santé de 100% du ticket modérateur, et ce, en complément des régimes de base (AMO/Mutuelle).',
+              'Le remboursement à hauteur d’un plafond général d’un million de dirhams par personne et par an, sauf pour les cas de greffes d’organes qui demeurent plafonnés à 250 000 dirhams.'
+            ]
+          },
+          {
+            icon: 'fa-truck-medical',
+            navIndex: 2,
+            title: 'Assistance Médicale et Transport Sanitaire (AMTS)',
+            seeMore: true,
+            body: [
+              'La FOS-Agri soutient ses adhérents pendant les moments difficiles à travers le service d’Assistance Médicale et Transport Sanitaire contracté avec la compagnie Wafa IMA Assistance.',
+              'Cette assistance porte sur une large gamme de garanties, en cas d’événements imprévisibles et urgents (accident, maladie, décès…) et également dans le cas de voyages à l’étranger à travers notamment l’évacuation sanitaire pour les pathologies non traitables au Maroc ainsi que la conciergerie médicale.'
+            ]
+          },
+          {
+            icon: 'fa-hands-holding-child',
+            navIndex: 4,
+            title: 'AIDES AUX PERSONNES AUX BESOINS SPECIFIQUES',
+            seeMore: true,
+            body: [
+              'La FOS-Agri a mis en place un programme d’aide aux enfants des adhérents en situations d’handicap présentant des besoins spécifiques, et ce en contribuant à la prise en charge de leurs besoins particuliers à travers une aide.'
+            ]
+          },
+          {
+            icon: 'fa-file-contract',
+            navIndex: 5,
+            title: 'CONVENTIONS ET PARTENARIATS MEDICALES',
+            seeMore: true,
+            body: [
+              'Consultez le réseau des partenaires médicaux conventionnés : laboratoires, médecins, cabinets, cliniques, opticiens, pharmacies et centres de soins, avec un accès par région et par catégorie.'
+            ]
+          }
+        ]
+      },
+      extraSections: prevoyanceExtraFr,
+      partners: ['Laboratoires d’analyses', 'Cliniques et radiologie', 'Médecins à tarifs préférentiels', 'Opticiens', 'Pharmacies', 'Centres dentaires'],
+      steps: [['Orientation', 'Identifier la prestation ou le partenaire médical adapté.'], ['Dossier', 'Préparer les pièces justificatives et les références d’adhésion.'], ['Prise en charge', 'Suivre les modalités AMC, AMTS ou convention médicale.'], ['Relais régional', 'S’appuyer sur les relais pour les conventions de proximité.']]
+    },
+    ar: {
+      title: 'الوقاية الطبية والاجتماعية',
+      meta: 'الصحة والحماية الاجتماعية والرفاه',
+      summary: 'منظومة لمواكبة المنخرطين وأسرهم في الصحة والحماية الاجتماعية والحالات المستعجلة والاحتياجات الخاصة.',
+      stats: [['100%', 'من الباقي على عاتق المنخرط حسب العقد'], ['1 مليون درهم', 'كسقف عام سنوي لكل شخص'], ['5 000 درهم', 'دعم للأطفال في وضعية إعاقة']],
+      overview: 'تضع FOS-Agri الصحة ضمن أولوياتها عبر التأمين الصحي التكميلي والمواكبة الطبية الاجتماعية والمساعدة الطبية والنقل الصحي وشبكة اتفاقيات طبية جهوية.',
+      highlights: ['تعويض أو تحمل تكميلي بتنسيق مع AMO/CNOPS.', 'مساعدة طبية ونقل صحي عبر Wafa IMA Assistance.', 'دعم قدره 5 000 درهم للأطفال في وضعية إعاقة.', 'اتفاقيات مع مختبرات ومصحات وأطباء ونظارات وصيدليات ومراكز علاج.'],
+      amcDetail: amcDetailAr,
+      amtsDetail: amtsDetailAr,
+      features: [['حول الخدمة', 'استقبال وتوجيه ومواكبة حول حاجيات الصحة والرفاه.'], ['التأمين الصحي التكميلي', 'تعويض أو تحمل الباقي وفق الضمانات والأسقف التعاقدية.'], ['المساعدة الطبية والنقل الصحي', 'تغطية الحالات المستعجلة والنقل الصحي والمساعدة المنزلية والإجلاء الصحي وفق الشروط.'], ['دعم الأشخاص ذوي الاحتياجات الخاصة', 'مساهمة في التكفل بالحاجيات الخاصة لأبناء المنخرطين.'], ['الاتفاقيات والشراكات الطبية', 'شبكة مقدمي خدمات بعدة جهات بتنسيق مع المنسقين الجهويين.']],
+      centerMedical: {
+        badge: 'حول الخدمة',
+        title: 'المواكبة الطبية الاجتماعية',
+        intro: 'جعلت FOS-Agri محور الصحة في صلب أولوياتها من خلال إرساء منظومة صحية تضم التأمين الصحي التكميلي، والمواكبة الطبية الاجتماعية، والمساعدة الطبية والنقل الصحي، وسلسلة من الاتفاقيات مع ممارسين مرموقين في المجال الطبي على مستوى عدة جهات من المملكة، بتعاون ثمين مع المنسقين الجهويين.',
+        items: [
+          {
+            icon: 'fa-shield-heart',
+            title: 'التأمين الصحي التكميلي (AMC)',
+            seeMore: true,
+            body: [
+              'تدعم FOS-Agri منخرطيها في مواجهة تقلبات الوضع الصحي عبر التأمين الصحي التكميلي، بما يتيح الاستفادة من تغطية عائلية واسعة للعلاجات الصحية.',
+              'تضمن الاتفاقية المبرمة مع شركة SANLAM للمنخرطين:'
+            ],
+            bullets: [
+              'تعويض أو تحمل صحي بنسبة 100% من التذكرة التعديلية، وذلك تكميلا لأنظمة التغطية الأساسية (AMO/Mutuelle).',
+              'تعويض في حدود سقف عام قدره مليون درهم لكل شخص في السنة، باستثناء حالات زرع الأعضاء التي تظل محددة في سقف 250 000 درهم.'
+            ]
+          },
+          {
+            icon: 'fa-truck-medical',
+            navIndex: 2,
+            title: 'المساعدة الطبية والنقل الصحي (AMTS)',
+            seeMore: true,
+            body: [
+              'تدعم FOS-Agri منخرطيها في اللحظات الصعبة من خلال خدمة المساعدة الطبية والنقل الصحي المتعاقد بشأنها مع شركة Wafa IMA Assistance.',
+              'تشمل هذه المساعدة مجموعة واسعة من الضمانات في حالة الأحداث غير المتوقعة والمستعجلة (حادث، مرض، وفاة...)، وكذلك أثناء السفر إلى الخارج، ولا سيما الإجلاء الصحي بالنسبة للحالات المرضية غير القابلة للعلاج بالمغرب وخدمة المواكبة الطبية.'
+            ]
+          },
+          {
+            icon: 'fa-hands-holding-child',
+            navIndex: 4,
+            title: 'دعم الأشخاص ذوي الاحتياجات الخاصة',
+            seeMore: true,
+            body: [
+              'أطلقت FOS-Agri برنامج دعم لفائدة أطفال المنخرطين في وضعية إعاقة ممن لديهم احتياجات خاصة، وذلك بالمساهمة في التكفل باحتياجاتهم الخاصة من خلال مساعدة.'
+            ]
+          },
+          {
+            icon: 'fa-file-contract',
+            navIndex: 5,
+            title: 'الاتفاقيات والشراكات الطبية',
+            seeMore: true,
+            body: [
+              'اطلعوا على شبكة الشركاء الطبيين المتعاقدين: مختبرات، أطباء، عيادات، مصحات، نظارات، صيدليات ومراكز علاج، مع إمكانية البحث حسب الجهة والفئة.'
+            ]
+          }
+        ]
+      },
+      extraSections: prevoyanceExtraAr,
+      partners: ['مختبرات التحاليل', 'مصحات وأشعة', 'أطباء بتعريفات تفضيلية', 'نظارات', 'صيدليات', 'مراكز الأسنان'],
+      steps: [['التوجيه', 'تحديد الخدمة أو الشريك الطبي المناسب.'], ['الملف', 'تحضير الوثائق ومعطيات الانخراط.'], ['التكفل', 'اتباع مساطر AMC أو AMTS أو الاتفاقية.'], ['المنسق الجهوي', 'الاستفادة من القرب الجهوي.']]
+    },
+    zgh: {
+      title: 'ⵜⴰⴷⵓⵙⵉ ⵜⴰⵎⴰⴷⴰⵏⵜ',
+      meta: 'ⵜⴰⴷⵓⵙⵉ, ⴰⵎⵎⵓⵜⵜⵉ ⴷ ⵜⵓⴷⵔⵜ',
+      summary: 'ⵜⴰⵏⴼⵓⵙⵜ ⵉ ⵓⵎⵓⴷⴷⵓ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴷ ⵜⵡⴰⵛⵓⵍⵜ ⴳ ⵜⴰⴷⵓⵙⵉ ⴷ ⵜⵉⵎⵓⵔⴰ.',
+      stats: [['100%', 'AMC ⵙ ⵎⴽ ⵉⵍⵍⴰ ⴳ ⵓⵎⵙⴰⵡⴰⴹ'], ['1 MDH', 'ⴰⵙⵡⵉⵔ ⴰⴳⵔⴰⵡ ⵉ ⴽⵓ ⵢⴰⵏ'], ['5 000 DH', 'ⴰⵎⵓⴷⴷⵓ ⵉ ⵉⴼⵔⵅⴰⵏ ⵏ ⵓⵙⵔⵓⵜ']],
+      overview: 'FOS-Agri ⵜⵙⵙⵎⵓⵔⵙ ⵜⴰⴷⵓⵙⵉ ⵙ AMC, AMTS, ⴰⵎⵓⴷⴷⵓ ⴰⴷⴰⵡⵙⴰⵏ ⴰⵏⴰⵎⵓⵏ ⴷ ⵉⵣⴷⴰⵢⵏ ⵉⴷⵓⵙⴰⵏⵏ ⴳ ⵜⵎⵓⵔⴰ.',
+      highlights: ['ⴰⵔⴰⵔⵓ ⵏ ⵓⴼⵔⴰⴳ ⵉⴱⵇⵇⴰⵏ ⵅⴼ ⵓⵎⵏⵅⵔⴰⵟ ⵙ AMO/CNOPS.', 'AMTS ⵙ Wafa IMA Assistance.', '5 000 DH ⵉ ⵉⴼⵔⵅⴰⵏ ⴳ ⵓⵙⵔⵓⵜ ⵉⵎⵥⵍⵉ.', 'ⵉⵣⴷⴰⵢⵏ ⴷ ⵉⵎⵣⵣⴰⵔⵏ, ⵉⵙⵉⴱⵉⵜⴰⵍⵏ, ⵉⵎⵙⵙⵉⵊⵊⵉⵏ ⴷ ⵉⵎⵙⵡⴰⵍⵏ ⵏ ⵜⵉⵟⵟ.'],
+      amcDetail: amcDetailZgh,
+      amtsDetail: amtsDetailZgh,
+      features: [['ⵅⴼ ⵜⴰⵏⴼⵓⵜ', 'ⴰⵎⵓⴷⴷⵓ, ⴰⵙⴷⵓ ⴷ ⵜⵎⵙⵍⵉⵡⵜ.'], ['AMC', 'ⴰⵔⴰⵔⵓ ⵙ ⵎⴽ ⵉⵍⵍⴰ ⴳ ⵓⵎⵙⴰⵡⴰⴹ.'], ['AMTS', 'ⵜⴰⵍⵍⴰⵍⵜ ⵜⴰⴷⵓⵙⴰⵏⵜ ⴷ ⵓⵙⵉⵡⴹ ⴰⴷⵓⵙⴰⵏ.'], ['ⴰⵎⵓⴷⴷⵓ ⵉ ⵉⵙⵡⵉⵔⵏ ⵉⵎⵥⵍⵉⵢⵏ', 'ⴰⵎⵓⴷⴷⵓ ⵉ ⵉⴼⵔⵅⴰⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ.'], ['ⵉⵎⵙⴰⵡⴰⴹⵏ ⵉⴷⵓⵙⴰⵏⵏ', 'ⵉⵣⴷⴰⵢⵏ ⴳ ⵜⵎⵓⵔⴰ ⵎⴰⵔⵔⴰ.']],
+      centerMedical: {
+        badge: 'ⵅⴼ ⵜⴰⵏⴼⵓⵜ',
+        title: 'ⴰⵎⵓⴷⴷⵓ ⴰⴷⴰⵡⵙⴰⵏ ⴰⵏⴰⵎⵓⵏ',
+        intro: 'FOS-Agri ⵜⵙⵙⵓⴼⵖ ⵜⴰⴷⵓⵙⵉ ⴷ ⴰⵙⵓⵔⵉⴼ ⴰⵎⵇⵔⴰⵏ ⵙ ⵓⵙⵎⵓⵜⵜⴳ ⵏ ⵜⵎⵓⵔⵜ ⵜⴰⴷⵓⵙⴰⵏⵜ ⵉⵙⵎⵓⵏⵏ AMC, ⴰⵎⵓⴷⴷⵓ ⴰⴷⴰⵡⵙⴰⵏ ⴰⵏⴰⵎⵓⵏ, AMTS ⴷ ⵉⵎⵙⴰⵡⴰⴹⵏ ⵉⴷⵓⵙⴰⵏⵏ ⴳ ⵜⵎⵓⵔⴰ ⵎⴰⵔⵔⴰ ⵙ ⵜⵉⵡⵉⵙⵉ ⵏ ⵉⵎⵙⵏⴰⵡⵏ ⵉⵏⵏⴰⵡⵏ.',
+        items: [
+          {
+            icon: 'fa-shield-heart',
+            title: 'ⴰⵙⵙⵓⵔⴰⵏⵙ ⴰⴷⵓⵙⴰⵏ ⴰⵎⵔⵏⴰⵡ (AMC)',
+            seeMore: true,
+            body: [
+              'FOS-Agri ⵜⴻⵜⵜⴰⵍⵍⴰⵍ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴳ ⵉⵎⵓⵔⴰⵏ ⵏ ⵜⴰⴷⵓⵙⵉ ⵙ AMC ⵉ ⵓⵙⵖⵉⵎ ⵏ ⵜⴳⵯⵎⵉ ⵜⴰⴷⵓⵙⴰⵏⵜ ⵏ ⵜⵡⴰⵛⵓⵍⵜ.',
+              'ⴰⵎⵙⴰⵡⴰⴹ ⴷ SANLAM ⵉⵜⵜⴰⵡⵙ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ:'
+            ],
+            bullets: [
+              'ⴰⵔⴰⵔⵓ ⵏ 100% ⵏ ⵓⴼⵔⴰⴳ ⵉⵜⵜⴳⴰⵏ ⵅⴼ ⵓⵎⵏⵅⵔⴰⵟ ⵙ ⵓⵙⵎⵔⵙ ⵏ AMO/Mutuelle.',
+              'ⴰⵔⴰⵔⵓ ⴰⴳⵔⴰⵡ ⵏ 1 MDH ⵉ ⴽⵓ ⵢⴰⵏ ⴳ ⵓⵙⴳⴳⵯⴰⵙ, ⵎⴰⵛⴰ ⵜⵉⵣⵣⵓⵍⴰ ⵏ ⵉⴳⴰⵏⵏ ⴰⵔ 250 000 DH.'
+            ]
+          },
+          {
+            icon: 'fa-truck-medical',
+            navIndex: 2,
+            title: 'ⵜⴰⵍⵍⴰⵍⵜ ⵜⴰⴷⵓⵙⴰⵏⵜ ⴷ ⵓⵙⵉⵡⴹ ⴰⴷⵓⵙⴰⵏ (AMTS)',
+            seeMore: true,
+            body: [
+              'FOS-Agri ⵜⴻⵜⵜⴰⵍⵍⴰⵍ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴳ ⵉⵎⵓⵔⴰⵏ ⵉⵙⵙⴷⴰⵔⵏ ⵙ AMTS ⴷ Wafa IMA Assistance.',
+              'ⵜⴰⵍⵍⴰⵍⵜ ⴰⴷ ⵜⵙⵎⵓⵏ ⵉⴳⵔⴰⵏ ⵏ ⵓⵙⵙⵉⴹⵏ, ⵓⵎⵓⵔⵙ, ⵜⵎⵜⵜⴰⵏⵜ, ⴷ ⵓⵙⵉⵡⴹ ⴰⴷⵓⵙⴰⵏ ⵖⵔ ⴱⵕⵕⴰ ⵉ ⵉⵎⵓⵔⴰⵏ ⵓⵔ ⵉⵜⵜⵓⵙⵙⵓⵊⵊⴰⵏ ⴳ ⵍⵎⵖⵔⵉⴱ.'
+            ]
+          },
+          {
+            icon: 'fa-hands-holding-child',
+            navIndex: 4,
+            title: 'ⴰⵎⵓⴷⴷⵓ ⵉ ⵉⵙⵡⵉⵔⵏ ⵉⵎⵥⵍⵉⵢⵏ',
+            seeMore: true,
+            body: [
+              'FOS-Agri ⵜⵙⵎⵓⵜⵜⴳ ⵢⴰⵜ ⵜⴰⵏⴼⵓⵙⵜ ⵉ ⵉⴼⵔⵅⴰⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴳ ⵓⵙⵔⵓⵜ, ⵙ ⵓⵎⵓⴷⴷⵓ.'
+            ]
+          },
+          {
+            icon: 'fa-file-contract',
+            navIndex: 5,
+            title: 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⴷ ⵉⵣⴷⴰⵢⵏ ⵉⴷⵓⵙⴰⵏⵏ',
+            seeMore: true,
+            body: [
+              'ⵙⵙⵏ ⴰⵥⴰⵡⴰⵏ ⵏ ⵉⵣⴷⴰⵢⵏ ⵉⴷⵓⵙⴰⵏⵏ: ⵉⵎⵣⵣⴰⵔⵏ, ⵉⵎⵙⵙⵉⵊⵊⵉⵏ, ⵜⵉⵔⵣⴰ, ⵉⵙⵉⴱⵉⵜⴰⵍⵏ, ⵉⵎⵙⵡⴰⵍⵏ ⵏ ⵜⵉⵟⵟ, ⵜⵉⴼⴰⵔⵎⴰⵙⵉⵜⵉⵏ ⴷ ⵉⵎⵎⴰⵙⵏ ⵏ ⵓⵅⵙⴰⵏ, ⵙ ⵓⵙⵙⵉⴷⴼ ⵙ ⵜⵎⵏⴰⴹⵜ ⴷ ⵜⴰⴳⴳⴰⵢⵜ.'
+            ]
+          }
+        ]
+      },
+      extraSections: prevoyanceExtraZgh,
+      partners: ['ⵉⵎⵣⵣⴰⵔⵏ', 'ⵉⵙⵉⴱⵉⵜⴰⵍⵏ', 'ⵉⵎⵙⵙⵉⵊⵊⵉⵏ', 'ⵉⵎⵙⵡⴰⵍⵏ ⵏ ⵜⵉⵟⵟ', 'ⵜⵉⴼⴰⵔⵎⴰⵙⵉⵜⵉⵏ', 'ⵉⵎⵎⴰⵙⵏ ⵏ ⵓⵅⵙⴰⵏ'],
+      steps: [['ⴰⵙⴷⵓ', 'ⵙⵙⵏ ⵜⴰⵏⴼⵓⵙⵜ.'], ['ⴰⴼⴰⵢⵍⵓ', 'ⵙⵎⵓⵏ ⵜⵉⴽⴰⵔⴹⵉⵡⵉⵏ.'], ['ⴰⵎⵓⴷⴷⵓ', 'ⴹⴼⵕ AMC/AMTS.'], ['ⴰⵎⵙⵏⴰⵡ', 'ⵎⵢⴰⵡⴰⵍ ⴷ ⵓⵎⵙⵏⴰⵡ.']]
+    }
+  },
+  culture: {
+    href: 'services/culture-loisirs-voyages.html',
+    fr: {
+      title: 'Culture, loisirs et voyages',
+      meta: 'Détente, partage et découverte',
+      summary: 'Des programmes pour créer des moments de détente, de découverte culturelle et d’évasion au profit des adhérents et de leurs familles.',
+      stats: [['6', 'sous-rubriques'], ['Familles', 'activités intergénérationnelles'], ['Partenaires', 'offres et conventions loisirs']],
+      chips: ['Loisirs et voyages', 'Colonies de vacances', 'Omra', 'Pèlerinage', 'Cérémonies', 'Conventions et partenariats'],
+      overview: 'Cette rubrique réunit les actions culturelles, les activités de loisirs, les voyages et les opérations à forte dimension humaine dans une ambiance conviviale et enrichissante.',
+      highlights: ['Voyages organisés, vacances d’hiver, excursions et estivage.', 'Colonies de vacances et activités pour enfants.', 'Opérations Omra, pèlerinage et accompagnement des bénéficiaires.', 'Conventions avec partenaires pour faciliter l’accès aux loisirs.'],
+      features: [['Loisirs et voyages', 'Sorties, découvertes, séjours et activités de détente.'], ['Colonies de vacances', 'Programmes collectifs pour les enfants des adhérents.'], ['Omra', 'Opérations sociales encadrées selon le calendrier validé.'], ['Pèlerinage', 'Information et orientation des bénéficiaires concernés.'], ['Cérémonies', 'Moments de reconnaissance, partage et solidarité.'], ['Conventions et partenariats', 'Tarifs, offres et accès préférentiels selon conventions.']],
+      partners: ['Voyages organisés', 'Vacances hiver', 'Excursions', 'Estivage', 'SIAM', 'Salon du cheval'],
+      steps: [['Programme', 'Consulter les opérations ouvertes.'], ['Éligibilité', 'Vérifier les conditions et délais.'], ['Inscription', 'Préparer le dossier demandé.'], ['Participation', 'Suivre les informations pratiques communiquées.']]
+    },
+    ar: {
+      title: 'الثقافة والترفيه والأسفار',
+      meta: 'راحة، مشاركة واكتشاف',
+      summary: 'برامج لخلق لحظات للراحة والاكتشاف الثقافي والسفر لفائدة المنخرطين وأسرهم.',
+      stats: [['6', 'خدمات فرعية'], ['الأسر', 'أنشطة بين الأجيال'], ['الشركاء', 'عروض واتفاقيات للترفيه']],
+      chips: ['الترفيه والأسفار', 'مخيمات الاصطياف', 'العمرة', 'الحج', 'الحفلات', 'الاتفاقيات والشراكات'],
+      overview: 'تجمع هذه الخانة الأنشطة الثقافية والترفيهية والأسفار والعمليات ذات البعد الإنساني في أجواء ودية ومفيدة.',
+      highlights: ['أسفار منظمة، عطلة الشتاء، رحلات واصطياف.', 'مخيمات وأنشطة لفائدة أبناء المنخرطين.', 'عمليات العمرة والحج ومواكبة المستفيدين.', 'اتفاقيات مع شركاء لتسهيل الولوج إلى الترفيه.'],
+      features: [['الترفيه والأسفار', 'خرجات، اكتشافات، إقامات وأنشطة للراحة.'], ['مخيمات الاصطياف', 'برامج جماعية لفائدة أبناء المنخرطين.'], ['العمرة', 'عمليات اجتماعية مؤطرة حسب البرنامج المصادق عليه.'], ['الحج', 'إخبار وتوجيه المستفيدين المعنيين.'], ['الحفلات', 'لحظات للاعتراف والمشاركة والتضامن.'], ['الاتفاقيات والشراكات', 'تعريفات وعروض وولوج تفضيلي حسب الاتفاقيات.']],
+      partners: ['أسفار منظمة', 'عطلة الشتاء', 'رحلات', 'اصطياف', 'المعرض الدولي للفلاحة', 'معرض الفرس'],
+      steps: [['البرنامج', 'الاطلاع على العمليات المفتوحة.'], ['الأهلية', 'التحقق من الشروط والآجال.'], ['التسجيل', 'تحضير الملف المطلوب.'], ['المشاركة', 'تتبع المعلومات العملية المعلن عنها.']]
+    },
+    zgh: {
+      title: 'ⵜⴰⴷⵍⵙⴰ, ⵜⵉⵔⴰⵔⵉⵏ ⴷ ⵉⵙⴰⴼⴰⵔⵏ',
+      meta: 'ⴰⵙⴳⵓⵏⴼⵓ, ⵜⵉⵡⵉⵙⵉ ⴷ ⵓⵙⵙⵏ',
+      summary: 'ⵜⵉⵏⴼⵓⵙⵉⵏ ⵉ ⵓⵙⴽⵔ ⵏ ⵜⵉⵣⵉ ⵏ ⵓⵙⴳⵓⵏⴼⵓ, ⵓⵙⵙⵏ ⴰⴷⵍⵙⴰⵏ ⴷ ⵓⵙⴰⴼⴰⵔ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴷ ⵜⵡⴰⵛⵓⵍⵜ.',
+      stats: [['6', 'ⵜⵉⵙⴳⴰⵔ'], ['ⵜⵉⵡⴰⵛⵓⵍⵉⵏ', 'ⵜⵉⵔⵎⴰⴷ ⴳⵔ ⵉⵎⵓⴽⵔⵉⵙⵏ'], ['ⵉⵣⴷⴰⵢⵏ', 'ⵜⵉⵡⵉⵙⵉⵏ ⴷ ⵉⵎⵙⴰⵡⴰⴹⵏ']],
+      chips: ['ⵜⵉⵔⴰⵔⵉⵏ ⴷ ⵉⵙⴰⴼⴰⵔⵏ', 'ⵜⵉⵎⵥⵍⵉⵢⵉⵏ ⵏ ⵓⵙⴳⵓⵏⴼⵓ', 'ⵓⵎⵔⴰ', 'ⴰⵃⴰⵊⵊ', 'ⵜⵉⵎⵍⵉⵍⵉⵏ', 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⴷ ⵉⵣⴷⴰⵢⵏ'],
+      overview: 'ⵜⴰⵙⴳⴰ ⴰⴷ ⵜⵙⵎⵓⵏ ⵜⵉⵔⵎⴰⴷ ⵜⵉⴷⵍⵙⴰⵏⵉⵏ, ⵜⵉⵔⴰⵔⵉⵏ, ⵉⵙⴰⴼⴰⵔⵏ ⴷ ⵜⵎⴰⵎⴽⵉⵏ ⵉⵙⵎⵓⵏⵏ ⵉⵎⴰⵏⵏ.',
+      highlights: ['ⵉⵙⴰⴼⴰⵔⵏ ⵉⵜⵜⵓⵙⵓⴷⵙⵏ, ⴰⵙⴳⵓⵏⴼⵓ ⵏ ⵜⴳⵔⵙⵜ, ⵜⵉⵔⵣⴰ ⴷ ⵓⵙⴳⵓⵏⴼⵓ.', 'ⵜⵉⵎⵥⵍⵉⵢⵉⵏ ⵏ ⵓⵙⴳⵓⵏⴼⵓ ⵉ ⵉⴼⵔⵅⴰⵏ.', 'ⵜⵉⵎⴰⵎⴽⵉⵏ ⵏ ⵓⵎⵔⴰ ⴷ ⴰⵃⴰⵊⵊ.', 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⴷ ⵉⵣⴷⴰⵢⵏ ⵉ ⵓⵙⵙⵓⴼⵖ ⵏ ⵜⵉⵔⴰⵔⵉⵏ.'],
+      features: [['ⵜⵉⵔⴰⵔⵉⵏ ⴷ ⵉⵙⴰⴼⴰⵔⵏ', 'ⵜⵉⵔⵣⴰ, ⵓⵙⵙⵏ, ⵜⵉⵖⵔⵎⵉⵏ ⴷ ⵜⵉⵔⵎⴰⴷ ⵏ ⵓⵙⴳⵓⵏⴼⵓ.'], ['ⵜⵉⵎⵥⵍⵉⵢⵉⵏ ⵏ ⵓⵙⴳⵓⵏⴼⵓ', 'ⵜⵉⵏⴼⵓⵙⵉⵏ ⵉ ⵉⴼⵔⵅⴰⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ.'], ['ⵓⵎⵔⴰ', 'ⵜⵉⵎⴰⵎⴽⵉⵏ ⵜⵉⵏⴰⵎⵓⵏⵉⵏ ⵙ ⵓⵙⴷⵓ.'], ['ⴰⵃⴰⵊⵊ', 'ⵜⵉⵏⵖⵎⵉⵙⵉⵏ ⴷ ⵓⵙⴷⵓ ⵉ ⵉⵎⵏⴼⴰⵄⵏ.'], ['ⵜⵉⵎⵍⵉⵍⵉⵏ', 'ⵜⵉⵣⵉ ⵏ ⵓⵙⵎⵓⵏ ⴷ ⵜⵉⵡⵉⵙⵉ.'], ['ⵉⵎⵙⴰⵡⴰⴹⵏ ⴷ ⵉⵣⴷⴰⵢⵏ', 'ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⴷ ⵓⵍⵓⴳ ⵉⵎⵥⵍⵉ.']],
+      partners: ['ⵉⵙⴰⴼⴰⵔⵏ ⵉⵜⵜⵓⵙⵓⴷⵙⵏ', 'ⴰⵙⴳⵓⵏⴼⵓ ⵏ ⵜⴳⵔⵙⵜ', 'ⵜⵉⵔⵣⴰ', 'ⴰⵙⴳⵓⵏⴼⵓ', 'SIAM', 'ⴰⵙⴰⵔⴰⴳ ⵏ ⴰⵢⵢⵉⵙ'],
+      steps: [['ⴰⵙⵎⴰⵔ', 'ⵥⵕ ⵜⵉⵎⴰⵎⴽⵉⵏ ⵉⵍⵍⴰⵏ.'], ['ⵜⵉⵡⵜⵉⵍⵉⵏ', 'ⵙⵙⵏ ⵜⵉⵡⵜⵉⵍⵉⵏ ⴷ ⵜⵉⵣⵉ.'], ['ⴰⵙⵙⴼⵜⵔ', 'ⵙⵎⵓⵏ ⴰⴼⴰⵢⵍⵓ.'], ['ⵜⵉⵡⵉⵙⵉ', 'ⴹⴼⵕ ⵜⵉⵏⵖⵎⵉⵙⵉⵏ ⵉⵜⵜⵓⵙⴼⴽⵏ.']]
+    }
+  },
+  formation: {
+    href: 'services/formation-scolarisation.html',
+    fr: {
+      title: 'Appui à la scolarisation et à la formation',
+      meta: 'Réussite scolaire et accompagnement parental',
+      summary: 'Des dispositifs pour soutenir les enfants des adhérents dans leur parcours scolaire et encourager l’excellence.',
+      stats: [['Coaching', 'scolaire et parental'], ['Bourses', 'excellence et bourses sociales'], ['Rentrée', 'primes et conventions éducatives']],
+      chips: ['Coaching scolaire et parental', 'Bourse d’excellence et bourse sociale', 'Prime de rentrée scolaire', 'Conventions éducatives'],
+      overview: 'Cette rubrique accompagne les familles dans les étapes importantes de la scolarité, de l’orientation et de la formation.',
+      highlights: ['Coaching scolaire et parental.', 'Bourse d’excellence et bourse sociale.', 'Prime de rentrée scolaire.', 'Conventions avec établissements et partenaires éducatifs.'],
+      features: [['Coaching scolaire et parental', 'Ateliers et accompagnement pour mieux orienter les enfants et soutenir les parents.'], ['Bourse d’excellence et bourse sociale', 'Valorisation des parcours scolaires remarquables et appui social aux familles éligibles.'], ['Prime de rentrée scolaire', 'Appui aux familles au moment de la rentrée.'], ['Conventions éducatives', 'Accès à des partenaires éducatifs selon les conventions validées.']],
+      partners: ['Rentrée scolaire', 'Coaching parental', 'Coaching', 'Bourse'],
+      steps: [['Annonce', 'Suivre le calendrier de chaque opération.'], ['Conditions', 'Vérifier l’éligibilité et les justificatifs.'], ['Dépôt', 'Transmettre le dossier complet.'], ['Suivi', 'Consulter les résultats ou orientations.']]
+    },
+    ar: {
+      title: 'دعم التمدرس والتكوين',
+      meta: 'نجاح دراسي ومواكبة أسرية',
+      summary: 'آليات لدعم أبناء المنخرطين في مسارهم الدراسي وتشجيع التميز.',
+      stats: [['المواكبة', 'الدراسية والأسرية'], ['المنح', 'التميز والمنح الاجتماعية'], ['الدخول المدرسي', 'منح واتفاقيات تربوية']],
+      chips: ['المواكبة الدراسية والأسرية', 'منحة التميز والمنحة الاجتماعية', 'منحة الدخول المدرسي', 'الاتفاقيات التربوية'],
+      overview: 'تواكب هذه الخانة الأسر في المراحل الأساسية للتمدرس والتوجيه والتكوين.',
+      highlights: ['المواكبة الدراسية والأسرية.', 'منحة التميز والمنحة الاجتماعية.', 'منحة الدخول المدرسي.', 'اتفاقيات مع مؤسسات وشركاء تربويين.'],
+      features: [['المواكبة الدراسية والأسرية', 'ورشات ومواكبة لتوجيه الأبناء ودعم الآباء.'], ['منحة التميز والمنحة الاجتماعية', 'تثمين المسارات الدراسية المتميزة ودعم الأسر المؤهلة.'], ['منحة الدخول المدرسي', 'دعم الأسر خلال فترة الدخول المدرسي.'], ['الاتفاقيات التربوية', 'ولوج إلى شركاء تربويين حسب الاتفاقيات المصادق عليها.']],
+      partners: ['الدخول المدرسي', 'المواكبة الأسرية', 'المواكبة', 'المنح'],
+      steps: [['الإعلان', 'تتبع برنامج كل عملية.'], ['الشروط', 'التحقق من الأهلية والوثائق.'], ['الإيداع', 'إرسال الملف كاملا.'], ['التتبع', 'الاطلاع على النتائج أو التوجيهات.']]
+    },
+    zgh: {
+      title: 'ⴰⵎⵓⴷⴷⵓ ⵉ ⵓⵙⵍⵎⴷ ⴷ ⵓⵙⵙⵉⵍⵖ',
+      meta: 'ⴰⵙⵎⵔⵙ ⴰⵙⵍⵎⴰⴷ ⴷ ⵓⵎⵓⴷⴷⵓ ⵏ ⵜⵡⴰⵛⵓⵍⵜ',
+      summary: 'ⵜⵉⵏⴼⵓⵙⵉⵏ ⵉ ⵓⵎⵓⴷⴷⵓ ⵏ ⵉⴼⵔⵅⴰⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴳ ⵓⴱⵔⵉⴷ ⵏ ⵓⵙⵍⵎⴷ.',
+      stats: [['ⴰⵎⵓⴷⴷⵓ', 'ⴰⵙⵍⵎⴰⴷ ⴷ ⵏ ⵜⵡⴰⵛⵓⵍⵜ'], ['ⵜⵉⵎⵓⴷⴰ', 'ⵜⴰⵎⵓⴷⴰ ⵏ ⵜⵎⵥⵉ ⴷ ⵜⴰⵎⵓⴷⴰ ⵜⴰⵏⴰⵎⵓⵏⵜ'], ['ⵜⴰⵣⵡⴰⵔⵜ', 'ⵜⵉⵎⵓⴷⴰ ⴷ ⵉⵎⵙⴰⵡⴰⴹⵏ']],
+      chips: ['ⴰⵎⵓⴷⴷⵓ ⴰⵙⵍⵎⴰⴷ ⴷ ⵏ ⵜⵡⴰⵛⵓⵍⵜ', 'ⵜⴰⵎⵓⴷⴰ ⵏ ⵜⵎⵥⵉ ⴷ ⵜⴰⵎⵓⴷⴰ ⵜⴰⵏⴰⵎⵓⵏⵜ', 'ⵜⴰⵎⵓⴷⴰ ⵏ ⵜⴰⵣⵡⴰⵔⵜ ⵏ ⵓⵙⴳⴳⵯⴰⵙ ⴰⵙⵍⵎⴰⴷ', 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵓⵙⵍⵎⴷ'],
+      overview: 'ⵜⴰⵙⴳⴰ ⴰⴷ ⵜⴻⵜⵜⴰⵡⵙ ⵜⵉⵡⴰⵛⵓⵍⵉⵏ ⴳ ⵜⵉⵣⵉ ⵏ ⵓⵙⵍⵎⴷ, ⵓⵙⴷⵓ ⴷ ⵓⵙⵙⵉⵍⵖ.',
+      highlights: ['ⴰⵎⵓⴷⴷⵓ ⴰⵙⵍⵎⴰⴷ ⴷ ⵏ ⵜⵡⴰⵛⵓⵍⵜ.', 'ⵜⴰⵎⵓⴷⴰ ⵏ ⵜⵎⵥⵉ ⴷ ⵜⴰⵎⵓⴷⴰ ⵜⴰⵏⴰⵎⵓⵏⵜ.', 'ⵜⴰⵎⵓⴷⴰ ⵏ ⵜⴰⵣⵡⴰⵔⵜ ⵏ ⵓⵙⴳⴳⵯⴰⵙ ⴰⵙⵍⵎⴰⴷ.', 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⴷ ⵉⵣⴷⴰⵢⵏ ⵏ ⵓⵙⵍⵎⴷ.'],
+      features: [['ⴰⵎⵓⴷⴷⵓ ⴰⵙⵍⵎⴰⴷ ⴷ ⵏ ⵜⵡⴰⵛⵓⵍⵜ', 'ⵜⵉⵔⵎⴰⴷ ⴷ ⵓⵎⵓⴷⴷⵓ ⵉ ⵓⵙⴷⵓ ⵏ ⵉⴼⵔⵅⴰⵏ.'], ['ⵜⴰⵎⵓⴷⴰ ⵏ ⵜⵎⵥⵉ ⴷ ⵜⴰⵎⵓⴷⴰ ⵜⴰⵏⴰⵎⵓⵏⵜ', 'ⴰⵙⵎⵔⵙ ⵏ ⵉⴱⵔⵉⴷⵏ ⵉⵎⵥⵉⵢⵏ ⴷ ⵓⵎⵓⴷⴷⵓ ⴰⵏⴰⵎⵓⵏ.'], ['ⵜⴰⵎⵓⴷⴰ ⵏ ⵜⴰⵣⵡⴰⵔⵜ ⵏ ⵓⵙⴳⴳⵯⴰⵙ ⴰⵙⵍⵎⴰⴷ', 'ⴰⵎⵓⴷⴷⵓ ⵉ ⵜⵡⴰⵛⵓⵍⵉⵏ ⴳ ⵜⵉⵣⵉ ⵏ ⵜⴰⵣⵡⴰⵔⵜ.'], ['ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵓⵙⵍⵎⴷ', 'ⵓⵍⵓⴳ ⵖⵔ ⵉⵣⴷⴰⵢⵏ ⵏ ⵓⵙⵍⵎⴷ.']],
+      partners: ['ⵜⴰⵣⵡⴰⵔⵜ ⵏ ⵓⵙⵍⵎⴷ', 'ⴰⵎⵓⴷⴷⵓ ⵏ ⵜⵡⴰⵛⵓⵍⵜ', 'ⴰⵎⵓⴷⴷⵓ', 'ⵜⵉⵎⵓⴷⴰ'],
+      steps: [['ⴰⵙⵎⴰⵔ', 'ⴹⴼⵕ ⵜⵉⵣⵉ ⵏ ⴽⵓ ⵜⴰⵎⴰⵎⴽⵜ.'], ['ⵜⵉⵡⵜⵉⵍⵉⵏ', 'ⵙⵙⵏ ⵜⵉⵡⵜⵉⵍⵉⵏ ⴷ ⵉⵙⵍⴽⴰⵎⵏ.'], ['ⴰⵙⵙⴼⴽ', 'ⴼⴽ ⴰⴼⴰⵢⵍⵓ ⴰⴽⵎⴰⵎ.'], ['ⵓⵜⵜⴰⴱⴰⵄ', 'ⵥⵕ ⵜⵉⵏⵎⵍ ⵏ ⵓⵙⴷⵓ.']]
+    }
+  },
+  logement: {
+    href: 'services/acces-logement.html',
+    fr: {
+      title: 'Accès au logement',
+      meta: 'Logement, banques et projets immobiliers',
+      summary: 'Un accompagnement pour faciliter l’accès au logement à travers l’appui au logement, les offres bancaires préférentielles et les partenariats immobiliers.',
+      stats: [['9', 'offres immobilières recensées'], ['76 ans', 'âge indiqué pour Al Barid Bank sur le site'], ['Banques', 'crédits préférentiels logement']],
+      chips: ['Appui au logement', 'Offres bancaires à des taux de crédit préférentiels', 'Promoteurs immobiliers', 'Mise en place de projets de logement par la FOS-Agri'],
+      overview: 'Les fichiers transmis recensent les offres de crédit immobilier et les conventions bancaires associées au logement, avec des établissements confirmés et des avis à maintenir à jour.',
+      highlights: ['Appui au logement et accompagnement des adhérents.', 'Offres bancaires à taux de crédit préférentiels.', 'Promoteurs immobiliers et projets de logement de FOS-Agri.', 'Suivi des offres de Banque Populaire, BMCI, Crédit du Maroc, CFG Bank, Crédit Agricole du Maroc, Wafa Immobilier, Al Barid Bank, Bank Assafa et d’autres partenaires.'],
+      features: [['Appui au logement', 'Orientation des adhérents vers les dispositifs et partenaires disponibles.'], ['Offres bancaires préférentielles', 'Crédits immobiliers négociés avec des banques partenaires.'], ['Promoteurs immobiliers', 'Mise en relation avec les offres immobilières validées.'], ['Projets de logement FOS-Agri', 'Suivi des projets de logement mis en place par la Fondation.']],
+      partners: ['Banque Populaire', 'Al Barid Bank', 'Wafa Immobilier', 'BMCI', 'Crédit du Maroc', 'CFG Bank', 'Crédit Agricole du Maroc', 'Attijari Wafa Bank', 'Bank Assafa'],
+      steps: [['Besoin', 'Définir le type de logement ou financement.'], ['Offre', 'Comparer les partenaires et âges limites de crédit.'], ['Dossier', 'Préparer les justificatifs bancaires et administratifs.'], ['Suivi', 'Confirmer l’offre active auprès de la Fondation.']]
+    },
+    ar: {
+      title: 'الولوج إلى السكن',
+      meta: 'السكن، الأبناك والمشاريع العقارية',
+      summary: 'مواكبة لتسهيل الولوج إلى السكن عبر الدعم السكني والعروض البنكية التفضيلية والشراكات العقارية.',
+      stats: [['9', 'عروض عقارية محصاة'], ['76 سنة', 'السن المشار إليه لبريد بنك'], ['الأبناك', 'قروض سكنية تفضيلية']],
+      chips: ['دعم السكن', 'عروض بنكية بنسب قروض تفضيلية', 'المنعشون العقاريون', 'إحداث مشاريع سكنية من طرف FOS-Agri'],
+      overview: 'تضم الملفات المتوصل بها عروض القروض العقارية والاتفاقيات البنكية المرتبطة بالسكن، مع مؤسسات مؤكدة ومعطيات يجب تحيينها باستمرار.',
+      highlights: ['دعم السكن ومواكبة المنخرطين.', 'عروض بنكية بنسب قروض تفضيلية.', 'منعشون عقاريون ومشاريع سكنية عبر FOS-Agri.', 'تتبع عروض الشركاء البنكيين والعقاريين.'],
+      features: [['دعم السكن', 'توجيه المنخرطين نحو الآليات والشركاء المتاحين.'], ['العروض البنكية التفضيلية', 'قروض عقارية متفاوض بشأنها مع أبناك شريكة.'], ['المنعشون العقاريون', 'ربط المنخرطين بالعروض العقارية المصادق عليها.'], ['مشاريع السكن FOS-Agri', 'تتبع المشاريع السكنية التي تضعها المؤسسة.']],
+      partners: ['Banque Populaire', 'Al Barid Bank', 'Wafa Immobilier', 'BMCI', 'Crédit du Maroc', 'CFG Bank', 'Crédit Agricole du Maroc', 'Attijari Wafa Bank', 'Bank Assafa'],
+      steps: [['الحاجة', 'تحديد نوع السكن أو التمويل.'], ['العرض', 'مقارنة الشركاء وحدود السن للقرض.'], ['الملف', 'تحضير الوثائق البنكية والإدارية.'], ['التتبع', 'تأكيد العرض النشط لدى المؤسسة.']]
+    },
+    zgh: {
+      title: 'ⵓⵍⵓⴳ ⵖⵔ ⵓⵙⵖⵉⵎ',
+      meta: 'ⴰⵙⵖⵉⵎ, ⵉⴱⴰⵏⴽⵏ ⴷ ⵉⵙⵏⴼⴰⵔⵏ ⵏ ⵓⵙⵖⵉⵎ',
+      summary: 'ⴰⵎⵓⴷⴷⵓ ⵉ ⵓⵙⵙⵓⴼⵖ ⵏ ⵓⵍⵓⴳ ⵖⵔ ⵓⵙⵖⵉⵎ ⵙ ⵜⵉⵡⵉⵙⵉⵏ, ⵉⴼⵔⴰⵏ ⵏ ⵉⴱⴰⵏⴽⵏ ⴷ ⵉⵣⴷⴰⵢⵏ.',
+      stats: [['9', 'ⵜⵉⵡⵉⵙⵉⵏ ⵏ ⵓⵙⵖⵉⵎ'], ['76 ⵓⵙⴳⴳⵯⴰⵙ', 'ⵜⵉⵍⴰⵍ ⵏ Al Barid Bank'], ['ⵉⴱⴰⵏⴽⵏ', 'ⵉⴼⵔⴰⵏ ⵏ ⵓⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵖⵉⵎ']],
+      chips: ['ⴰⵎⵓⴷⴷⵓ ⵏ ⵓⵙⵖⵉⵎ', 'ⵉⴼⵔⴰⵏ ⵏ ⵉⴱⴰⵏⴽⵏ', 'ⵉⵎⵙⵏⴼⴰⵔⵏ ⵏ ⵓⵙⵖⵉⵎ', 'ⵉⵙⵏⴼⴰⵔⵏ ⵏ ⵓⵙⵖⵉⵎ ⵙ FOS-Agri'],
+      overview: 'ⵜⵉⴼⴰⵢⵍⵉⵡⵉⵏ ⵉⵜⵜⵓⵙⴼⴽⵏⵉⵏ ⵙⵎⵓⵏⵏⵜ ⵉⴼⵔⴰⵏ ⵏ ⵓⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵖⵉⵎ ⴷ ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵉⴱⴰⵏⴽⵏ.',
+      highlights: ['ⴰⵎⵓⴷⴷⵓ ⵏ ⵓⵙⵖⵉⵎ ⴷ ⵓⵙⴷⵓ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ.', 'ⵉⴼⵔⴰⵏ ⵏ ⵉⴱⴰⵏⴽⵏ ⵙ ⵜⵎⴰⵏⴰⵡⵜ ⵉⵎⵥⵍⵉⵢⵏ.', 'ⵉⵎⵙⵏⴼⴰⵔⵏ ⴷ ⵉⵙⵏⴼⴰⵔⵏ ⵏ FOS-Agri.', 'ⵓⵜⵜⴰⴱⴰⵄ ⵏ ⵉⴼⵔⴰⵏ ⵏ ⵉⵣⴷⴰⵢⵏ.'],
+      features: [['ⴰⵎⵓⴷⴷⵓ ⵏ ⵓⵙⵖⵉⵎ', 'ⴰⵙⴷⵓ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵖⵔ ⵉⴼⵔⴰⵏ ⴷ ⵉⵣⴷⴰⵢⵏ.'], ['ⵉⴼⵔⴰⵏ ⵏ ⵉⴱⴰⵏⴽⵏ', 'ⴰⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵖⵉⵎ ⵙ ⵉⴱⴰⵏⴽⵏ ⵉⵣⴷⵉⵏ.'], ['ⵉⵎⵙⵏⴼⴰⵔⵏ ⵏ ⵓⵙⵖⵉⵎ', 'ⴰⵣⴷⴰⵢ ⴷ ⵉⴼⵔⴰⵏ ⵏ ⵓⵙⵖⵉⵎ ⵉⵜⵜⵓⵙⵎⴷⵏ.'], ['ⵉⵙⵏⴼⴰⵔⵏ FOS-Agri', 'ⵓⵜⵜⴰⴱⴰⵄ ⵏ ⵉⵙⵏⴼⴰⵔⵏ ⵏ ⵓⵙⵖⵉⵎ.']],
+      partners: ['Banque Populaire', 'Al Barid Bank', 'Wafa Immobilier', 'BMCI', 'Crédit du Maroc', 'CFG Bank', 'Crédit Agricole du Maroc', 'Attijari Wafa Bank', 'Bank Assafa'],
+      steps: [['ⴰⵙⵔⵓⵜ', 'ⵙⵙⵏ ⴰⵏⴰⵡ ⵏ ⵓⵙⵖⵉⵎ ⵏⵖ ⵓⵎⵓⴷⴷⵓ.'], ['ⴰⴼⵔⴰⵏ', 'ⵙⵙⵎⵓⵜⵜⴳ ⵉⵣⴷⴰⵢⵏ ⴷ ⵜⵉⵍⴰⵍ ⵏ ⵓⴽⵔⵉⴹⵉ.'], ['ⴰⴼⴰⵢⵍⵓ', 'ⵙⵎⵓⵏ ⵜⵉⵡⵔⵉⵇⵉⵏ ⵏ ⵉⴱⴰⵏⴽⵏ ⴷ ⵜⴷⴱⵉⵔⵜ.'], ['ⵓⵜⵜⴰⴱⴰⵄ', 'ⵙⵙⵏⵜⵎ ⴰⴼⵔⴰⵏ ⴷ FOS-Agri.']]
+    }
+  },
+  projets: {
+    href: 'services/projets-personnels.html',
+    fr: {
+      title: 'Appui aux projets personnels',
+      meta: 'Partenariats et tarifs préférentiels',
+      summary: 'La FOS-Agri négocie de nombreux partenariats offrant des tarifs préférentiels à ses adhérents pour l’accès à des services de financement, d’assurance, d’ameublement et de transport.',
+      stats: [['5', 'partenariats dédiés'], ['Tarifs', 'préférentiels négociés'], ['Adhérents', 'conjoints et enfants']],
+      chips: ['Organismes de financement', 'Assurance automobile', 'Organismes d’ameublement', 'Organismes de transport'],
+      overview: 'Dans le cadre de la diversification de l’offre de prestations sociales, la FOS-Agri négocie une multitude de partenariats offrant des tarifs préférentiels au profit de ses adhérents pour l’accès à plusieurs services, notamment en matière de financement bancaire, d’assurance, d’ameublement et de transport.',
+      highlights: ['Organismes de financement à taux préférentiels.', 'Assurances auto à tarifs préférentiels.', 'Organismes d’ameublement à taux de remise avantageux.', 'Organismes de transport à tarifs préférentiels.'],
+      features: [['Organismes de financement', 'Conventions bancaires à taux préférentiels pour le financement des projets personnels.'], ['Assurance automobile', 'Conventions d’assurance automobile à tarifs avantageux.'], ['Organismes d’ameublement', 'Partenariats offrant des taux de remise sur l’ameublement.'], ['Organismes de transport', 'Conventions tarifaires préférentielles avec l’ONCF et Supratours.']],
+      partners: ['Banque Populaire', 'Wafa Salaf', 'Crédit du Maroc', 'CFG Bank', 'Salafin', 'Eqdom', 'Attijari Wafa Bank', 'MAMDA', 'SNTL', 'Kitea', 'Biougnach', 'Mobilia Triangle d’Or', 'ONCF', 'Supratours'],
+      steps: [['Besoin', 'Identifier le service concerné : financement, assurance, ameublement ou transport.'], ['Partenaire', 'Choisir l’organisme conventionné adapté.'], ['Carte d’adhésion', 'Se présenter muni de la carte d’adhésion à la FOS-Agri.'], ['Offre', 'Télécharger la fiche de l’offre correspondante.']]
+    },
+    ar: {
+      title: 'دعم المشاريع الشخصية',
+      meta: 'شراكات وتعريفات تفضيلية',
+      summary: 'تتفاوض FOS-Agri حول العديد من الشراكات التي توفر تعريفات تفضيلية لمنخرطيها للولوج إلى خدمات التمويل والتأمين والتأثيث والنقل.',
+      stats: [['5', 'شراكات مخصصة'], ['تعريفات', 'تفضيلية متفاوض بشأنها'], ['المستفيدون', 'المنخرطون وأزواجهم وأبناؤهم']],
+      chips: ['مؤسسات التمويل', 'تأمين السيارات', 'مؤسسات التأثيث', 'مؤسسات النقل'],
+      overview: 'في إطار تنويع عرض الخدمات الاجتماعية، تتفاوض FOS-Agri حول مجموعة من الشراكات التي توفر تعريفات تفضيلية لفائدة منخرطيها للولوج إلى عدة خدمات، لا سيما في مجالات التمويل البنكي والتأمين والتأثيث والنقل.',
+      highlights: ['مؤسسات تمويل بنسب تفضيلية.', 'تأمين السيارات بتعريفات تفضيلية.', 'مؤسسات تأثيث بنسب تخفيض مهمة.', 'مؤسسات نقل بتعريفات تفضيلية.'],
+      features: [['مؤسسات التمويل', 'اتفاقيات بنكية بنسب تفضيلية لتمويل المشاريع الشخصية.'], ['تأمين السيارات', 'اتفاقيات تأمين السيارات بتعريفات مهمة.'], ['مؤسسات التأثيث', 'شراكات توفر نسب تخفيض على التأثيث.'], ['مؤسسات النقل', 'اتفاقيات تعريفية تفضيلية مع ONCF و Supratours.']],
+      partners: ['البنك الشعبي', 'Wafa Salaf', 'القرض الفلاحي للمغرب', 'CFG Bank', 'Salafin', 'Eqdom', 'Attijari Wafa Bank', 'MAMDA', 'SNTL', 'Kitea', 'Biougnach', 'Mobilia Triangle d’Or', 'ONCF', 'Supratours'],
+      steps: [['الحاجة', 'تحديد الخدمة المعنية: التمويل، التأمين، التأثيث أو النقل.'], ['الشريك', 'اختيار المؤسسة المتعاقدة المناسبة.'], ['بطاقة الانخراط', 'التوجه مع بطاقة الانخراط في FOS-Agri.'], ['العرض', 'تحميل بطاقة العرض المعني.']]
+    },
+    zgh: {
+      title: 'ⴰⵎⵓⴷⴷⵓ ⵉ ⵉⵙⵏⴼⴰⵔⵏ ⵉⵎⵥⵍⵉⵢⵏ',
+      meta: 'ⵉⵣⴷⴰⵢⵏ ⴷ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ',
+      summary: 'ⵜⵙⵙⴰⵡⴰⴹ FOS-Agri ⴰⵟⴰⵙ ⵏ ⵉⵣⴷⴰⵢⵏ ⵢⴰⴽⴼⵏ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏⵏⵙ ⴳ ⵓⵙⵔⴹ, ⵜⴰⵏⴰⵎⵎⴰⵍⵜ, ⴰⵙⵎⵓⵜⵜⴳ ⴷ ⵓⵣⵣⵓⵖⵔ.',
+      stats: [['5', 'ⵉⵣⴷⴰⵢⵏ ⵉⵎⵥⵍⵉⵢⵏ'], ['ⵜⵉⵙⵏⵙⵉⵡⵉⵏ', 'ⵉⵎⵥⵍⵉⵢⵏ'], ['ⵉⵎⵙⵜⴼⵉⴷⵏ', 'ⵉⵎⵏⵅⵔⴰⵟⵏ, ⵜⵉⵔⴳⴰⵣⵉⵏ ⴷ ⵜⴰⵔⵡⴰ']],
+      chips: ['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵔⴹ', 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ', 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ', 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ'],
+      overview: 'ⴳ ⵓⵙⵏⴼⵍ ⵏ ⵜⵉⵏⴼⴰ ⵜⵉⵏⴰⵎⵓⵏⵉⵏ, ⵜⵙⵙⴰⵡⴰⴹ FOS-Agri ⴰⵟⴰⵙ ⵏ ⵉⵣⴷⴰⵢⵏ ⵢⴰⴽⴼⵏ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏⵏⵙ ⴳ ⵓⵙⵔⴹ, ⵜⴰⵏⴰⵎⵎⴰⵍⵜ, ⴰⵙⵎⵓⵜⵜⴳ ⴷ ⵓⵣⵣⵓⵖⵔ.',
+      highlights: ['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵔⴹ ⵙ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ.', 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⵉⵢⵏ.', 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⵉⵢⵏ.', 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ ⵙ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ.'],
+      features: [['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵔⴹ', 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵉⴱⴰⵏⴽⵏ ⵙ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ.'], ['ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ', 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵜⵏⴰⵎⵎⴰⵍⵜ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⵉⵢⵏ.'], ['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ', 'ⵉⵣⴷⴰⵢⵏ ⵢⴰⴽⴼⵏ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵖⴼ ⵓⵙⵎⵓⵜⵜⴳ.'], ['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ', 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⵉⵢⵏ ⴷ ONCF ⴷ Supratours.']],
+      partners: ['Banque Populaire', 'Wafa Salaf', 'Crédit du Maroc', 'CFG Bank', 'Salafin', 'Eqdom', 'Attijari Wafa Bank', 'MAMDA', 'SNTL', 'Kitea', 'Biougnach', 'Mobilia Triangle d’Or', 'ONCF', 'Supratours'],
+      steps: [['ⴰⵙⵔⵓⵜ', 'ⵙⵙⵏ ⵜⴰⵏⴼⴰ ⵢⵍⴰⵇⵏ: ⴰⵙⵔⴹ, ⵜⴰⵏⴰⵎⵎⴰⵍⵜ, ⴰⵙⵎⵓⵜⵜⴳ ⵏⵖ ⴰⵣⵣⵓⵖⵔ.'], ['ⴰⵣⴷⴰⵢ', 'ⴼⵔⵏ ⵜⴰⵎⴳⵓⵔⵜ ⵉⵣⴷⵉⵏ ⵢⵍⴰⵇⵏ.'], ['ⵜⴰⴽⴰⵔⴹⴰ ⵏ ⵓⵎⵓⵏ', 'ⵙⵉⴷⵔ ⵙ ⵜⴽⴰⵔⴹⴰ ⵏ ⵓⵎⵓⵏ ⴳ FOS-Agri.'], ['ⴰⴼⵔⴰⵏ', 'ⵙⵉⴷⵔ ⵜⴰⴱⵔⴰⵜ ⵏ ⵓⴼⵔⴰⵏ ⵉⵍⴰⵇⵏ.']]
+    }
+  },
+  quotidien: {
+    href: 'services/services-quotidien.html',
+    fr: {
+      title: "Services du quotidien",
+      meta: "Restauration et transport du personnel",
+      summary: "La Fondation met à disposition des adhérents des services destinés à faciliter leur quotidien professionnel, notamment la restauration collective et le transport du personnel.",
+      stats: [],
+      chips: ["Restauration collective", "Transport du personnel"],
+      overview: "La Fondation met à disposition des adhérents des services destinés à faciliter leur quotidien professionnel, notamment la restauration collective et le transport du personnel.",
+      highlights: ["Restauration collective.", "Transport du personnel."],
+      features: [["Restauration collective", "La Fondation met à disposition des adhérents des services destinés à faciliter leur quotidien professionnel, notamment la restauration collective et le transport du personnel."], ["Transport du personnel", "Un service de transport collectif destiné à faciliter les déplacements quotidiens des adhérents vers leurs lieux de travail, tout en réduisant les contraintes de mobilité et les frais de transport, et en contribuant à l’amélioration de leurs conditions de vie professionnelle."]],
+      partners: [],
+      steps: []
+    },
+    ar: {
+      title: "خدمات الحياة اليومية",
+      meta: "الإطعام ونقل الموظفين",
+      summary: "تضع المؤسسة رهن إشارة المنخرطين خدمات تهدف إلى تسهيل حياتهم المهنية اليومية، لا سيما الإطعام الجماعي ونقل الموظفين.",
+      stats: [],
+      chips: ["الإطعام الجماعي", "نقل الموظفين"],
+      overview: "تضع المؤسسة رهن إشارة المنخرطين خدمات تهدف إلى تسهيل حياتهم المهنية اليومية، لا سيما الإطعام الجماعي ونقل الموظفين.",
+      highlights: ["الإطعام الجماعي.", "نقل الموظفين."],
+      features: [["الإطعام الجماعي", "تضع المؤسسة رهن إشارة المنخرطين خدمات تهدف إلى تسهيل حياتهم المهنية اليومية، لا سيما الإطعام الجماعي ونقل الموظفين."], ["نقل الموظفين", "خدمة للنقل الجماعي تهدف إلى تسهيل التنقلات اليومية للمنخرطين نحو أماكن عملهم، مع التقليص من إكراهات التنقل ومصاريفه، والمساهمة في تحسين ظروف حياتهم المهنية."]],
+      partners: [],
+      steps: []
+    },
+    zgh: {
+      title: "ⵉⵎⴰⵍⴰⵙⵙⵏ ⵏ ⵓⵙⵙ ⵙ ⵡⴰⵙⵙ",
+      meta: "ⴰⵙⵓⵎⵎⵓ ⴷ ⵓⵙⵙⵉⵡⴹ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ",
+      summary: "ⵜⴰⵙⴷⴰⵡⵉⵜ ⵜⵙⵙⵓⴼⵓⵖ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵎⴰⵍⴰⵙⵙⵏ ⵉⵜⵜⵙⵙⴰⵀⴰⵍⵏ ⵜⵓⴷⵔⵜ ⵏⵏⵙⵏ ⵏ ⵜⵡⵓⵔⵉ ⵏ ⵓⵙⵙ ⵙ ⵡⴰⵙⵙ, ⵎⴰⵙ ⴷ ⴰⵙⵓⵎⵎⵓ ⴰⵎⵓⵏ ⴷ ⵓⵙⵙⵉⵡⴹ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ.",
+      stats: [],
+      chips: ["ⴰⵙⵓⵎⵎⵓ ⴰⵎⵓⵏ", "ⴰⵙⵙⵉⵡⴹ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ"],
+      overview: "ⵜⴰⵙⴷⴰⵡⵉⵜ ⵜⵙⵙⵓⴼⵓⵖ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵎⴰⵍⴰⵙⵙⵏ ⵉⵜⵜⵙⵙⴰⵀⴰⵍⵏ ⵜⵓⴷⵔⵜ ⵏⵏⵙⵏ ⵏ ⵜⵡⵓⵔⵉ ⵏ ⵓⵙⵙ ⵙ ⵡⴰⵙⵙ, ⵎⴰⵙ ⴷ ⴰⵙⵓⵎⵎⵓ ⴰⵎⵓⵏ ⴷ ⵓⵙⵙⵉⵡⴹ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ.",
+      highlights: ["ⴰⵙⵓⵎⵎⵓ ⴰⵎⵓⵏ.", "ⴰⵙⵙⵉⵡⴹ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ."],
+      features: [["ⴰⵙⵓⵎⵎⵓ ⴰⵎⵓⵏ", "ⵜⴰⵙⴷⴰⵡⵉⵜ ⵜⵙⵙⵓⴼⵓⵖ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵎⴰⵍⴰⵙⵙⵏ ⵉⵜⵜⵙⵙⴰⵀⴰⵍⵏ ⵜⵓⴷⵔⵜ ⵏⵏⵙⵏ ⵏ ⵜⵡⵓⵔⵉ ⵏ ⵓⵙⵙ ⵙ ⵡⴰⵙⵙ, ⵎⴰⵙ ⴷ ⴰⵙⵓⵎⵎⵓ ⴰⵎⵓⵏ ⴷ ⵓⵙⵙⵉⵡⴹ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ."], ["ⴰⵙⵙⵉⵡⴹ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ", "ⵜⴰⵏⴼⵍⵉⵜ ⵏ ⵓⵙⵙⵉⵡⴹ ⴰⵎⵓⵏ ⵉⵜⵜⵙⵙⴰⵀⴰⵍⵏ ⴰⵎⵓⵙⵙⵓ ⵏ ⵓⵙⵙ ⵙ ⵡⴰⵙⵙ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵖⵔ ⵉⴷⵖⴰⵔⵏ ⵏ ⵜⵡⵓⵔⵉ ⵏⵏⵙⵏ, ⵙ ⵓⵙⵎⵥⵉ ⵏ ⵉⵎⵓⴽⵔⵉⵙⵏ ⴷ ⵜⵉⵙⵉⵔⴰⴼ ⵏ ⵓⵎⵓⵙⵙⵓ, ⴷ ⵓⵙⵖⵓⴷⵓ ⵏ ⵜⵙⴰⴳⴰⵡⵉⵏ ⵏ ⵜⵓⴷⵔⵜ ⵏⵏⵙⵏ ⵏ ⵜⵡⵓⵔⵉ."]],
+      partners: [],
+      steps: []
+    }
+  }
+};
+
+const controlledTranslations = {
+  prevoyance: {
+    zgh: {
+      title: 'ⵜⴰⴷⵓⵙⵉ ⵜⴰⵎⴰⴷⴰⵏⵜ',
+      meta: 'ⵜⴰⴷⵓⵙⵉ, ⴰⵎⵎⵓⵜⵜⵉ ⴷ ⵜⵓⴷⵔⵜ',
+      summary: 'ⵜⴰⵏⴼⵓⵙⵜ ⵉ ⵓⵎⵓⴷⴷⵓ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴷ ⵜⵡⴰⵛⵓⵍⵜ ⴳ ⵜⴰⴷⵓⵙⵉ ⴷ ⵓⴹⵎⴰⵏ ⴰⵏⴰⵎⵓⵏ.',
+      stats: [['100%', 'ⵏ ⵓⵙⵏⴰⵎ ⵉⵎⵎⵔⵏ ⵙ ⵓⵎⵙⴰⵡⴰⴹ'], ['1 MDH', 'ⴰⵙⵡⵉⵔ ⴰⴳⵔⴰⵡ ⵉ ⴽⵓ ⵢⴰⵏ'], ['5 000 DH', 'ⴰⵎⵓⴷⴷⵓ ⵉ ⵉⴼⵔⵅⴰⵏ ⴳ ⵓⵙⵔⵓⵜ']],
+      overview: 'FOS-Agri ⵜⵙⵙⵎⵓⵔⵙ ⵜⴰⴷⵓⵙⵉ ⵙ ⵓⵙⵉⴽⵍ ⴰⴷⵓⵙⴰⵏ ⴰⵎⵙⵎⴰⴷ, ⵜⴰⵍⵍⴰⵍⵜ ⴷ ⵓⵙⵉⵡⴹ ⴰⴷⵓⵙⴰⵏ, ⴷ ⵉⵣⴷⴰⵢⵏ ⴳ ⵜⵎⵓⵔⴰ.',
+      highlights: ['ⴰⵔⴰⵔⵓ ⵏ ⵓⵙⵏⴰⵎ ⵉⵎⵎⵔⵏ ⵙ ⵓⵎⵙⴰⵡⴰⴹ.', 'ⵜⴰⵍⵍⴰⵍⵜ ⴷ ⵓⵙⵉⵡⴹ ⴰⴷⵓⵙⴰⵏ ⵙ ⵓⵣⴷⴰⵢ.', '5 000 DH ⵉ ⵉⴼⵔⵅⴰⵏ ⴳ ⵓⵙⵔⵓⵜ.', 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⴷ ⵉⵎⵙⵙⵓⵔⴰ ⵉⴷⵓⵙⴰⵏ.'],
+      features: [['ⴰⵎⵎⴰⵙ ⴰⵎⴰⴷⴰⵏ ⴰⵏⴰⵎⵓⵏ', 'ⴰⵙⴷⵓ, ⴰⵙⵏⵎⵍ ⴷ ⵜⵎⵙⵍⵉⵡⵜ ⴳ ⵜⴰⴷⵓⵙⵉ.'], ['ⴰⵙⵉⴽⵍ ⴰⴷⵓⵙⴰⵏ ⴰⵎⵙⵎⴰⴷ', 'ⴰⵔⴰⵔⵓ ⵙ ⵎⴽ ⵉⵍⵍⴰ ⴳ ⵓⵎⵙⴰⵡⴰⴹ.'], ['ⵜⴰⵍⵍⴰⵍⵜ ⴷ ⵓⵙⵉⵡⴹ ⴰⴷⵓⵙⴰⵏ', 'ⵜⴰⵍⵍⴰⵍⵜ ⵉ ⵜⵉⵎⵓⵔⴰ ⵜⵉⵎⵥⵍⴰⵢⵉⵏ ⴷ ⵓⵙⵉⵡⴹ.'], ['ⴰⵎⵓⴷⴷⵓ ⵉ ⵉⴼⵔⵅⴰⵏ', 'ⴰⵎⵓⴷⴷⵓ ⵉ ⵓⵙⵔⵓⵜ ⵏ ⵉⴼⵔⵅⴰⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ.'], ['ⵉⵣⴷⴰⵢⵏ ⵉⴷⵓⵙⴰⵏ', 'ⵉⵣⴷⴰⵢⵏ ⴳ ⵜⵎⵓⵔⴰ ⵎⴰⵔⵔⴰ.']],
+      partners: ['ⵉⵎⴰⵙⵙⵏ ⵏ ⵓⵙⵏⴼⵍ', 'ⵉⵎⵎⴰⵙⵏ ⵉⴷⵓⵙⴰⵏ', 'ⵉⵎⴰⴷⴰⵏⵏ', 'ⵉⵎⵙⵡⴰⵍⵏ ⵏ ⵜⵉⵟⵟ', 'ⵜⵉⵙⵉⴼⵔⵉⵏ', 'ⵉⵎⵎⴰⵙⵏ ⵏ ⵜⵓⵖⵎⴰⵙ'],
+      steps: [['ⴰⵙⴷⵓ', 'ⵙⵙⵏ ⵜⴰⵏⴼⵓⵙⵜ ⵏⵖ ⴰⵣⴷⴰⵢ ⴰⵏⵎⴰⵍⴰⵏ.'], ['ⴰⴼⴰⵢⵍⵓ', 'ⵙⵎⵓⵏ ⵜⵉⴽⴰⵔⴹⵉⵡⵉⵏ.'], ['ⴰⵎⵓⴷⴷⵓ', 'ⴹⴼⵕ ⵉⵙⵓⵜⵔⵏ ⵏ ⵜⴰⵏⴼⵓⵙⵜ.'], ['ⴰⵎⵙⵏⴰⵡ', 'ⵎⵢⴰⵡⴰⵍ ⴷ ⵓⵎⵙⵏⴰⵡ ⴰⵎⵓⵔⴰⵏ.']]
+    }
+  },
+  culture: {
+    ar: {
+      title: 'الثقافة والترفيه والأسفار',
+      meta: 'الراحة والمشاركة والاكتشاف',
+      summary: 'برامج تخلق لحظات للراحة والاكتشاف الثقافي والسفر لفائدة المنخرطين وأسرهم.',
+      stats: [['6', 'خدمات فرعية'], ['الأسر', 'أنشطة بين الأجيال'], ['الشركاء', 'عروض واتفاقيات للترفيه']],
+      chips: ['الترفيه والأسفار', 'مخيمات العطلة', 'العمرة', 'الحج', 'الحفلات', 'الاتفاقيات والشراكات'],
+      overview: 'تجمع هذه الخانة الأنشطة الثقافية والترفيهية والأسفار والعمليات ذات البعد الإنساني في أجواء ودية ومفيدة.',
+      highlights: ['أسفار منظمة ورحلات وأنشطة اصطياف.', 'مخيمات عطلة وأنشطة للأطفال.', 'عمليات العمرة والحج ومواكبة المستفيدين.', 'اتفاقيات لتيسير الولوج إلى الترفيه.'],
+      features: [['الترفيه والأسفار', 'خرجات واكتشافات وإقامات وأنشطة للراحة.'], ['مخيمات العطلة', 'برامج جماعية لأبناء المنخرطين.'], ['العمرة', 'عمليات اجتماعية مؤطرة حسب البرنامج المعتمد.'], ['الحج', 'إعلام وتوجيه للمستفيدين المعنيين.'], ['الحفلات', 'لحظات اعتراف وتقاسم وتضامن.'], ['الاتفاقيات والشراكات', 'تعريفات وعروض وولوج تفضيلي حسب الاتفاقيات.']],
+      partners: ['أسفار منظمة', 'عطل الشتاء', 'رحلات', 'اصطياف', 'المعارض والصالونات', 'أنشطة ثقافية'],
+      steps: [['البرنامج', 'الاطلاع على العمليات المفتوحة.'], ['الأهلية', 'التحقق من الشروط والآجال.'], ['التسجيل', 'تحضير الملف المطلوب.'], ['المشاركة', 'تتبع المعلومات العملية المعلنة.']]
+    },
+    zgh: {
+      title: 'ⵜⴰⴷⵍⵙⴰ, ⴰⵙⴰⵢⴰⵕ ⴷ ⵉⵙⵉⴽⵍⵏ',
+      meta: 'ⴰⵙⴰⵢⴰⵕ, ⵜⵉⵔⵎⵉⵜ ⴷ ⵓⵙⵙⵏ',
+      summary: 'ⵜⵉⵏⴼⴰⵙ ⵉ ⵓⵙⴰⵢⴰⵕ, ⴰⵙⵙⵏ ⵏ ⵜⴷⵍⵙⴰ ⴷ ⵉⵙⵉⴽⵍⵏ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴷ ⵜⵡⴰⵛⵓⵍⵜ.',
+      stats: [['6', 'ⵜⵉⵙⴳⴰⵔ ⵜⵉⵎⵥⵥⵉⵢⵏ'], ['ⵜⵉⵡⴰⵛⵓⵍⵉⵏ', 'ⵜⵉⵔⵎⴰⴷ ⵏ ⵉⵎⵏⵉⴷⵏ'], ['ⵉⵣⴷⴰⵢⵏ', 'ⵜⵉⵏⴼⴰⵙ ⵏ ⵓⵙⴰⵢⴰⵕ']],
+      chips: ['ⴰⵙⴰⵢⴰⵕ ⴷ ⵉⵙⵉⴽⵍⵏ', 'ⵜⵉⵎⵅⵉⵎⵉⵏ ⵏ ⵓⵙⴳⵓⵔⵉ', 'ⵄⵓⵎⵔⴰ', 'ⴰⵃⴰⵊⵊ', 'ⵜⵉⵎⵖⵔⵉⵡⵉⵏ', 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⴷ ⵉⵣⴷⴰⵢⵏ'],
+      overview: 'ⵜⴰⵙⴳⴰ ⴰⴷ ⵜⵙⵎⵓⵏ ⵜⵉⵔⵎⴰⴷ ⵏ ⵜⴷⵍⵙⴰ, ⴰⵙⴰⵢⴰⵕ, ⵉⵙⵉⴽⵍⵏ ⴷ ⵜⵉⵔⵎⵉⵜ ⵏ ⵜⵉⵔⵔⵓⴳⵣⴰ.',
+      highlights: ['ⵉⵙⵉⴽⵍⵏ ⵉⵙⵎⵓⵜⵜⴳⵏ ⴷ ⵜⵉⵔⵎⴰⴷ ⵏ ⵓⵙⴰⵢⴰⵕ.', 'ⵜⵉⵎⵅⵉⵎⵉⵏ ⵏ ⵓⵙⴳⵓⵔⵉ ⵉ ⵉⴼⵔⵅⴰⵏ.', 'ⵄⵓⵎⵔⴰ ⴷ ⴰⵃⴰⵊⵊ ⵙ ⵓⵙⴷⵓ.', 'ⵉⵣⴷⴰⵢⵏ ⵉ ⵓⴽⵛⵛⵓⵎ ⵖⵔ ⵓⵙⴰⵢⴰⵕ.'],
+      features: [['ⴰⵙⴰⵢⴰⵕ ⴷ ⵉⵙⵉⴽⵍⵏ', 'ⵜⵉⵔⵎⴰⴷ, ⵉⵙⵉⴽⵍⵏ ⴷ ⵓⵙⵙⵏ.'], ['ⵜⵉⵎⵅⵉⵎⵉⵏ ⵏ ⵓⵙⴳⵓⵔⵉ', 'ⵜⵉⵏⴼⴰⵙ ⵉ ⵉⴼⵔⵅⴰⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ.'], ['ⵄⵓⵎⵔⴰ', 'ⵜⵉⵏⴼⴰⵙ ⵜⵉⵏⴰⵎⵓⵏⵉⵏ ⵙ ⵓⵙⴷⵓ.'], ['ⴰⵃⴰⵊⵊ', 'ⵉⵙⴰⵍⵏ ⴷ ⵓⵙⵏⵎⵍ ⵉ ⵉⵙⵜⴼⴰⴷⴰⵏ.'], ['ⵜⵉⵎⵖⵔⵉⵡⵉⵏ', 'ⵜⵉⵔⵎⵉⵜ ⵏ ⵜⵉⵔⵔⵓⴳⵣⴰ ⴷ ⵜⵉⵎⵓⵏⵉ.'], ['ⵉⵣⴷⴰⵢⵏ', 'ⵜⵉⵏⴼⴰⵙ ⵙ ⵓⵣⴷⴰⵢ ⵏ ⵓⵎⵙⴰⵡⴰⴹ.']],
+      partners: ['ⵉⵙⵉⴽⵍⵏ ⵉⵙⵎⵓⵜⵜⴳⵏ', 'ⵜⵉⵎⵍⵍⵉⵜ ⵏ ⵜⴳⵔⵙⵜ', 'ⵜⵉⵔⵎⴰⴷ', 'ⴰⵙⵡⵉⵔ ⵏ ⵓⵙⴰⵢⴰⵕ', 'ⵉⵎⵣⵍⴰ ⵏ ⵜⴷⵍⵙⴰ'],
+      steps: [['ⴰⵙⵏⴰⵎⴰⵍ', 'ⵥⵕ ⵜⵉⵏⴼⴰⵙ ⵉⵍⵍⴰⵏ.'], ['ⵜⵉⵡⵜⵜⴰⵙ', 'ⵥⵕ ⵉⵙⵎⵓⵏⵏ ⴷ ⵉⵎⴰⵍⴰⵙⵏ.'], ['ⴰⵙⵓⴳⵔ', 'ⵙⵎⵓⵜⵜⴳ ⴰⴼⴰⵢⵍⵓ.'], ['ⵜⵉⵔⵎⵉⵜ', 'ⴹⴼⵕ ⵉⵙⴰⵍⵏ ⵉⵎⵙⵍⴽⵎⵏ.']]
+    }
+  },
+  formation: {
+    ar: {
+      title: 'دعم التمدرس والتكوين',
+      meta: 'النجاح الدراسي ومواكبة الأسر',
+      summary: 'آليات لدعم أبناء المنخرطين في مسارهم الدراسي وتشجيع التفوق.',
+      stats: [['المواكبة', 'الدراسية والأسرية'], ['المنح', 'منحة التميز والمنحة الاجتماعية'], ['الدخول المدرسي', 'منح واتفاقيات تربوية']],
+      chips: ['المواكبة الدراسية والأسرية', 'منحة التميز والمنحة الاجتماعية', 'منحة الدخول المدرسي', 'الاتفاقيات التربوية'],
+      overview: 'تواكب هذه الخانة الأسر في مراحل الدراسة والتوجيه والتكوين.',
+      highlights: ['مواكبة دراسية وأسرية.', 'منحة التميز والمنحة الاجتماعية.', 'منحة الدخول المدرسي.', 'اتفاقيات مع مؤسسات وشركاء تربويين.'],
+      features: [['المواكبة الدراسية والأسرية', 'ورشات ومواكبة لتوجيه الأطفال ومساندة الآباء.'], ['منحة التميز والمنحة الاجتماعية', 'تثمين المسارات الدراسية المتميزة ودعم اجتماعي للأسر المؤهلة.'], ['منحة الدخول المدرسي', 'دعم للأسر عند بداية السنة الدراسية.'], ['الاتفاقيات التربوية', 'ولوج إلى شركاء تربويين حسب الاتفاقيات المعتمدة.']],
+      partners: ['الدخول المدرسي', 'المواكبة الأسرية', 'المواكبة', 'المنح'],
+      steps: [['الإعلان', 'تتبع برنامج كل عملية.'], ['الشروط', 'التحقق من الأهلية والوثائق.'], ['الإيداع', 'إرسال الملف كاملا.'], ['التتبع', 'الاطلاع على النتائج أو التوجيهات.']]
+    },
+    zgh: {
+      title: 'ⴰⵎⵓⴷⴷⵓ ⵉ ⵓⵙⵍⵎⴷ ⴷ ⵓⵙⴼⵔⴽ',
+      meta: 'ⴰⵙⵍⵎⴷ ⴷ ⵓⵎⵓⴷⴷⵓ ⵏ ⵜⵡⴰⵛⵓⵍⵜ',
+      summary: 'ⵜⵉⵏⴼⴰⵙ ⵉ ⵓⵎⵓⴷⴷⵓ ⵏ ⵉⴼⵔⵅⴰⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴳ ⵓⴱⵔⵉⴷ ⵏ ⵓⵙⵍⵎⴷ.',
+      stats: [['ⴰⵙⴷⵓ', 'ⴰⵙⵍⵎⴷ ⴷ ⵜⵡⴰⵛⵓⵍⵜ'], ['ⵜⵉⵏⴱⴰⴹⵉⵏ', 'ⵜⵉⵏⴱⴰⴹⵉⵏ ⵏ ⵓⴼⵓⵍⴽⵉ'], ['ⴰⵙⴳⴳⵯⴰⵙ', 'ⴰⵎⵓⴷⴷⵓ ⵏ ⵓⵙⴷⴰⵡ']],
+      chips: ['ⴰⵙⴷⵓ ⴰⵙⵍⵎⴷⴰⵏ ⴷ ⵓⵙⴷⵓ ⵏ ⵜⵡⴰⵛⵓⵍⵜ', 'ⵜⵉⵏⴱⴰⴹⵉⵏ ⵏ ⵓⴼⵓⵍⴽⵉ ⴷ ⵜⵉⵏⴱⴰⴹⵉⵏ ⵜⵉⵏⴰⵎⵓⵏⵉⵏ', 'ⴰⵎⵓⴷⴷⵓ ⵏ ⵓⴽⵛⵛⵓⵎ ⵖⵔ ⵓⵙⵍⵎⴷ', 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⵉⵙⵍⵎⴷⴰⵏⵏ'],
+      overview: 'ⵜⴰⵙⴳⴰ ⴰⴷ ⵜⵙⵙⴷⵓ ⵜⵉⵡⴰⵛⵓⵍⵉⵏ ⴳ ⵓⵙⵍⵎⴷ, ⴰⵙⵏⵎⵍ ⴷ ⵓⵙⴼⵔⴽ.',
+      highlights: ['ⴰⵙⴷⵓ ⴰⵙⵍⵎⴷⴰⵏ ⴷ ⵓⵙⴷⵓ ⵏ ⵜⵡⴰⵛⵓⵍⵜ.', 'ⵜⵉⵏⴱⴰⴹⵉⵏ ⵏ ⵓⴼⵓⵍⴽⵉ.', 'ⴰⵎⵓⴷⴷⵓ ⵏ ⵓⴽⵛⵛⵓⵎ ⵖⵔ ⵓⵙⵍⵎⴷ.', 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⴷ ⵉⵎⵙⵙⵓⵔⴰ ⵉⵙⵍⵎⴷⴰⵏⵏ.'],
+      features: [['ⴰⵙⴷⵓ ⴰⵙⵍⵎⴷⴰⵏ', 'ⵜⵉⵔⵎⴰⴷ ⴷ ⵓⵙⴷⵓ ⵉ ⵉⴼⵔⵅⴰⵏ ⴷ ⵉⵎⴰⵔⴰⵡⵏ.'], ['ⵜⵉⵏⴱⴰⴹⵉⵏ', 'ⴰⵙⵙⵏⵖⵎⵙ ⵏ ⵓⴼⵓⵍⴽⵉ ⴷ ⵓⵎⵓⴷⴷⵓ ⴰⵏⴰⵎⵓⵏ.'], ['ⴰⵎⵓⴷⴷⵓ ⵏ ⵓⴽⵛⵛⵓⵎ', 'ⴰⵎⵓⴷⴷⵓ ⵉ ⵜⵡⴰⵛⵓⵍⵉⵏ ⴳ ⵓⴽⵛⵛⵓⵎ ⵖⵔ ⵓⵙⵍⵎⴷ.'], ['ⵉⵎⵙⴰⵡⴰⴹⵏ ⵉⵙⵍⵎⴷⴰⵏⵏ', 'ⴰⴽⵛⵛⵓⵎ ⵖⵔ ⵉⵣⴷⴰⵢⵏ ⵙ ⵓⵎⵙⴰⵡⴰⴹ.']],
+      partners: ['ⴰⴽⵛⵛⵓⵎ ⵖⵔ ⵓⵙⵍⵎⴷ', 'ⴰⵙⵎⵓⵜⵜⴳ ⵉ ⵉⵎⵎⴰⵙⵏ ⵉⵏⵎⴰⵍⴰⵏ', 'ⴰⵙⴷⵓ ⵏ ⵜⵡⴰⵛⵓⵍⵜ', 'ⴰⵙⴷⵓ', 'ⵜⵉⵏⴱⴰⴹⵉⵏ'],
+      steps: [['ⴰⵙⵏⴰⵎ', 'ⴹⴼⵕ ⵉⵎⴰⵍⴰⵙⵏ ⵏ ⴽⵓ ⵜⴰⵏⴼⵓⵙⵜ.'], ['ⵜⵉⵡⵜⵜⴰⵙ', 'ⵥⵕ ⴰⵙⵜⴼⴰⴷⴰ ⴷ ⵜⵉⴽⴰⵔⴹⵉⵡⵉⵏ.'], ['ⴰⵙⴽⵏ', 'ⵙⴽⵏ ⴰⴼⴰⵢⵍⵓ ⴰⵎⴷⵢⴰⵏ.'], ['ⴰⴹⴼⴰⵕ', 'ⵥⵕ ⵜⵉⵎⴰⴹⴰⵍ ⵏⵖ ⵉⵙⴷⵓⵜⵏ.']]
+    }
+  },
+  logement: {
+    ar: {
+      title: 'الولوج إلى السكن',
+      meta: 'السكن والبنوك والمشاريع العقارية',
+      summary: 'مواكبة لتيسير الولوج إلى السكن عبر الدعم السكني والعروض البنكية التفضيلية والشراكات العقارية.',
+      stats: [['9', 'عروض عقارية محصاة'], ['76 سنة', 'سن مرجعي لبعض عروض التمويل'], ['البنوك', 'قروض سكنية تفضيلية']],
+      chips: ['دعم السكن', 'عروض بنكية بنسب قروض تفضيلية', 'المنعشون العقاريون', 'إحداث مشاريع السكن من طرف FOS-Agri'],
+      overview: 'تجمع هذه الخانة عروض التمويل العقاري والاتفاقيات البنكية المرتبطة بالسكن مع شركاء معتمدين ومعلومات قابلة للتحيين.',
+      highlights: ['دعم السكن ومواكبة المنخرطين.', 'عروض بنكية بنسب قروض تفضيلية.', 'منعشون عقاريون ومشاريع سكنية من طرف المؤسسة.', 'تتبع عروض البنوك والشركاء العقاريين.'],
+      features: [['دعم السكن', 'توجيه المنخرطين نحو الآليات والشركاء المتاحين.'], ['العروض البنكية التفضيلية', 'قروض عقارية بشروط متفاوض عليها مع البنوك الشريكة.'], ['المنعشون العقاريون', 'ربط المنخرطين بالعروض العقارية المعتمدة.'], ['مشاريع السكن FOS-Agri', 'تتبع مشاريع السكن التي تضعها المؤسسة.']],
+      partners: ['البنك الشعبي', 'البريد بنك', 'وفا إيموبيلييه', 'BMCI', 'Crédit du Maroc', 'CFG Bank', 'القرض الفلاحي للمغرب', 'Attijari Wafa Bank', 'Bank Assafa'],
+      steps: [['الحاجة', 'تحديد نوع السكن أو التمويل.'], ['العرض', 'مقارنة الشركاء والشروط.'], ['الملف', 'تحضير الوثائق البنكية والإدارية.'], ['التتبع', 'تأكيد العرض النشط لدى المؤسسة.']]
+    },
+    zgh: {
+      title: 'ⴰⴽⵛⵛⵓⵎ ⵖⵔ ⵓⵙⵖⵉⵎ',
+      meta: 'ⴰⵙⵖⵉⵎ, ⵜⴱⴰⵏⴽⵉⵡⵉⵏ ⴷ ⵉⵙⵏⴼⴰⵔⵏ',
+      summary: 'ⴰⵙⴷⵓ ⵉ ⵓⴽⵛⵛⵓⵎ ⵖⵔ ⵓⵙⵖⵉⵎ ⵙ ⵓⵎⵓⴷⴷⵓ, ⵉⵣⴷⴰⵢⵏ ⵏ ⵜⴱⴰⵏⴽⵉⵡⵉⵏ ⴷ ⵉⵙⵏⴼⴰⵔⵏ.',
+      stats: [['9', 'ⵜⵉⵏⴼⴰⵙ ⵏ ⵓⵙⵖⵉⵎ'], ['76', 'ⴰⵡⵜⴰⵢ ⵏ ⵓⵙⵔⴹ'], ['ⵜⴱⴰⵏⴽⵉⵡⵉⵏ', 'ⵉⵙⵔⴹⴰⵏ ⵏ ⵓⵙⵖⵉⵎ']],
+      chips: ['ⴰⵎⵓⴷⴷⵓ ⵏ ⵓⵙⵖⵉⵎ', 'ⵜⵉⵏⴼⴰⵙ ⵏ ⵜⴱⴰⵏⴽⵉⵡⵉⵏ', 'ⵉⵎⵙⵙⵓⵔⴰ ⵏ ⵓⵙⵖⵉⵎ', 'ⵉⵙⵏⴼⴰⵔⵏ ⵏ ⵓⵙⵖⵉⵎ ⵙ FOS-Agri'],
+      overview: 'ⵜⴰⵙⴳⴰ ⴰⴷ ⵜⵙⵎⵓⵏ ⵜⵉⵏⴼⴰⵙ ⵏ ⵓⵙⵔⴹ ⵏ ⵓⵙⵖⵉⵎ ⴷ ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵜⴱⴰⵏⴽⵉⵡⵉⵏ.',
+      highlights: ['ⴰⵎⵓⴷⴷⵓ ⵏ ⵓⵙⵖⵉⵎ ⴷ ⵓⵙⴷⵓ.', 'ⵜⵉⵏⴼⴰⵙ ⵏ ⵜⴱⴰⵏⴽⵉⵡⵉⵏ ⵙ ⵉⵙⵔⴹⴰⵏ ⵉⵎⵥⵍⴰⵢⵏ.', 'ⵉⵎⵙⵙⵓⵔⴰ ⵏ ⵓⵙⵖⵉⵎ ⴷ ⵉⵙⵏⴼⴰⵔⵏ.', 'ⴰⴹⴼⴰⵕ ⵏ ⵉⵣⴷⴰⵢⵏ ⴷ ⵉⵎⵙⵙⵓⵔⴰ.'],
+      features: [['ⴰⵎⵓⴷⴷⵓ ⵏ ⵓⵙⵖⵉⵎ', 'ⴰⵙⵏⵎⵍ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵖⵔ ⵉⵣⴷⴰⵢⵏ.'], ['ⵜⵉⵏⴼⴰⵙ ⵏ ⵜⴱⴰⵏⴽⵉⵡⵉⵏ', 'ⵉⵙⵔⴹⴰⵏ ⵏ ⵓⵙⵖⵉⵎ ⵙ ⵉⵙⵎⵓⵏⵏ ⵉⵎⵥⵍⴰⵢⵏ.'], ['ⵉⵎⵙⵙⵓⵔⴰ ⵏ ⵓⵙⵖⵉⵎ', 'ⴰⵣⴷⴰⵢ ⴷ ⵜⵉⵏⴼⴰⵙ ⵜⵉⵎⵙⴰⴷⴰⴳⵉⵏ.'], ['ⵉⵙⵏⴼⴰⵔⵏ FOS-Agri', 'ⴰⴹⴼⴰⵕ ⵏ ⵉⵙⵏⴼⴰⵔⵏ ⵏ ⵓⵙⵖⵉⵎ.']],
+      partners: ['Banque Populaire', 'Al Barid Bank', 'Wafa Immobilier', 'BMCI', 'Crédit du Maroc', 'CFG Bank', 'Crédit Agricole du Maroc', 'Attijari Wafa Bank', 'Bank Assafa'],
+      steps: [['ⴰⵙⵔⵓⵜ', 'ⵙⵙⵏ ⴰⵏⴰⵡ ⵏ ⵓⵙⵖⵉⵎ ⵏⵖ ⵓⵙⵔⴹ.'], ['ⵜⴰⵏⴼⵓⵙⵜ', 'ⵙⵏⵎⵍ ⵉⵣⴷⴰⵢⵏ ⴷ ⵜⵉⵡⵜⵜⴰⵙ.'], ['ⴰⴼⴰⵢⵍⵓ', 'ⵙⵎⵓⵜⵜⴳ ⵜⵉⴽⴰⵔⴹⵉⵡⵉⵏ.'], ['ⴰⴹⴼⴰⵕ', 'ⵙⵙⵏ ⵜⴰⵏⴼⵓⵙⵜ ⵉⵍⵍⴰⵏ.']]
+    }
+  },
+  projets: {
+    ar: {
+      title: 'دعم المشاريع الشخصية',
+      meta: 'شراكات وتعريفات تفضيلية',
+      summary: 'تتفاوض FOS-Agri حول العديد من الشراكات التي توفر تعريفات تفضيلية لمنخرطيها للولوج إلى خدمات التمويل والتأمين والتأثيث والنقل.',
+      stats: [['5', 'شراكات مخصصة'], ['تعريفات', 'تفضيلية متفاوض بشأنها'], ['المستفيدون', 'المنخرطون وأزواجهم وأبناؤهم']],
+      chips: ['مؤسسات التمويل', 'تأمين السيارات', 'مؤسسات التأثيث', 'مؤسسات النقل'],
+      overview: 'في إطار تنويع عرض الخدمات الاجتماعية، تتفاوض FOS-Agri حول مجموعة من الشراكات التي توفر تعريفات تفضيلية لفائدة منخرطيها للولوج إلى عدة خدمات، لا سيما في مجالات التمويل البنكي والتأمين والتأثيث والنقل.',
+      highlights: ['مؤسسات تمويل بنسب تفضيلية.', 'تأمين السيارات بتعريفات تفضيلية.', 'مؤسسات تأثيث بنسب تخفيض مهمة.', 'مؤسسات نقل بتعريفات تفضيلية.'],
+      features: [['مؤسسات التمويل', 'اتفاقيات بنكية بنسب تفضيلية لتمويل المشاريع الشخصية.'], ['تأمين السيارات', 'اتفاقيات تأمين السيارات بتعريفات مهمة.'], ['مؤسسات التأثيث', 'شراكات توفر نسب تخفيض على التأثيث.'], ['مؤسسات النقل', 'اتفاقيات تعريفية تفضيلية مع ONCF و Supratours.']],
+      partners: ['البنك الشعبي', 'Wafa Salaf', 'القرض الفلاحي للمغرب', 'CFG Bank', 'Salafin', 'Eqdom', 'Attijari Wafa Bank', 'MAMDA', 'SNTL', 'Kitea', 'Biougnach', 'Mobilia Triangle d’Or', 'ONCF', 'Supratours'],
+      steps: [['الحاجة', 'تحديد الخدمة المعنية: التمويل، التأمين، التأثيث أو النقل.'], ['الشريك', 'اختيار المؤسسة المتعاقدة المناسبة.'], ['بطاقة الانخراط', 'التوجه مع بطاقة الانخراط في FOS-Agri.'], ['العرض', 'تحميل بطاقة العرض المعني.']]
+    },
+    zgh: {
+      title: 'ⴰⵎⵓⴷⴷⵓ ⵉ ⵉⵙⵏⴼⴰⵔⵏ ⵉⵎⵥⵍⵉⵢⵏ',
+      meta: 'ⵉⵣⴷⴰⵢⵏ ⴷ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ',
+      summary: 'ⵜⵙⵙⴰⵡⴰⴹ FOS-Agri ⴰⵟⴰⵙ ⵏ ⵉⵣⴷⴰⵢⵏ ⵢⴰⴽⴼⵏ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏⵏⵙ ⴳ ⵓⵙⵔⴹ, ⵜⴰⵏⴰⵎⵎⴰⵍⵜ, ⴰⵙⵎⵓⵜⵜⴳ ⴷ ⵓⵣⵣⵓⵖⵔ.',
+      stats: [['5', 'ⵉⵣⴷⴰⵢⵏ ⵉⵎⵥⵍⵉⵢⵏ'], ['ⵜⵉⵙⵏⵙⵉⵡⵉⵏ', 'ⵉⵎⵥⵍⵉⵢⵏ'], ['ⵉⵎⵙⵜⴼⵉⴷⵏ', 'ⵉⵎⵏⵅⵔⴰⵟⵏ, ⵜⵉⵔⴳⴰⵣⵉⵏ ⴷ ⵜⴰⵔⵡⴰ']],
+      chips: ['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵔⴹ', 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ', 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ', 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ'],
+      overview: 'ⴳ ⵓⵙⵏⴼⵍ ⵏ ⵜⵉⵏⴼⴰ ⵜⵉⵏⴰⵎⵓⵏⵉⵏ, ⵜⵙⵙⴰⵡⴰⴹ FOS-Agri ⴰⵟⴰⵙ ⵏ ⵉⵣⴷⴰⵢⵏ ⵢⴰⴽⴼⵏ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏⵏⵙ ⴳ ⵓⵙⵔⴹ, ⵜⴰⵏⴰⵎⵎⴰⵍⵜ, ⴰⵙⵎⵓⵜⵜⴳ ⴷ ⵓⵣⵣⵓⵖⵔ.',
+      highlights: ['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵔⴹ ⵙ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ.', 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⵉⵢⵏ.', 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⵉⵢⵏ.', 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ ⵙ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ.'],
+      features: [['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵔⴹ', 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵉⴱⴰⵏⴽⵏ ⵙ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ.'], ['ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ', 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵜⵏⴰⵎⵎⴰⵍⵜ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⵉⵢⵏ.'], ['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ', 'ⵉⵣⴷⴰⵢⵏ ⵢⴰⴽⴼⵏ ⵜⵉⵙⵏⵙⵉⵡⵉⵏ ⵖⴼ ⵓⵙⵎⵓⵜⵜⴳ.'], ['ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ', 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⵉⵢⵏ ⴷ ONCF ⴷ Supratours.']],
+      partners: ['Banque Populaire', 'Wafa Salaf', 'Crédit du Maroc', 'CFG Bank', 'Salafin', 'Eqdom', 'Attijari Wafa Bank', 'MAMDA', 'SNTL', 'Kitea', 'Biougnach', 'Mobilia Triangle d’Or', 'ONCF', 'Supratours'],
+      steps: [['ⴰⵙⵔⵓⵜ', 'ⵙⵙⵏ ⵜⴰⵏⴼⴰ ⵢⵍⴰⵇⵏ: ⴰⵙⵔⴹ, ⵜⴰⵏⴰⵎⵎⴰⵍⵜ, ⴰⵙⵎⵓⵜⵜⴳ ⵏⵖ ⴰⵣⵣⵓⵖⵔ.'], ['ⴰⵣⴷⴰⵢ', 'ⴼⵔⵏ ⵜⴰⵎⴳⵓⵔⵜ ⵉⵣⴷⵉⵏ ⵢⵍⴰⵇⵏ.'], ['ⵜⴰⴽⴰⵔⴹⴰ ⵏ ⵓⵎⵓⵏ', 'ⵙⵉⴷⵔ ⵙ ⵜⴽⴰⵔⴹⴰ ⵏ ⵓⵎⵓⵏ ⴳ FOS-Agri.'], ['ⴰⴼⵔⴰⵏ', 'ⵙⵉⴷⵔ ⵜⴰⴱⵔⴰⵜ ⵏ ⵓⴼⵔⴰⵏ ⵉⵍⴰⵇⵏ.']]
+    }
+  }
+};
+
+function cloneFallbacks() {
+  ['culture', 'formation', 'logement', 'projets'].forEach((key) => {
+    services[key].ar = services[key].ar || translateCompact(services[key].fr, 'ar', key);
+    services[key].zgh = services[key].zgh || translateCompact(services[key].fr, 'zgh', key);
+  });
+}
+
+function applyControlledTranslations() {
+  Object.entries(controlledTranslations).forEach(([key, translations]) => {
+    Object.entries(translations).forEach(([target, value]) => {
+      services[key][target] = {
+        ...services[key].fr,
+        ...(services[key][target] || {}),
+        ...value
+      };
+    });
+  });
+}
+
+function translateCompact(fr, target, key) {
+  const titles = {
+    ar: {
+      culture: ['الثقافة والترفيه والأسفار', 'الراحة والمشاركة والاكتشاف'],
+      formation: ['دعم التمدرس والتكوين', 'النجاح الدراسي ومواكبة الأسر'],
+      logement: ['الولوج إلى السكن', 'السكن والبنوك والمشاريع العقارية'],
+      projets: ['دعم المشاريع الشخصية', 'قروض اجتماعية وشراكات تفضيلية']
+    },
+    zgh: {
+      culture: ['ⵜⴰⴷⵍⵙⴰ, ⴰⵙⴰⵢⴰⵕ ⴷ ⵉⵙⵉⴽⵍ', 'ⴰⵙⴰⵢⴰⵕ ⴷ ⵜⵉⵔⵎⵉⵜ'],
+      formation: ['ⴰⵎⵓⴷⴷⵓ ⵉ ⵓⵙⵍⵎⴷ ⴷ ⵓⵙⴼⵔⴽ', 'ⴰⵙⵍⵎⴷ ⴷ ⵓⵎⵓⴷⴷⵓ'],
+      logement: ['ⴰⴽⵛⵛⵓⵎ ⵖⵔ ⵓⵙⵖⵉⵎ', 'ⴰⵙⵖⵉⵎ ⴷ ⵜⴱⴰⵏⴽⵉⵡⵉⵏ'],
+      projets: ['ⴰⵎⵓⴷⴷⵓ ⵉ ⵉⵎⵙⴰⵍⵏ ⵉⵎⴰⵏⴰⵏ', 'ⵉⵙⵔⴹⴰⵏ ⴷ ⵉⵣⴷⴰⵢⵏ']
+    }
+  };
+  const generic = {
+    ar: {
+      summary: 'خدمات ومواكبة اجتماعية لفائدة المنخرطين وأسرهم، مع عرض الشروط والشركاء والمعلومات العملية.',
+      overview: 'تعرض هذه الصفحة الخدمات الفرعية والشركاء والمسار العملي للاستفادة من الخدمة.',
+      highlights: ['خدمات منظمة حسب الخانات الرسمية.', 'معلومات عملية للمنخرطين والأسر.', 'شراكات واتفاقيات حسب الملفات المعتمدة.', 'توجيه عبر فرق FOS-Agri والمنسقين.'],
+      steps: [['الحاجة', 'تحديد نوع الخدمة المطلوبة.'], ['الشروط', 'الاطلاع على المعايير والوثائق.'], ['الملف', 'إعداد الطلب والوثائق.'], ['التتبع', 'التواصل مع المؤسسة أو الشريك.']]
+    },
+    zgh: {
+      summary: 'ⵜⵉⵏⴼⴰⵙ ⴷ ⵓⵎⵓⴷⴷⵓ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴷ ⵜⵡⴰⵛⵓⵍⵜ.',
+      overview: 'ⵜⴰⵙⵏⴰ ⵜⵙⵙⴽⴰⵏ ⵜⵉⵙⴳⴰⵔ, ⵉⵣⴷⴰⵢⵏ ⴷ ⴰⴱⵔⵉⴷ ⵏ ⵓⵙⵜⴼⴰⴷⴰ.',
+      highlights: ['ⵜⵉⵏⴼⴰⵙ ⵙ ⵜⵙⴳⴰⵔ.', 'ⵉⵙⴰⵍⵏ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ.', 'ⵉⵣⴷⴰⵢⵏ ⴷ ⵉⵎⵙⵙⵓⵔⴰ.', 'ⴰⵙⴷⵓ ⵙ FOS-Agri.'],
+      steps: [['ⴰⵙⵔⵓⵜ', 'ⵙⵙⵏ ⵎⴰ ⵜⵔⵉⴷ.'], ['ⵜⵉⵡⵜⵜⴰⵙ', 'ⵥⵕ ⵉⵙⵎⵓⵏⵏ.'], ['ⴰⴼⴰⵢⵍⵓ', 'ⵙⵎⵓⵜⵜⴳ ⵜⵉⴽⴰⵔⴹⵉⵡⵉⵏ.'], ['ⴰⵎⵓⴷⴷⵓ', 'ⵎⵢⴰⵡⴰⵍ ⴷ FOS-Agri.']]
+    }
+  };
+  return {
+    ...fr,
+    title: titles[target][key][0],
+    meta: titles[target][key][1],
+    summary: generic[target].summary,
+    overview: generic[target].overview,
+    highlights: generic[target].highlights,
+    steps: generic[target].steps
+  };
+}
+
+function localizedPrevoyanceMenu(targetLang = 'fr') {
+  return prevoyanceMenuItems.map((item) => ({
+    id: item.id,
+    icon: item.icon,
+    label: item.labels[targetLang] || item.labels.fr
+  }));
+}
+
+/* ===== Accès au logement : même logique que prévoyance (chips + panneaux) ===== */
+const logementMenuItems = [
+  { id: 'a-propos',            icon: 'fa-circle-info',        labels: { fr: 'À PROPOS', ar: 'حول الخدمة', zgh: 'ⵅⴼ ⵜⵏⴼⵍⵉⵜ' } },
+  { id: 'aide-logement',       icon: 'fa-hand-holding-heart', labels: { fr: 'Appui au logement', ar: 'دعم السكن', zgh: 'ⴰⵎⵓⴷⴷⵓ ⵏ ⵓⵙⵖⵉⵎ' } },
+  { id: 'offres-immobilier',   icon: 'fa-building-columns',   labels: { fr: 'Offres bancaires — crédits immobiliers', ar: 'عروض بنكية — القروض العقارية', zgh: 'ⵉⴼⵔⴰⵏ ⵏ ⵉⴱⴰⵏⴽⵏ — ⴰⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵖⵉⵎ' } },
+  { id: 'promoteurs',          icon: 'fa-building',           labels: { fr: 'Promoteurs immobiliers', ar: 'المنعشون العقاريون', zgh: 'ⵉⵎⵙⵏⴼⴰⵔⵏ ⵏ ⵓⵙⵖⵉⵎ' } },
+  { id: 'projets-fosagri',     icon: 'fa-helmet-safety',      labels: { fr: 'Projets de logement FOS-Agri', ar: 'مشاريع السكن FOS-Agri', zgh: 'ⵉⵙⵏⴼⴰⵔⵏ ⵏ ⵓⵙⵖⵉⵎ FOS-Agri' } }
+];
+
+function localizedLogementMenu(targetLang = 'fr') {
+  return logementMenuItems.map((item) => ({ id: item.id, icon: item.icon, label: item.labels[targetLang] || item.labels.fr }));
+}
+
+const logementCenter = {
+  fr: {
+    icon: 'fa-circle-info',
+    badge: "À propos", title: "À propos",
+    intro: "L’accès au logement constitue un axe majeur de la stratégie d’action de la Fondation, compte tenu de l’importance qu’il revêt dans les préoccupations et les attentes de ses adhérents. Consciente de cet enjeu, la Fondation s’attache à développer et à diversifier continuellement les solutions proposées en matière de logement, afin de répondre au mieux aux attentes de ses adhérents et de contribuer à l’amélioration de leurs conditions de vie.",
+    items: []
+  },
+  ar: {
+    icon: 'fa-circle-info',
+    badge: "حول الخدمة", title: "حول الخدمة",
+    intro: "يشكل الولوج إلى السكن محورا رئيسيا في استراتيجية عمل المؤسسة، نظرا للأهمية التي يكتسيها ضمن انشغالات وتطلعات منخرطيها. وإدراكا منها لهذا الرهان، تحرص المؤسسة على تطوير وتنويع الحلول المقترحة في مجال السكن بشكل مستمر، من أجل الاستجابة على أفضل وجه لتطلعات منخرطيها والمساهمة في تحسين ظروف عيشهم.",
+    items: []
+  },
+  zgh: {
+    icon: 'fa-circle-info',
+    badge: "ⵅⴼ ⵜⵏⴼⵍⵉⵜ", title: "ⵅⴼ ⵜⵏⴼⵍⵉⵜ",
+    intro: "ⴰⴽⵛⵛⵓⵎ ⵖⵔ ⵓⵙⵖⵉⵎ ⵉⴳⴰ ⴰⴳⵍⴰⵎ ⴰⵎⵇⵇⵔⴰⵏ ⴳ ⵜⵙⵔⴰⵜⵉⵊⵉⵜ ⵏ ⵜⵡⵓⵔⵉ ⵏ ⵜⵙⴷⴰⵡⵉⵜ, ⵙ ⵓⵙⵡⵉⵔ ⵏⵏⵙ ⴳ ⵜⵉⵎⵙⵙⵓⴳⴳⵔⵉⵏ ⴷ ⵜⵉⵔⴰⵜⵉⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ. ⵙ ⵓⵙⵙⵏ ⵏ ⵓⵙⵓⵖⵍ ⴰⴷ, ⵜⵙⴷⴰⵡⵉⵜ ⵜⵜⵎⵓⵔⵙ ⵖⴼ ⵓⵙⵏⴼⵍⵓⵍ ⴷ ⵓⵙⵏⴰⵡⴰⵢ ⵏ ⵜⵉⴼⵉⵔⴰ ⵏ ⵓⵙⵖⵉⵎ ⴰⴷⴷⵓⵔ ⴰⴷⴷⵓⵔ, ⴰⴼⴰⴷ ⴰⴷ ⵜⵔⴰⵔ ⵖⴼ ⵜⵉⵔⴰⵜⵉⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴷ ⴰⴷ ⵜⴰⵡⵙ ⴳ ⵓⵙⵖⵓⴷⵓ ⵏ ⵜⵙⴰⴳⴰⵡⵉⵏ ⵏ ⵜⵓⴷⵔⵜ ⵏⵏⵙⵏ.",
+    items: []
+  }
+};
+
+const logementPromoteursItems = [
+  { name: 'Al Omrane', logo: 'assets/images/Partenariats/AL OMRANE.png', pdfs: [
+      { label: 'offre', pdf: 'assets/logement/promoteurs/al-omrane-offre.pdf' },
+      { label: 'projets', pdf: 'assets/logement/promoteurs/al-omrane-liste-projets.xlsx' }
+    ] },
+  { name: 'CGI', logo: 'assets/images/Partenariats/CGI.gif', pdf: 'assets/logement/promoteurs/cgi.pdf' },
+  { name: 'Chaabi Lil Iskane', logo: 'assets/images/Partenariats/CHAABI LIL ISKANE.png', pdf: 'assets/logement/promoteurs/chaabi-lil-iskane.pdf' },
+  { name: 'Dyar Al Mansour', logo: 'assets/images/Partenariats/DYAR AL MANSOUR.png', pdf: 'assets/logement/promoteurs/dyar-al-mansour.pdf' },
+  { name: 'El Mahi Sarl', logo: 'assets/images/Partenariats/EL-MAHI-SARL.png', pdf: 'assets/logement/promoteurs/el-mahi-sarl.pdf' },
+  { name: 'Fadaat Assaada', logo: 'assets/images/Partenariats/FADAAT ASSAADA.jpeg', pdf: 'assets/logement/promoteurs/fadaat-assaada.pdf' },
+  { name: 'Groupe La Manoussa', logo: 'assets/images/Partenariats/La-manoussa.png', pdf: 'assets/logement/promoteurs/groupe-la-manoussa.pdf' },
+  { name: 'Alliances Darna', logo: 'assets/images/Partenariats/Alliances-darna.png', pdf: 'assets/logement/promoteurs/alliance-darna.pdf' },
+  { name: 'Palmerie Immobilier', logo: 'assets/images/Partenariats/PALMERIE IMMOBILIER.png', pdf: 'assets/logement/promoteurs/palmerie-immobilier.pdf' }
+];
+
+function logementPromoteursItemsFor(downloadLabel, projetsLabel) {
+  return logementPromoteursItems.map((it) => it.pdfs
+    ? { ...it, pdfs: it.pdfs.map((p) => ({ ...p, label: p.label === 'offre' ? downloadLabel : projetsLabel })) }
+    : it);
+}
+
+const logementExtra = {
+  fr: [
+    { navIndex: 1, icon: 'fa-hand-holding-heart', badge: "Appui au logement", title: "Appui au logement",
+      intro: ["Une prime frontale et forfaitaire est versée en une seule fois aux adhérents sélectionnés afin de soutenir l'accès au logement. Cette prestation sociale s'adresse exclusivement aux adhérents qui disposent déjà d'un prêt immobilier au moment du lancement de la prestation, sous réserve de la production des justificatifs bancaires attestant des détails du crédit."],
+      beneficiariesTitle: "Bénéficiaires",
+      beneficiaries: [{ number: '01', text: "Tous (tes) les adhérent(e)s de la FOS-Agri" }],
+      blocks: [{ icon: 'fa-clipboard-list', title: '', items: [{ title: "Inscription et modalités", icon: 'fa-clipboard-check', bullets: ["L'inscription à cette prestation s'effectue à travers l'Espace Adhérent de la FOS-Agri.", "La sélection des bénéficiaires est réalisée selon un système de scoring reposant sur des critères objectifs et transparents définis par la Fondation, garantissant l'équité dans l'attribution de la prestation.", "Les adhérents retenus sont informés des résultats de la sélection via leur Espace Adhérent ainsi que par les canaux de communication de la Fondation."] }] }] },
+    { navIndex: 2, type: 'bankOffers', category: 'immobilier', icon: 'fa-building-columns', badge: 'Crédits immobiliers', title: 'Offres bancaires — crédits immobiliers', intro: 'Crédits immobiliers négociés avec des banques partenaires. Téléchargez la fiche de chaque banque pour consulter l’offre et l’âge limite de crédit.' },
+    { navIndex: 3, type: 'culturePartners', icon: 'fa-building', badge: 'Promoteurs immobiliers', title: 'Promoteurs immobiliers',
+      intro: ['La FOS-Agri développe des partenariats avec plusieurs promoteurs immobiliers afin de contribuer, grâce à des taux préférentiels, à la concrétisation de projets d’acquisition d’un logement neuf ou ancien, de construction, d’aménagement ou d’achat d’un terrain à bâtir.', 'Voici le détail des offres proposées :'],
+      groups: [{ title: 'Promoteurs immobiliers partenaires', items: logementPromoteursItemsFor('Télécharger l’offre', 'Liste des projets') }] },
+    { navIndex: 4, icon: 'fa-helmet-safety', badge: 'Projets de logement FOS-Agri', title: 'Mise en place de projets de logement par la FOS-Agri',
+      intro: ['Dans le cadre de la poursuite de ses efforts de prospection de nouveaux projets en faveur de ses adhérents, la FOS-Agri a entrepris les démarches administratives nécessaires à l’acquisition de terrains destinés à la construction de logements sociaux sur des biens domaniaux relevant du Département de l’Agriculture.'] }
+  ],
+  ar: [
+    { navIndex: 1, icon: 'fa-hand-holding-heart', badge: "دعم السكن", title: "دعم السكن",
+      intro: ["تصرف منحة جزافية دفعة واحدة للمنخرطين المنتقين من أجل دعم الولوج إلى السكن. وتستهدف هذه الخدمة الاجتماعية حصريا المنخرطين الذين يتوفرون على قرض عقاري عند إطلاق الخدمة، شريطة الإدلاء بالوثائق البنكية التي تثبت تفاصيل القرض."],
+      beneficiariesTitle: "المستفيدون",
+      beneficiaries: [{ number: '01', text: "جميع منخرطات ومنخرطي FOS-Agri" }],
+      blocks: [{ icon: 'fa-clipboard-list', title: '', items: [{ title: "التسجيل والكيفيات", icon: 'fa-clipboard-check', bullets: ["يتم التسجيل في هذه الخدمة عبر فضاء المنخرط لدى FOS-Agri.", "تتم عملية انتقاء المستفيدين وفق نظام تنقيط مبني على معايير موضوعية وشفافة تحددها المؤسسة، بما يضمن الإنصاف في منح الخدمة.", "يتم إخبار المنخرطين المقبولين بنتائج الانتقاء عبر فضاء المنخرط ومن خلال قنوات التواصل التابعة للمؤسسة."] }] }] },
+    { navIndex: 2, type: 'bankOffers', category: 'immobilier', icon: 'fa-building-columns', badge: 'القروض العقارية', title: 'عروض بنكية — القروض العقارية', intro: 'قروض عقارية متفاوض بشأنها مع أبناك شريكة. حمّل بطاقة كل بنك للاطلاع على العرض والسن الأقصى للقرض.' },
+    { navIndex: 3, type: 'culturePartners', icon: 'fa-building', badge: 'المنعشون العقاريون', title: 'المنعشون العقاريون',
+      intro: ['تطور Fos-Agri شراكات مع العديد من المنعشين العقاريين للمساهمة، من خلال معدلات تفضيلية، في إنجاز مشاريعهم المتعلقة باقتناء سكن جديد أو قديم، أو البناء، أو التهيئة، أو شراء قطعة أرض وبنائها.', 'وفيما يلي تفاصيل العروض المقترحة:'],
+      groups: [{ title: 'المنعشون العقاريون الشركاء', items: logementPromoteursItemsFor('تحميل العرض', 'لائحة المشاريع') }] },
+    { navIndex: 4, icon: 'fa-helmet-safety', badge: 'مشاريع السكن FOS-Agri', title: 'إحداث مشاريع السكن من طرف FOS-Agri',
+      intro: ['في إطار مواصلة جهود التنقيب عن مشاريع جديدة لفائدة منخرطيها، شرعت Fos-Agri في المساطر الإدارية لاقتناء العقار من أجل بناء سكن اجتماعي فوق أراضي الدولة التابعة لقطاع الفلاحة.'] }
+  ],
+  zgh: [
+    { navIndex: 1, icon: 'fa-hand-holding-heart', badge: "ⴰⵎⵓⴷⴷⵓ ⵏ ⵓⵙⵖⵉⵎ", title: "ⴰⵎⵓⴷⴷⵓ ⵏ ⵓⵙⵖⵉⵎ",
+      intro: ["ⵜⴰⵡⵉⵙⵉ ⵜⴰⴷⵔⵉⵎⵜ ⵜⴰⵎⴰⵜⴰⵢⵜ ⵜⵜⵓⵎⵓⵛⵛ ⵢⴰⵜ ⵜⵉⴽⴽⵍⵜ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵜⵜⵓⵙⵜⴰⵢⵏ ⴰⴼⴰⴷ ⴰⴷ ⵜⴰⵡⵙ ⴳ ⵓⴽⵛⵛⵓⵎ ⵖⵔ ⵓⵙⵖⵉⵎ. ⵜⴰⵏⴼⵍⵉⵜ ⴰⴷ ⵜⴰⵏⵎⴰⵍⴰⵏⵜ ⵜⵙⵙⵓⴷⵓⵙ ⵖⴰⵙ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵍⵍⵉ ⵖⵓⵔ ⵉⵍⵍⴰ ⵓⵔⴹⴰⵍ ⵏ ⵓⵙⵖⵉⵎ ⴳ ⵓⵙⵏⵜⵉ ⵏ ⵜⵏⴼⵍⵉⵜ, ⵙ ⵓⵙⵙⵓⴼⵖ ⵏ ⵜⵉⴼⵔⴽⵉⵡⵉⵏ ⵏ ⴱⴰⵏⴽ ⵉⵙⵙⵏⵜⴰⵎⵏ ⵜⵉⴼⵔⵓⵔⵉⵏ ⵏ ⵓⵔⴹⴰⵍ."],
+      beneficiariesTitle: "ⵉⵎⵙⵜⴼⴰⴷⵏ",
+      beneficiaries: [{ number: '01', text: "ⴽⵓⵍⵍⵓ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴷ ⵜⵎⵏⵅⵔⴰⵟⵉⵏ ⵏ FOS-Agri" }],
+      blocks: [{ icon: 'fa-clipboard-list', title: '', items: [{ title: "ⴰⵙⵙⴼⵜⵔ ⴷ ⵜⴳⴳⵓⵔⵉⵏ", icon: 'fa-clipboard-check', bullets: ["ⴰⵙⵙⴼⵜⵔ ⵉ ⵜⵏⴼⵍⵉⵜ ⴰⴷ ⵉⵜⵜⴳ ⵙ ⵓⵙⵉⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ ⵏ FOS-Agri.", "ⵜⴰⵙⵜⴰⵢⵜ ⵏ ⵉⵎⵙⵜⴼⴰⴷⵏ ⵜⵜⴳ ⵙ ⵓⵙⵎⵉⵍ ⵏ ⵓⵙⴽⵓⵔ ⵉⵙⵙⴰⵙⵏ ⴷ ⵉⴼⵔⴰⵔⵏ ⵉⵜⵜⵓⵙⴷⴷⵉⵏ ⵙⴳ ⵜⵙⴷⴰⵡⵉⵜ, ⴰⴼⴰⴷ ⴰⴷ ⵉⵍⵉ ⵓⵏⴱⴰⴹ ⵉⵎⵥⵍⵉ.", "ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵜⵜⵓⵙⵜⴰⵢⵏ ⵜⵜⵓⵙⵙⵏⵏ ⵙ ⵉⵎⴽⴽⵉⵏ ⵏ ⵜⵙⵜⴰⵢⵜ ⵙ ⵓⵙⵉⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ ⴷ ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵜⵙⴷⴰⵡⵉⵜ."] }] }] },
+    { navIndex: 2, type: 'bankOffers', category: 'immobilier', icon: 'fa-building-columns', badge: 'ⴰⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵖⵉⵎ', title: 'ⵉⴼⵔⴰⵏ ⵏ ⵉⴱⴰⵏⴽⵏ — ⴰⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵖⵉⵎ', intro: 'ⴰⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵖⵉⵎ ⴷ ⵉⴱⴰⵏⴽⵏ ⵉⵣⴷⵉⵏ. ⵙⵉⴷⵔ ⵜⴰⴽⴰⵔⴹⴰ ⵏ ⴽⵓ ⴱⴰⵏⴽ.' },
+    { navIndex: 3, type: 'culturePartners', icon: 'fa-building', badge: 'ⵉⵎⵙⵏⴼⴰⵔⵏ ⵏ ⵓⵙⵖⵉⵎ', title: 'ⵉⵎⵙⵏⴼⴰⵔⵏ ⵏ ⵓⵙⵖⵉⵎ',
+      intro: ['ⵜⵙⴽⴰ FOS-Agri ⵉⵣⴷⵡⵉⵢⵏ ⴷ ⵉⵎⵙⵏⴼⴰⵔⵏ ⵏ ⵓⵙⵖⵉⵎ ⵉ ⵓⵙⵎⵓⵜⵜⵉ, ⵙ ⵜⵎⴰⵏⴰⵡⵜ ⵉⵎⵥⵍⵉⵢⵏ, ⵏ ⵉⵙⵏⴼⴰⵔⵏ ⵏⵏⵙⵏ ⵏ ⵓⵙⵖⵉⵎ ⴰⵎⴰⵢⵏⵓ ⵏⵖ ⴰⵇⴱⵓⵔ, ⴰⴱⵏⵏⵓ, ⴰⵙⵣⵡⵔ ⵏⵖ ⴰⵙⵖ ⵏ ⵢⴰⵜ ⵜⵥⴰⵍⴰ ⴷ ⵓⴱⵏⵏⵓ ⵏⵏⵙ.', 'ⴳ ⵓⴷⴷⴰⵢ ⴰⵢⴰ, ⵉⴼⵔⴰⵏ ⵉⵜⵜⵓⵙⵙⵏⵏ:'],
+      groups: [{ title: 'ⵉⵎⵙⵏⴼⴰⵔⵏ ⵏ ⵓⵙⵖⵉⵎ ⵉⵣⴷⵉⵏ', items: logementPromoteursItemsFor('ⵙⵉⴷⵔ ⴰⴼⵔⴰⵏ', 'ⵜⴰⵍⵍⴰⵙⵜ ⵏ ⵉⵙⵏⴼⴰⵔⵏ') }] },
+    { navIndex: 4, icon: 'fa-helmet-safety', badge: 'ⵉⵙⵏⴼⴰⵔⵏ ⵏ ⵓⵙⵖⵉⵎ FOS-Agri', title: 'ⴰⵙⴱⵓⵖⵍⵓ ⵏ ⵉⵙⵏⴼⴰⵔⵏ ⵏ ⵓⵙⵖⵉⵎ ⵙ FOS-Agri',
+      intro: ['ⴳ ⵓⵙⵎⵓⵜⵜⵉ ⵏ ⵉⵅⴷⴷⴰⵎⵏ ⵏ ⵓⴼⴰⵔⵙ ⵏ ⵉⵙⵏⴼⴰⵔⵏ ⵉⵎⴰⵢⵏⵓⵜⵏ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏⵏⵙ, ⵜⴱⴷⴰ FOS-Agri ⴰⵙⵏⴼⵍ ⵏ ⵜⵥⴰⵍⵉⵡⵉⵏ ⵉ ⵓⴱⵏⵏⵓ ⵏ ⵓⵙⵖⵉⵎ ⴰⵏⴰⵎⵓⵔ ⴳ ⵜⵎⵓⵔⴰ ⵏ ⵜⵎⴰⵡⴰⵙⵜ ⵏ ⵜⴼⵍⴰⵃⵜ.'] }
+  ]
+};
+
+/* ===== Appui à la scolarisation et formation : même logique que logement (chips + panneaux) ===== */
+const formationMenuItems = [
+  { id: 'a-propos',      icon: 'fa-circle-info',      labels: { fr: 'À PROPOS', ar: 'حول الخدمة', zgh: 'ⵅⴼ ⵜⵏⴼⵍⵉⵜ' } },
+  { id: 'coaching',      icon: 'fa-chalkboard-user', labels: { fr: 'Coaching scolaire et parental', ar: 'المواكبة الدراسية والأسرية', zgh: 'ⴰⵎⵓⴷⴷⵓ ⴰⵙⵍⵎⴰⴷ ⴷ ⵏ ⵜⵡⴰⵛⵓⵍⵜ' } },
+  { id: 'bourses-excellence', icon: 'fa-medal',      labels: { fr: 'Bourse d’excellence', ar: 'منحة التميز', zgh: 'ⵜⴰⵎⵓⴷⴰ ⵏ ⵜⵎⵥⵉ' } },
+  { id: 'bourse-sociale',icon: 'fa-hand-holding-heart', labels: { fr: 'Bourse sociale', ar: 'المنحة الاجتماعية', zgh: 'ⵜⴰⵎⵓⴷⴰ ⵜⴰⵏⴰⵎⵓⵏⵜ' } },
+  { id: 'rentree',       icon: 'fa-sack-dollar',     labels: { fr: 'Prime de rentrée scolaire', ar: 'منحة الدخول المدرسي', zgh: 'ⵜⴰⵎⵓⴷⴰ ⵏ ⵜⴰⵣⵡⴰⵔⵜ ⵏ ⵓⵙⴳⴳⵯⴰⵙ ⴰⵙⵍⵎⴰⴷ' } },
+  { id: 'conventions',   icon: 'fa-handshake',       labels: { fr: 'Conventions éducatives', ar: 'الاتفاقيات التربوية', zgh: 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵓⵙⵍⵎⴷ' } }
+];
+
+function localizedFormationMenu(targetLang = 'fr') {
+  return formationMenuItems.map((item) => ({ id: item.id, icon: item.icon, label: item.labels[targetLang] || item.labels.fr }));
+}
+
+const formationCenter = {
+  fr: {
+    icon: 'fa-circle-info',
+    badge: 'À PROPOS', title: 'Appui à la scolarisation et à la formation',
+    intro: 'La FOS-Agri accompagne les familles dans les étapes importantes de la scolarité, de l’orientation et de la formation, avec des dispositifs dédiés aux enfants des adhérents et à leurs parents.',
+    items: [
+      { navIndex: 1, icon: 'fa-chalkboard-user', title: 'Coaching scolaire et parental', body: 'Ateliers et accompagnement pour mieux orienter les enfants, renforcer leurs méthodes de travail et soutenir les parents dans leur rôle éducatif.' },
+      { navIndex: 2, icon: 'fa-medal', title: 'Bourse d’excellence', body: 'Valorisation des parcours scolaires remarquables et encouragement des bacheliers ayant obtenu de bons résultats.' },
+      { navIndex: 3, icon: 'fa-hand-holding-heart', title: 'Bourse sociale', body: 'Appui social aux bacheliers éligibles afin de soutenir la poursuite de leurs études dans de bonnes conditions.' },
+      { navIndex: 4, icon: 'fa-sack-dollar', title: 'Prime de rentrée scolaire', body: 'Aide financière accordée aux familles concernées afin de faire face aux dépenses de la rentrée scolaire.' },
+      { navIndex: 5, icon: 'fa-handshake', title: 'Conventions éducatives', body: 'Accès à des centres culturels et de langues partenaires selon les conventions validées.' }
+    ]
+  },
+  ar: {
+    icon: 'fa-circle-info',
+    badge: 'حول الخدمة', title: 'دعم التمدرس والتكوين',
+    intro: 'تواكب FOS-Agri الأسر في المراحل الأساسية للتمدرس والتوجيه والتكوين، عبر آليات موجهة لأبناء المنخرطين وآبائهم.',
+    items: [
+      { navIndex: 1, icon: 'fa-chalkboard-user', title: 'المواكبة الدراسية والأسرية', body: 'ورشات ومواكبة لتوجيه الأبناء وتعزيز طرق العمل ودعم الآباء في دورهم التربوي.' },
+      { navIndex: 2, icon: 'fa-medal', title: 'منحة التميز', body: 'تثمين المسارات الدراسية المتميزة وتشجيع الحاصلين على نتائج جيدة.' },
+      { navIndex: 3, icon: 'fa-hand-holding-heart', title: 'المنحة الاجتماعية', body: 'دعم اجتماعي للبكالوريين المؤهلين لمواصلة دراستهم في ظروف مناسبة.' },
+      { navIndex: 4, icon: 'fa-sack-dollar', title: 'منحة الدخول المدرسي', body: 'دعم مالي للأسر المعنية لمواجهة مصاريف الدخول المدرسي.' },
+      { navIndex: 5, icon: 'fa-handshake', title: 'الاتفاقيات التربوية', body: 'ولوج إلى مراكز ثقافية ولغوية شريكة حسب الاتفاقيات المصادق عليها.' }
+    ]
+  },
+  zgh: {
+    icon: 'fa-circle-info',
+    badge: 'ⵅⴼ ⵜⵏⴼⵍⵉⵜ', title: 'ⴰⵙⴷⵓ ⵏ ⵓⵙⵍⵎⴷ ⴷ ⵓⵙⴼⵙⵔ',
+    intro: 'FOS-Agri ⵜⵜⵎⵓⴷⴷⵓ ⵜⵉⵡⵉⵙⵉ ⵉ ⵜⵡⴰⵛⵓⵍⵉⵏ ⴳ ⵜⵎⵙⴽⵔⵉⵏ ⵏ ⵓⵙⵍⵎⴷ, ⴰⵙⵏⵓⴱⴳ ⴷ ⵓⵙⴼⵙⵔ, ⵙ ⵜⵎⵙⵙⵓⵜⴰⵍ ⵉ ⵜⴰⵔⵡⴰ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴷ ⵉⵎⴰⵡⵍⴰⵏ.',
+    items: [
+      { navIndex: 1, icon: 'fa-chalkboard-user', title: 'ⴰⵎⵓⴷⴷⵓ ⴰⵙⵍⵎⴰⴷ ⴷ ⵏ ⵜⵡⴰⵛⵓⵍⵜ', body: 'ⵜⵉⵡⵉⵙⵉ ⴷ ⵜⵎⵙⵙⵓⵜⴰⵍ ⵉ ⵓⵙⵏⵓⴱⴳ ⵏ ⵜⴰⵔⵡⴰ ⴷ ⵓⵙⴷⵓ ⵏ ⵉⵎⴰⵡⵍⴰⵏ.' },
+      { navIndex: 2, icon: 'fa-medal', title: 'ⵜⴰⵎⵓⴷⴰ ⵏ ⵜⵎⵥⵉ', body: 'ⴰⵙⵎⵓⵙⵙⵓ ⵏ ⵉⵎⴰⵏⵏ ⵉⴱⵔⵉⴷⵏ ⴳ ⵓⵙⵍⵎⴷ.' },
+      { navIndex: 3, icon: 'fa-hand-holding-heart', title: 'ⵜⴰⵎⵓⴷⴰ ⵜⴰⵏⴰⵎⵓⵏⵜ', body: 'ⵜⵉⵡⵉⵙⵉ ⵜⴰⵏⴰⵎⵓⵏⵜ ⵉ ⵉⵎⵙⵜⴰⵢⵏ ⵉⵍⵍⴰⵏ ⴷ ⵓⵣⵔⴼ.' },
+      { navIndex: 4, icon: 'fa-sack-dollar', title: 'ⵜⴰⵎⵓⴷⴰ ⵏ ⵜⴰⵣⵡⴰⵔⵜ ⵏ ⵓⵙⴳⴳⵯⴰⵙ ⴰⵙⵍⵎⴰⴷ', body: 'ⵜⵉⵡⵉⵙⵉ ⵜⴰⴷⵔⵉⵎⴰⵏⵜ ⵉ ⵜⵡⴰⵛⵓⵍⵉⵏ ⴳ ⵜⴰⵣⵡⴰⵔⵜ ⵏ ⵓⵙⵍⵎⴷ.' },
+      { navIndex: 5, icon: 'fa-handshake', title: 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵓⵙⵍⵎⴷ', body: 'ⴰⴽⵛⵓⵎ ⵖⵔ ⵉⵣⴷⴰⵢⵏ ⵏ ⵜⵖⴰⵔⵉⵡⵉⵏ ⴷ ⵜⵓⵜⵍⴰⵢⵉⵏ ⵙ ⵉⵎⵙⴰⵡⴰⴹⵏ.' }
+    ]
+  }
+};
+
+const formationCoachingSection = {
+  fr: {
+    navIndex: 1, icon: 'fa-chalkboard-user', badge: 'Coaching scolaire et parental', title: 'Coaching scolaire et parental',
+    intro: ['La FOS-Agri contribue au développement et à l’épanouissement des enfants de ses adhérents à travers l’organisation de programmes ayant trait à leur développement personnel.'],
+    blocks: [
+      { icon: 'fa-graduation-cap', title: 'Coaching scolaire', items: [{ title: 'Accompagnement scolaire', body: 'Le Coaching scolaire accompagne les élèves de la 2ème année baccalauréat, toutes options confondues, dans le développement du savoir-faire (méthodes de travail, organisation, concentration et mémorisation), et du savoir-être (gestion du stress et des émotions).' }] },
+      { icon: 'fa-people-roof', title: 'Coaching parental', items: [{ title: 'Accompagnement parental', body: 'La FOS-Agri met en place un programme de coaching parental au profit des adhérents afin de favoriser une relation positive parent-enfant et de leur permettre d’acquérir les outils de communication adaptés à chacun de leurs enfants, de mieux saisir leur rôle dans la sphère familiale et de développer leur leadership éducatif au sein de leurs foyers.' }] },
+      { icon: 'fa-clipboard-list', title: '', items: [{ title: "Inscription et modalités", icon: 'fa-clipboard-check', bullets: ["L'inscription à cette prestation s'effectue à travers l'Espace Adhérent de la FOS-Agri.", "La sélection des bénéficiaires est réalisée selon un système de scoring reposant sur des critères objectifs et transparents définis par la Fondation, garantissant l'équité dans l'attribution de la prestation.", "Les adhérents retenus sont informés des résultats de la sélection via leur Espace Adhérent ainsi que par les canaux de communication de la Fondation."] }] }
+    ]
+  },
+  ar: {
+    navIndex: 1, icon: 'fa-chalkboard-user', badge: 'المواكبة الدراسية والأسرية', title: 'المواكبة الدراسية والأسرية',
+    intro: ['تساهم FOS-Agri في نماء وازدهار أبناء منخرطيها من خلال تنظيم برامج تتعلق بتنميتهم الشخصية.'],
+    blocks: [
+      { icon: 'fa-graduation-cap', title: 'المواكبة الدراسية', items: [{ title: 'مواكبة دراسية', body: 'يواكب التوجيه المدرسي تلاميذ السنة الثانية من سلك البكالوريا، بجميع الشعب، في تطوير المهارات العملية (طرق العمل والتنظيم والتركيز والحفظ) والمهارات السلوكية (التحكم في التوتر والانفعالات).' }] },
+      { icon: 'fa-people-roof', title: 'المواكبة الأسرية', items: [{ title: 'مواكبة أسرية', body: 'تضع FOS-Agri برنامجا للمواكبة الأسرية لفائدة المنخرطين بهدف تعزيز علاقة إيجابية بين الآباء والأبناء وتمكينهم من اكتساب أدوات التواصل الملائمة لكل طفل، وفهم دورهم داخل الأسرة بشكل أفضل، وتطوير قيادتهم التربوية داخل بيوتهم.' }] },
+      { icon: 'fa-clipboard-list', title: '', items: [{ title: "التسجيل والكيفيات", icon: 'fa-clipboard-check', bullets: ["يتم التسجيل في هذه الخدمة عبر فضاء المنخرط لدى FOS-Agri.", "تتم عملية انتقاء المستفيدين وفق نظام تنقيط مبني على معايير موضوعية وشفافة تحددها المؤسسة، بما يضمن الإنصاف في منح الخدمة.", "يتم إخبار المنخرطين المقبولين بنتائج الانتقاء عبر فضاء المنخرط ومن خلال قنوات التواصل التابعة للمؤسسة."] }] }
+    ]
+  },
+  zgh: {
+    navIndex: 1, icon: 'fa-chalkboard-user', badge: 'ⴰⵎⵓⴷⴷⵓ ⴰⵙⵍⵎⴰⴷ ⴷ ⵏ ⵜⵡⴰⵛⵓⵍⵜ', title: 'ⴰⵎⵓⴷⴷⵓ ⴰⵙⵍⵎⴰⴷ ⴷ ⵏ ⵜⵡⴰⵛⵓⵍⵜ',
+    intro: ['ⵜⵙⴽⴰ FOS-Agri ⴰⵙⵏⴼⵍ ⴷ ⵓⵎⵥⵉⵢ ⵏ ⵜⴰⵔⵡⴰ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵙ ⵉⵙⵏⴼⴰⵔⵏ ⵏ ⵓⵙⵏⴼⵍ ⵓⵙⵍⵉⴳ.'],
+    blocks: [
+      { icon: 'fa-graduation-cap', title: 'ⴰⵎⵓⴷⴷⵓ ⴰⵙⵍⵎⴰⴷ', items: [{ title: 'ⴰⵙⴷⵓ ⴰⵙⵍⵎⴰⴷ', body: 'ⴰⵎⵓⴷⴷⵓ ⴰⵙⵍⵎⴰⴷ ⵉⵜⵜⵓⵎⵓⴷⴷⵓ ⵉ ⵉⵏⵍⵎⴰⴷⵏ ⵏ ⵓⵙⴳⴳⵯⴰⵙ ⵡⵉⵙⵙ ⵙⵉⵏ ⵏ ⵍⴱⴰⴽ ⴳ ⵓⵙⵏⴼⵍ ⵏ ⵜⵣⵎⵎⴰⵔ (ⵜⵉⵔⵔⴰⵢⵉⵏ ⵏ ⵓⵅⴷⴷⵉⵎ, ⴰⵙⵎⴽⵜⵉ) ⴷ ⵓⵏⵥⴰⴹ ⵏ ⵢⵉⴹ.' }] },
+      { icon: 'fa-people-roof', title: 'ⴰⵎⵓⴷⴷⵓ ⵏ ⵜⵡⴰⵛⵓⵍⵜ', items: [{ title: 'ⴰⵙⴷⵓ ⵏ ⵜⵡⴰⵛⵓⵍⵜ', body: 'ⵜⵙⴽⴰ FOS-Agri ⴰⵎⵓⴷⴷⵓ ⵉ ⵉⵎⴰⵡⴰⵙⵏ ⵉ ⵓⵙⵎⵓⵜⵜⵉ ⵏ ⵜⵎⵢⴰⵡⴰⴹⵜ ⴳⵔ ⵉⵎⴰⵡⴰⵙⵏ ⴷ ⵜⴰⵔⵡⴰ ⵏⵏⵙⵏ.' }] },
+      { icon: 'fa-clipboard-list', title: '', items: [{ title: "ⴰⵙⵙⴼⵜⵔ ⴷ ⵜⴳⴳⵓⵔⵉⵏ", icon: 'fa-clipboard-check', bullets: ["ⴰⵙⵙⴼⵜⵔ ⵉ ⵜⵏⴼⵍⵉⵜ ⴰⴷ ⵉⵜⵜⴳ ⵙ ⵓⵙⵉⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ ⵏ FOS-Agri.", "ⵜⴰⵙⵜⴰⵢⵜ ⵏ ⵉⵎⵙⵜⴼⴰⴷⵏ ⵜⵜⴳ ⵙ ⵓⵙⵎⵉⵍ ⵏ ⵓⵙⴽⵓⵔ ⵉⵙⵙⴰⵙⵏ ⴷ ⵉⴼⵔⴰⵔⵏ ⵉⵜⵜⵓⵙⴷⴷⵉⵏ ⵙⴳ ⵜⵙⴷⴰⵡⵉⵜ, ⴰⴼⴰⴷ ⴰⴷ ⵉⵍⵉ ⵓⵏⴱⴰⴹ ⵉⵎⵥⵍⵉ.", "ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵜⵜⵓⵙⵜⴰⵢⵏ ⵜⵜⵓⵙⵙⵏⵏ ⵙ ⵉⵎⴽⴽⵉⵏ ⵏ ⵜⵙⵜⴰⵢⵜ ⵙ ⵓⵙⵉⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ ⴷ ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵜⵙⴷⴰⵡⵉⵜ."] }] }
+    ]
+  }
+};
+
+const formationConventionsItems = [
+  { name: 'Institut Français Rabat', logo: 'assets/images/Partenariats/Institut Français Rabat.png', pdfs: [{ label: 'offre', pdf: 'assets/formation/conventions/institut-francais-rabat-offre.pdf' }] },
+  { name: 'Institut Cervantes de Rabat', logo: 'assets/images/Partenariats/Institut-Cervantes-de-Rabat.png', pdfs: [{ label: 'offre', pdf: 'assets/formation/conventions/institut-cervantes-offre.pdf' }, { label: 'note', pdf: 'assets/formation/conventions/institut-cervantes-note.pdf' }] },
+  { name: 'Paati Academy', logo: 'assets/images/Partenariats/Paati-Academy.png', pdfs: [{ label: 'note', pdf: 'assets/formation/conventions/paaty-academy-note.pdf' }] }
+];
+
+function formationConventionsItemsFor(offreLabel, noteLabel) {
+  return formationConventionsItems.map((it) => ({
+    ...it,
+    pdfs: it.pdfs.map((p) => ({ ...p, label: p.label === 'offre' ? offreLabel : noteLabel }))
+  }));
+}
+
+const formationExcellenceBullets = ['Inscription en ligne', 'Acte d’engagement de l’adhérent', 'Copie de l’attestation du baccalauréat de l’année en cours', 'Copie du relevé de notes du baccalauréat', 'Original ou copie de l’attestation d’inscription dans l’un des établissements d’enseignement publics au Maroc ou privé reconnu par l’État', 'Copie de la CIN du bachelier', 'Extrait d’acte de naissance du bachelier', 'Une photo d’identité'];
+const formationExcellenceBulletsAr = ['التسجيل عبر الإنترنت', 'تعهد المنخرط', 'نسخة من شهادة النجاح في البكالوريا للسنة الجارية', 'نسخة من كشف نقط البكالوريا', 'أصل أو نسخة من شهادة التسجيل في إحدى المؤسسات التعليمية العمومية بالمغرب أو الخاصة المعترف بها من طرف الدولة', 'نسخة من البطاقة الوطنية للتعريف الخاصة بالحاصل على البكالوريا', 'مستخرج من رسم الولادة الخاص بالحاصل على البكالوريا', 'صورة شمسية'];
+const formationExcellenceBulletsZgh = ['ⵙⵉⴷⵔ ⴰⵙⵎⴰⴳⵍ ⵖⴼ ⵜⵉⵔⵎⵜ', 'ⵜⴰⵙⵔⵜⵉⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ', 'ⵜⴰⴽⵓⵜⵜ ⵏ ⵓⵙⵍⵎⴷ', 'ⵜⴰⴽⵓⵜⵜ ⵏ ⵜⵉⵍⴰⵍ', 'ⵜⴰⵙⵔⵜⵉⵜ ⵏ ⵓⵙⵎⴰⴳⵍ', 'ⵜⴰⴽⵓⵜⵜ ⵏ CIN', 'ⵜⴰⴽⵓⵜⵜ ⵏ ⵜⵍⴰⵍⵉⵜ', 'ⵜⴰⵡⵍⴰⴼⵜ'];
+
+const formationExtra = {
+  fr: [
+    formationCoachingSection.fr,
+    { navIndex: 2, icon: 'fa-medal', badge: 'Bourse d’excellence', title: 'Bourse d’excellence',
+      intro: ['La Fondation octroie des bourses d’études sous forme d’une aide financière versée sur une durée de 10 mois par an, et ce pendant 5 années de formation.'],
+      beneficiariesTitle: 'Bénéficiaires',
+      beneficiaries: [{ number: '01', text: 'Les enfants des adhérents en deuxième année du baccalauréat ayant obtenu les moyennes les plus élevées à l’examen national (moyenne supérieure ou égale à 15 à l’examen national, aussi bien au niveau central que régional), et ce dans la limite du budget disponible.' }],
+      blocks: [
+        { icon: 'fa-clipboard-list', title: '', items: [{ title: "Inscription et modalités", icon: 'fa-clipboard-check', bullets: ["L'inscription à cette prestation s'effectue à travers l'Espace Adhérent de la FOS-Agri.", "La sélection des bénéficiaires est réalisée selon la note de l'examen national.", "Les adhérents retenus sont informés des résultats de la sélection via leur Espace Adhérent ainsi que par les canaux de communication de la Fondation."] }] }
+      ] },
+    { navIndex: 3, icon: 'fa-hand-holding-heart', badge: 'Bourse sociale', title: 'Bourse sociale',
+      intro: ['Dans le cadre de son engagement en faveur de l’accompagnement de l’excellence scolaire des enfants des adhérents, la Fondation met en place un programme de bourses sociales destiné aux bacheliers relevant des échelles 9 et inférieures, ayant obtenu une moyenne égale ou supérieure à 10 à l’examen national et poursuivant leurs études dans un établissement d’enseignement public ou privé reconnu, au Maroc ou à l’étranger.', 'Cette bourse est accordée pendant 10 mois par an, sur une durée de 3 ans.'],
+      beneficiariesTitle: 'Bénéficiaires',
+      beneficiaries: [{ number: '01', text: 'Les enfants des adhérents relevant des échelles 9 et inférieures, en deuxième année de baccalauréat ayant obtenu une moyenne égale ou supérieure à 10 à l’examen national et poursuivant leurs études dans un établissement d’enseignement public ou privé reconnu, au Maroc ou à l’étranger.' }],
+      blocks: [
+        { icon: 'fa-clipboard-list', title: '', items: [{ title: "Inscription et modalités", icon: 'fa-clipboard-check', bullets: ["L'inscription à cette prestation s'effectue à travers l'Espace Adhérent de la FOS-Agri.", "La sélection des bénéficiaires est réalisée selon la note de l'examen national.", "Les adhérents retenus sont informés des résultats de la sélection via leur Espace Adhérent ainsi que par les canaux de communication de la Fondation."] }] }
+      ] },
+    { navIndex: 4, icon: 'fa-sack-dollar', badge: 'Prime de rentrée scolaire', title: 'Prime de rentrée scolaire',
+      intro: ['Parallèlement aux autres actions d’accompagnement des enfants de ses adhérents scolarisés, la FOS-Agri leur octroie également une aide financière afin de faire face aux dépenses de la rentrée scolaire.', 'Le montant de la prime varie en fonction du nombre d’enfants scolarisés au niveau primaire à charge.'],
+      beneficiariesTitle: 'Bénéficiaires',
+      beneficiaries: [{ number: '01', text: 'Adhérents classés de l’échelle 6 à 9 ayant des enfants scolarisés en primaire.' }],
+      blocks: [
+        { icon: 'fa-clipboard-list', title: '', items: [{ title: "Inscription et modalités", icon: 'fa-clipboard-check', bullets: ["L'inscription à cette prestation s'effectue à travers l'Espace Adhérent de la FOS-Agri.", "Toutes les demandes éligibles sont acceptées.", "Les adhérents sélectionnés sont informés des résultats de la sélection via leur Espace Adhérent ainsi que par les canaux de communication de la Fondation."] }] }
+      ] },
+    { navIndex: 5, type: 'culturePartners', icon: 'fa-handshake', badge: 'Conventions éducatives', title: 'Conventions éducatives',
+      intro: ['Soucieuse de favoriser les conditions propices pour développer le capital linguistique et culturel aussi bien des adhérents que de leurs conjoints et enfants, et de faire de la diversité une source d’enrichissement, la FOS-Agri a conclu des conventions avec des centres culturels et de langues reconnus, notamment :'],
+      beneficiaries: [{ number: '01', text: 'Les adhérents, leurs conjoints et enfants.' }],
+      groups: [{ title: 'Centres culturels et de langues partenaires', items: formationConventionsItemsFor('Télécharger l’offre', 'Télécharger la note') }] }
+  ],
+  ar: [
+    formationCoachingSection.ar,
+    { navIndex: 2, icon: 'fa-medal', badge: 'منحة التميز', title: 'منحة التميز',
+      intro: ['تمنح المؤسسة منحا دراسية في شكل مساعدة مالية تصرف على مدى 10 أشهر في السنة، وذلك طيلة 5 سنوات من التكوين.'],
+      beneficiariesTitle: 'المستفيدون',
+      beneficiaries: [{ number: '01', text: 'أبناء المنخرطين في السنة الثانية من سلك البكالوريا الحاصلون على أعلى المعدلات في الامتحان الوطني (معدل يفوق أو يساوي 15 في الامتحان الوطني، على المستويين المركزي والجهوي)، وذلك في حدود الميزانية المتاحة.' }],
+      blocks: [
+        { icon: 'fa-clipboard-list', title: '', items: [{ title: "التسجيل والكيفيات", icon: 'fa-clipboard-check', bullets: ["يتم التسجيل في هذه الخدمة عبر فضاء المنخرط لدى FOS-Agri.", "تتم عملية انتقاء المستفيدين على أساس نقطة الامتحان الوطني.", "يتم إخبار المنخرطين المقبولين بنتائج الانتقاء عبر فضاء المنخرط ومن خلال قنوات التواصل التابعة للمؤسسة."] }] }
+      ] },
+    { navIndex: 3, icon: 'fa-hand-holding-heart', badge: 'المنحة الاجتماعية', title: 'المنحة الاجتماعية',
+      intro: ['في إطار التزامها بمواكبة التفوق الدراسي لأبناء المنخرطين، تضع المؤسسة برنامجا للمنح الاجتماعية موجها لخريجي البكالوريا المصنفين في السلم 9 وما دونه، الحاصلين على معدل يساوي أو يفوق 10 في الامتحان الوطني والمتابعين لدراستهم في مؤسسة تعليمية عمومية أو خاصة معترف بها، بالمغرب أو بالخارج.', 'تمنح هذه المنحة لمدة 10 أشهر في السنة، على مدى 3 سنوات.'],
+      beneficiariesTitle: 'المستفيدون',
+      beneficiaries: [{ number: '01', text: 'أبناء المنخرطين المرتبين في السلم 9 فما دون، المسجلون في السنة الثانية من سلك البكالوريا والحاصلون على معدل يساوي أو يفوق 10 في الامتحان الوطني، والذين يتابعون دراستهم بمؤسسة تعليمية عمومية أو خاصة معترف بها، بالمغرب أو بالخارج.' }],
+      blocks: [
+        { icon: 'fa-clipboard-list', title: '', items: [{ title: "التسجيل والكيفيات", icon: 'fa-clipboard-check', bullets: ["يتم التسجيل في هذه الخدمة عبر فضاء المنخرط لدى FOS-Agri.", "تتم عملية انتقاء المستفيدين على أساس نقطة الامتحان الوطني.", "يتم إخبار المنخرطين المقبولين بنتائج الانتقاء عبر فضاء المنخرط ومن خلال قنوات التواصل التابعة للمؤسسة."] }] }
+      ] },
+    { navIndex: 4, icon: 'fa-sack-dollar', badge: 'منحة الدخول المدرسي', title: 'منحة الدخول المدرسي',
+      intro: ['بالتوازي مع الإجراءات الأخرى لمواكبة أبناء منخرطيها المتمدرسين، تمنحهم FOS-Agri كذلك دعما ماليا لمواجهة نفقات الدخول المدرسي.', 'يختلف مبلغ المنحة حسب عدد الأبناء المتمدرسين في السلك الابتدائي والمتكفل بهم.'],
+      beneficiariesTitle: 'المستفيدون',
+      beneficiaries: [{ number: '01', text: 'المنخرطون المصنفون من السلم 6 إلى 9 الذين لديهم أبناء متمدرسون في السلك الابتدائي.' }],
+      blocks: [
+        { icon: 'fa-clipboard-list', title: '', items: [{ title: "التسجيل والكيفيات", icon: 'fa-clipboard-check', bullets: ["يتم التسجيل في هذه الخدمة عبر فضاء المنخرط لدى FOS-Agri.", "تُقبل جميع الطلبات المستوفية للشروط.", "يتم إخبار المنخرطين المنتقين بنتائج الانتقاء عبر فضاء المنخرط ومن خلال قنوات التواصل التابعة للمؤسسة."] }] }
+      ] },
+    { navIndex: 5, type: 'culturePartners', icon: 'fa-handshake', badge: 'الاتفاقيات التربوية', title: 'الاتفاقيات التربوية',
+      intro: ['حرصا منها على توفير الظروف الملائمة لتنمية الرصيد اللغوي والثقافي للمنخرطين وأزواجهم وأبنائهم، وجعل التنوع مصدر إغناء، أبرمت FOS-Agri اتفاقيات مع مراكز ثقافية ولغوية معترف بها، لا سيما:'],
+      beneficiaries: [{ number: '01', text: 'المنخرطون وأزواجهم وأبناؤهم.' }],
+      groups: [{ title: 'المراكز الثقافية واللغوية الشريكة', items: formationConventionsItemsFor('تحميل العرض', 'تحميل المذكرة') }] }
+  ],
+  zgh: [
+    formationCoachingSection.zgh,
+    { navIndex: 2, icon: 'fa-medal', badge: 'ⵜⴰⵎⵓⴷⴰ ⵏ ⵜⵎⵥⵉ', title: 'ⵜⴰⵎⵓⴷⴰ ⵏ ⵜⵎⵥⵉ',
+      intro: ['ⵜⴰⵙⴷⴰⵡⵉⵜ ⵜⴻⵜⵜⴰⴽⴽⴰ ⵜⵉⵎⵓⴷⴰ ⵏ ⵓⵖⵔⵉ ⵙ ⵜⵡⵉⵙⵉ ⵜⴰⴷⵔⵉⵎⵜ ⵉⵜⵜⵓⵎⵓⵛⵛⴰⵏ 10 ⵡⴰⵢⵢⵓⵔⵏ ⴳ ⵓⵙⴳⴳⵯⴰⵙ, ⴳ 5 ⵉⵙⴳⴳⵯⴰⵙⵏ ⵏ ⵓⵙⴳⵎⵉ.'],
+      beneficiariesTitle: 'ⵉⵎⵙⵜⴼⵉⴷⵏ',
+      beneficiaries: [{ number: '01', text: 'ⵜⴰⵔⵡⴰ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴳ ⵓⵙⴳⴳⵯⴰⵙ ⵡⵉⵙⵙ ⵙⵉⵏ ⵏ ⵍⴱⴰⴽ ⵢⵓⵙⵏ ⵜⵉⵍⴰⵍ ⵢⴰⵜⵜⵓⵢⵏ ⴳ ⵓⵙⵎⵏⵉⴷ ⴰⵏⴰⵎⵓⵔ (15 ⵏⵖ ⵓⴳⴳⴰⵔ), ⴳ ⵓⵥⴹⴹⴰⵕ ⵏ ⵜⴰⴷⴷⴰⵙⵜ ⵢⵍⵍⴰⵏ.' }],
+      blocks: [
+        { icon: 'fa-clipboard-list', title: '', items: [{ title: "ⴰⵙⵙⴼⵜⵔ ⴷ ⵜⴳⴳⵓⵔⵉⵏ", icon: 'fa-clipboard-check', bullets: ["ⴰⵙⵙⴼⵜⵔ ⵉ ⵜⵏⴼⵍⵉⵜ ⴰⴷ ⵉⵜⵜⴳ ⵙ ⵓⵙⵉⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ ⵏ FOS-Agri.", "ⵜⴰⵙⵜⴰⵢⵜ ⵏ ⵉⵎⵙⵜⴼⴰⴷⵏ ⵜⵜⴳ ⵙ ⵜⵏⵇⵇⵉⴹⵜ ⵏ ⵓⴽⵢⴰⴷ ⴰⵏⴰⵎⵓⵔ.", "ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵜⵜⵓⵙⵜⴰⵢⵏ ⵜⵜⵓⵙⵙⵏⵏ ⵙ ⵉⵎⴽⴽⵉⵏ ⵏ ⵜⵙⵜⴰⵢⵜ ⵙ ⵓⵙⵉⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ ⴷ ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵜⵙⴷⴰⵡⵉⵜ."] }] }
+      ] },
+    { navIndex: 3, icon: 'fa-hand-holding-heart', badge: 'ⵜⴰⵎⵓⴷⴰ ⵜⴰⵏⴰⵎⵓⵏⵜ', title: 'ⵜⴰⵎⵓⴷⴰ ⵜⴰⵏⴰⵎⵓⵏⵜ',
+      intro: ['ⴳ ⵓⵙⵎⵓⵜⵜⵉ ⵏⵏⵙ ⵉ ⵓⵎⵓⴷⴷⵓ ⵏ ⵜⵣⵎⵎⴰⵔ ⵏ ⵜⴰⵔⵡⴰ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ, ⵜⵙⴽⴰ ⵜⴰⵎⴰⵡⴰⵙⵜ ⴰⵙⵏⴼⵍ ⵏ ⵜⵎⵓⴷⴰ ⵜⵉⵏⴰⵎⵓⵏⵉⵏ ⵉ ⵉⵎⵙⵙⵍⵎⴰⴷⵏ ⵏ ⵓⵙⵎⵏⵉⴷ 9 ⵏⵖ ⵓⴹⴹⴰⵢ, ⵢⵓⵙⵏⵉⵏ ⵜⵉⵍⴰⵍ 10 ⵏⵖ ⵓⴳⴳⴰⵔ.', 'ⵜⴰⵎⵓⴷⴰ ⴰⴷ ⵜⵜⵓⵎⵓⵛⵛ 10 ⵡⴰⵢⵢⵓⵔⵏ ⴳ ⵓⵙⴳⴳⵯⴰⵙ, ⴳ 3 ⵉⵙⴳⴳⵯⴰⵙⵏ.'],
+      beneficiariesTitle: 'ⵉⵎⵙⵜⴼⵉⴷⵏ',
+      beneficiaries: [{ number: '01', text: 'ⵜⴰⵔⵡⴰ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ ⵓⵙⴽⴰⵍⴰ 9 ⴷ ⵡⵉⵏ ⴷⴷⴰⵡⵙ, ⵉⵍⵍⴰⵏ ⴳ ⵓⵙⴳⴳⵯⴰⵙ ⵡⵉⵙⵙ ⵙⵉⵏ ⵏ ⵜⵏⴰⵖⵜ (bac), ⵉⵙ ⴷ ⵓⵎⵥⵏ ⵜⴰⵏⵇⵇⵉⴹⵜ ⵜⴰⵎⵎⴰⵙⵜ ⵉⵎⵙⴰⵡⴰⵏ ⵏⵖ ⵢⵓⴳⴳⴰⵔ 10 ⴳ ⵓⴽⵢⴰⴷ ⴰⵏⴰⵎⵓⵔ, ⵉⵜⵜⴰⴹⴼⴰⵕⵏ ⴰⵖⵔⵉ ⵏⵏⵙⵏ ⴳ ⵜⵙⴷⴰⵡⵉⵜ ⵏ ⵓⵙⵍⵎⴷ ⵜⴰⴳⴷⵓⴷⴰⵏⵜ ⵏⵖ ⵜⴰⵏⵥⵎⴰⵏⵜ ⵉⵜⵜⵓⵙⵙⵏⵏ, ⴳ ⵍⵎⵖⵔⵉⴱ ⵏⵖ ⴳ ⴱⵕⵕⴰ.' }],
+      blocks: [
+        { icon: 'fa-clipboard-list', title: '', items: [{ title: "ⴰⵙⵙⴼⵜⵔ ⴷ ⵜⴳⴳⵓⵔⵉⵏ", icon: 'fa-clipboard-check', bullets: ["ⴰⵙⵙⴼⵜⵔ ⵉ ⵜⵏⴼⵍⵉⵜ ⴰⴷ ⵉⵜⵜⴳ ⵙ ⵓⵙⵉⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ ⵏ FOS-Agri.", "ⵜⴰⵙⵜⴰⵢⵜ ⵏ ⵉⵎⵙⵜⴼⴰⴷⵏ ⵜⵜⴳ ⵙ ⵜⵏⵇⵇⵉⴹⵜ ⵏ ⵓⴽⵢⴰⴷ ⴰⵏⴰⵎⵓⵔ.", "ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵜⵜⵓⵙⵜⴰⵢⵏ ⵜⵜⵓⵙⵙⵏⵏ ⵙ ⵉⵎⴽⴽⵉⵏ ⵏ ⵜⵙⵜⴰⵢⵜ ⵙ ⵓⵙⵉⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ ⴷ ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵜⵙⴷⴰⵡⵉⵜ."] }] }
+      ] },
+    { navIndex: 4, icon: 'fa-sack-dollar', badge: 'ⵜⴰⵎⵓⴷⴰ ⵏ ⵜⴰⵣⵡⴰⵔⵜ ⵏ ⵓⵙⴳⴳⵯⴰⵙ ⴰⵙⵍⵎⴰⴷ', title: 'ⵜⴰⵎⵓⴷⴰ ⵏ ⵜⴰⵣⵡⴰⵔⵜ ⵏ ⵓⵙⴳⴳⵯⴰⵙ ⴰⵙⵍⵎⴰⴷ',
+      intro: ['ⵜⵙⴽⴰ FOS-Agri ⵉ ⵜⴰⵔⵡⴰ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴰⴼⵓⵙ ⵏ ⵉⴷⵔⵉⵎⵏ ⵉ ⵜⴰⵣⵡⴰⵔⵜ ⵏ ⵓⵙⵍⵎⴷ.', 'ⵜⴰⵍⵍⴰⵙⵜ ⵏ ⵜⵎⵓⴷⴰ ⵜⵜⵓⴱⴷⴰⵍ ⵙ ⵓⵎⵉⴹⴰⵏ ⵏ ⵜⴰⵔⵡⴰ.'],
+      beneficiariesTitle: 'ⵉⵎⵙⵜⴼⵉⴷⵏ',
+      beneficiaries: [{ number: '01', text: 'ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ ⵓⵙⵎⵏⵉⴷ 6 ⴰⵔ 9 ⵢⵓⵙⵏⵉⵏ ⵜⴰⵔⵡⴰ ⴳ ⵓⵙⵍⵎⴷ ⴰⵎⵣⵡⴰⵔⵓ.' }],
+      blocks: [
+        { icon: 'fa-clipboard-list', title: '', items: [{ title: "ⴰⵙⵙⴼⵜⵔ ⴷ ⵜⴳⴳⵓⵔⵉⵏ", icon: 'fa-clipboard-check', bullets: ["ⴰⵙⵙⴼⵜⵔ ⵉ ⵜⵏⴼⵍⵉⵜ ⴰⴷ ⵉⵜⵜⴳ ⵙ ⵓⵙⵉⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ ⵏ FOS-Agri.", "ⴽⵓⵍⵍⵓ ⵉⵙⵓⵜⵔ ⵉⵎⵙⴰⵙⴰⵏ ⴷ ⵜⵉⵡⵜⵜⴰⵙ ⵜⵜⵓⵇⴱⴰⵍⵏ.", "ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵜⵜⵓⵙⵜⴰⵢⵏ ⵜⵜⵓⵙⵙⵏⵏ ⵙ ⵉⵎⴽⴽⵉⵏ ⵏ ⵜⵙⵜⴰⵢⵜ ⵙ ⵓⵙⵉⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ ⴷ ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵜⵙⴷⴰⵡⵉⵜ."] }] }
+      ] },
+    { navIndex: 5, type: 'culturePartners', icon: 'fa-handshake', badge: 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵓⵙⵍⵎⴷ', title: 'ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵓⵙⵍⵎⴷ',
+      intro: ['ⵙ ⵓⵙⵎⵓⵜⵜⵉ ⵏⵏⵙ ⵉ ⵓⵙⵏⴼⵍ ⵏ ⵜⵓⵜⵍⴰⵢⵜ ⴷ ⵜⴷⵍⵙⴰ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ, ⵜⵉⵔⴳⴰⵣⵉⵏ ⵏⵏⵙⵏ ⴷ ⵜⴰⵔⵡⴰ ⵏⵏⵙⵏ, ⵜⵙⴽⴰ FOS-Agri ⵉⵎⵙⴰⵡⴰⴹⵏ ⴷ ⵉⵣⴷⴰⵢⵏ ⵏ ⵜⵓⵜⵍⴰⵢⵜ ⵉⵜⵜⵓⵙⵙⵏⵏ:'],
+      beneficiaries: [{ number: '01', text: 'ⵉⵎⵏⵅⵔⴰⵟⵏ, ⵉⵡⵜⵎⴰⵏ ⵏⵏⵙⵏ ⴷ ⵜⴰⵔⵡⴰ ⵏⵏⵙⵏ.' }],
+      groups: [{ title: 'ⵉⵣⴷⴰⵢⵏ ⵏ ⵜⵓⵜⵍⴰⵢⵜ ⵉⵣⴷⵉⵏ', items: formationConventionsItemsFor('ⵙⵉⴷⵔ ⴰⴼⵔⴰⵏ', 'ⵙⵉⴷⵔ ⵜⴰⴱⵔⴰⵜ') }] }
+  ]
+};
+
+/* ===== Appui aux projets personnels : panneau "À propos" + 5 sous-rubriques ===== */
+const projetsMenuItems = [
+  { id: 'a-propos',             icon: 'fa-circle-info',          labels: { fr: 'À PROPOS', ar: 'حول الخدمة', zgh: 'ⵅⴼ ⵜⵏⴼⵍⵉⵜ' } },
+  { id: 'credits-sociaux',      icon: 'fa-hand-holding-dollar',  labels: { fr: 'Crédits sociaux', ar: 'القروض الاجتماعية', zgh: 'ⵉⵔⴹⴰⵍⵏ ⵉⵏⵎⴰⵍⴰⵏ' } },
+  { id: 'offres-consommation',  icon: 'fa-credit-card',          labels: { fr: 'Offres bancaires — crédits à la consommation', ar: 'عروض بنكية — قروض الاستهلاك', zgh: 'ⵉⴼⵔⴰⵏ ⵏ ⵉⴱⴰⵏⴽⵏ — ⴰⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵙⵉⵜⵎ' } },
+  { id: 'assurances',    icon: 'fa-car-burst',        labels: { fr: 'Assurance automobile', ar: 'تأمين السيارات', zgh: 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ' } },
+  { id: 'ameublement',   icon: 'fa-couch',            labels: { fr: 'Organismes d’ameublement', ar: 'مؤسسات التأثيث', zgh: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ' } },
+  { id: 'transport',     icon: 'fa-route',            labels: { fr: 'Organismes de transport', ar: 'مؤسسات النقل', zgh: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ' } }
+];
+
+function localizedProjetsMenu(targetLang = 'fr') {
+  return projetsMenuItems.map((item) => ({ id: item.id, icon: item.icon, label: item.labels[targetLang] || item.labels.fr }));
+}
+
+/* Assurances Auto — confirmé selon "Organismes d'assurances.xlsx" : MAMDA + SNTL (offre, avantages, conseils). */
+const projetsAssurancesItems = [
+  { name: 'MAMDA', logo: 'assets/images/Partenariats/MAMDA.png', pdf: 'assets/projets/assurances/mamda-offre.pdf' },
+  { name: 'SNTL', logo: 'assets/images/Partenariats/SNTL.png', pdfs: [
+      { label: 'offre', pdf: 'assets/projets/assurances/sntl-offre.pdf' },
+      { label: 'avantages', pdf: 'assets/projets/assurances/sntl-avantages.pdf' },
+      { label: 'conseils', pdf: 'assets/projets/assurances/sntl-conseils-pratiques.pdf' }
+    ] }
+];
+
+function projetsAssurancesItemsFor(offreLabel, avantagesLabel, conseilsLabel) {
+  return projetsAssurancesItems.map((it) => ({
+    ...it,
+    pdfs: it.pdfs ? it.pdfs.map((p) => ({ ...p, label: p.label === 'offre' ? offreLabel : p.label === 'avantages' ? avantagesLabel : conseilsLabel })) : undefined
+  }));
+}
+
+/* Organismes d'ameublement — "Organismes d'ameublement.xlsx" : Mon Jouet = Résilié, donc exclu. */
+const projetsAmeublementItems = [
+  { name: 'Kitea', logo: 'assets/images/Partenariats/Kitea.png', pdf: 'assets/projets/ameublement/kitea-offre.pdf' },
+  { name: 'Biougnach', logo: 'assets/images/Partenariats/biougnach.png', pdf: 'assets/projets/ameublement/biougnach-liste-magasins.pdf' },
+  { name: 'Mobilia Triangle d’Or', logo: 'assets/images/Partenariats/Mobilia-Triangle-dOr.png', pdf: 'assets/projets/ameublement/mobilia-triangle-or-offre.pdf' }
+];
+
+function projetsAmeublementItemsFor(downloadLabel) {
+  return projetsAmeublementItems.map((it) => ({ ...it, pdfs: [{ label: downloadLabel, pdf: it.pdf }] }));
+}
+
+/* Organismes de transport — deux conventions distinctes (ONCF, Supratours). */
+const projetsTransportItems = [
+  { name: 'ONCF', logo: 'assets/images/Partenariats/ONCF.png', pdf: 'assets/projets/transport/oncf-offre.pdf' },
+  { name: 'Supratours', logo: 'assets/images/Partenariats/supratours.svg', pdf: 'assets/projets/transport/supratours-offre.pdf' }
+];
+
+function projetsTransportItemsFor(downloadLabel) {
+  return projetsTransportItems.map((it) => ({ ...it, pdfs: [{ label: downloadLabel, pdf: it.pdf }] }));
+}
+
+const projetsCenter = {
+  fr: {
+    icon: 'fa-circle-info',
+    badge: "À propos", title: "À propos",
+    intro: "La Fondation soutient les projets personnels de ses adhérents et ce à travers l’octroi des crédits sociaux ainsi que les partenariats avec les organismes de financement.",
+    items: []
+  },
+  ar: {
+    icon: 'fa-circle-info',
+    badge: "حول الخدمة", title: "حول الخدمة",
+    intro: "تدعم المؤسسة المشاريع الشخصية لمنخرطيها من خلال منح القروض الاجتماعية وعقد شراكات مع مؤسسات التمويل.",
+    items: []
+  },
+  zgh: {
+    icon: 'fa-circle-info',
+    badge: "ⵅⴼ ⵜⵏⴼⵍⵉⵜ", title: "ⵅⴼ ⵜⵏⴼⵍⵉⵜ",
+    intro: "ⵜⴰⵙⴷⴰⵡⵉⵜ ⵜⵙⵙⵏⴷⵓⵢ ⵉⵙⵏⴼⴰⵔⵏ ⵉⵎⴰⵏⵙⴰⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵙ ⵓⴼⴽⴰ ⵏ ⵉⵔⴹⴰⵍⵏ ⵉⵏⵎⴰⵍⴰⵏ ⴷ ⵜⵉⵎⵙⴷⵓⴽⴽⴰⵍ ⴷ ⵜⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵔⴹ.",
+    items: []
+  }
+};
+
+const projetsExtra = {
+  fr: [
+    { navIndex: 1, icon: 'fa-hand-holding-dollar', badge: "Crédits sociaux", title: "Crédits sociaux",
+      intro: ["La Fondation accorde des prêts sans intérêt, pouvant aller jusqu’à 50 000 dirhams, afin de soutenir les projets personnels et les aspirations individuelles de ses adhérents."],
+      beneficiariesTitle: "Bénéficiaires",
+      beneficiaries: [{ number: '01', text: "Tous les adhérents actifs de la Fondation" }],
+      blocks: [{ icon: 'fa-clipboard-list', title: '', items: [{ title: "Inscription et modalités", icon: 'fa-clipboard-check', bullets: ["L'inscription à cette prestation s'effectue à travers l'Espace Adhérent de la FOS-Agri.", "La sélection des bénéficiaires est réalisée selon un système de scoring reposant sur des critères objectifs et transparents définis par la Fondation, garantissant l'équité dans l'attribution de la prestation.", "Les adhérents sélectionnés sont informés des résultats de la sélection via leur Espace Adhérent ainsi que par les canaux de communication de la Fondation."] }] }] },
+    { navIndex: 2, type: 'bankOffers', category: 'consommation', icon: 'fa-credit-card', badge: 'Crédits à la consommation', title: 'Offres bancaires — crédits à la consommation', intro: 'Crédits à la consommation à conditions préférentielles auprès des banques et sociétés de financement partenaires.' },
+    { navIndex: 3, type: 'culturePartners', icon: 'fa-car-burst', badge: 'Assurance automobile', title: 'Assurance automobile',
+      intro: [
+        'Afin de permettre à ses adhérents de bénéficier d’une assurance auto à des tarifs préférentiels, la FOS-Agri a conclu des conventions avec la Mutuelle Agricole Marocaine d’Assurances (MAMDA) et la Société Nationale de Transport et de Logistique (SNTL), offrant une panoplie de garanties avantageuses.',
+        'Bénéficiaires : les adhérents, leurs conjoints et leurs enfants.',
+        'Modalités et pièces à fournir : se présenter directement auprès de l’organisme d’assurances conventionné, muni de la carte d’adhésion à la FOS-Agri.'
+      ],
+      groups: [{ title: 'Organismes d’assurances partenaires', items: projetsAssurancesItemsFor('Télécharger l’offre', 'Avantages de l’offre', 'Conseils pratiques') }] },
+    { navIndex: 4, type: 'culturePartners', icon: 'fa-couch', badge: 'Organismes d’ameublement', title: 'Organismes d’ameublement',
+      intro: [
+        'La FOS-Agri a conclu des conventions de partenariat avec des organismes d’ameublement, offrant à ses adhérents des taux de remise avantageux sur leurs achats.',
+        'Bénéficiaires : tous les adhérents de la FOS-Agri.',
+        'Modalités et pièces à fournir : se présenter directement auprès de l’organisme d’ameublement conventionné, muni de la carte d’adhésion à la FOS-Agri.'
+      ],
+      groups: [{ title: 'Organismes d’ameublement partenaires', items: projetsAmeublementItemsFor('Télécharger l’offre') }] },
+    { navIndex: 5, type: 'culturePartners', icon: 'fa-route', badge: 'Organismes de transport', title: 'Organismes de transport',
+      intro: [
+        'La FOS-Agri a conclu deux conventions avec l’ONCF et la compagnie Supratours, afin de faire bénéficier ses adhérents d’une offre tarifaire préférentielle.',
+        'Une réduction de 30 %, dont 15 % est prise en charge par la FOS-Agri, est offerte sur les tickets de première et deuxième classe pour les trains à grande vitesse (Al Boraq), les trains de ligne, les trains de navette (à l’exception de l’axe Casablanca-Rabat-Kénitra en période de pointe) et les couchettes, sous réserve de réservation à l’avance. Une réduction de 30 %, totalement prise en charge par la FOS-Agri, s’applique par ailleurs sur les bus Supratours à l’échelle nationale.',
+        'Bénéficiaires : les adhérents, leurs conjoints et leurs enfants âgés de 4 à 21 ans.',
+        'Modalités et pièces à fournir : se présenter directement auprès de la compagnie de transport conventionnée, muni de la carte d’adhésion à la FOS-Agri.'
+      ],
+      groups: [{ title: 'Organismes de transport partenaires', items: projetsTransportItemsFor('Télécharger l’offre') }] }
+  ],
+  ar: [
+    { navIndex: 1, icon: 'fa-hand-holding-dollar', badge: "القروض الاجتماعية", title: "القروض الاجتماعية",
+      intro: ["تمنح المؤسسة قروضا بدون فوائد يمكن أن تصل إلى 50 000 درهم، من أجل دعم المشاريع الشخصية والتطلعات الفردية لمنخرطيها."],
+      beneficiariesTitle: "المستفيدون",
+      beneficiaries: [{ number: '01', text: "جميع المنخرطين في وضعية نشاط بالمؤسسة" }],
+      blocks: [{ icon: 'fa-clipboard-list', title: '', items: [{ title: "التسجيل والكيفيات", icon: 'fa-clipboard-check', bullets: ["يتم التسجيل في هذه الخدمة عبر فضاء المنخرط لدى FOS-Agri.", "تتم عملية انتقاء المستفيدين وفق نظام تنقيط مبني على معايير موضوعية وشفافة تحددها المؤسسة، بما يضمن الإنصاف في منح الخدمة.", "يتم إخبار المنخرطين المنتقين بنتائج الانتقاء عبر فضاء المنخرط ومن خلال قنوات التواصل التابعة للمؤسسة."] }] }] },
+    { navIndex: 2, type: 'bankOffers', category: 'consommation', icon: 'fa-credit-card', badge: 'قروض الاستهلاك', title: 'عروض بنكية — قروض الاستهلاك', intro: 'قروض استهلاكية بشروط تفضيلية لدى الأبناك وشركات التمويل الشريكة.' },
+    { navIndex: 3, type: 'culturePartners', icon: 'fa-car-burst', badge: 'تأمين السيارات', title: 'تأمين السيارات',
+      intro: [
+        'حرصا على تمكين منخرطيها من الاستفادة من تأمين للسيارات بأسعار تفضيلية، أبرمت FOS-Agri اتفاقيات مع التعاضدية الفلاحية المغربية للتأمين (MAMDA) والشركة الوطنية للنقل واللوجستيك (SNTL)، توفر مجموعة من الضمانات المهمة.',
+        'المستفيدون: المنخرطون وأزواجهم وأبناؤهم.',
+        'كيفية الاستفادة والوثائق المطلوبة: التوجه مباشرة إلى مؤسسة التأمين المتعاقدة، مع الإدلاء ببطاقة الانخراط في FOS-Agri.'
+      ],
+      groups: [{ title: 'مؤسسات التأمين الشريكة', items: projetsAssurancesItemsFor('تحميل العرض', 'مزايا العرض', 'نصائح عملية') }] },
+    { navIndex: 4, type: 'culturePartners', icon: 'fa-couch', badge: 'مؤسسات التأثيث', title: 'مؤسسات التأثيث',
+      intro: [
+        'أبرمت FOS-Agri اتفاقيات شراكة مع مؤسسات التأثيث، تخول لمنخرطيها نسب تخفيض مهمة على مشترياتهم.',
+        'المستفيدون: جميع منخرطي FOS-Agri.',
+        'كيفية الاستفادة والوثائق المطلوبة: التوجه مباشرة إلى مؤسسة التأثيث المتعاقدة، مع الإدلاء ببطاقة الانخراط في FOS-Agri.'
+      ],
+      groups: [{ title: 'مؤسسات التأثيث الشريكة', items: projetsAmeublementItemsFor('تحميل العرض') }] },
+    { navIndex: 5, type: 'culturePartners', icon: 'fa-route', badge: 'مؤسسات النقل', title: 'مؤسسات النقل',
+      intro: [
+        'أبرمت FOS-Agri اتفاقيتين مع المكتب الوطني للسكك الحديدية (ONCF) وشركة Supratours، لتمكين منخرطيها من الاستفادة من عروض تعريفية تفضيلية.',
+        'يُمنح تخفيض بنسبة 30%، تتحمل FOS-Agri منه 15%، على تذاكر الدرجتين الأولى والثانية للقطارات فائقة السرعة (البراق)، وقطارات الخط العادي، وقطارات المكوك (باستثناء محور الدار البيضاء-الرباط-القنيطرة خلال ساعات الذروة)، وكذا العربات ذات الأسرة، وذلك رهن الحجز المسبق. كما يُطبَّق تخفيض بنسبة 30%، تتحمله FOS-Agri بالكامل، على حافلات Supratours على الصعيد الوطني.',
+        'المستفيدون: المنخرطون وأزواجهم وأبناؤهم الذين تتراوح أعمارهم بين 4 و21 سنة.',
+        'كيفية الاستفادة والوثائق المطلوبة: التوجه مباشرة إلى شركة النقل المتعاقدة، مع الإدلاء ببطاقة الانخراط في FOS-Agri.'
+      ],
+      groups: [{ title: 'مؤسسات النقل الشريكة', items: projetsTransportItemsFor('تحميل العرض') }] }
+  ],
+  zgh: [
+    { navIndex: 1, icon: 'fa-hand-holding-dollar', badge: "ⵉⵔⴹⴰⵍⵏ ⵉⵏⵎⴰⵍⴰⵏ", title: "ⵉⵔⴹⴰⵍⵏ ⵉⵏⵎⴰⵍⴰⵏ",
+      intro: ["ⵜⴰⵙⴷⴰⵡⵉⵜ ⵜⴻⵜⵜⴰⴽⴽⴰ ⵉⵔⴹⴰⵍⵏ ⴱⵍⴰ ⵜⵉⵖⴰⵡⵙⵉⵡⵉⵏ, ⴰⵔ 50 000 DH, ⴰⴼⴰⴷ ⴰⴷ ⵜⵙⵙⵏⴷⵓⵢ ⵉⵙⵏⴼⴰⵔⵏ ⵉⵎⴰⵏⵙⴰⵏ ⴷ ⵜⵉⵔⴰⵜⵉⵏ ⵜⵉⵎⴰⵏⵙⴰⵏⵉⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ."],
+      beneficiariesTitle: "ⵉⵎⵙⵜⴼⴰⴷⵏ",
+      beneficiaries: [{ number: '01', text: "ⴽⵓⵍⵍⵓ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ ⵏ ⵜⵙⴷⴰⵡⵉⵜ" }],
+      blocks: [{ icon: 'fa-clipboard-list', title: '', items: [{ title: "ⴰⵙⵙⴼⵜⵔ ⴷ ⵜⴳⴳⵓⵔⵉⵏ", icon: 'fa-clipboard-check', bullets: ["ⴰⵙⵙⴼⵜⵔ ⵉ ⵜⵏⴼⵍⵉⵜ ⴰⴷ ⵉⵜⵜⴳ ⵙ ⵓⵙⵉⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ ⵏ FOS-Agri.", "ⵜⴰⵙⵜⴰⵢⵜ ⵏ ⵉⵎⵙⵜⴼⴰⴷⵏ ⵜⵜⴳ ⵙ ⵓⵙⵎⵉⵍ ⵏ ⵓⵙⴽⵓⵔ ⵉⵙⵙⴰⵙⵏ ⴷ ⵉⴼⵔⴰⵔⵏ ⵉⵜⵜⵓⵙⴷⴷⵉⵏ ⵙⴳ ⵜⵙⴷⴰⵡⵉⵜ, ⴰⴼⴰⴷ ⴰⴷ ⵉⵍⵉ ⵓⵏⴱⴰⴹ ⵉⵎⵥⵍⵉ.", "ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵜⵜⵓⵙⵜⴰⵢⵏ ⵜⵜⵓⵙⵙⵏⵏ ⵙ ⵉⵎⴽⴽⵉⵏ ⵏ ⵜⵙⵜⴰⵢⵜ ⵙ ⵓⵙⵉⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ ⴷ ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵜⵙⴷⴰⵡⵉⵜ."] }] }] },
+    { navIndex: 2, type: 'bankOffers', category: 'consommation', icon: 'fa-credit-card', badge: 'ⴰⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵙⵉⵜⵎ', title: 'ⵉⴼⵔⴰⵏ ⵏ ⵉⴱⴰⵏⴽⵏ — ⴰⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵙⵉⵜⵎ', intro: 'ⴰⴽⵔⵉⴹⵉ ⵏ ⵓⵙⵙⵉⵜⵎ ⵙ ⵜⵎⴰⵏⴰⵡⵜ ⵉⵎⵥⵍⵉⵢⵏ.' },
+    { navIndex: 3, type: 'culturePartners', icon: 'fa-car-burst', badge: 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ', title: 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ',
+      intro: [
+        'ⵉ ⵓⵙⵎⵓⵜⵜⵉ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵙ ⵜⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵜⵓⵎⴱⵉⵍⵜ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⴰⵢⵏ, ⵜⵙⴽⴰ FOS-Agri ⵉⵎⵙⴰⵡⴰⴹⵏ ⴷ MAMDA ⴷ SNTL.',
+        'ⵉⵎⵙⵜⴼⵉⴷⵏ: ⵉⵎⵏⵅⵔⴰⵟⵏ, ⵜⵉⵔⴳⴰⵣⵉⵏ ⵏⵏⵙⵏ ⴷ ⵜⴰⵔⵡⴰ ⵏⵏⵙⵏ.',
+        'ⵜⴰⵎⴰⵎⴽⵜ ⴷ ⵉⵙⴻⵎⴹⴰⵍ: ⵙⵉⴷⵔ ⵖⵔ ⵜⵎⴳⵓⵔⵜ ⵏ ⵜⵏⴰⵎⵎⴰⵍⵜ ⵉⵣⴷⵉⵏ, ⵙ ⵜⴽⴰⵔⴹⴰ ⵏ ⵓⵎⵓⵏ ⴳ FOS-Agri.'
+      ],
+      groups: [{ title: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵜⵏⴰⵎⵎⴰⵍⵜ ⵉⵣⴷⵉⵏ', items: projetsAssurancesItemsFor('ⵙⵉⴷⵔ ⴰⴼⵔⴰⵏ', 'ⵜⵉⵡⵜⵜⴰⵙ ⵏ ⵓⴼⵔⴰⵏ', 'ⵉⵡⵉⵙⵉⵏ') }] },
+    { navIndex: 4, type: 'culturePartners', icon: 'fa-couch', badge: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ', title: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ',
+      intro: [
+        'ⵜⵙⴽⴰ FOS-Agri ⵉⵎⵙⴰⵡⴰⴹⵏ ⴷ ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ, ⵢⴰⴽⴼⵏ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⴰⵢⵏ.',
+        'ⵉⵎⵙⵜⴼⵉⴷⵏ: ⵎⵔⵔⴰ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ FOS-Agri.',
+        'ⵜⴰⵎⴰⵎⴽⵜ ⴷ ⵉⵙⴻⵎⴹⴰⵍ: ⵙⵉⴷⵔ ⵖⵔ ⵜⵎⴳⵓⵔⵜ ⵏ ⵓⵙⵎⵓⵜⵜⴳ ⵉⵣⴷⵉⵏ, ⵙ ⵜⴽⴰⵔⴹⴰ ⵏ ⵓⵎⵓⵏ ⴳ FOS-Agri.'
+      ],
+      groups: [{ title: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵎⵓⵜⵜⴳ ⵉⵣⴷⵉⵏ', items: projetsAmeublementItemsFor('ⵙⵉⴷⵔ ⴰⴼⵔⴰⵏ') }] },
+    { navIndex: 5, type: 'culturePartners', icon: 'fa-route', badge: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ', title: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ',
+      intro: [
+        'ⵜⵙⴽⴰ FOS-Agri ⵙⵉⵏ ⵉⵎⵙⴰⵡⴰⴹⵏ ⴷ ONCF ⴷ Supratours, ⵉ ⵓⵙⵎⵓⵜⵜⵉ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵙ ⵜⵉⵡⵜⵜⴰⵙ ⵉⵎⵥⵍⴰⵢⵏ.',
+        'ⵉⵎⵙⵜⴼⵉⴷⵏ: ⵉⵎⵏⵅⵔⴰⵟⵏ, ⵜⵉⵔⴳⴰⵣⵉⵏ ⵏⵏⵙⵏ ⴷ ⵜⴰⵔⵡⴰ ⵏⵏⵙⵏ ⵙⴳ 4 ⴰⵔ 21 ⵏ ⵉⵙⴳⴳⵯⴰⵙⵏ.',
+        'ⵜⴰⵎⴰⵎⴽⵜ ⴷ ⵉⵙⴻⵎⴹⴰⵍ: ⵙⵉⴷⵔ ⵖⵔ ⵜⵎⴳⵓⵔⵜ ⵏ ⵓⵣⵣⵓⵖⵔ ⵉⵣⴷⵉⵏ, ⵙ ⵜⴽⴰⵔⴹⴰ ⵏ ⵓⵎⵓⵏ ⴳ FOS-Agri.'
+      ],
+      groups: [{ title: 'ⵜⵉⵎⴳⵓⵔⵉⵡⵉⵏ ⵏ ⵓⵣⵣⵓⵖⵔ ⵉⵣⴷⵉⵏ', items: projetsTransportItemsFor('ⵙⵉⴷⵔ ⴰⴼⵔⴰⵏ') }] }
+  ]
+};
+
+/* ===== Services du quotidien : À propos + restauration collective + transport du personnel ===== */
+const quotidienMenuItems = [
+  { id: 'a-propos',     icon: 'fa-circle-info', labels: { fr: 'À PROPOS', ar: 'حول الخدمة', zgh: 'ⵅⴼ ⵜⵏⴼⵍⵉⵜ' } },
+  { id: 'restauration', icon: 'fa-utensils',    labels: { fr: 'Restauration collective', ar: 'الإطعام الجماعي', zgh: 'ⴰⵙⵓⵎⵎⵓ ⴰⵎⵓⵏ' } },
+  { id: 'transport-personnel', icon: 'fa-bus',  labels: { fr: 'Transport du personnel', ar: 'نقل الموظفين', zgh: 'ⴰⵙⵙⵉⵡⴹ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ' } }
+];
+
+function localizedQuotidienMenu(targetLang = 'fr') {
+  return quotidienMenuItems.map((item) => ({ id: item.id, icon: item.icon, label: item.labels[targetLang] || item.labels.fr }));
+}
+
+const quotidienCenter = {
+  fr: {
+    icon: 'fa-circle-info',
+    badge: "À propos", title: "À propos",
+    intro: "La Fondation met à disposition des adhérents des services destinés à faciliter leur quotidien professionnel, notamment la restauration collective et le transport du personnel.",
+    items: []
+  },
+  ar: {
+    icon: 'fa-circle-info',
+    badge: "حول الخدمة", title: "حول الخدمة",
+    intro: "تضع المؤسسة رهن إشارة المنخرطين خدمات تهدف إلى تسهيل حياتهم المهنية اليومية، لا سيما الإطعام الجماعي ونقل الموظفين.",
+    items: []
+  },
+  zgh: {
+    icon: 'fa-circle-info',
+    badge: "ⵅⴼ ⵜⵏⴼⵍⵉⵜ", title: "ⵅⴼ ⵜⵏⴼⵍⵉⵜ",
+    intro: "ⵜⴰⵙⴷⴰⵡⵉⵜ ⵜⵙⵙⵓⴼⵓⵖ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵎⴰⵍⴰⵙⵙⵏ ⵉⵜⵜⵙⵙⴰⵀⴰⵍⵏ ⵜⵓⴷⵔⵜ ⵏⵏⵙⵏ ⵏ ⵜⵡⵓⵔⵉ ⵏ ⵓⵙⵙ ⵙ ⵡⴰⵙⵙ, ⵎⴰⵙ ⴷ ⴰⵙⵓⵎⵎⵓ ⴰⵎⵓⵏ ⴷ ⵓⵙⵙⵉⵡⴹ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ.",
+    items: []
+  }
+};
+
+const quotidienExtra = {
+  fr: [
+    { navIndex: 1, icon: 'fa-utensils', badge: 'Restauration collective', title: 'Restauration collective',
+      intro: [
+        'La FOS-Agri assure un service de restauration collective au profit du personnel des directions centrales, régionales et provinciales lors de leurs déplacements à Rabat, au niveau de quatre restaurants : celui de la station Dbagh, celui du club de l’Agriculture, celui du siège de l’ONSSA et celui du siège du ministère.',
+        'Les repas servis sont subventionnés par la Fondation. La prestation est assurée dans le respect des normes d’hygiène et de qualité, sous le contrôle d’un organisme habilité. Pour garantir la fluidité de l’accès, les restaurants sont équipés de dispositifs d’identification nécessitant une carte d’accès.'
+      ],
+      beneficiariesTitle: 'Bénéficiaires',
+      beneficiaries: [{ number: '01', text: 'Tous les adhérents de la FOS-Agri disposant de leur carte d’adhésion (nécessaire pour le pointage).' }],
+      blocks: [{ icon: 'fa-location-dot', title: 'Restaurants disponibles', items: [{ title: 'Quatre sites à Rabat', bullets: ['Restaurant de la station Dbagh', 'Restaurant du club de l’Agriculture', 'Restaurant du siège de l’ONSSA', 'Restaurant du siège du ministère'] }] }] },
+    { navIndex: 2, icon: 'fa-bus', badge: "Transport du personnel", title: "Transport du personnel",
+      intro: ["Un service de transport collectif destiné à faciliter les déplacements quotidiens des adhérents vers leurs lieux de travail, tout en réduisant les contraintes de mobilité et les frais de transport, et en contribuant à l’amélioration de leurs conditions de vie professionnelle."] }
+  ],
+  ar: [
+    { navIndex: 1, icon: 'fa-utensils', badge: 'الإطعام الجماعي', title: 'الإطعام الجماعي',
+      intro: [
+        'تضمن FOS-Agri خدمة الإطعام الجماعي لفائدة موظفي المصالح المركزية والجهوية والإقليمية خلال تنقلاتهم إلى الرباط، وذلك على مستوى أربعة مطاعم: مطعم محطة الدباغ، ومطعم نادي الفلاحة، ومطعم مقر ONSSA، ومطعم مقر الوزارة.',
+        'الوجبات المقدمة مدعمة من طرف المؤسسة. وتُقدَّم هذه الخدمة وفق معايير النظافة والجودة، تحت مراقبة هيئة مؤهلة. ولضمان سلاسة الولوج، تم تجهيز المطاعم بأجهزة تعريف تتطلب بطاقة ولوج.'
+      ],
+      beneficiariesTitle: 'المستفيدون',
+      beneficiaries: [{ number: '01', text: 'جميع منخرطي FOS-Agri الحاملين لبطاقة الانخراط (ضرورية لتسجيل الحضور).' }],
+      blocks: [{ icon: 'fa-location-dot', title: 'المطاعم المتوفرة', items: [{ title: 'أربعة مواقع بالرباط', bullets: ['مطعم محطة الدباغ', 'مطعم نادي الفلاحة', 'مطعم مقر ONSSA', 'مطعم مقر الوزارة'] }] }] },
+    { navIndex: 2, icon: 'fa-bus', badge: "نقل الموظفين", title: "نقل الموظفين",
+      intro: ["خدمة للنقل الجماعي تهدف إلى تسهيل التنقلات اليومية للمنخرطين نحو أماكن عملهم، مع التقليص من إكراهات التنقل ومصاريفه، والمساهمة في تحسين ظروف حياتهم المهنية."] }
+  ],
+  zgh: [
+    { navIndex: 1, icon: 'fa-utensils', badge: 'ⴰⵙⵓⵎⵎⵓ ⴰⵎⵓⵏ', title: 'ⴰⵙⵓⵎⵎⵓ ⴰⵎⵓⵏ',
+      intro: [
+        'ⵜⵙⴽⴰ FOS-Agri ⴰⵙⵓⵎⵎⵓ ⴰⴳⵔⴰⵡⴰⵏ ⵉ ⵉⵎⵣⵡⴰⵔⴰ ⵏ ⵜⵎⵙⵙⵓⵔⵉⵏ ⵜⵉⵏⴰⵎⵎⴰⵙⵉⵏ ⴷ ⵜⵉⵏⴰⵎⵓⵔⵉⵏ ⴳ ⵜⵉⵔⵣⴰ ⵏⵏⵙⵏ ⵖⵔ ⵕⵕⴱⴰⵟ, ⴳ ⴽⴽⵓⵥ ⵉⵙⵓⵎⵎⵓⵜⵏ : ⵡⵉⵏ ⵜⵙⵜⴰⵙⵢⵓⵏ ⵏ ⴷⴱⴰⵖ, ⵡⵉⵏ ⴽⵍⵓⴱ ⵏ ⵜⴼⵍⴰⵃⵜ, ⵡⵉⵏ ⵓⵙⵉⵔⴰ ⵏ ONSSA ⴷ ⵡⵉⵏ ⵓⵙⵉⵔⴰ ⵏ ⵜⵎⴰⵡⴰⵙⵜ.',
+        'ⵜⵉⵎⴻⵏⵙⵉⵡⵉⵏ ⵜⵜⵓⴷⵄⵎⵏⵜ ⵙ ⵜⵎⴰⵡⴰⵙⵜ.'
+      ],
+      beneficiariesTitle: 'ⵉⵎⵙⵜⴼⵉⴷⵏ',
+      beneficiaries: [{ number: '01', text: 'ⵎⵔⵔⴰ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ FOS-Agri ⵢⵓⵙⵏⵉⵏ ⵜⴰⴽⴰⵔⴹⴰ ⵏ ⵓⵎⵓⵏ.' }],
+      blocks: [{ icon: 'fa-location-dot', title: 'ⵉⵎⴰⵜⵜⴰⵢⵏ ⵢⵍⵍⴰⵏ', items: [{ title: 'ⴽⴽⵓⵥ ⵉⴷⵖⴰⵔⵏ ⴳ ⵕⵕⴱⴰⵟ', bullets: ['ⴰⵙⵓⵎⵎⵓⵜ ⵏ ⵜⵙⵜⴰⵙⵢⵓⵏ ⵏ ⴷⴱⴰⵖ', 'ⴰⵙⵓⵎⵎⵓⵜ ⵏ ⴽⵍⵓⴱ ⵏ ⵜⴼⵍⴰⵃⵜ', 'ⴰⵙⵓⵎⵎⵓⵜ ⵏ ⵓⵙⵉⵔⴰ ⵏ ONSSA', 'ⴰⵙⵓⵎⵎⵓⵜ ⵏ ⵓⵙⵉⵔⴰ ⵏ ⵜⵎⴰⵡⴰⵙⵜ'] }] }] },
+    { navIndex: 2, icon: 'fa-bus', badge: "ⴰⵙⵙⵉⵡⴹ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ", title: "ⴰⵙⵙⵉⵡⴹ ⵏ ⵉⵎⵙⵡⵓⵔⵉⵢⵏ",
+      intro: ["ⵜⴰⵏⴼⵍⵉⵜ ⵏ ⵓⵙⵙⵉⵡⴹ ⴰⵎⵓⵏ ⵉⵜⵜⵙⵙⴰⵀⴰⵍⵏ ⴰⵎⵓⵙⵙⵓ ⵏ ⵓⵙⵙ ⵙ ⵡⴰⵙⵙ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵖⵔ ⵉⴷⵖⴰⵔⵏ ⵏ ⵜⵡⵓⵔⵉ ⵏⵏⵙⵏ, ⵙ ⵓⵙⵎⵥⵉ ⵏ ⵉⵎⵓⴽⵔⵉⵙⵏ ⴷ ⵜⵉⵙⵉⵔⴰⴼ ⵏ ⵓⵎⵓⵙⵙⵓ, ⴷ ⵓⵙⵖⵓⴷⵓ ⵏ ⵜⵙⴰⴳⴰⵡⵉⵏ ⵏ ⵜⵓⴷⵔⵜ ⵏⵏⵙⵏ ⵏ ⵜⵡⵓⵔⵉ."] }
+  ]
+};
+
+/* ===== Culture, loisirs et voyages : 9 rubriques de contenu + partenariats ===== */
+const cultureMenuItems = [
+  { id: 'a-propos',          icon: 'fa-circle-info',      labels: { fr: 'À PROPOS', ar: 'حول الخدمة', zgh: 'ⵅⴼ ⵜⵏⴼⵍⵉⵜ' } },
+  { id: 'appui-vacances',    icon: 'fa-umbrella-beach',   labels: { fr: 'Appui aux vacances des adhérents', ar: 'دعم عطل المنخرطين', zgh: 'ⴰⴼⵓⵙ ⵉ ⵓⵙⴳⵓⵏⴼⵓ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ' } },
+  { id: 'colonies',          icon: 'fa-child-reaching',   labels: { fr: "Colonies de vacances d'été", ar: 'مخيمات العطلة الصيفية', zgh: 'ⵜⵉⵎⵥⵥⵉⵢⵏ ⵏ ⵓⵙⴳⵓⵏⴼⵓ ⵏ ⵓⵏⴱⴷⵓ' } },
+  { id: 'sejours-culturels', icon: 'fa-language',         labels: { fr: 'Séjours culturels', ar: 'إقامات ثقافية', zgh: 'ⵜⵉⵖⵔⵎⵉⵏ ⵜⵉⴷⵍⵙⴰⵏⵉⵏ' } },
+  { id: 'camps-ados',        icon: 'fa-campground',       labels: { fr: 'Camps de vacances pour adolescents', ar: 'مخيمات العطل للمراهقين', zgh: 'ⵜⵉⵎⵥⵥⵉⵢⵏ ⵏ ⵓⵙⴳⵓⵏⴼⵓ ⵉ ⵉⵎⵥⵢⴰⵏⵏ' } },
+  { id: 'excursions',        icon: 'fa-bus',              labels: { fr: 'Excursions récréatives et éducatives', ar: 'رحلات ترفيهية وتربوية', zgh: 'ⵜⵉⵔⵣⴰ ⵏ ⵓⵔⴰⵔ ⴷ ⵓⵙⴳⵎⵉ' } },
+  { id: 'omra',              icon: 'fa-kaaba',            labels: { fr: 'Organisation des séjours de Omra', ar: 'تنظيم إقامات العمرة', zgh: 'ⴰⵙⵓⴷⴷⵙ ⵏ ⵜⵉⵖⵔⵎⵉⵏ ⵏ ⵓⵎⵔⴰ' } },
+  { id: 'pelerinage',        icon: 'fa-place-of-worship', labels: { fr: 'Contribution aux frais de pèlerinage', ar: 'المساهمة في مصاريف الحج', zgh: 'ⴰⵜⵜⴽⵉ ⴳ ⵎⴰⵙⴰⵔⵉⴼ ⵏ ⵓⵃⵊⵊ' } },
+  { id: 'celebrations',      icon: 'fa-award',            labels: { fr: 'Célébrations et cérémonies', ar: 'احتفالات ومراسيم', zgh: 'ⵜⵉⵎⵍⵉⵍⵉⵏ ⴷ ⵜⵎⵖⵔⵉⵡⵉⵏ' } },
+  { id: 'partenariats',      icon: 'fa-handshake',        labels: { fr: 'Partenariats', ar: 'الشراكات', zgh: 'ⵉⵣⴷⵡⵉⵢⵏ' } },
+  { id: 'assurances-voyage', icon: 'fa-suitcase-medical', labels: { fr: 'Assurances voyage', ar: 'تأمين السفر', zgh: 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵓⵙⵉⴽⵍ' } }
+];
+function localizedCultureMenu(currentLang = 'fr') {
+  return cultureMenuItems.map((i) => ({ id: i.id, icon: i.icon, label: i.labels[currentLang] || i.labels.fr }));
+}
+
+const cultureCenter = {
+  badge: 'À propos', title: 'À propos',
+  intro: "La FOS-Agri propose une diversité de programmes et d'initiatives dédiés à l'épanouissement, à la détente et à l'évasion des adhérents et de leurs familles. À travers des activités culturelles, des séjours récréatifs, des voyages et des événements, elle contribue à enrichir leurs expériences et à favoriser les moments de partage et de convivialité.",
+  items: [
+    { navIndex: 91, icon: 'fa-users', title: 'Bénéficiaires', body: 'Tous les adhérents de la FOS-Agri' },
+    { navIndex: 92, icon: 'fa-clipboard-check', title: 'Inscription et modalités', bullets: [
+      "L'inscription à cette prestation s'effectue à travers l'Espace Adhérent de la FOS-Agri, avec signature en ligne d'un engagement sur l'honneur attestant le respect des conditions d'octroi de la prestation.",
+      "La sélection des bénéficiaires est réalisée selon un système de scoring reposant sur des critères objectifs et transparents définis par la Fondation, garantissant l'équité dans l'attribution de la prestation.",
+      "Les adhérents retenus sont informés des résultats de la sélection via leur Espace Adhérent ainsi que par les canaux de communication de la Fondation"
+    ] }
+  ]
+};
+
+const cultureExtra = [
+  { navIndex: 1, type: 'cultureRubrique', icon: 'fa-umbrella-beach', badge: 'Appui aux vacances des adhérents', title: 'Appui aux vacances des adhérents',
+    intro: ["Dans le cadre de sa mission sociale et de son engagement en faveur du bien-être de ses adhérent(e)s, la Fondation met en œuvre, annuellement, une prestation d'appui aux vacances de ses adhérents visant à faciliter l'accès aux périodes de repos et de détente, tout en contribuant à l'allègement des charges financières liées aux séjours estivaux."],
+    beneficiaires: 'Tous les adhérents de la FOS-Agri',
+    inscription: [
+      "L'inscription à cette prestation s'effectue à travers l'Espace Adhérent de la FOS-Agri,",
+      "La sélection des bénéficiaires est réalisée selon un système de scoring reposant sur des critères objectifs et transparents définis par la Fondation, garantissant l'équité dans l'attribution de la prestation.",
+      "Les adhérents retenus sont informés des résultats de la sélection via leur Espace Adhérent ainsi que par les canaux de communication de la Fondation"
+    ] },
+  { navIndex: 2, type: 'cultureRubrique', icon: 'fa-child-reaching', badge: "Colonies de vacances d'été", title: "Colonies de vacances d'été",
+    intro: ["La FOS-Agri organise chaque année une colonie de vacances au profit des enfants des adhérents. Les programmes de ces séjours sont minutieusement concoctés et les animateurs rigoureusement sélectionnés afin de garantir la sécurité des enfants et l'épanouissement des enfants."],
+    beneficiaires: 'Tous les enfants éligibles des adhérents de la FOS-Agri.',
+    inscription: ["L'inscription à cette prestation s'effectue à travers l'Espace Adhérent de la FOS-Agri.", "La sélection des bénéficiaires est réalisée selon un système de scoring reposant sur des critères objectifs et transparents définis par la Fondation, garantissant l'équité dans l'attribution de la prestation.", "Les adhérents retenus sont informés des résultats de la sélection via leur Espace Adhérent ainsi que par les canaux de communication de la Fondation."] },
+  { navIndex: 3, type: 'cultureRubrique', icon: 'fa-language', badge: 'Séjours culturels', title: 'Séjours culturels',
+    apercu: ["Le séjour linguistique, culturel et éducatif est une prestation destinée aux enfants des adhérent(e)s, leur offrant l'opportunité de vivre une expérience nationale et internationale enrichissante alliant l'apprentissage d'une langue étrangère, la découverte d'un nouveau patrimoine culturel et la participation à des activités éducatives et de développement personnel. À travers ce programme, la Fondation contribue à l'ouverture sur le monde, au renforcement des compétences linguistiques et à l'épanouissement personnel des jeunes bénéficiaires."],
+    beneficiaires: 'Les enfants des adhérent(e)s',
+    inscription: ['Inscription en ligne.'],
+    pieces: [] },
+  { navIndex: 4, type: 'cultureRubrique', icon: 'fa-campground', badge: 'Camps de vacances pour adolescents', title: 'Camps de vacances pour adolescents',
+    apercu: [],
+    beneficiaires: 'Les enfants des adhérent(e)s',
+    inscription: ['Inscription en ligne.'],
+    pieces: [] },
+  { navIndex: 5, type: 'cultureRubrique', icon: 'fa-bus', badge: 'Excursions récréatives et éducatives', title: 'Excursions récréatives et éducatives',
+    apercu: ["La FOS-Agri programme des visites éducatives, culturelles et de loisirs au profit des enfants des adhérents notamment, à l'occasion du salon international de l'agriculture de Meknès, du salon du cheval d'El Jadida.... afin de leur permettre de prendre connaissance des nouveautés du secteur agricole, de découvrir la filière équine sous toutes ses facettes ainsi que la culture locale des différentes villes marocaines."],
+    beneficiaires: 'Tous les enfants éligibles des adhérents de la FOS-Agri.',
+    inscription: ['Inscription en ligne.'],
+    pieces: ["Demande en ligne", "Copie de l'acte de naissance de l'enfant", "Photo d'identité de l'enfant"],
+    destinations: ["Le Salon International de l'Agriculture de Meknès", "Le Salon du Cheval d'El Jadida", 'Autres.'] },
+  { navIndex: 6, type: 'cultureRubrique', icon: 'fa-kaaba', badge: 'Organisation des séjours de Omra', title: 'Organisation des séjours de Omra',
+    intro: ["La FOS-Agri organise annuellement au profit de ses adhérents l'opération d'aide au voyage aux lieux saints de l'islam pour l'accomplissement de la Omra.", "Une subvention ou un prêt gratuit remboursable sont accordés au titre de cette opération en plus de tarifs préférentiels négociés avec des agences de voyages de renom et spécialisées dans le domaine."],
+    beneficiaires: 'Tous les adhérents de la FOS-Agri.',
+    inscription: ['Inscription en ligne.', 'La sélection des bénéficiaires de la subvention ou du prêt se fait par le système de scoring.', 'Les tarifs préférentiels bénéficient à tous les adhérents.'] },
+  { navIndex: 7, type: 'cultureRubrique', icon: 'fa-place-of-worship', badge: 'Contribution aux frais de pèlerinage', title: 'Contribution aux frais de pèlerinage',
+    apercu: ["La FOS-Agri organise annuellement au profit de ses adhérents l'opération « aide au pèlerinage » en contribuant aux frais de pèlerinage moyennant des aides financières au profit des adhérents ayant effectué ce rite religieux durant l'année en cours."],
+    beneficiaires: 'Tous les adhérents de la FOS-Agri.',
+    inscription: ['Inscription en ligne.', 'Toutes les demandes éligibles sont acceptées.', 'Le montant de la contribution est déterminé selon Le nombre des pèlerins.'],
+    pieces: ['Demande en ligne', "Copie de l'attestation de sélection pour l'Haj délivrée par les autorités, (en cas de besoin)", 'Copie du reçu de paiement des frais des pèlerinages', 'Copie de la CIN', "Copie de passeport justifiant l'accomplissement de pèlerinage après retour des lieux saints"] },
+  { navIndex: 8, type: 'cultureRubrique', icon: 'fa-award', badge: 'Célébrations et cérémonies', title: 'Célébrations et cérémonies',
+    celebrations: [
+      { title: 'Journée de la femme', body: [
+        'Célébration de la Journée internationale des droits des femmes',
+        "A l'occasion du 8 mars, la FOS-Agri célèbre la Journée internationale des droits des femmes qui demeure une consécration des efforts déployés par la femme pour la promotion du secteur agricole, et une reconnaissance de son professionnalisme et son dévouement.",
+        "Conformément aux orientations du Comité de direction et à la volonté de la FOS-Agri, cet événement est célébré chaque année, à tour de rôle, dans différentes régions du Royaume, autour d’une thématique particulière. Cette journée est marquée par la remise de prix à des femmes qui ont fait preuve d’engagement et de professionnalisme au fil du temps au sein du Département."
+      ] },
+      { title: 'Cérémonie des retraités', body: [
+        "Pour exprimer sa reconnaissance aux retraités du département, la FOS-Agri organise une cérémonie en leur honneur, afin de leur témoigner ses remerciements pour leurs efforts inlassables, les sacrifices consentis et leur dévouement durant leur carrière administrative."
+      ] },
+      { title: 'Pèlerins', body: [
+        'Cérémonie des pèlerins',
+        'Cette cérémonie est dédiée pour la remise des chèques aux pèlerins ayant effectués leur pèlerinage.'
+      ] },
+      { title: 'Bacheliers', body: [
+        "Cérémonie au profit des adhérents et de leurs enfants bénéficiaires du programme de bourses d'excellence",
+        "Cette cérémonie permet de récompenser les enfants d'adhérents qui se sont distingués à l'examen national du baccalauréat et de renforcer leur motivation à poursuivre des études supérieures grâce à la remise de bourses d'excellence et de prix d'encouragement."
+      ] }
+    ] },
+  { navIndex: 9, type: 'culturePartners', icon: 'fa-handshake', badge: 'Partenariats', title: 'Partenariats',
+    intro: ['Pour les prestations : Veuillez consulter le fichier joint.'],
+    groups: [
+      { title: 'Hôtels et complexes touristiques', items: [
+        { name: 'Agence Location et Vacances', logo: 'assets/images/Partenariats/Location et Vacances.png', pdf: 'assets/culture/partenariats/agence-location-vacances.pdf' }
+      ] },
+      { title: 'Établissements de loisirs conventionnés', items: [
+        { name: 'mWellness',              logo: 'assets/images/Partenariats/mWellness.png', pdf: 'assets/culture/partenariats/mwellness.pdf' },
+        { name: 'Club STCO Oujda',        logo: 'assets/images/Partenariats/Club STCO Oujda.webp', pdf: 'assets/culture/partenariats/club-stco-oujda.pdf' },
+        { name: 'Club Lixus Move Larache',logo: 'assets/images/Partenariats/Club-Lixus-Move-Larache.png', pdf: 'assets/culture/partenariats/club-lixus.pdf' },
+        { name: 'Sonarges',               logo: 'assets/images/Partenariats/sonarges.png', pdf: 'assets/culture/partenariats/sonarges.pdf' }
+      ] }
+    ] },
+  { navIndex: 10, type: 'culturePartners', icon: 'fa-suitcase-medical', badge: 'Assurances voyage', title: 'Assurances voyage',
+    intro: ["Afin de permettre à ses adhérents de voyager en toute sérénité, la FOS-Agri met à leur disposition des offres d'assurance voyage à des conditions préférentielles, négociées auprès de compagnies partenaires."],
+    beneficiaries: [{ number: '01', text: 'Tous les adhérents de la FOS-Agri, leurs conjoints et leurs enfants.' }],
+    groups: [
+      /* Format d'une future carte : { name, logo, pdf } */
+      { title: "Compagnies d'assurance partenaires", items: [] }
+    ] }
+];
+
+const cultureBlockLabels = {
+  fr: {
+    apercu: 'Aperçu',
+    beneficiaires: 'Bénéficiaires',
+    inscription: 'Inscription et modalités',
+    pieces: 'Pièces à fournir',
+    destinations: 'Destinations',
+    download: 'Télécharger',
+    partnersSoon: 'Les offres partenaires seront bientôt disponibles.'
+  },
+  ar: {
+    apercu: 'نظرة عامة',
+    beneficiaires: 'المستفيدون',
+    inscription: 'التسجيل والكيفيات',
+    pieces: 'الوثائق المطلوبة',
+    destinations: 'الوجهات',
+    download: 'تحميل',
+    partnersSoon: 'ستتوفر عروض الشركاء قريبا.'
+  },
+  zgh: {
+    apercu: 'ⵜⴰⵎⵓⵖⵍⵉ',
+    beneficiaires: 'ⵉⵎⵙⵜⴼⴰⴷⵏ',
+    inscription: 'ⴰⵙⵙⴼⵜⵔ ⴷ ⵜⴳⴳⵓⵔⵉⵏ',
+    pieces: 'ⵜⵉⵡⴰⵔⴰⵇⵉⵏ ⵉⵍⴰⵇⵏ',
+    destinations: 'ⵜⵉⵎⵓⵔⴰ',
+    download: 'ⵙⵉⴷⵔ',
+    partnersSoon: 'ⵉⴼⵔⴰⵏ ⵏ ⵉⵣⴷⴰⵢⵏ ⴰⴷ ⴷ ⴰⵙⵏ ⵇⵔⵉⴱ.'
+  }
+};
+
+const cultureTranslations = {
+  fr: {
+    center: {
+      icon: 'fa-circle-info',
+      badge: 'À propos',
+      title: 'À propos',
+      intro: "La FOS-Agri propose une diversité de programmes et d'initiatives dédiés à l'épanouissement, à la détente et à l'évasion des adhérents et de leurs familles. À travers des activités culturelles, des séjours récréatifs, des voyages et des événements, elle contribue à enrichir leurs expériences et à favoriser les moments de partage et de convivialité.",
+      items: [
+        { navIndex: 91, icon: 'fa-users', title: 'Bénéficiaires', body: 'Tous les adhérents de la FOS-Agri' },
+        { navIndex: 92, icon: 'fa-clipboard-check', title: 'Inscription et modalités', bullets: [
+          "L'inscription à cette prestation s'effectue à travers l'Espace Adhérent de la FOS-Agri, avec signature en ligne d'un engagement sur l'honneur attestant le respect des conditions d'octroi de la prestation.",
+          "La sélection des bénéficiaires est réalisée selon un système de scoring reposant sur des critères objectifs et transparents définis par la Fondation, garantissant l'équité dans l'attribution de la prestation.",
+          "Les adhérents retenus sont informés des résultats de la sélection via leur Espace Adhérent ainsi que par les canaux de communication de la Fondation."
+        ] }
+      ]
+    },
+    sections: {
+      'appui-vacances': {
+        badge: 'Appui aux vacances des adhérents',
+        title: 'Appui aux vacances des adhérents',
+        intro: [
+          "Dans le cadre de sa mission sociale et de son engagement en faveur du bien-être de ses adhérent(e)s, la Fondation met en œuvre, annuellement, une prestation d'appui aux vacances de ses adhérents visant à faciliter l'accès aux périodes de repos et de détente, tout en contribuant à l'allègement des charges financières liées aux séjours estivaux."
+        ],
+        beneficiaires: 'Tous les adhérents de la FOS-Agri',
+        inscription: [
+          "L'inscription à cette prestation s'effectue à travers l'Espace Adhérent de la FOS-Agri.",
+          "La sélection des bénéficiaires est réalisée selon un système de scoring reposant sur des critères objectifs et transparents définis par la Fondation, garantissant l'équité dans l'attribution de la prestation.",
+          "Les adhérents retenus sont informés des résultats de la sélection via leur Espace Adhérent ainsi que par les canaux de communication de la Fondation."
+        ]
+      },
+      colonies: {
+        badge: "Colonies de vacances d'été",
+        title: "Colonies de vacances d'été",
+        intro: ["La FOS-Agri organise chaque année une colonie de vacances au profit des enfants des adhérents. Les programmes de ces séjours sont minutieusement concoctés et les animateurs rigoureusement sélectionnés afin de garantir la sécurité des enfants et l'épanouissement des enfants."],
+        beneficiaires: 'Tous les enfants éligibles des adhérents de la FOS-Agri.',
+        inscription: ["L'inscription à cette prestation s'effectue à travers l'Espace Adhérent de la FOS-Agri.", "La sélection des bénéficiaires est réalisée selon un système de scoring reposant sur des critères objectifs et transparents définis par la Fondation, garantissant l'équité dans l'attribution de la prestation.", "Les adhérents retenus sont informés des résultats de la sélection via leur Espace Adhérent ainsi que par les canaux de communication de la Fondation."]
+      },
+      'sejours-culturels': {
+        badge: 'Séjours culturels',
+        title: 'Séjours culturels',
+        apercu: ["Le séjour linguistique, culturel et éducatif est une prestation destinée aux enfants des adhérent(e)s, leur offrant l'opportunité de vivre une expérience nationale et internationale enrichissante alliant l'apprentissage d'une langue étrangère, la découverte d'un nouveau patrimoine culturel et la participation à des activités éducatives et de développement personnel. À travers ce programme, la Fondation contribue à l'ouverture sur le monde, au renforcement des compétences linguistiques et à l'épanouissement personnel des jeunes bénéficiaires."],
+        beneficiaires: 'Les enfants des adhérent(e)s',
+        inscription: ['Inscription en ligne.'],
+        pieces: []
+      },
+      'camps-ados': {
+        badge: 'Camps de vacances pour adolescents',
+        title: 'Camps de vacances pour adolescents',
+        apercu: [],
+        beneficiaires: 'Les enfants des adhérent(e)s',
+        inscription: ['Inscription en ligne.'],
+        pieces: []
+      },
+      excursions: {
+        badge: 'Excursions récréatives et éducatives',
+        title: 'Excursions récréatives et éducatives',
+        apercu: ["La FOS-Agri programme des visites éducatives, culturelles et de loisirs au profit des enfants des adhérents notamment, à l'occasion du salon international de l'agriculture de Meknès, du salon du cheval d'El Jadida, afin de leur permettre de prendre connaissance des nouveautés du secteur agricole, de découvrir la filière équine sous toutes ses facettes ainsi que la culture locale des différentes villes marocaines."],
+        beneficiaires: 'Tous les enfants éligibles des adhérents de la FOS-Agri.',
+        inscription: ['Inscription en ligne.'],
+        pieces: ["Demande en ligne", "Copie de l'acte de naissance de l'enfant", "Photo d'identité de l'enfant"],
+        destinations: ["Le Salon International de l'Agriculture de Meknès", "Le Salon du Cheval d'El Jadida", 'Autres.']
+      },
+      omra: {
+        badge: 'Organisation des séjours de Omra',
+        title: 'Organisation des séjours de Omra',
+        intro: [
+          "La FOS-Agri organise annuellement au profit de ses adhérents l'opération d'aide au voyage aux lieux saints de l'islam pour l'accomplissement de la Omra.",
+          "Une subvention ou un prêt gratuit remboursable sont accordés au titre de cette opération en plus de tarifs préférentiels négociés avec des agences de voyages de renom et spécialisées dans le domaine."
+        ],
+        beneficiaires: 'Tous les adhérents de la FOS-Agri.',
+        inscription: ['Inscription en ligne.', 'La sélection des bénéficiaires de la subvention ou du prêt se fait par le système de scoring.', 'Les tarifs préférentiels bénéficient à tous les adhérents.']
+      },
+      pelerinage: {
+        badge: 'Contribution aux frais de pèlerinage',
+        title: 'Contribution aux frais de pèlerinage',
+        apercu: ["La FOS-Agri organise annuellement au profit de ses adhérents l'opération « aide au pèlerinage » en contribuant aux frais de pèlerinage moyennant des aides financières au profit des adhérents ayant effectué ce rite religieux durant l'année en cours."],
+        beneficiaires: 'Tous les adhérents de la FOS-Agri.',
+        inscription: ['Inscription en ligne.', 'Toutes les demandes éligibles sont acceptées.', 'Le montant de la contribution est déterminé selon le nombre des pèlerins.'],
+        pieces: ['Demande en ligne', "Copie de l'attestation de sélection pour l'Haj délivrée par les autorités, en cas de besoin", 'Copie du reçu de paiement des frais des pèlerinages', 'Copie de la CIN', "Copie de passeport justifiant l'accomplissement du pèlerinage après retour des lieux saints"]
+      },
+      celebrations: {
+        badge: 'Célébrations et cérémonies',
+        title: 'Célébrations et cérémonies',
+        apercu: [
+          "À l'occasion du 8 mars, la FOS-Agri célèbre la Journée internationale des droits des femmes. Cette journée consacre les efforts déployés par les femmes pour promouvoir le secteur agricole et reconnaît leur professionnalisme et leur dévouement. Conformément aux orientations du Comité de direction, cet événement est organisé chaque année, à tour de rôle, dans différentes régions du Royaume. Des prix symboliques sont remis aux femmes qui ont fait preuve d’engagement et de professionnalisme au sein du Département.",
+          "En hommage aux retraités du département, la FOS-Agri organise des cérémonies en guise de remerciement et de reconnaissance de leurs apports et de leur dévouement à la réussite de l'action du Département. Cette célébration marquée généralement par la présence des familles, amis et collègues des retraités est une consécration pour leurs efforts inlassables, les sacrifices consentis et leur loyauté durant leur carrière administrative.",
+          "Étant convaincue que les moments importants de la vie s'accompagnent d'occasions de célébration, la Fondation célèbre le retour des pèlerins avec la remise des chèques aux adhérents bénéficiaires après avoir effectué leur pèlerinage.",
+          "Cette cérémonie permet à la Fondation de récompenser les enfants d'adhérents qui se sont distingués à l'examen national du baccalauréat et de renforcer leur motivation à poursuivre des études supérieures grâce à la remise de bourses d'excellence et de prix d'encouragement."
+        ],
+        celebrations: [
+          { title: 'Journée des droits des femmes', body: ['Célébration de la Journée internationale des droits des femmes', "À l'occasion du 8 mars, la FOS-Agri célèbre la Journée internationale des droits des femmes. Cette journée consacre les efforts déployés par les femmes pour promouvoir le secteur agricole et reconnaît leur professionnalisme et leur dévouement. Conformément aux orientations du Comité de direction, cet événement est organisé chaque année, à tour de rôle, dans différentes régions du Royaume, autour d’une thématique particulière. Des prix sont remis aux femmes qui ont fait preuve d’engagement et de professionnalisme au fil du temps au sein du Département."] },
+          { title: 'Cérémonie des retraités', body: ["Cérémonie des retraités", "Pour exprimer sa reconnaissance aux retraités du département, la FOS-Agri organise une cérémonie en leur honneur, afin de leur témoigner ses remerciements pour leurs efforts inlassables, les sacrifices consentis et leur dévouement durant leur carrière administrative."] },
+          { title: 'Pèlerins', body: ['Cérémonie des pèlerins', 'Cette cérémonie est dédiée à la remise des chèques aux pèlerins ayant effectué leur pèlerinage.'] },
+          { title: 'Bacheliers', body: ["Cérémonie au profit des adhérents et de leurs enfants bénéficiaires du programme de bourses d'excellence", "Cette cérémonie permet de récompenser les enfants d'adhérents qui se sont distingués à l'examen national du baccalauréat et de renforcer leur motivation à poursuivre des études supérieures grâce à la remise de bourses d'excellence et de prix d'encouragement."] }
+        ]
+      },
+      partenariats: {
+        badge: 'Partenariats',
+        title: 'Partenariats',
+        intro: ['Pour les prestations : Veuillez consulter le fichier joint.'],
+        groupTitles: ['Hôtels et complexes touristiques', 'Établissements de loisirs conventionnés']
+      },
+      'assurances-voyage': {
+        badge: 'Assurances voyage',
+        title: 'Assurances voyage',
+        intro: ["Afin de permettre à ses adhérents de voyager en toute sérénité, la FOS-Agri met à leur disposition des offres d'assurance voyage à des conditions préférentielles, négociées auprès de compagnies partenaires."],
+        beneficiaries: [{ number: '01', text: 'Tous les adhérents de la FOS-Agri, leurs conjoints et leurs enfants.' }],
+        groupTitles: ["Compagnies d'assurance partenaires"]
+      }
+    }
+  },
+  ar: {
+    center: {
+      icon: 'fa-circle-info',
+      badge: 'حول الخدمة',
+      title: 'حول الخدمة',
+      intro: "تقترح FOS-Agri مجموعة متنوعة من البرامج والمبادرات المخصصة لازدهار المنخرطين وأسرهم وراحتهم واستجمامهم. ومن خلال الأنشطة الثقافية والإقامات الترفيهية والأسفار والتظاهرات، تساهم في إغناء تجاربهم وتعزيز لحظات التقاسم والألفة.",
+      items: [
+        { navIndex: 91, icon: 'fa-users', title: 'المستفيدون', body: 'جميع منخرطي FOS-Agri' },
+        { navIndex: 92, icon: 'fa-clipboard-check', title: 'التسجيل والكيفيات', bullets: [
+          'يتم التسجيل في هذه الخدمة عبر فضاء المنخرط لدى FOS-Agri، مع توقيع التزام إلكتروني بالشرف يؤكد احترام شروط الاستفادة.',
+          'تتم عملية انتقاء المستفيدين وفق نظام تنقيط مبني على معايير موضوعية وشفافة تحددها المؤسسة، بما يضمن الإنصاف في منح الخدمة.',
+          'يتم إخبار المنخرطين المقبولين بنتائج الانتقاء عبر فضاء المنخرط ومن خلال قنوات التواصل التابعة للمؤسسة.'
+        ] }
+      ]
+    },
+    sections: {
+      'appui-vacances': {
+        badge: 'دعم عطل المنخرطين',
+        title: 'دعم عطل المنخرطين',
+        intro: [
+          'في إطار مهمتها الاجتماعية والتزامها برفاه منخرطيها، تضع المؤسسة سنويا خدمة لدعم عطل المنخرطين بهدف تسهيل الولوج إلى فترات الراحة والاستجمام والمساهمة في تخفيف الأعباء المالية المرتبطة بالإقامات الصيفية.'
+        ],
+        beneficiaires: 'جميع منخرطي FOS-Agri',
+        inscription: [
+          'يتم التسجيل في هذه الخدمة عبر فضاء المنخرط لدى FOS-Agri.',
+          'تتم عملية انتقاء المستفيدين وفق نظام تنقيط مبني على معايير موضوعية وشفافة تحددها المؤسسة، بما يضمن الإنصاف في منح الخدمة.',
+          'يتم إخبار المنخرطين المقبولين بنتائج الانتقاء عبر فضاء المنخرط ومن خلال قنوات التواصل التابعة للمؤسسة.'
+        ]
+      },
+      colonies: {
+        badge: 'مخيمات العطلة الصيفية',
+        title: 'مخيمات العطلة الصيفية',
+        intro: ['تنظم FOS-Agri كل سنة مخيما صيفيا لفائدة أبناء المنخرطين. ويتم إعداد برامج هذه الإقامات بعناية وانتقاء المؤطرين بدقة لضمان سلامة الأطفال ومساعدتهم على النمو والانفتاح.'],
+        beneficiaires: 'جميع أبناء منخرطي FOS-Agri المؤهلين.',
+        inscription: ["يتم التسجيل في هذه الخدمة عبر فضاء المنخرط لدى FOS-Agri.", "تتم عملية انتقاء المستفيدين وفق نظام تنقيط مبني على معايير موضوعية وشفافة تحددها المؤسسة، بما يضمن الإنصاف في منح الخدمة.", "يتم إخبار المنخرطين المقبولين بنتائج الانتقاء عبر فضاء المنخرط ومن خلال قنوات التواصل التابعة للمؤسسة."]
+      },
+      'sejours-culturels': {
+        badge: 'إقامات ثقافية',
+        title: 'إقامات ثقافية',
+        apercu: ['الإقامة اللغوية والثقافية والتربوية خدمة موجهة لأبناء المنخرطين، تمنحهم فرصة عيش تجربة وطنية ودولية غنية تجمع بين تعلم لغة أجنبية، واكتشاف تراث ثقافي جديد، والمشاركة في أنشطة تربوية وتنمية شخصية. ومن خلال هذا البرنامج تساهم المؤسسة في الانفتاح على العالم وتعزيز الكفاءات اللغوية وازدهار الشباب المستفيدين.'],
+        beneficiaires: 'أبناء المنخرطين',
+        inscription: ['التسجيل عبر الإنترنت.'],
+        pieces: []
+      },
+      'camps-ados': {
+        badge: 'مخيمات العطل للمراهقين',
+        title: 'مخيمات العطل للمراهقين',
+        apercu: [],
+        beneficiaires: 'أبناء المنخرطين',
+        inscription: ['التسجيل عبر الإنترنت.'],
+        pieces: []
+      },
+      excursions: {
+        badge: 'رحلات ترفيهية وتربوية',
+        title: 'رحلات ترفيهية وتربوية',
+        apercu: ['تبرمج FOS-Agri زيارات تربوية وثقافية وترفيهية لفائدة أبناء المنخرطين، ولا سيما بمناسبة المعرض الدولي للفلاحة بمكناس ومعرض الفرس بالجديدة، حتى يتعرفوا على مستجدات القطاع الفلاحي ويكتشفوا سلسلة الخيول بمختلف جوانبها والثقافة المحلية للمدن المغربية.'],
+        beneficiaires: 'جميع أبناء منخرطي FOS-Agri المؤهلين.',
+        inscription: ['التسجيل عبر الإنترنت.'],
+        pieces: ['طلب عبر الإنترنت', 'نسخة من عقد ازدياد الطفل', 'صورة تعريفية للطفل'],
+        destinations: ['المعرض الدولي للفلاحة بمكناس', 'معرض الفرس بالجديدة', 'وجهات أخرى.']
+      },
+      omra: {
+        badge: 'تنظيم إقامات العمرة',
+        title: 'تنظيم إقامات العمرة',
+        intro: ['تنظم FOS-Agri سنويا لفائدة منخرطيها عملية المساعدة على السفر إلى الديار المقدسة لأداء العمرة.', 'تمنح في إطار هذه العملية منحة أو قرض مجاني قابل للسداد، إضافة إلى أسعار تفضيلية يتم التفاوض بشأنها مع وكالات سفر معروفة ومتخصصة في هذا المجال.'],
+        beneficiaires: 'جميع منخرطي FOS-Agri.',
+        inscription: ['التسجيل عبر الإنترنت.', 'يتم انتقاء المستفيدين من المنحة أو القرض بواسطة نظام التنقيط.', 'تستفيد جميع المنخرطات والمنخرطين من الأسعار التفضيلية.']
+      },
+      pelerinage: {
+        badge: 'المساهمة في مصاريف الحج',
+        title: 'المساهمة في مصاريف الحج',
+        apercu: ['تنظم FOS-Agri سنويا لفائدة منخرطيها عملية «دعم الحج» عبر المساهمة في مصاريف الحج بمنح مساعدات مالية لفائدة المنخرطين الذين أدوا هذه الشعيرة خلال السنة الجارية.'],
+        beneficiaires: 'جميع منخرطي FOS-Agri.',
+        inscription: ['التسجيل عبر الإنترنت.', 'تقبل جميع الطلبات المستوفية للشروط.', 'يحدد مبلغ المساهمة حسب عدد الحجاج.'],
+        pieces: ['طلب عبر الإنترنت', 'نسخة من شهادة الانتقاء للحج المسلمة من طرف السلطات، عند الاقتضاء', 'نسخة من وصل أداء مصاريف الحج', 'نسخة من البطاقة الوطنية', 'نسخة من جواز السفر تثبت أداء مناسك الحج بعد العودة من الديار المقدسة']
+      },
+      celebrations: {
+        badge: 'احتفالات ومراسيم',
+        title: 'احتفالات ومراسيم',
+        apercu: [
+          'تحتفي FOS-Agri، بمناسبة 8 مارس، باليوم العالمي لحقوق المرأة تقديرا لجهود المرأة في النهوض بالقطاع الفلاحي واعترافا بمهنيتها وتفانيها. ووفق توجيهات لجنة الإدارة وإرادة المؤسسة، ينظم هذا الحدث سنويا بالتناوب في مختلف جهات المملكة مع تسليم جوائز رمزية للنساء اللواتي برهن على التزامهن ومهنيتهن داخل القطاع.',
+          'تكريما لمتقاعدي القطاع، تنظم FOS-Agri حفلات شكر واعتراف بعطائهم وتفانيهم في إنجاح عمل القطاع. ويشكل هذا الاحتفاء، الذي يعرف عادة حضور أسرهم وأصدقائهم وزملائهم، تقديرا لجهودهم المتواصلة وتضحياتهم ووفائهم خلال مسارهم الإداري.',
+          'وانطلاقا من قناعة المؤسسة بأن اللحظات المهمة في الحياة ترافقها مناسبات للاحتفال، تحتفي المؤسسة بعودة الحجاج عبر تسليم الشيكات للمنخرطين المستفيدين بعد أدائهم مناسك الحج.',
+          'وتعتبر المؤسسة حفل تكريم أبناء المنخرطين المستفيدين من برنامج منح التميز فرصة لمكافأة الذين تميزوا في امتحان البكالوريا الوطني وتعزيز دافعيتهم لمتابعة دراساتهم العليا من خلال تسليم منح التميز وجوائز التشجيع.'
+        ],
+        celebrations: [
+          { title: 'يوم المرأة', body: ['الاحتفال باليوم العالمي لحقوق المرأة', 'بمناسبة 8 مارس، تحتفي FOS-Agri باليوم العالمي لحقوق المرأة تقديرا للجهود المبذولة من طرف المرأة للنهوض بالقطاع الفلاحي واعترافا بمهنيتها وتفانيها. ووفق توجيهات لجنة الإدارة وإرادة المؤسسة، ينظم هذا الحدث سنويا بالتناوب في مختلف جهات المملكة مع اختيار موضوع محدد، وتتميز هذه المناسبة بتسليم جوائز للنساء اللواتي أثبتن التزامهن ومهنيتهن عبر الزمن داخل القطاع.'] },
+          { title: 'حفل المتقاعدين', body: ['حفل المتقاعدين', 'تعبيرا عن اعترافها بمتقاعدي القطاع، تنظم FOS-Agri حفلا على شرفهم لتقديم الشكر لهم على جهودهم المتواصلة وتضحياتهم وتفانيهم خلال مسارهم الإداري.'] },
+          { title: 'الحجاج', body: ['حفل الحجاج', 'يخصص هذا الحفل لتسليم الشيكات للحجاج الذين أدوا مناسك الحج.'] },
+          { title: 'الحاصلون على البكالوريا', body: ['حفل لفائدة المنخرطين وأبنائهم المستفيدين من برنامج منح التميز', 'يشكل هذا الحفل فرصة لمكافأة أبناء المنخرطين الذين تميزوا في امتحان البكالوريا الوطني وتعزيز دافعيتهم لمتابعة دراساتهم العليا، من خلال تسليم منح التميز وجوائز التشجيع.'] }
+        ]
+      },
+      partenariats: {
+        badge: 'الشراكات',
+        title: 'الشراكات',
+        intro: ['للاطلاع على الخدمات: يرجى الرجوع إلى الملف المرفق.'],
+        groupTitles: ['فنادق ومركبات سياحية', 'مؤسسات ترفيهية متعاقدة']
+      },
+      'assurances-voyage': {
+        badge: 'تأمين السفر',
+        title: 'تأمين السفر',
+        intro: ['حرصا على تمكين منخرطيها من السفر بكل اطمئنان، تضع FOS-Agri رهن إشارتهم عروضا لتأمين السفر بشروط تفضيلية، متفاوض بشأنها مع شركات شريكة.'],
+        beneficiaries: [{ number: '01', text: 'جميع منخرطي FOS-Agri وأزواجهم وأبناؤهم.' }],
+        groupTitles: ['شركات التأمين الشريكة']
+      }
+    }
+  },
+  zgh: {
+    center: {
+      icon: 'fa-circle-info',
+      badge: 'ⵅⴼ ⵜⵏⴼⵍⵉⵜ',
+      title: 'ⵅⴼ ⵜⵏⴼⵍⵉⵜ',
+      intro: "FOS-Agri ⵜⵙⵙⵓⴼⵓⵖ ⵜⴰⴳⵔⵓⵎⵎⴰ ⵏ ⵉⵙⵏⴰⵎⴰⵍⵏ ⴷ ⵜⵙⵓⵜⵔⵉⵏ ⵉⵎⵣⴰⵔⴰⵢⵏ ⵉ ⵓⴼⵓⵍⴽⵉ, ⴰⵙⵓⵏⴼⵓ ⴷ ⵓⵙⴼⴼⵓⵖ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴷ ⵜⵡⴰⵛⵓⵍⵉⵏ ⵏⵏⵙⵏ. ⵙ ⵜⵉⵔⵎⴰⴷ ⵜⵉⴷⵍⵙⴰⵏⵉⵏ, ⵜⵉⵖⵔⵎⵉⵏ ⵏ ⵓⵔⴰⵔ, ⵉⵙⵉⴽⵍⵏ ⴷ ⵜⵎⵙⴽⵔⵉⵏ, ⵜⵙⵙⵏⵔⵏⴰⵢ ⵜⵉⵔⵎⵉⵜⵉⵏ ⵏⵏⵙⵏ ⴷ ⵜⵙⵙⵉⵊⵀⴷ ⵜⵉⵣⵉⵡⵉⵏ ⵏ ⵓⴱⵟⵟⵓ ⴷ ⵜⴷⵓⴽⴽⵍⴰ.",
+      items: [
+        { navIndex: 91, icon: 'fa-users', title: 'ⵉⵎⵙⵜⴼⴰⴷⵏ', body: 'ⴽⵓⵍⵍⵓ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ FOS-Agri' },
+        { navIndex: 92, icon: 'fa-clipboard-check', title: 'ⴰⵙⵙⴼⵜⵔ ⴷ ⵜⴳⴳⵓⵔⵉⵏ', bullets: [
+          'ⴰⵙⵙⴼⵜⵔ ⵉ ⵜⵏⴼⵍⵉⵜ ⴰⴷ ⵉⵜⵜⴳ ⵙ ⵓⵙⵉⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ ⵏ FOS-Agri, ⵙ ⵓⵙⵖⵏ ⴰⵍⵉⴽⵜⵔⵓⵏⵉ ⵏ ⵓⵏⴳⴳⵉⴷ ⵅⴼ ⵓⵛⵔⴼ.',
+          'ⵜⴰⵙⵜⴰⵢⵜ ⵏ ⵉⵎⵙⵜⴼⴰⴷⵏ ⵜⵜⴳ ⵙ ⵓⵙⵎⵉⵍ ⵏ ⵓⵙⴽⵓⵔ ⵉⵙⵙⴰⵙⵏ ⴷ ⵉⴼⵔⴰⵔⵏ ⵉⵜⵜⵓⵙⴷⴷⵉⵏ ⵙⴳ ⵜⵙⴷⴰⵡⵉⵜ, ⴰⴼⴰⴷ ⴰⴷ ⵉⵍⵉ ⵓⵏⴱⴰⴹ ⵉⵎⵥⵍⵉ.',
+          'ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵜⵜⵓⵙⵜⴰⵢⵏ ⵜⵜⵓⵙⵙⵏⵏ ⵙ ⵉⵎⴽⴽⵉⵏ ⵏ ⵜⵙⵜⴰⵢⵜ ⵙ ⵓⵙⵉⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ ⴷ ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵜⵙⴷⴰⵡⵉⵜ.'
+        ] }
+      ]
+    },
+    sections: {
+      'appui-vacances': {
+        badge: 'ⴰⴼⵓⵙ ⵉ ⵓⵙⴳⵓⵏⴼⵓ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ',
+        title: 'ⴰⴼⵓⵙ ⵉ ⵓⵙⴳⵓⵏⴼⵓ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ',
+        intro: [
+          'ⴳ ⵓⴼⵓⵙ ⵏ ⵜⵎⵙⵉⴳⵍⵜ ⵜⴰⵎⵜⵜⵉⵡⵜ ⴷ ⵓⵎⵢⴰⵡⴰⵙ ⵉ ⵓⵙⴼⵓⵍⴽⵉ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ, ⵜⵙⵙⵓⴷⵓⵙ ⵜⵙⴷⴰⵡⵉⵜ ⴽⵓ ⴰⵙⴳⴳⵯⴰⵙ ⵜⵏⴼⵍⵉⵜ ⵏ ⵓⴼⵓⵙ ⵉ ⵓⵙⴳⵓⵏⴼⵓ ⴰⴼⴰⴷ ⴰⴷ ⵜⵙⵙⵔⵙ ⴰⵡⴷⵓⴼ ⵙ ⵉⵎⵓⴷⴰⵏ ⵏ ⵓⵙⵉⵙⵓ ⴷ ⵓⵙⴳⵓⵏⴼⵓ.'
+        ],
+        beneficiaires: 'ⴽⵓⵍⵍⵓ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ FOS-Agri',
+        inscription: ['ⴰⵙⵙⴼⵜⵔ ⵉ ⵜⵏⴼⵍⵉⵜ ⴰⴷ ⵉⵜⵜⴳ ⵙ ⵓⵙⵉⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ ⵏ FOS-Agri.', 'ⵜⴰⵙⵜⴰⵢⵜ ⵏ ⵉⵎⵙⵜⴼⴰⴷⵏ ⵜⵜⴳ ⵙ ⵓⵙⵎⵉⵍ ⵏ ⵓⵙⴽⵓⵔ ⵉⵙⵙⴰⵙⵏ ⴷ ⵉⴼⵔⴰⵔⵏ.', 'ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵜⵜⵓⵙⵜⴰⵢⵏ ⵜⵜⵓⵙⵙⵏⵏ ⵙ ⵉⵎⴽⴽⵉⵏ ⵏ ⵜⵙⵜⴰⵢⵜ.']
+      },
+      colonies: {
+        badge: 'ⵜⵉⵎⵥⵥⵉⵢⵏ ⵏ ⵓⵙⴳⵓⵏⴼⵓ ⵏ ⵓⵏⴱⴷⵓ',
+        title: 'ⵜⵉⵎⵥⵥⵉⵢⵏ ⵏ ⵓⵙⴳⵓⵏⴼⵓ ⵏ ⵓⵏⴱⴷⵓ',
+        intro: ['FOS-Agri ⵜⵙⵙⵓⴷⵓⵙ ⴽⵓ ⴰⵙⴳⴳⵯⴰⵙ ⵢⴰⵜ ⵜⵎⵥⵥⵉⵜ ⵏ ⵓⵙⴳⵓⵏⴼⵓ ⵉ ⵡⴰⵔⵔⴰⵡ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ. ⵜⵜⵓⵙⴽⴰⵔⵏ ⵉⵙⵏⴼⴰⵔⵏ ⵙ ⵜⵡⴰⵍⴰ, ⴷ ⵉⵎⵙⵙⵓⴷⴰⵙ ⵜⵜⵓⵙⵜⴰⵢⵏ ⵙ ⵜⴷⵇⵇⵉ ⴰⴼⴰⴷ ⴰⴷ ⵉⵍⵉ ⵓⵎⴰⵏ ⴷ ⵓⵙⴼⵓⵍⴽⵉ ⵏ ⵡⴰⵔⵔⴰⵡ.'],
+        beneficiaires: 'ⴽⵓⵍⵍⵓ ⵡⴰⵔⵔⴰⵡ ⵉⵙⵜⴼⴰⴷⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ FOS-Agri.',
+        inscription: ["ⴰⵙⵙⴼⵜⵔ ⵉ ⵜⵏⴼⵍⵉⵜ ⴰⴷ ⵉⵜⵜⴳ ⵙ ⵓⵙⵉⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ ⵏ FOS-Agri.", "ⵜⴰⵙⵜⴰⵢⵜ ⵏ ⵉⵎⵙⵜⴼⴰⴷⵏ ⵜⵜⴳ ⵙ ⵓⵙⵎⵉⵍ ⵏ ⵓⵙⴽⵓⵔ ⵉⵙⵙⴰⵙⵏ ⴷ ⵉⴼⵔⴰⵔⵏ ⵉⵜⵜⵓⵙⴷⴷⵉⵏ ⵙⴳ ⵜⵙⴷⴰⵡⵉⵜ, ⴰⴼⴰⴷ ⴰⴷ ⵉⵍⵉ ⵓⵏⴱⴰⴹ ⵉⵎⵥⵍⵉ.", "ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵜⵜⵓⵙⵜⴰⵢⵏ ⵜⵜⵓⵙⵙⵏⵏ ⵙ ⵉⵎⴽⴽⵉⵏ ⵏ ⵜⵙⵜⴰⵢⵜ ⵙ ⵓⵙⵉⵜ ⵏ ⵓⵎⵏⵅⵔⴰⵟ ⴷ ⵉⵎⵙⴰⵡⴰⴹⵏ ⵏ ⵜⵙⴷⴰⵡⵉⵜ."]
+      },
+      'sejours-culturels': {
+        badge: 'ⵜⵉⵖⵔⵎⵉⵏ ⵜⵉⴷⵍⵙⴰⵏⵉⵏ',
+        title: 'ⵜⵉⵖⵔⵎⵉⵏ ⵜⵉⴷⵍⵙⴰⵏⵉⵏ',
+        apercu: ['ⵜⵉⵖⵔⵎⵜ ⵜⴰⵍⵙⴰⵏⵜ, ⵜⴰⴷⵍⵙⴰⵏⵜ ⴷ ⵜⴰⵙⴳⵎⴰⵏⵜ ⵜⴳⴰ ⵜⵏⴼⵍⵉⵜ ⵉ ⵡⴰⵔⵔⴰⵡ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ, ⵜⵙⵙⵓⴼⵖ ⴰⵎⴽⴰⵏ ⴰⴷ ⵙⵙⴽⵔⵏ ⵜⴰⵔⵎⵉⵜ ⵜⴰⵎⵓⵔⴰⵏⵜ ⴷ ⵜⴰⴳⵔⴰⵡⴰⵏⵜ ⵜⵉⵖⵏⴰⵏⵜ, ⵙ ⵓⵙⵙⵏⵜⵉ ⵏ ⵢⴰⵜ ⵜⵓⵜⵍⴰⵢⵜ ⵜⴰⴱⵕⵕⴰⵏⵉⵜ ⴷ ⵓⵙⵙⵏ ⵏ ⵓⴷⵍⵙ ⴰⵎⴰⵢⵏⵓ.'],
+        beneficiaires: 'ⴰⵔⵔⴰⵡ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ',
+        inscription: ['ⴰⵙⵙⴼⵜⵔ ⵙ ⵓⵏⵜⵉⵔⵏⵉⵜ.'],
+        pieces: []
+      },
+      'camps-ados': {
+        badge: 'ⵜⵉⵎⵥⵥⵉⵢⵏ ⵏ ⵓⵙⴳⵓⵏⴼⵓ ⵉ ⵉⵎⵥⵢⴰⵏⵏ',
+        title: 'ⵜⵉⵎⵥⵥⵉⵢⵏ ⵏ ⵓⵙⴳⵓⵏⴼⵓ ⵉ ⵉⵎⵥⵢⴰⵏⵏ',
+        apercu: [],
+        beneficiaires: 'ⴰⵔⵔⴰⵡ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ',
+        inscription: ['ⴰⵙⵙⴼⵜⵔ ⵙ ⵓⵏⵜⵉⵔⵏⵉⵜ.'],
+        pieces: []
+      },
+      excursions: {
+        badge: 'ⵜⵉⵔⵣⴰ ⵏ ⵓⵔⴰⵔ ⴷ ⵓⵙⴳⵎⵉ',
+        title: 'ⵜⵉⵔⵣⴰ ⵏ ⵓⵔⴰⵔ ⴷ ⵓⵙⴳⵎⵉ',
+        apercu: ['FOS-Agri ⵜⵙⵙⵓⴷⵓⵙ ⵜⵉⵔⵣⴰ ⵜⵉⵙⴳⵎⴰⵏⵉⵏ, ⵜⵉⴷⵍⵙⴰⵏⵉⵏ ⴷ ⵏ ⵓⵔⴰⵔ ⵉ ⵡⴰⵔⵔⴰⵡ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ, ⵣⵓⵏ ⴳ ⵓⵙⴰⵔⴰⴳ ⴰⴳⵔⴰⵡⴰⵏ ⵏ ⵜⴼⵍⴰⵃⵜ ⴳ ⵎⴽⵏⴰⵙ ⴷ ⵓⵙⴰⵔⴰⴳ ⵏ ⴰⵢⵢⵉⵙ ⴳ ⵍⵊⴷⵉⴷⴰ.'],
+        beneficiaires: 'ⴽⵓⵍⵍⵓ ⵡⴰⵔⵔⴰⵡ ⵉⵙⵜⴼⴰⴷⵏ ⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ FOS-Agri.',
+        inscription: ['ⴰⵙⵙⴼⵜⵔ ⵙ ⵓⵏⵜⵉⵔⵏⵉⵜ.'],
+        pieces: ['ⴰⵙⵓⵜⵔ ⵙ ⵓⵏⵜⵉⵔⵏⵉⵜ', 'ⵜⴰⵏⵖⵍⵜ ⵏ ⵜⴰⵍⴰⵍⵉⵜ ⵏ ⵓⴼⵔⵓⵅ', 'ⵜⴰⵡⵍⴰⴼⵜ ⵏ ⵓⴼⵔⵓⵅ'],
+        destinations: ['ⴰⵙⴰⵔⴰⴳ ⴰⴳⵔⴰⵡⴰⵏ ⵏ ⵜⴼⵍⴰⵃⵜ ⴳ ⵎⴽⵏⴰⵙ', 'ⴰⵙⴰⵔⴰⴳ ⵏ ⴰⵢⵢⵉⵙ ⴳ ⵍⵊⴷⵉⴷⴰ', 'ⵜⵉⵎⵓⵔⴰ ⵢⴰⴹⵏ.']
+      },
+      omra: {
+        badge: 'ⴰⵙⵓⴷⴷⵙ ⵏ ⵜⵉⵖⵔⵎⵉⵏ ⵏ ⵓⵎⵔⴰ',
+        title: 'ⴰⵙⵓⴷⴷⵙ ⵏ ⵜⵉⵖⵔⵎⵉⵏ ⵏ ⵓⵎⵔⴰ',
+        intro: ['FOS-Agri ⵜⵙⵙⵓⴷⵓⵙ ⴽⵓ ⴰⵙⴳⴳⵯⴰⵙ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵜⴰⵎⴰⴷⵔⴰⵡⵜ ⵏ ⵓⴼⵓⵙ ⵉ ⵓⵙⴰⴼⴰⵔ ⵖⵔ ⵉⵎⴽⴰⵏⵏ ⵉⵇⴷⵙⵏ ⵉ ⵓⵙⴽⴰⵔ ⵏ ⵓⵎⵔⴰ.', 'ⵜⵜⵓⵎⵓⵛⵛ ⵜⴰⵙⴷⵔⵉⵎⵜ ⵏⵖ ⵓⵙⴽⵉⵍ ⴰⴱⵍⴰ ⵓⵙⴽⴽⵓ ⵉⵜⵜⵓⵔⴰⵔⵏ, ⵖⵉⴽ ⴷ ⵜⵎⵣⵍⴰⵢⵜ ⵏ ⵉⵎⵏⴰⵢⵏ ⵉⵜⵜⵓⵙⴰⵡⴰⵍⵏ ⴷ ⵉⵙⵙⵓⴼⵓⵖⵏ ⵏ ⵓⵙⴰⴼⴰⵔ.'],
+        beneficiaires: 'ⴽⵓⵍⵍⵓ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ FOS-Agri.',
+        inscription: ['ⴰⵙⵙⴼⵜⵔ ⵙ ⵓⵏⵜⵉⵔⵏⵉⵜ.', 'ⵜⴰⵙⵜⴰⵢⵜ ⵏ ⵉⵎⵙⵜⴼⴰⴷⵏ ⵏ ⵜⴰⵙⴷⵔⵉⵎⵜ ⵏⵖ ⵓⵙⴽⵉⵍ ⵜⵜⴳ ⵙ ⵓⵙⵎⵉⵍ ⵏ scoring.', 'ⵉⵎⵏⴰⵢⵏ ⵉⵎⵥⵍⵉⵢⵏ ⵜⵜⵙⵜⴼⴰⴷⵏ ⵙⴳⵙⵏ ⴽⵓⵍⵍⵓ ⵉⵎⵏⵅⵔⴰⵟⵏ.']
+      },
+      pelerinage: {
+        badge: 'ⴰⵜⵜⴽⵉ ⴳ ⵎⴰⵙⴰⵔⵉⴼ ⵏ ⵓⵃⵊⵊ',
+        title: 'ⴰⵜⵜⴽⵉ ⴳ ⵎⴰⵙⴰⵔⵉⴼ ⵏ ⵓⵃⵊⵊ',
+        apercu: ['FOS-Agri ⵜⵙⵙⵓⴷⵓⵙ ⴽⵓ ⴰⵙⴳⴳⵯⴰⵙ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵜⴰⵎⴰⴷⵔⴰⵡⵜ « ⴰⴼⵓⵙ ⵉ ⵓⵃⵊⵊ » ⵙ ⵓⵜⵜⴽⵉ ⴳ ⵎⴰⵙⴰⵔⵉⴼ ⵏ ⵓⵃⵊⵊ ⵙ ⵜⴰⵙⴷⵔⵉⵎⵜ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵙⴽⵔⵏ ⴰⵛⵄⴰⵔ ⴰⴷ ⴳ ⵓⵙⴳⴳⵯⴰⵙ ⵉⵍⵍⴰⵏ.'],
+        beneficiaires: 'ⴽⵓⵍⵍⵓ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ FOS-Agri.',
+        inscription: ['ⴰⵙⵙⴼⵜⵔ ⵙ ⵓⵏⵜⵉⵔⵏⵉⵜ.', 'ⴽⵓⵍⵍⵓ ⵉⵙⵓⵜⴰⵔ ⵉⵙⵜⴼⴰⴷⵏ ⵜⵜⵓⵇⴱⴰⵍⵏ.', 'ⴰⵎⵓⵔ ⵏ ⵓⵜⵜⴽⵉ ⵉⵜⵜⵓⵙⴷⴷⴰ ⵙ ⵓⵎⵢⴰ ⵏ ⵉⵃⵊⵊⴰⵊⵏ.'],
+        pieces: ['ⴰⵙⵓⵜⵔ ⵙ ⵓⵏⵜⵉⵔⵏⵉⵜ', 'ⵜⴰⵏⵖⵍⵜ ⵏ ⵜⵛⵔⴰⴹⵜ ⵏ ⵜⵙⵜⴰⵢⵜ ⵏ Haj', 'ⵜⴰⵏⵖⵍⵜ ⵏ ⵓⵡⵚⵍ ⵏ ⵓⴼⵔⵓ ⵏ ⵎⴰⵙⴰⵔⵉⴼ ⵏ ⵓⵃⵊⵊ', 'ⵜⴰⵏⵖⵍⵜ ⵏ CIN', 'ⵜⴰⵏⵖⵍⵜ ⵏ ⵓⵙⴰⴼⴰⵔ ⵉⵙⵙⴽⵏⵏ ⴰⵙⴽⴰⵔ ⵏ ⵓⵃⵊⵊ ⴷⴼⴼⵉⵔ ⵜⵓⵖⴰⵍⵉⵏ']
+      },
+      celebrations: {
+        badge: 'ⵜⵉⵎⵍⵉⵍⵉⵏ ⴷ ⵜⵎⵖⵔⵉⵡⵉⵏ',
+        title: 'ⵜⵉⵎⵍⵉⵍⵉⵏ ⴷ ⵜⵎⵖⵔⵉⵡⵉⵏ',
+        apercu: [
+          'ⴳ 8 ⵎⴰⵕⵚ, FOS-Agri ⵜⵙⵙⴼⵍⴷ ⴰⵙⵙ ⴰⴳⵔⴰⵡⴰⵏ ⵏ ⵉⵣⵔⴼⴰⵏ ⵏ ⵜⵎⵖⴰⵔⵜ, ⵙ ⵓⵙⵎⵖⵔ ⵏ ⵉⵎⴰⵙⵙⵏ ⵏ ⵜⵎⵖⴰⵔⵜ ⴳ ⵓⵙⵙⵎⵖⵔ ⵏ ⵜⴼⵍⴰⵃⵜ ⴷ ⵓⵙⵎⵓⵖⵔ ⵏ ⵜⵎⵙⵙⵏⵜ ⴷ ⵓⵎⵢⴰⵡⴰⵙ ⵏⵙ.',
+          'ⵉ ⵓⵙⵎⵖⵔ ⵏ ⵉⵎⵖⵔⴰⵏ ⵏ ⵓⵙⴰⵜⵉ, FOS-Agri ⵜⵙⵙⵓⴷⵓⵙ ⵜⵉⵎⵖⵔⵉⵡⵉⵏ ⵏ ⵓⵙⵏⵎⵎⵔ ⴷ ⵓⵙⵎⵓⵖⵔ ⵅⴼ ⵉⵎⵓⵔⵙⵏ ⴷ ⵓⵎⵢⴰⵡⴰⵙ ⵏⵙⵏ.',
+          'ⵜⵙⴷⴰⵡⵉⵜ ⵜⵙⵙⴼⵍⴷ ⵜⵓⵖⴰⵍⵉⵏ ⵏ ⵉⵃⵊⵊⴰⵊⵏ ⵙ ⵓⵎⵓⵛⵛ ⵏ ⵜⵛⵉⴽⵉⵏ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵉⵎⵙⵜⴼⴰⴷⵏ.',
+          'ⵜⴰⵎⵖⵔⵉⵡⵜ ⵏ ⵡⴰⵔⵔⴰⵡ ⵉⴼⴰⵡⵏ ⴳ ⵓⴱⴰⴽⴰⵍⵓⵔⵢⴰ ⵜⴳⴰ ⵜⴰⵙⵓⵔⵉⴼⵜ ⵉ ⵓⵙⵎⵖⵔ ⴷ ⵓⵙⴼⵔⴽ ⵏ ⵓⵙⵙⵎⴷ ⵏ ⵜⵉⵖⵔⵉ ⵜⴰⵏⴰⵎⵓⵔⵜ.'
+        ],
+        celebrations: [
+          { title: 'ⴰⵙⵙ ⵏ ⵜⵎⵖⴰⵔⵜ', body: ['ⴰⵙⵙⴼⵍⴷ ⵏ ⵓⵙⵙ ⴰⴳⵔⴰⵡⴰⵏ ⵏ ⵉⵣⵔⴼⴰⵏ ⵏ ⵜⵎⵖⴰⵔⵜ', 'ⴳ 8 ⵎⴰⵕⵚ, FOS-Agri ⵜⵙⵙⴼⵍⴷ ⴰⵙⵙ ⴰⴳⵔⴰⵡⴰⵏ ⵏ ⵉⵣⵔⴼⴰⵏ ⵏ ⵜⵎⵖⴰⵔⵜ, ⵙ ⵓⵙⵎⵖⵔ ⵏ ⵜⵎⵙⵙⵏⵜ ⴷ ⵓⵎⵢⴰⵡⴰⵙ ⵏ ⵜⵎⵖⴰⵔⵜ ⴳ ⵜⴼⵍⴰⵃⵜ.'] },
+          { title: 'ⵜⴰⵎⵖⵔⵉⵡⵜ ⵏ ⵉⵎⵖⵔⴰⵏ', body: ['ⵜⴰⵎⵖⵔⵉⵡⵜ ⵏ ⵉⵎⵖⵔⴰⵏ', 'FOS-Agri ⵜⵙⵙⵓⴷⵓⵙ ⵜⴰⵎⵖⵔⵉⵡⵜ ⵙ ⵓⵙⵏⵎⵎⵔ ⵏ ⵉⵎⵖⵔⴰⵏ ⵅⴼ ⵉⵎⴰⵙⵙⵏ, ⵜⴰⴼⴳⵓⵔⵉⵏ ⴷ ⵓⵎⵢⴰⵡⴰⵙ ⴳ ⵓⵙⵓⵔⵉⴼ ⵏⵙⵏ.'] },
+          { title: 'ⵉⵃⵊⵊⴰⵊⵏ', body: ['ⵜⴰⵎⵖⵔⵉⵡⵜ ⵏ ⵉⵃⵊⵊⴰⵊⵏ', 'ⵜⴰⵎⵖⵔⵉⵡⵜ ⴰⴷ ⵜⵜⵓⵙⴽⴰⵔ ⵉ ⵓⵎⵓⵛⵛ ⵏ ⵜⵛⵉⴽⵉⵏ ⵉ ⵉⵃⵊⵊⴰⵊⵏ ⵉⵙⴽⵔⵏ ⵓⵃⵊⵊ.'] },
+          { title: 'ⵉⴱⴰⴽⴰⵍⵓⵔⵢⴰⵏ', body: ['ⵜⴰⵎⵖⵔⵉⵡⵜ ⵉ ⵉⵎⵏⵅⵔⴰⵟⵏ ⴷ ⵡⴰⵔⵔⴰⵡ ⵏⵙⵏ ⵉⵎⵙⵜⴼⴰⴷⵏ ⵙⴳ ⵉⵎⵓⵔⴰⵙ ⵏ ⵜⴰⵎⵥⵍⴰⵢⵜ', 'ⵜⴰⵎⵖⵔⵉⵡⵜ ⴰⴷ ⵜⴳⴰ ⵜⴰⵙⵓⵔⵉⴼⵜ ⵉ ⵓⵙⵎⵖⵔ ⵏ ⵡⴰⵔⵔⴰⵡ ⵉⴼⴰⵡⵏ ⴳ ⵓⴱⴰⴽⴰⵍⵓⵔⵢⴰ ⴷ ⵓⵙⴼⵔⴽ ⵏ ⵜⵉⵖⵔⵉ ⵜⴰⵏⴰⵎⵓⵔⵜ.'] }
+        ]
+      },
+      partenariats: {
+        badge: 'ⵉⵣⴷⵡⵉⵢⵏ',
+        title: 'ⵉⵣⴷⵡⵉⵢⵏ',
+        intro: ['ⵉ ⵜⵏⴼⴰⵙ: ⵔⵥⵎ ⴰⴼⴰⵢⵍⵓ ⵉⵍⵍⴰⵏ ⴳ ⵓⵙⴰⴷⵓ.'],
+        groupTitles: ['ⵉⵙⵏⵙⴰ ⴷ ⵉⵎⵙⵔⴰⵢⵏ ⵏ ⵜⵣⵓⵔⵉⵙⵜ', 'ⵜⵉⵎⵙⵙⵓⵔⵜⵉⵏ ⵏ ⵓⵔⴰⵔ ⵉⵣⴷⵉⵏ']
+      },
+      'assurances-voyage': {
+        badge: 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵓⵙⵉⴽⵍ',
+        title: 'ⵜⴰⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵓⵙⵉⴽⵍ',
+        intro: ['ⴰⴼⴰⴷ ⴰⴷ ⵙⵉⴽⵍⵏ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵙ ⵓⵏⵣⴳⵓⵎ ⴰⵎⴰⵏ, FOS-Agri ⵜⵙⵙⵓⴼⵓⵖ ⴰⵙⵏ ⵉⴼⵔⴰⵏ ⵏ ⵜⵏⴰⵎⵎⴰⵍⵜ ⵏ ⵓⵙⵉⴽⵍ ⵙ ⵜⵙⴰⴳⴰⵡⵉⵏ ⵉⵎⵥⵍⵉⵢⵏ, ⵉⵜⵜⵓⵙⵎⵙⴰⵙⴰⵏ ⴷ ⵜⴽⵓⵎⴱⴰⵏⵉⵢⵉⵏ ⵉⵣⴷⵉⵏ.'],
+        beneficiaries: [{ number: '01', text: 'ⴽⵓⵍⵍⵓ ⵉⵎⵏⵅⵔⴰⵟⵏ ⵏ FOS-Agri, ⵉⵡⵜⵎⴰⵏ ⵏⵏⵙⵏ ⴷ ⵜⴰⵔⵡⴰ ⵏⵏⵙⵏ.' }],
+        groupTitles: ['ⵜⵉⴽⵓⵎⴱⴰⵏⵉⵢⵉⵏ ⵏ ⵜⵏⴰⵎⵎⴰⵍⵜ ⵉⵣⴷⵉⵏ']
+      }
+    }
+  }
+};
+
+function cultureLabels(currentLang = 'fr') {
+  return cultureBlockLabels[currentLang] || cultureBlockLabels.fr;
+}
+
+function cultureMenuId(index) {
+  return cultureMenuItems[index]?.id;
+}
+
+function localizedCultureCenter(currentLang = 'fr') {
+  return (cultureTranslations[currentLang] || cultureTranslations.fr).center;
+}
+
+function localizedCultureExtra(currentLang = 'fr') {
+  const copy = cultureTranslations[currentLang] || cultureTranslations.fr;
+  const labels = cultureLabels(currentLang);
+  return cultureExtra.map((section) => {
+    const id = cultureMenuId(section.navIndex);
+    const localized = copy.sections[id] || cultureTranslations.fr.sections[id] || {};
+    if (section.type === 'culturePartners') {
+      const groups = (section.groups || []).map((group, index) => ({
+        ...group,
+        title: localized.groupTitles?.[index] || group.title,
+        items: group.items.map((item) => ({
+          ...item,
+          statut: localized.status || item.statut
+        }))
+      }));
+      return { ...section, ...localized, labels, groups };
+    }
+    return { ...section, ...localized, labels };
+  });
+}
+/** Contenu localisé d'une prestation, enrichi de son menu de sous-rubriques. */
+function serviceText(key, lang) {
+  const text = services[key]?.[lang] || services[key]?.fr;
+  if (!text) return text;
+  const withMenu = (menuItems, extra = {}) => ({ ...text, menuItems, chips: menuItems.map((item) => item.label), ...extra });
+  switch (key) {
+    case 'culture':
+      return withMenu(localizedCultureMenu(lang), {
+        centerMedical: localizedCultureCenter(lang),
+        extraSections: localizedCultureExtra(lang)
+      });
+    case 'prevoyance':
+      return withMenu(localizedPrevoyanceMenu(lang));
+    case 'logement':
+      return withMenu(localizedLogementMenu(lang), { centerMedical: logementCenter[lang] || logementCenter.fr, extraSections: logementExtra[lang] || logementExtra.fr });
+    case 'formation':
+      return withMenu(localizedFormationMenu(lang), { centerMedical: formationCenter[lang] || formationCenter.fr, extraSections: formationExtra[lang] || formationExtra.fr });
+    case 'projets':
+      return withMenu(localizedProjetsMenu(lang), { centerMedical: projetsCenter[lang] || projetsCenter.fr, extraSections: projetsExtra[lang] || projetsExtra.fr });
+    case 'quotidien':
+      return withMenu(localizedQuotidienMenu(lang), { centerMedical: quotidienCenter[lang] || quotidienCenter.fr, extraSections: quotidienExtra[lang] || quotidienExtra.fr });
+    default:
+      return text;
+  }
+}
+
+// Traductions de secours puis traductions validées (comme au chargement de l'ancien script).
+cloneFallbacks();
+applyControlledTranslations();
+
+export { icons, subIcons, image, labels, services, serviceText, cultureLabels, amcDetailFr };
