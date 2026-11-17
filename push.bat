@@ -110,8 +110,25 @@ if errorlevel 1 goto :push_failed
 echo.
 echo [OK] GitHub is updated.
 echo.
-REM Automatic VPS deploy is disabled: push.bat only updates GitHub.
-REM To deploy to the Hostinger VPS manually, run deploy-vps.bat.
+
+if exist "%~dp0deploy-vps.bat" (
+  set "DEPLOY_CHOICE="
+  echo Deploy the same commit to Hostinger VPS now?
+  echo Press Enter for YES, or type N to skip.
+  set /p "DEPLOY_CHOICE=> "
+  if /I not "!DEPLOY_CHOICE!"=="N" (
+    echo.
+    call "%~dp0deploy-vps.bat" --no-pause
+    if errorlevel 1 (
+      echo.
+      echo [WARN] GitHub push worked, but VPS deploy failed.
+      echo        You can retry later by running deploy-vps.bat.
+      echo.
+      pause
+      exit /b 1
+    )
+  )
+)
 
 pause
 exit /b 0
