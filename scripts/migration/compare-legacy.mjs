@@ -33,6 +33,7 @@ const wait = Number(opt('wait', '2500'));
 const scroll = opt('scroll', 'top');
 // --switch : charger en FR puis cliquer sur le bouton de langue (changement en direct).
 const liveSwitch = args.includes('--switch') ? (args.splice(args.indexOf('--switch'), 1), true) : false;
+const probe = opt('probe', '');
 const pages = args.length ? args : ['contact.html'];
 const CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const SIZES = { desktop: [1440, 900, false], mobile: [390, 844, true] };
@@ -187,8 +188,9 @@ async function capture(cdp, url, lang, viewport) {
   }
   const dom = (await s('Runtime.evaluate', { expression: NORMALIZE, returnByValue: true })).result.value;
   const shot = (await s('Page.captureScreenshot', { format: 'png' })).data;
+  const probed = probe ? (await s('Runtime.evaluate', { expression: probe, returnByValue: true })).result.value : undefined;
   await cdp.send('Target.closeTarget', { targetId });
-  return { dom, shot };
+  return { dom, shot, probed };
 }
 
 /* ---------- Différence de pixels (calculée dans Chrome) ---------- */
@@ -252,6 +254,7 @@ try {
         const name = `${page.replace(/[/?=&#]/g, '_')}.${lang}.${viewport}`;
         const legacy = await capture(cdp, `${legacyOrigin}/${page}`, lang, viewport);
         const react = await capture(cdp, `${reactOrigin}/${page}`, lang, viewport);
+        if (probe) console.log('PROBE', name, '\n legacy:', JSON.stringify(legacy.probed), '\n react: ', JSON.stringify(react.probed));
         const diff = diffLines(legacy.dom.split('\n'), react.dom.split('\n'));
         diff.length = diff.changed ? diff.length : 0;
         const ratio = await pixelDiff(cdp, legacy.shot, react.shot);

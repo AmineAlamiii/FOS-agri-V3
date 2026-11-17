@@ -9,89 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tifinagh:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link rel="preload" as="image" href="../../assets/images/gouvernance.jpg" fetchpriority="high" />
-  <link rel="stylesheet" href="../../assets/styles.css?v=9" />
-  <link rel="stylesheet" href="../../assets/secondary-pages.css?v=13" />
-  <link rel="stylesheet" href="../../assets/gouvernance.css?v=4" />
-  <link rel="stylesheet" href="../../assets/notre-organisation.css?v=7" />
 </head>
-<body class="secondary-page service-page" data-page="fondation" data-base="../../">
-  <header class="site-header" id="top">
-    <div class="container nav-shell">
-      <a class="brand" href="../../index.html" aria-label="FOS-Agri accueil">
-        <span class="brand-mark"><img src="../../assets/images/logo.png" alt="Logo FOS-Agri" width="78" height="60" decoding="async" /></span>
-        <span class="brand-copy"><strong>FOS-Agri</strong></span>
-      </a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-      <nav class="site-nav" id="site-nav" aria-label="Navigation principale"></nav>
-      <div class="nav-actions"></div>
-    </div>
-  </header>
-
-  <main id="content">
-    <section class="page-hero-secondary">
-      <div class="container">
-        <nav class="gov-breadcrumb" aria-label="Fil d'Ariane" data-gov-i18n-aria="governance.breadcrumb.label">
-          <ol>
-            <li><a href="../../index.html" data-gov-i18n="governance.breadcrumb.home">Accueil</a></li>
-            <li><a href="../../fondation.html" data-gov-i18n="governance.breadcrumb.foundation">La Fondation</a></li>
-            <li aria-current="page" data-gov-i18n="governance.breadcrumb.governance">Gouvernance</li>
-          </ol>
-        </nav>
-        <span class="page-kicker">
-          <i class="fa-solid fa-landmark" aria-hidden="true"></i>
-          <span data-gov-i18n="governance.hero.kicker">Instances de gouvernance</span>
-        </span>
-        <h1 data-gov-i18n="governance.pageTitle">Gouvernance</h1>
-        <p data-gov-i18n="governance.intro.paragraph1">La FOS-Agri s appuie sur des mecanismes clairs de strategie, de gestion et de controle.</p>
-        <p data-gov-i18n="governance.intro.paragraph2">Sa gouvernance repose sur trois instances.</p>
-      </div>
-    </section>
-
-    <section class="section gov-section" aria-labelledby="gov-committees-title">
-      <div class="container">
-        <header class="gov-section-head">
-          <span class="section-tag" data-gov-i18n="governance.hero.kicker">Instances de gouvernance</span>
-          <h2 id="gov-committees-title" data-gov-i18n="governance.section.title">Comites de gouvernance</h2>
-          <p class="section-copy" data-gov-i18n="governance.section.description">Une organisation claire, avec des instances complementaires de pilotage, d'execution et de controle.</p>
-        </header>
-
-        <!--
-          CMS/API hook:
-          Replace window.FOSAGRI_GOVERNANCE_COMMITTEES with API data before this script runs,
-          or replace loadGovernanceData() in assets/gouvernance.js with fetch('/api/governance').
-          Only isActive=true items are rendered; sort is by `order`.
-        -->
-        <div class="gov-grid" id="gov-grid"></div>
-      </div>
-    </section>
-
-    <!-- Organigramme — rendu par assets/notre-organisation.js dans #org-chart.
-         Placé sous la section "Comités de gouvernance". -->
-    <section class="section org-section" id="organigramme" aria-labelledby="gov-org-title">
-      <div class="container">
-        <header class="org-section-head">
-          <span class="section-tag" data-gov-i18n="governance.hero.kicker">Instances de gouvernance</span>
-          <h2 id="gov-org-title" data-gov-i18n="governance.org.title">Organigramme de la Fondation</h2>
-          <p class="section-copy" data-gov-i18n="governance.org.intro">La structure organisationnelle : présidence, secrétariat général, directions et services.</p>
-        </header>
-        <div class="org-chart-wrap" role="region" aria-label="Organigramme FOS-Agri">
-          <div class="org-chart" id="org-chart"></div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer"></footer>
-  <script src="../../assets/data.js?v=12"></script>
-  <script src="../../assets/news-2026.js?v=4"></script>
-
-  <script src="../../assets/secondary-pages.js?v=24"></script>
-  <script src="../../assets/gouvernance.js?v=7"></script>
-  <script src="../../assets/notre-organisation.js?v=9"></script>
-  <script type="module" src="../../assets/motion-site.js?v=2"></script>
-
+<body class="secondary-page service-page" data-page="fondation">
+  <div id="root" style="display: contents"></div>
+  <script type="module">import "@/features/fondation/gouvernance/gouvernance.entry.jsx";</script>
 </body>
 </html>
