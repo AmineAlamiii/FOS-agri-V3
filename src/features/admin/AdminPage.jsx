@@ -49,7 +49,10 @@ function Field({ field, value, onChange, dir }) {
       {field.image && value && (
         <img className="cms-preview" src={assetUrl(`${field.prefix || ''}${value}`)} alt="" />
       )}
-      {(field.image || field.file) && (
+      {field.media && value && (/\.(mp4|webm)(\?|$)/i.test(value)
+        ? <video className="cms-preview cms-preview-video" src={assetUrl(value)} muted controls preload="metadata"></video>
+        : <img className="cms-preview cms-preview-wide" src={assetUrl(value)} alt="" />)}
+      {(field.image || field.file || field.media) && (
         <button type="button" className="cms-btn cms-btn-light cms-upload"><i className="fa-solid fa-upload"></i> Choisir un fichier</button>
       )}
     </div>
@@ -73,6 +76,8 @@ function Editor({ type, draft, onSave, onCancel, onDelete }) {
         <button type="button" className="cms-back" onClick={onCancel}><i className="fa-solid fa-arrow-left"></i> {type.label}</button>
         <h2>{draft.isNew ? `Ajouter ${type.singular}` : type.title(draft) || 'Sans titre'}</h2>
       </div>
+
+      {type.notice && <p className="cms-notice"><i className="fa-solid fa-lock"></i> {type.notice}</p>}
 
       {localized.length > 0 && (
         <section className="cms-card">
@@ -115,6 +120,8 @@ function Editor({ type, draft, onSave, onCancel, onDelete }) {
 function ContentList({ type, drafts, onEdit, onAdd }) {
   const [query, setQuery] = useState('');
   const q = query.trim().toLowerCase();
+  // Colonne « Langues » seulement si la rubrique contient des textes traduits.
+  const translated = type.fields.some((field) => field.localized);
   const rows = q ? drafts.filter((draft) => Object.values(draft).some((value) => String(value).toLowerCase().includes(q))) : drafts;
   return (
     <>
@@ -125,6 +132,7 @@ function ContentList({ type, drafts, onEdit, onAdd }) {
         </div>
         <button type="button" className="cms-btn cms-btn-primary" onClick={onAdd}><i className="fa-solid fa-plus"></i> Ajouter</button>
       </div>
+      {type.notice && <p className="cms-notice"><i className="fa-solid fa-lock"></i> {type.notice}</p>}
       <div className="cms-card cms-table-card">
         <div className="cms-search">
           <i className="fa-solid fa-magnifying-glass"></i>
@@ -134,7 +142,7 @@ function ContentList({ type, drafts, onEdit, onAdd }) {
           <thead>
             <tr>
               {type.columns.map((column) => <th key={column.label}>{column.label}</th>)}
-              <th>Langues</th>
+              {translated && <th>Langues</th>}
               <th aria-label="Actions"></th>
             </tr>
           </thead>
@@ -142,11 +150,11 @@ function ContentList({ type, drafts, onEdit, onAdd }) {
             {rows.map((draft) => (
               <tr key={draft.id} onClick={() => onEdit(draft)}>
                 {type.columns.map((column) => <td key={column.label} className={column.wide ? 'is-wide' : undefined}>{column.value(draft) || '—'}</td>)}
-                <td><LangDots status={languageStatus(type, draft)} /></td>
+                {translated && <td><LangDots status={languageStatus(type, draft)} /></td>}
                 <td className="cms-row-action"><i className="fa-solid fa-pen"></i></td>
               </tr>
             ))}
-            {!rows.length && <tr><td colSpan={type.columns.length + 2} className="cms-empty">Aucun résultat.</td></tr>}
+            {!rows.length && <tr><td colSpan={type.columns.length + (translated ? 2 : 1)} className="cms-empty">Aucun résultat.</td></tr>}
           </tbody>
         </table>
       </div>

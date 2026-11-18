@@ -94,3 +94,6 @@ body.cms-page { margin: 0; background: var(--cms-bg); color: var(--cms-text); fo
   .cms-demo-badge, .cms-user { display: none; }
   .cms-main { padding: 1.25rem; }
 }
+.cms-notice { display: flex; gap: .55rem; align-items: center; padding: .75rem 1rem; margin: 0 0 1rem; border-radius: 12px; background: #eef4ff; color: #2a4a7a; font-size: .88rem; }
+.cms-preview-wide { max-width: 360px; max-height: 200px; object-fit: cover; }
+.cms-preview-video { max-width: 360px; max-height: 200px; }

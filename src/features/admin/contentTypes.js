@@ -25,6 +25,13 @@ const fromLocalized = (item, keys) => Object.fromEntries(
   keys.flatMap((key) => LANGS.map(({ code }) => [`${key}_${code}`, item?.[code]?.[key] || '']))
 );
 
+const HOME_NOTICE = 'Accueil validé par le client : toute modification de cette section doit être approuvée avant publication.';
+const DISPLAY_MODES = { video: 'Vidéo uniquement', images: 'Images uniquement', both: 'Vidéo et images' };
+const isSlideShown = (slide) => {
+  const mode = siteData.heroMedia?.displayMode || 'video';
+  return mode === 'both' || (mode === 'images' ? slide.type === 'image' : slide.type === 'video');
+};
+
 const NEWS_CATEGORIES = ['Institutionnel', 'Santé', 'Éducation', 'Loisirs et voyages', 'Logement', 'Offres financières', 'Action sociale', 'Partenariats', 'Information adhérents'];
 const MEDICAL_CATEGORIES = [...new Set(medicalPartnersData.map((entry) => entry.categorie).filter(Boolean))].sort();
 const REGIONS = [...new Set(medicalPartnersData.map((entry) => entry.region).filter(Boolean))].sort();
@@ -146,6 +153,66 @@ export const CONTENT_TYPES = [
       f('ageLimit', 'Âge limite de crédit'),
       f('logo', 'Logo', { image: true, prefix: 'assets/images/banks/' }),
       f('pdf', 'Fiche de l’offre (PDF)', { file: true })
+    ]
+  },
+  {
+    id: 'hero',
+    group: 'Accueil',
+    label: 'Bannière d’accueil',
+    icon: 'fa-heading',
+    singular: 'une bannière',
+    description: 'Textes affichés sur la vidéo / les images en haut de l’accueil.',
+    notice: HOME_NOTICE,
+    items: () => [{
+      id: 'home-hero',
+      name: 'Bannière principale',
+      displayMode: DISPLAY_MODES[siteData.heroMedia?.displayMode] || DISPLAY_MODES.video,
+      ...Object.fromEntries(['eyebrow', 'title', 'description', 'ctaServices', 'ctaContact'].flatMap((key) => (
+        LANGS.map(({ code }) => [`${key}_${code}`, siteData.translations?.[code]?.hero?.[key] || ''])
+      )))
+    }],
+    title: (draft) => draft.name,
+    columns: [
+      { label: 'Bannière', value: (d) => d.name, wide: true },
+      { label: 'Titre', value: (d) => d.title_fr },
+      { label: 'Affichage', value: (d) => d.displayMode }
+    ],
+    fields: [
+      t('eyebrow', 'Petit titre (au-dessus)'),
+      t('title', 'Titre principal', { multiline: true, rows: 2, required: true }),
+      t('description', 'Description', { multiline: true, rows: 3 }),
+      t('ctaServices', 'Bouton 1 — vers les prestations'),
+      t('ctaContact', 'Bouton 2 — vers le contact'),
+      f('displayMode', 'Fond de la bannière', { options: Object.values(DISPLAY_MODES) })
+    ]
+  },
+  {
+    id: 'heroSlides',
+    group: 'Accueil',
+    label: 'Diaporama de l’accueil',
+    icon: 'fa-photo-film',
+    singular: 'une slide',
+    description: 'Vidéo et images qui défilent derrière la bannière (selon le mode d’affichage choisi).',
+    notice: HOME_NOTICE,
+    items: () => (siteData.heroMedia?.slides || []).map((slide, index) => ({
+      id: slide.id,
+      order: String(index + 1),
+      type: slide.type === 'video' ? 'Vidéo' : 'Image',
+      src: slide.src,
+      visible: isSlideShown(slide) ? 'Oui' : 'Non'
+    })),
+    title: (draft) => `Slide ${draft.order || ''} — ${draft.type || ''}`,
+    columns: [
+      { label: 'Ordre', value: (d) => d.order },
+      { label: 'Fichier', value: (d) => d.src?.split('/').pop()?.split('?')[0], wide: true },
+      { label: 'Type', value: (d) => d.type },
+      { label: 'Affichée', value: (d) => d.visible }
+    ],
+    fields: [
+      f('type', 'Type', { options: ['Vidéo', 'Image'], required: true }),
+      f('src', 'Fichier (vidéo MP4 ou image)', { media: true }),
+      f('order', 'Ordre d’affichage'),
+      f('visible', 'Affichée sur le site', { options: ['Oui', 'Non'] })
     ]
   },
   {
