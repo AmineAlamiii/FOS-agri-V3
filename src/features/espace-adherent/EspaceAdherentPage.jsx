@@ -1,8 +1,10 @@
 import { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import SecondaryLayout from '@/components/layout/SecondaryLayout';
 import { usePageT } from '@/i18n/usePageT';
 import { url } from '@/lib/paths';
 import { espaceI18n } from './espace.i18n';
+import { startMemberDemo } from './member/memberSession';
 
 /** Champ de formulaire avec icône et message d'erreur. */
 function Field({ id, fieldId, label, error, children }) {
@@ -45,14 +47,12 @@ function LoginView({ t, hidden, onForgot }) {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const idError = useFieldError();
   const passError = useFieldError();
-  const [alertVisible, setAlertVisible] = useState(false);
-  const alertRef = useRef(null);
+  const navigate = useNavigate();
   const idRef = useRef(null);
   const passRef = useRef(null);
 
   const submit = (event) => {
     event.preventDefault();
-    setAlertVisible(false);
     let valid = true;
     let firstInvalid = null;
     if (id.trim().length < 3) {
@@ -69,8 +69,9 @@ function LoginView({ t, hidden, onForgot }) {
       firstInvalid?.focus();
       return;
     }
-    setAlertVisible(true);
-    requestAnimationFrame(() => alertRef.current?.focus({ preventScroll: false }));
+    // Démonstration : pas encore de vrais comptes, on ouvre l'espace d'un adhérent fictif.
+    startMemberDemo();
+    navigate('/espace-adherent/mon-espace');
   };
 
   return (
@@ -80,12 +81,6 @@ function LoginView({ t, hidden, onForgot }) {
         <p>{t('loginSub')}</p>
       </div>
 
-      <Alert id="espace-login-alert" icon="fa-circle-info" visible={alertVisible} alertRef={alertRef}>
-        <span>
-          <span>{t('loginAlert')}</span>{' '}
-          <a href={url('contact.html')}>{t('loginAlertCta')}</a>
-        </span>
-      </Alert>
 
       <form className="espace-form" id="espace-login-form" noValidate onSubmit={submit}>
         <Field id="espace-login-id" fieldId="espace-login-id-field" label={t('labelId')} error={idError}>
@@ -117,6 +112,7 @@ function LoginView({ t, hidden, onForgot }) {
           <i className="fa-solid fa-right-to-bracket" aria-hidden="true"></i>
           <span>{t('submitLogin')}</span>
         </button>
+        <p className="espace-demo-hint"><i className="fa-solid fa-flask" aria-hidden="true"></i> <span>{t('demoHint')}</span></p>
       </form>
 
       <div className="espace-divider">{t('dividerOr')}</div>

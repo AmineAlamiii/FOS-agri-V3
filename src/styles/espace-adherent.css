@@ -403,3 +403,21 @@ html[dir='rtl'] .espace-info-contact a i {
     align-items: flex-start;
   }
 }
+
+/* Démonstration de l'espace adhérent */
+.espace-demo-hint {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0.7rem 0.9rem;
+  border-radius: 12px;
+  background: #fff6dc;
+  border: 1px solid #f0d98d;
+  color: #7a5b07;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.espace-demo-hint i {
+  margin-top: 0.2rem;
+}

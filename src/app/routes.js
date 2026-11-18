@@ -289,6 +289,16 @@ export const ROUTES = [
     page: () => import('@/features/espace-adherent/EspaceAdherentPage')
   },
   {
+    path: '/espace-adherent/mon-espace',
+    legacy: 'espace-adherent/mon-espace.html',
+    title: "FOS-Agri | Mon espace adhérent",
+    description: "Démonstration de l'espace personnel de l'adhérent FOS-Agri : demandes, documents, cotisations, avantages, messagerie et rendez-vous.",
+    bodyClass: 'secondary-page service-page member-space-page',
+    bodyData: { page: 'espace-adherent' },
+    styles: () => import('@/styles/pages/member-space.css?inline'),
+    page: () => import('@/features/espace-adherent/member/MemberSpacePage')
+  },
+  {
     path: '/club-agri',
     legacy: 'club-agri.html',
     title: "FOS-Agri | Club Agri",
