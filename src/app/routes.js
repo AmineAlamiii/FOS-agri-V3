@@ -296,5 +296,14 @@ export const ROUTES = [
     bodyData: { page: 'special' },
     styles: () => import('@/styles/pages/home.css?inline'),
     page: () => import('@/features/club-agri/ClubAgriPage')
+  },
+  {
+    // Démonstration d'un espace de gestion du contenu (non lié depuis le site).
+    path: '/admin',
+    legacy: 'admin.html',
+    title: "FOS-Agri | Espace de gestion (démonstration)",
+    bodyClass: 'cms-page',
+    styles: () => import('@/styles/pages/admin.css?inline'),
+    page: () => import('@/features/admin/AdminPage')
   }
 ];
