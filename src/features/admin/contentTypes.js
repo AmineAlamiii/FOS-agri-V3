@@ -159,6 +159,11 @@ export const CONTENT_TYPES = [
       { label: 'Type', value: (d) => d.type },
       { label: 'Âge limite', value: (d) => d.ageLimit }
     ],
+    filters: [
+      { key: 'type', label: 'Tous les types d’offre' },
+      { key: 'name', label: 'Toutes les banques' },
+      { key: 'ageLimit', label: 'Tous les âges limites' }
+    ],
     fields: [
       f('name', 'Banque', { required: true }),
       f('type', 'Type d’offre', { options: ['Crédit immobilier', 'Crédit à la consommation'] }),
