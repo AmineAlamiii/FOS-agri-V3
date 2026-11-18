@@ -136,7 +136,7 @@ function ContentList({ type, drafts, onEdit, onAdd }) {
   };
   const filterOptions = (type.filters || []).map((filter) => {
     const options = [...new Set(drafts.flatMap((draft) => valuesOf(draft, filter)))];
-    return { ...filter, options: filter.keepOrder ? options : options.sort((a, b) => a.localeCompare(b, 'fr')) };
+    return { ...filter, options: filter.keepOrder ? options : options.sort(filter.sort || ((a, b) => a.localeCompare(b, 'fr'))) };
   });
   const rows = drafts.filter((draft) =>
     (!q || Object.values(draft).some((value) => String(value).toLowerCase().includes(q)))

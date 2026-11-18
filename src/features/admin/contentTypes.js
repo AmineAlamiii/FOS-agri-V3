@@ -36,6 +36,25 @@ const NEWS_CATEGORIES = ['Institutionnel', 'Santé', 'Éducation', 'Loisirs et v
 const MEDICAL_CATEGORIES = [...new Set(medicalPartnersData.map((entry) => entry.categorie).filter(Boolean))].sort();
 const REGIONS = [...new Set(medicalPartnersData.map((entry) => entry.region).filter(Boolean))].sort();
 
+/** Agenda : valeurs dérivées de la date (JJ/MM/AAAA) pour les filtres. */
+const MONTHS_FR = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+const monthIndex = (label) => {
+  const [month, year] = label.split(' ');
+  return Number(year) * 12 + MONTHS_FR.indexOf(month);
+};
+const byMonth = (a, b) => monthIndex(a) - monthIndex(b);
+function eventFilterValues(event) {
+  const [day, month, year] = String(event.date || '').split('/').map(Number);
+  if (!year) return { importance: event.important ? 'Important' : 'Standard' };
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return {
+    month: `${MONTHS_FR[month - 1]} ${year}`,
+    period: new Date(year, month - 1, day) >= today ? 'À venir' : 'Passé',
+    importance: event.important ? 'Important' : 'Standard'
+  };
+}
+
 export const CONTENT_TYPES = [
   {
     id: 'news',
@@ -86,6 +105,7 @@ export const CONTENT_TYPES = [
     items: () => (siteData.events || []).map((event, index) => ({
       id: `event-${index}`,
       date: event.date,
+      ...eventFilterValues(event),
       time_fr: event.time || '', time_ar: event.timeAr || event.time || '', time_zgh: event.timeZgh || event.time || '',
       location_fr: event.location || '', location_ar: event.locationAr || '', location_zgh: event.locationZgh || '',
       type_fr: event.type || '', type_ar: event.typeAr || '', type_zgh: event.typeZgh || '',
@@ -98,6 +118,13 @@ export const CONTENT_TYPES = [
       { label: 'Événement', value: (d) => d.title_fr, wide: true },
       { label: 'Lieu', value: (d) => d.location_fr },
       { label: 'Date', value: (d) => d.date }
+    ],
+    filters: [
+      { key: 'period', label: 'À venir et passés' },
+      { key: 'month', label: 'Tous les mois', sort: byMonth },
+      { key: 'type_fr', label: 'Tous les types' },
+      { key: 'location_fr', label: 'Tous les lieux' },
+      { key: 'importance', label: 'Toutes les importances' }
     ],
     fields: [
       t('title', 'Titre', { required: true }),
