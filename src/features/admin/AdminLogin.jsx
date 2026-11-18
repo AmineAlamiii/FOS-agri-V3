@@ -9,7 +9,7 @@ import { url } from '@/lib/paths';
  * C'est une barrière contre les visiteurs, pas une vraie sécurité : la vraie
  * authentification viendra avec le backend.
  */
-const PASSWORD_SHA256 = '03854ae61505d734647bdcb026b6308734c889af6381bd4a2c84180f4a06b344';
+const PASSWORD_SHA256 = '2a893235fb2761e2f085c2be09cded2d235f75ebad1aad8ac5abe1486812fb0b';
 const SESSION_KEY = 'fosagri-admin-session';
 
 async function sha256(text) {
