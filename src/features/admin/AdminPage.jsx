@@ -1,11 +1,17 @@
 import { useMemo, useState } from 'react';
 import { assetUrl, url } from '@/lib/paths';
 import { CONTENT_TYPES, LANGS, PLANNED_SECTIONS } from './contentTypes';
+import StructuredEditor from './StructuredEditor';
+import { STRUCTURED_TYPES, structuredLanguageStatus } from './structuredTypes';
+
+// Toutes les rubriques : fiches simples (contentTypes) et fiches à plusieurs niveaux (structuredTypes).
+const ALL_TYPES = [...CONTENT_TYPES, ...STRUCTURED_TYPES];
 
 const GROUPS = ['Contenu', 'Prestations', 'Accueil', 'Réglages'];
 
 /** Langues complètes d'une fiche : tous les champs traduits sont remplis. */
 function languageStatus(type, draft) {
+  if (type.schemaFor) return structuredLanguageStatus(draft, type.schemaFor(draft));
   const localized = type.fields.filter((field) => field.localized);
   return Object.fromEntries(LANGS.map(({ code }) => [
     code,
@@ -121,7 +127,7 @@ function ContentList({ type, drafts, onEdit, onAdd }) {
   const [query, setQuery] = useState('');
   const q = query.trim().toLowerCase();
   // Colonne « Langues » seulement si la rubrique contient des textes traduits.
-  const translated = type.fields.some((field) => field.localized);
+  const translated = Boolean(type.schemaFor) || type.fields.some((field) => field.localized);
   const rows = q ? drafts.filter((draft) => Object.values(draft).some((value) => String(value).toLowerCase().includes(q))) : drafts;
   return (
     <>
@@ -130,7 +136,7 @@ function ContentList({ type, drafts, onEdit, onAdd }) {
           <h2><i className={`fa-solid ${type.icon}`}></i> {type.label}</h2>
           <p>{type.description}</p>
         </div>
-        <button type="button" className="cms-btn cms-btn-primary" onClick={onAdd}><i className="fa-solid fa-plus"></i> Ajouter</button>
+        {onAdd && <button type="button" className="cms-btn cms-btn-primary" onClick={onAdd}><i className="fa-solid fa-plus"></i> Ajouter</button>}
       </div>
       {type.notice && <p className="cms-notice"><i className="fa-solid fa-lock"></i> {type.notice}</p>}
       <div className="cms-card cms-table-card">
@@ -163,7 +169,7 @@ function ContentList({ type, drafts, onEdit, onAdd }) {
 }
 
 function Dashboard({ data, onOpen }) {
-  const incomplete = CONTENT_TYPES.reduce((total, type) => total + data[type.id].filter((draft) => Object.values(languageStatus(type, draft)).includes(false)).length, 0);
+  const incomplete = ALL_TYPES.reduce((total, type) => total + data[type.id].filter((draft) => Object.values(languageStatus(type, draft)).includes(false)).length, 0);
   const latest = data.news.slice(0, 5);
   return (
     <>
@@ -174,7 +180,7 @@ function Dashboard({ data, onOpen }) {
         </div>
       </div>
       <div className="cms-stats">
-        {CONTENT_TYPES.map((type) => (
+        {ALL_TYPES.map((type) => (
           <button key={type.id} type="button" className="cms-stat" onClick={() => onOpen(type.id)}>
             <i className={`fa-solid ${type.icon}`}></i>
             <strong>{data[type.id].length}</strong>
@@ -226,15 +232,15 @@ function Planned({ section }) {
  * restent dans le navigateur (aucun backend pour l'instant).
  */
 export default function AdminPage() {
-  const [data, setData] = useState(() => Object.fromEntries(CONTENT_TYPES.map((type) => [type.id, type.items()])));
+  const [data, setData] = useState(() => Object.fromEntries(ALL_TYPES.map((type) => [type.id, type.items()])));
   const [view, setView] = useState('dashboard');
   const [editing, setEditing] = useState(null);
   const [toast, setToast] = useState('');
-  const type = CONTENT_TYPES.find((entry) => entry.id === view);
+  const type = ALL_TYPES.find((entry) => entry.id === view);
   const planned = PLANNED_SECTIONS.find((entry) => entry.id === view);
   const nav = useMemo(() => GROUPS.map((group) => ({
     group,
-    entries: [...CONTENT_TYPES, ...PLANNED_SECTIONS].filter((entry) => entry.group === group)
+    entries: [...ALL_TYPES, ...PLANNED_SECTIONS].filter((entry) => entry.group === group)
   })), []);
 
   const notify = (message) => {
@@ -294,10 +300,11 @@ export default function AdminPage() {
           {view === 'dashboard' && <Dashboard data={data} onOpen={open} />}
           {planned && <Planned section={planned} />}
           {type && !editing && (
-            <ContentList type={type} drafts={data[type.id]} onEdit={setEditing} onAdd={() => setEditing({ id: `${type.id}-${Date.now()}`, isNew: true })} />
+            <ContentList type={type} drafts={data[type.id]} onEdit={setEditing} onAdd={type.schemaFor ? null : () => setEditing({ id: `${type.id}-${Date.now()}`, isNew: true })} />
           )}
-          {type && editing && (
-            <Editor key={editing.id} type={type} draft={editing} onSave={save} onCancel={() => setEditing(null)} onDelete={remove} />
+          {type && editing && (type.schemaFor
+            ? <StructuredEditor key={editing.id} type={type} draft={editing} onSave={save} onCancel={() => setEditing(null)} />
+            : <Editor key={editing.id} type={type} draft={editing} onSave={save} onCancel={() => setEditing(null)} onDelete={remove} />
           )}
         </main>
       </div>

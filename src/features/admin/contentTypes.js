@@ -275,12 +275,61 @@ export const CONTENT_TYPES = [
   }
 ];
 
-/** Rubriques prévues, présentées sans formulaire dans cette démonstration. */
-export const PLANNED_SECTIONS = [
-  { id: 'prestations', group: 'Prestations', label: 'Prestations (textes)', icon: 'fa-layer-group', items: ['6 rubriques et leurs sous-rubriques', 'Accordéons, bénéficiaires, pièces à fournir', 'Détails AMC et AMTS', 'Partenaires : promoteurs, culture, assurances, transport'] },
-  { id: 'adhesion', group: 'Contenu', label: 'Adhésion', icon: 'fa-id-card', items: ['Situations d’adhésion', 'Pièces à fournir par situation', 'Tableau des cotisations'] },
-  { id: 'fondation', group: 'Contenu', label: 'La Fondation', icon: 'fa-landmark', items: ['Mot du Ministre et du Président (texte, photo)', 'Frise « Histoire » et valeurs', 'Comités de gouvernance', 'Organigramme (noms, fonctions)'] },
-  { id: 'media', group: 'Contenu', label: 'Médiathèque', icon: 'fa-images', items: ['Galeries par année', 'Photos et vidéos'] },
-  { id: 'files', group: 'Réglages', label: 'Fichiers', icon: 'fa-folder-open', items: ['Bibliothèque de PDF et d’images', 'Réutilisables dans toutes les rubriques'] },
-  { id: 'settings', group: 'Réglages', label: 'Menu, pied de page, SEO', icon: 'fa-sliders', items: ['Menu principal et sous-menus', 'Coordonnées et réseaux sociaux', 'Vidéo / images du haut de l’accueil', 'Titres et descriptions des pages (Google)'] }
-];
+/** Toutes les rubriques sont désormais disponibles dans la démonstration. */
+export const PLANNED_SECTIONS = [];
+
+/** Bibliothèque des fichiers utilisés par le site (images, PDF, vidéo). */
+const fileKind = (path) => (/\.pdf$/i.test(path) ? 'PDF' : /\.(mp4|webm)$/i.test(path) ? 'Vidéo' : /\.(xlsx?|docx?)$/i.test(path) ? 'Document' : 'Image');
+function collectFiles() {
+  const files = new Map();
+  const add = (path, usedIn) => {
+    if (!path || /^https?:/.test(path)) return;
+    const clean = path.replace(/^\.\//, '').split('?')[0];
+    const entry = files.get(clean) || { usedIn: new Set() };
+    entry.usedIn.add(usedIn);
+    files.set(clean, entry);
+  };
+  siteData.news.forEach((item) => {
+    add(item.image, 'Actualités');
+    (item.attachments || []).forEach((attachment) => add(attachment.path, 'Actualités'));
+  });
+  (siteData.heroMedia?.slides || []).forEach((slide) => add(slide.src, 'Accueil'));
+  siteData.partners.forEach((partner) => add(partner.logo, 'Accueil'));
+  [...banquesLogementImmobilier, ...banquesLogementConsommation].forEach((bank) => {
+    add(bank.pdf, 'Offres bancaires');
+    add(`assets/images/banks/${bank.logo}`, 'Offres bancaires');
+  });
+  medicalPartnersData.forEach((entry) => {
+    add(entry.pdf, 'Conventions médicales');
+    add(entry.pdfContact, 'Conventions médicales');
+  });
+  return [...files.entries()].map(([path, entry], index) => ({
+    id: `file-${index}`,
+    name: path.split('/').pop(),
+    path,
+    kind: fileKind(path),
+    usedIn: [...entry.usedIn].join(', ')
+  }));
+}
+
+CONTENT_TYPES.push({
+  id: 'files',
+  group: 'Réglages',
+  label: 'Fichiers',
+  icon: 'fa-folder-open',
+  singular: 'un fichier',
+  description: 'Images, PDF et vidéo utilisés par le site, réutilisables dans toutes les rubriques.',
+  items: collectFiles,
+  title: (draft) => draft.name,
+  columns: [
+    { label: 'Fichier', value: (d) => d.name, wide: true },
+    { label: 'Type', value: (d) => d.kind },
+    { label: 'Utilisé dans', value: (d) => d.usedIn }
+  ],
+  fields: [
+    f('name', 'Nom du fichier', { required: true }),
+    f('path', 'Fichier', { media: true }),
+    f('kind', 'Type', { options: ['Image', 'PDF', 'Vidéo', 'Document'] }),
+    f('usedIn', 'Utilisé dans')
+  ]
+});
