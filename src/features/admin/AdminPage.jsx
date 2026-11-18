@@ -125,10 +125,33 @@ function Editor({ type, draft, onSave, onCancel, onDelete }) {
 /** Liste des fiches d'un type de contenu, avec recherche. */
 function ContentList({ type, drafts, onEdit, onAdd }) {
   const [query, setQuery] = useState('');
+  const [filters, setFilters] = useState({});
   const q = query.trim().toLowerCase();
   // Colonne « Langues » seulement si la rubrique contient des textes traduits.
   const translated = Boolean(type.schemaFor) || type.fields.some((field) => field.localized);
-  const rows = q ? drafts.filter((draft) => Object.values(draft).some((value) => String(value).toLowerCase().includes(q))) : drafts;
+  // Une valeur peut regrouper plusieurs rubriques (« Accueil, Offres bancaires »).
+  const valuesOf = (draft, key) => String(draft[key] || '').split(', ').filter(Boolean);
+  const filterOptions = (type.filters || []).map((filter) => ({
+    ...filter,
+    options: [...new Set(drafts.flatMap((draft) => valuesOf(draft, filter.key)))].sort()
+  }));
+  const rows = drafts.filter((draft) =>
+    (!q || Object.values(draft).some((value) => String(value).toLowerCase().includes(q)))
+    && Object.entries(filters).every(([key, value]) => !value || valuesOf(draft, key).includes(value)));
+  const renderCell = (column, draft) => {
+    if (!column.file) return column.value(draft) || '—';
+    return (
+      <span className="cms-file">
+        {draft.thumb
+          ? <img className="cms-file-thumb" src={assetUrl(draft.thumb)} alt="" loading="lazy" />
+          : <span className="cms-file-thumb is-icon"><i className={`fa-solid ${draft.kind === 'PDF' ? 'fa-file-pdf' : draft.kind === 'Vidéo' ? 'fa-film' : 'fa-file'}`}></i></span>}
+        <span className="cms-file-text">
+          <strong>{column.value(draft)}</strong>
+          {draft.source && <small>{draft.source}</small>}
+        </span>
+      </span>
+    );
+  };
   return (
     <>
       <div className="cms-page-head">
@@ -143,6 +166,15 @@ function ContentList({ type, drafts, onEdit, onAdd }) {
         <div className="cms-search">
           <i className="fa-solid fa-magnifying-glass"></i>
           <input type="search" placeholder={`Rechercher (${drafts.length} éléments)…`} value={query} onChange={(e) => setQuery(e.target.value)} />
+          {filterOptions.map((filter) => (
+            <select key={filter.key} className="cms-filter" aria-label={filter.label} value={filters[filter.key] || ''} onChange={(e) => setFilters({ ...filters, [filter.key]: e.target.value })}>
+              <option value="">{filter.label}</option>
+              {filter.options.map((option) => (
+                <option key={option} value={option}>{option} ({drafts.filter((draft) => valuesOf(draft, filter.key).includes(option)).length})</option>
+              ))}
+            </select>
+          ))}
+          {(q || Object.values(filters).some(Boolean)) && rows.length !== drafts.length && <span className="cms-count">{rows.length} résultat{rows.length > 1 ? 's' : ''}</span>}
         </div>
         <table className="cms-table">
           <thead>
@@ -155,7 +187,7 @@ function ContentList({ type, drafts, onEdit, onAdd }) {
           <tbody>
             {rows.map((draft) => (
               <tr key={draft.id} onClick={() => onEdit(draft)}>
-                {type.columns.map((column) => <td key={column.label} className={column.wide ? 'is-wide' : undefined}>{column.value(draft) || '—'}</td>)}
+                {type.columns.map((column) => <td key={column.label} className={column.wide ? 'is-wide' : undefined}>{renderCell(column, draft)}</td>)}
                 {translated && <td><LangDots status={languageStatus(type, draft)} /></td>}
                 <td className="cms-row-action"><i className="fa-solid fa-pen"></i></td>
               </tr>
@@ -300,7 +332,7 @@ export default function AdminPage() {
           {view === 'dashboard' && <Dashboard data={data} onOpen={open} />}
           {planned && <Planned section={planned} />}
           {type && !editing && (
-            <ContentList type={type} drafts={data[type.id]} onEdit={setEditing} onAdd={type.schemaFor ? null : () => setEditing({ id: `${type.id}-${Date.now()}`, isNew: true })} />
+            <ContentList key={type.id} type={type} drafts={data[type.id]} onEdit={setEditing} onAdd={type.schemaFor ? null : () => setEditing({ id: `${type.id}-${Date.now()}`, isNew: true })} />
           )}
           {type && editing && (type.schemaFor
             ? <StructuredEditor key={editing.id} type={type} draft={editing} onSave={save} onCancel={() => setEditing(null)} />

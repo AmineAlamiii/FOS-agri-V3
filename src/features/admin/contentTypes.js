@@ -282,32 +282,42 @@ export const PLANNED_SECTIONS = [];
 const fileKind = (path) => (/\.pdf$/i.test(path) ? 'PDF' : /\.(mp4|webm)$/i.test(path) ? 'Vidéo' : /\.(xlsx?|docx?)$/i.test(path) ? 'Document' : 'Image');
 function collectFiles() {
   const files = new Map();
-  const add = (path, usedIn) => {
+  // usedIn : rubrique ; source : contenu précis (titre de l'article, banque…) ; preview : miniature.
+  const add = (path, usedIn, source, preview) => {
     if (!path || /^https?:/.test(path)) return;
     const clean = path.replace(/^\.\//, '').split('?')[0];
-    const entry = files.get(clean) || { usedIn: new Set() };
+    const entry = files.get(clean) || { usedIn: new Set(), sources: new Set(), preview: null };
     entry.usedIn.add(usedIn);
+    if (source) entry.sources.add(source);
+    entry.preview = entry.preview || preview || (fileKind(clean) === 'Image' ? clean : null);
     files.set(clean, entry);
   };
   siteData.news.forEach((item) => {
-    add(item.image, 'Actualités');
-    (item.attachments || []).forEach((attachment) => add(attachment.path, 'Actualités'));
+    const title = item.fr?.title || item.slug;
+    add(item.image, 'Actualités', title);
+    (item.attachments || []).forEach((attachment) => add(attachment.path, 'Actualités', title, attachment.preview));
   });
-  (siteData.heroMedia?.slides || []).forEach((slide) => add(slide.src, 'Accueil'));
-  siteData.partners.forEach((partner) => add(partner.logo, 'Accueil'));
-  [...banquesLogementImmobilier, ...banquesLogementConsommation].forEach((bank) => {
-    add(bank.pdf, 'Offres bancaires');
-    add(`assets/images/banks/${bank.logo}`, 'Offres bancaires');
+  (siteData.heroMedia?.slides || []).forEach((slide, index) => add(slide.src, 'Accueil', `Diaporama de l’accueil — diapositive ${index + 1}`));
+  siteData.partners.forEach((partner) => add(partner.logo, 'Accueil', `Logo partenaire — ${partner.name}`));
+  [
+    ...banquesLogementImmobilier.map((bank) => [bank, 'crédit immobilier']),
+    ...banquesLogementConsommation.map((bank) => [bank, 'crédit à la consommation'])
+  ].forEach(([bank, offer]) => {
+    add(bank.pdf, 'Offres bancaires', `${bank.name} — ${offer}`);
+    add(`assets/images/banks/${bank.logo}`, 'Offres bancaires', `Logo — ${bank.name}`);
   });
   medicalPartnersData.forEach((entry) => {
-    add(entry.pdf, 'Conventions médicales');
-    add(entry.pdfContact, 'Conventions médicales');
+    const name = [entry.organisme || entry.medecin, entry.ville].filter(Boolean).join(' — ');
+    add(entry.pdf, 'Conventions médicales', name);
+    add(entry.pdfContact, 'Conventions médicales', name);
   });
   return [...files.entries()].map(([path, entry], index) => ({
     id: `file-${index}`,
-    name: path.split('/').pop(),
+    name: decodeURIComponent(path.split('/').pop()),
     path,
     kind: fileKind(path),
+    thumb: entry.preview || '',
+    source: [...entry.sources].join(' · '),
     usedIn: [...entry.usedIn].join(', ')
   }));
 }
@@ -322,12 +332,18 @@ CONTENT_TYPES.push({
   items: collectFiles,
   title: (draft) => draft.name,
   columns: [
-    { label: 'Fichier', value: (d) => d.name, wide: true },
+    { label: 'Fichier', value: (d) => d.name, wide: true, file: true },
     { label: 'Type', value: (d) => d.kind },
     { label: 'Utilisé dans', value: (d) => d.usedIn }
   ],
+  // Filtres affichés au-dessus du tableau (valeurs calculées à partir des fichiers).
+  filters: [
+    { key: 'kind', label: 'Tous les types' },
+    { key: 'usedIn', label: 'Toutes les rubriques' }
+  ],
   fields: [
     f('name', 'Nom du fichier', { required: true }),
+    f('source', 'Contenu lié (article, banque, convention…)'),
     f('path', 'Fichier', { media: true }),
     f('kind', 'Type', { options: ['Image', 'PDF', 'Vidéo', 'Document'] }),
     f('usedIn', 'Utilisé dans')
