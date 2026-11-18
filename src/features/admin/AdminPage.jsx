@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { assetUrl, url } from '@/lib/paths';
 import { CONTENT_TYPES, LANGS, PLANNED_SECTIONS } from './contentTypes';
+import AdminLogin, { endAdminSession, isAdminSession } from './AdminLogin';
 import StructuredEditor from './StructuredEditor';
 import { STRUCTURED_TYPES, structuredLanguageStatus } from './structuredTypes';
 
@@ -288,6 +289,12 @@ function Planned({ section }) {
  * restent dans le navigateur (aucun backend pour l'instant).
  */
 export default function AdminPage() {
+  const [signedIn, setSignedIn] = useState(isAdminSession);
+  if (!signedIn) return <AdminLogin onSuccess={() => setSignedIn(true)} />;
+  return <AdminSpace onLogout={() => { endAdminSession(); setSignedIn(false); }} />;
+}
+
+function AdminSpace({ onLogout }) {
   const [data, setData] = useState(() => Object.fromEntries(ALL_TYPES.map((type) => [type.id, type.items()])));
   const [view, setView] = useState('dashboard');
   const [editing, setEditing] = useState(null);
@@ -332,6 +339,7 @@ export default function AdminPage() {
         <span className="cms-demo-badge"><i className="fa-solid fa-flask"></i> Démonstration — aucune modification n’est enregistrée</span>
         <a className="cms-btn cms-btn-light" href={url('index.html')} target="_blank" rel="noopener"><i className="fa-solid fa-arrow-up-right-from-square"></i> Voir le site</a>
         <span className="cms-user"><i className="fa-solid fa-user"></i> Administrateur</span>
+        <button type="button" className="cms-btn cms-logout" onClick={onLogout}><i className="fa-solid fa-right-from-bracket"></i> Déconnexion</button>
       </header>
 
       <div className="cms-body">

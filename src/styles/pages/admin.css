@@ -136,3 +136,22 @@ body.cms-page { margin: 0; background: var(--cms-bg); color: var(--cms-text); fo
 .cms-filter { max-width: 220px; }
 .cms-filter-reset { border: 0; background: none; font: inherit; font-size: .8rem; color: var(--cms-muted); cursor: pointer; padding: .3rem .4rem; border-radius: 6px; }
 .cms-filter-reset:hover { color: inherit; background: #f1f3ee; }
+
+/* Connexion à la démonstration */
+.cms-login { min-height: 100vh; display: grid; place-items: center; padding: 1.5rem; background: #f4f6f1; }
+.cms-login-card { width: min(100%, 380px); display: flex; flex-direction: column; gap: .75rem; padding: 2rem; background: #fff; border: 1px solid var(--cms-line); border-radius: 16px; box-shadow: 0 10px 30px rgba(20, 40, 20, .08); }
+.cms-login-card img { align-self: center; object-fit: contain; }
+.cms-login-card h1 { margin: 0; text-align: center; font-size: 1.35rem; }
+.cms-login-card p { margin: 0 0 .5rem; text-align: center; color: var(--cms-muted); font-size: .9rem; }
+.cms-login-card label { font-weight: 600; font-size: .85rem; }
+.cms-login-field { position: relative; }
+.cms-login-field input { width: 100%; box-sizing: border-box; padding: .7rem 2.75rem .7rem .85rem; border: 1px solid var(--cms-line); border-radius: 10px; font: inherit; }
+.cms-login-field input:focus { outline: 2px solid #2f6b3a; outline-offset: 1px; }
+.cms-login-field input[aria-invalid="true"] { border-color: #b4413a; }
+.cms-login-eye { position: absolute; inset-inline-end: .35rem; top: 50%; transform: translateY(-50%); border: 0; background: none; padding: .45rem; color: var(--cms-muted); cursor: pointer; }
+.cms-login-card p.cms-login-error { margin: 0; text-align: start; color: #b4413a; font-size: .85rem; }
+.cms-login-card .cms-btn { justify-content: center; margin-top: .25rem; }
+.cms-login-card .cms-btn:disabled { opacity: .55; cursor: not-allowed; }
+.cms-login-back { align-self: center; font-size: .85rem; color: var(--cms-muted); text-decoration: none; }
+.cms-login-back:hover { color: inherit; }
+.cms-logout { font-size: .85rem; }
