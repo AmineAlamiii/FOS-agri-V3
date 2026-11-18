@@ -293,7 +293,7 @@ export const ROUTES = [
     legacy: 'espace-adherent/mon-espace.html',
     title: "FOS-Agri | Mon espace adhérent",
     description: "Démonstration de l'espace personnel de l'adhérent FOS-Agri : demandes, documents, cotisations, avantages, messagerie et rendez-vous.",
-    bodyClass: 'secondary-page service-page member-space-page',
+    bodyClass: 'member-space-page',
     bodyData: { page: 'espace-adherent' },
     styles: () => import('@/styles/pages/member-space.css?inline'),
     page: () => import('@/features/espace-adherent/member/MemberSpacePage')

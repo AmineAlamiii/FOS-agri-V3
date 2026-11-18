@@ -1,5 +1,3 @@
-/* Styles de l'espace personnel de l'adhérent (même base que la page Espace adhérent). */
-@import '../styles.css';
-@import '../secondary-pages.css';
+/* Espace personnel de l'adhérent : application à part (comme l'espace de gestion),
+   sans les styles du site public. */
 @import '../member-space.css';
-@import '../nav-submenu.css';

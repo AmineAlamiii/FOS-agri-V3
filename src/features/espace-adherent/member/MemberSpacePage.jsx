@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import SecondaryLayout from '@/components/layout/SecondaryLayout';
+import { useLanguage } from '@/i18n/LanguageProvider';
+import { url } from '@/lib/paths';
 import { useDocumentMeta } from '@/i18n/usePageT';
 import { endMemberDemo } from './memberSession';
 import { APPOINTMENTS, CONVERSATIONS, CONTRIBUTIONS, DOCUMENTS, FAMILY, MEMBER, NOTIFICATIONS, placeLabel, reasonLabel, REQUESTS, serviceLabel } from './memberDemo';
@@ -19,6 +20,12 @@ const SECTIONS = [
   { id: 'benefits', icon: 'fa-gift' },
   { id: 'messages', icon: 'fa-comments' },
   { id: 'appointments', icon: 'fa-calendar-check' }
+];
+
+const LANG_BUTTONS = [
+  { code: 'fr', label: 'Fr' },
+  { code: 'ar', label: 'Ar' },
+  { code: 'zgh', label: 'Am' }
 ];
 
 const sectionFromHash = () => {
@@ -50,7 +57,16 @@ function Dashboard({ store, open, onNewRequest }) {
   ];
   return (
     <>
-      <SectionHead title={t('nav_dashboard')} intro={t('intro_dashboard')} />
+      <SectionHead
+        title={`${t('hello')} ${loc(MEMBER.firstName)}`}
+        intro={t('intro_dashboard')}
+        action={(
+          <div className="ms-member-tags">
+            <span className="ms-badge is-neutral"><i className="fa-solid fa-id-card" aria-hidden="true"></i> <span>{t('memberNo')} <bdi dir="ltr">{MEMBER.memberNo}</bdi></span></span>
+            <span className="ms-badge is-success"><i className="fa-solid fa-circle-check" aria-hidden="true"></i> <span>{t('statusActive')}</span></span>
+          </div>
+        )}
+      />
       <div className="ms-stats">
         {stats.map((stat) => (
           <button key={stat.id} type="button" className="ms-stat" onClick={() => open(stat.id)}>
@@ -310,6 +326,7 @@ function initialStore() {
 
 function MemberSpace() {
   const { t, loc } = useMemberT();
+  const { lang, setLang } = useLanguage();
   const navigate = useNavigate();
   const [section, setSection] = useState(sectionFromHash);
   const [requestView, setRequestView] = useState({ mode: 'list' });
@@ -342,7 +359,7 @@ function MemberSpace() {
     setRequestView(view);
     window.history.replaceState(window.history.state, '', `${window.location.pathname}${window.location.search}#${id}`);
     requestAnimationFrame(() => contentRef.current?.focus({ preventScroll: true }));
-    contentRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
   const logout = () => {
     endMemberDemo();
@@ -355,29 +372,32 @@ function MemberSpace() {
   const badges = { requests: openRequests, messages: unread };
 
   return (
-    <main className="ms-page">
-      <section className="page-hero-secondary ms-hero">
-        <div className="container ms-member">
-          <span className="ms-avatar is-large" aria-hidden="true">{loc(MEMBER.firstName).charAt(0)}</span>
-          <div className="ms-member-text">
-            <span className="page-kicker"><i className="fa-solid fa-user-shield" aria-hidden="true"></i> <span>{t('spaceKicker')}</span></span>
-            <h1>{t('hello')} {loc(MEMBER.firstName)}</h1>
-            <p>
-              <span>{t('memberNo')} <strong dir="ltr">{MEMBER.memberNo}</strong></span>
-              <span className="ms-badge is-light"><i className="fa-solid fa-circle-check" aria-hidden="true"></i> <span>{t('statusActive')}</span></span>
-            </p>
-          </div>
-          <button type="button" className="ms-btn ms-btn-ghost ms-logout" onClick={logout}>
-            <i className="fa-solid fa-right-from-bracket" aria-hidden="true"></i> <span>{t('logout')}</span>
-          </button>
+    <div className="ms-app">
+      <header className="ms-topbar">
+        <a className="ms-brand" href={url('index.html')}>
+          <img src={url('assets/images/logo.png')} alt="" width="46" height="36" />
+          <span><strong>FOS-Agri</strong><span>{t('spaceKicker')}</span></span>
+        </a>
+        <span className="ms-demo-badge" title={t('demoBanner')}><i className="fa-solid fa-flask" aria-hidden="true"></i> <span>{t('demoBadge')}</span></span>
+        <div className="ms-lang" role="group" aria-label={t('languageLabel')}>
+          {LANG_BUTTONS.map(({ code, label }) => (
+            <button key={code} type="button" lang={code} className={lang === code ? 'is-active' : undefined} aria-pressed={lang === code} onClick={() => setLang(code)}>{label}</button>
+          ))}
         </div>
-      </section>
+        <a className="ms-btn ms-btn-light ms-topbar-link" href={url('index.html')}>
+          <i className="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> <span>{t('seeSite')}</span>
+        </a>
+        <span className="ms-user">
+          <span className="ms-avatar" aria-hidden="true">{loc(MEMBER.firstName).charAt(0)}</span>
+          <span className="ms-user-name">{loc(MEMBER.fullName)}</span>
+        </span>
+        <button type="button" className="ms-btn ms-btn-light ms-logout" onClick={logout} aria-label={t('logout')}>
+          <i className="fa-solid fa-right-from-bracket" aria-hidden="true"></i> <span>{t('logout')}</span>
+        </button>
+      </header>
 
-      <section className="ms-body">
-      <div className="container">
-        <p className="ms-demo-banner" role="note"><i className="fa-solid fa-flask" aria-hidden="true"></i> <span>{t('demoBanner')}</span></p>
-
-        <div className="ms-layout">
+      <div className="ms-body">
+        <aside className="ms-sidebar">
           <nav className="ms-nav" ref={navRef} aria-label={t('menuLabel')}>
             {SECTIONS.map((entry) => (
               <button key={entry.id} type="button" className={section === entry.id ? 'is-active' : undefined} aria-current={section === entry.id ? 'page' : undefined} onClick={() => open(entry.id)}>
@@ -387,33 +407,29 @@ function MemberSpace() {
               </button>
             ))}
           </nav>
+        </aside>
 
-          <div className="ms-content" ref={contentRef} tabIndex={-1}>
-            {section === 'dashboard' && <Dashboard {...shared} onNewRequest={() => open('requests', { mode: 'new' })} />}
-            {section === 'profile' && <Profile {...shared} />}
-            {section === 'family' && <Family {...shared} />}
-            {section === 'requests' && <RequestsSection {...shared} view={requestView} setView={setRequestView} />}
-            {section === 'documents' && <DocumentsSection {...shared} />}
-            {section === 'contributions' && <ContributionsSection {...shared} />}
-            {section === 'benefits' && <BenefitsSection {...shared} />}
-            {section === 'messages' && <MessagesSection {...shared} />}
-            {section === 'appointments' && <AppointmentsSection {...shared} />}
-          </div>
-        </div>
+        <main className="ms-main" ref={contentRef} tabIndex={-1}>
+          {section === 'dashboard' && <Dashboard {...shared} onNewRequest={() => open('requests', { mode: 'new' })} />}
+          {section === 'profile' && <Profile {...shared} />}
+          {section === 'family' && <Family {...shared} />}
+          {section === 'requests' && <RequestsSection {...shared} view={requestView} setView={setRequestView} />}
+          {section === 'documents' && <DocumentsSection {...shared} />}
+          {section === 'contributions' && <ContributionsSection {...shared} />}
+          {section === 'benefits' && <BenefitsSection {...shared} />}
+          {section === 'messages' && <MessagesSection {...shared} />}
+          {section === 'appointments' && <AppointmentsSection {...shared} />}
+        </main>
       </div>
-      </section>
 
       <div className="ms-toast-zone" aria-live="polite">
         {toast && <div className="ms-toast"><i className="fa-solid fa-circle-check" aria-hidden="true"></i> <span>{toast}</span></div>}
       </div>
-    </main>
+    </div>
   );
 }
 
+/** Espace à part, comme l'espace de gestion : sans l'en-tête ni le pied de page du site public. */
 export default function MemberSpacePage() {
-  return (
-    <SecondaryLayout activePage="espace-adherent" brandLabel="FOS-Agri accueil">
-      <MemberSpace />
-    </SecondaryLayout>
-  );
+  return <MemberSpace />;
 }

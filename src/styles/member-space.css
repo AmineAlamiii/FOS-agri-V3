@@ -1,122 +1,212 @@
-/* Espace personnel de l'adhérent (démonstration). Chargé uniquement par cette page. */
+/* Espace personnel de l'adhérent (démonstration) : application à part, comme l'espace
+   de gestion. Ne dépend pas des styles du site public. Préfixe .ms- */
 
-.ms-page {
-  --ms-green: var(--green, #1f6a43);
-  --ms-green-deep: var(--green-deep, #184f34);
+:root {
+  --ms-green: #1f6a43;
+  --ms-green-deep: #154d31;
+  --ms-gold: #c8a44d;
+  --ms-bg: #f5f6f2;
   --ms-text: #1f3526;
   --ms-muted: #5c6c61;
-  --ms-line: rgba(28, 82, 55, 0.12);
+  --ms-line: #e3e7df;
   --ms-soft: #f2f7f2;
-  --ms-radius: 18px;
+  --ms-radius: 16px;
+  --ms-topbar: 64px;
 }
 
-/* ---------- Bandeau vert ---------- */
-
-.ms-hero.page-hero-secondary {
-  min-height: auto;
-  padding: 8.5rem 0 3rem;
+* {
+  box-sizing: border-box;
 }
 
-.ms-member {
+body.member-space-page {
+  margin: 0;
+  background: var(--ms-bg);
+  color: var(--ms-text);
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: 15px;
+}
+
+html[dir="rtl"] body.member-space-page {
+  font-family: 'Tajawal', 'Poppins', sans-serif;
+}
+
+html[lang="zgh"] body.member-space-page {
+  font-family: 'Noto Sans Tifinagh', 'Poppins', sans-serif;
+}
+
+/* Nombres en arabe : toujours de gauche à droite (comme sur le site). */
+.ar-number-ltr {
+  direction: ltr;
+  unicode-bidi: isolate;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+html[dir="rtl"] .member-space-page :is(p, li, dd, dt, td, th) {
+  unicode-bidi: plaintext;
+}
+
+/* ---------- Barre du haut ---------- */
+
+.ms-app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.ms-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
   display: flex;
   align-items: center;
-  gap: 1.25rem;
-  position: relative;
-  z-index: 1;
+  gap: 0.75rem;
+  min-height: var(--ms-topbar);
+  padding: 0.6rem 1.5rem;
+  background: #fff;
+  border-bottom: 1px solid var(--ms-line);
 }
 
-.ms-member-text {
-  flex: 1;
-  min-width: 0;
+.ms-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--ms-text);
+  text-decoration: none;
+  margin-inline-end: auto;
 }
 
-.ms-member-text h1 {
-  margin: 0.35rem 0 0.4rem;
-  font-size: clamp(1.6rem, 3vw, 2.3rem);
+.ms-brand img {
+  object-fit: contain;
+}
+
+.ms-brand > span {
+  display: flex;
+  flex-direction: column;
   line-height: 1.2;
 }
 
-.ms-member-text p {
-  display: flex;
-  flex-wrap: wrap;
+.ms-brand strong {
+  font-size: 1.05rem;
+  color: var(--ms-green);
+  white-space: nowrap;
+}
+
+.ms-brand > span > span {
+  font-size: 0.8rem;
+  color: var(--ms-muted);
+}
+
+.ms-demo-badge {
+  display: inline-flex;
   align-items: center;
-  gap: 0.6rem 1rem;
-  margin: 0;
-  opacity: 0.95;
+  gap: 0.45rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: #fff6df;
+  color: #8a6a14;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.ms-lang {
+  display: inline-flex;
+  padding: 0.2rem;
+  border-radius: 999px;
+  background: var(--ms-bg);
+}
+
+.ms-lang button {
+  min-width: 2.3rem;
+  padding: 0.3rem 0.6rem;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--ms-muted);
+  font: inherit;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ms-lang button.is-active {
+  background: var(--ms-green);
+  color: #fff;
+}
+
+.ms-user {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.8rem 0.25rem 0.25rem;
+  border-radius: 999px;
+  background: var(--ms-bg);
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+[dir="rtl"] .ms-user {
+  padding: 0.25rem 0.25rem 0.25rem 0.8rem;
 }
 
 .ms-avatar {
   display: inline-grid;
   place-items: center;
   flex: none;
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
-  background: var(--ms-soft);
-  color: var(--ms-green);
-  font-size: 1.1rem;
+  background: var(--ms-green);
+  color: #fff;
+  font-size: 0.85rem;
   font-weight: 700;
 }
 
-.ms-avatar.is-large {
-  width: 4.5rem;
-  height: 4.5rem;
-  font-size: 1.8rem;
-  background: rgba(255, 255, 255, 0.16);
-  color: #fff;
-  border: 2px solid rgba(255, 255, 255, 0.45);
+.ms-member-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
-/* ---------- Corps ---------- */
+/* ---------- Menu et contenu ---------- */
 
 .ms-body {
-  padding: 2rem 0 5rem;
-}
-
-.ms-demo-banner {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin: 0 0 1.5rem;
-  padding: 0.75rem 1rem;
-  border-radius: 12px;
-  background: #fff6dc;
-  border: 1px solid #f0d98d;
-  color: #7a5b07;
-  font-size: 0.9rem;
-}
-
-.ms-layout {
+  flex: 1;
   display: grid;
-  grid-template-columns: 250px minmax(0, 1fr);
-  gap: 1.75rem;
-  align-items: start;
+  grid-template-columns: 260px minmax(0, 1fr);
+}
+
+.ms-sidebar {
+  position: sticky;
+  top: var(--ms-topbar);
+  align-self: start;
+  height: calc(100vh - var(--ms-topbar));
+  overflow-y: auto;
+  padding: 1rem 0.75rem;
+  background: #fff;
+  border-inline-end: 1px solid var(--ms-line);
 }
 
 .ms-nav {
-  position: sticky;
-  top: 6.5rem;
   display: grid;
-  gap: 0.25rem;
-  padding: 0.6rem;
-  background: #fff;
-  border: 1px solid var(--ms-line);
-  border-radius: var(--ms-radius);
-  box-shadow: 0 12px 35px rgba(16, 55, 35, 0.06);
+  gap: 0.2rem;
 }
 
 .ms-nav button {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.7rem;
   width: 100%;
-  padding: 0.7rem 0.85rem;
+  padding: 0.65rem 0.8rem;
   border: 0;
-  border-radius: 12px;
+  border-radius: 10px;
   background: none;
   color: var(--ms-text);
   font: inherit;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   text-align: start;
   cursor: pointer;
   white-space: nowrap;
@@ -128,12 +218,12 @@
   color: var(--ms-green);
 }
 
-.ms-nav button span:first-of-type {
+.ms-nav button > span:first-of-type {
   flex: 1;
 }
 
 .ms-nav button:hover {
-  background: var(--ms-soft);
+  background: var(--ms-bg);
 }
 
 .ms-nav button.is-active {
@@ -150,16 +240,17 @@
   min-width: 1.4rem;
   padding: 0.05rem 0.45rem;
   border-radius: 999px;
-  background: #c8a44d;
+  background: var(--ms-gold);
   color: #fff;
   font-size: 0.75rem;
   font-weight: 700;
   text-align: center;
 }
 
-.ms-content {
+.ms-main {
   min-width: 0;
-  scroll-margin-top: 7rem;
+  width: 100%;
+  padding: 1.75rem 2rem 4rem;
   outline: none;
 }
 
@@ -383,24 +474,33 @@
   font-size: 0.8rem;
 }
 
-.ms-page .is-warning {
+.ms-app .is-warning {
   --ms-tone: #9a6700;
   --ms-tone-bg: #fff4d6;
 }
 
-.ms-page .is-info {
+.ms-app .is-info {
   --ms-tone: #1f5f8b;
   --ms-tone-bg: #e5f1fa;
 }
 
-.ms-page .is-success {
+.ms-app .is-success {
   --ms-tone: #1f6a43;
   --ms-tone-bg: #e3f3e8;
 }
 
-.ms-page .is-danger {
+.ms-app .is-danger {
   --ms-tone: #b4413a;
   --ms-tone-bg: #fbe7e5;
+}
+
+.ms-app .is-neutral {
+  --ms-tone: var(--ms-text);
+  --ms-tone-bg: #fff;
+}
+
+.ms-badge.is-neutral {
+  border: 1px solid var(--ms-line);
 }
 
 .ms-notifications i.is-warning,
@@ -506,6 +606,7 @@
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
+  text-decoration: none;
   transition: background 0.2s ease, border-color 0.2s ease;
 }
 
@@ -570,7 +671,7 @@
   white-space: nowrap;
 }
 
-:is(.ms-page) :is(button, a, input, select, textarea):focus-visible {
+.ms-app :is(button, a, input, select, textarea):focus-visible {
   outline: 3px solid rgba(200, 164, 77, 0.8);
   outline-offset: 2px;
 }
@@ -1382,12 +1483,20 @@
 /* ---------- Tablette ---------- */
 
 @media (max-width: 1080px) {
-  .ms-layout {
+  .ms-body {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  .ms-sidebar {
+    top: var(--ms-topbar);
+    z-index: 15;
+    height: auto;
+    padding: 0.5rem 1rem;
+    border-inline-end: 0;
+    border-bottom: 1px solid var(--ms-line);
+  }
+
   .ms-nav {
-    position: static;
     display: flex;
     overflow-x: auto;
     gap: 0.35rem;
@@ -1399,34 +1508,59 @@
     flex: none;
   }
 
-  .ms-nav button span:first-of-type {
+  .ms-nav button > span:first-of-type {
     flex: none;
   }
 
   .ms-advantages {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .ms-user-name,
+  .ms-topbar-link span {
+    display: none;
+  }
 }
 
 /* ---------- Mobile ---------- */
 
 @media (max-width: 760px) {
-  .ms-hero.page-hero-secondary {
-    padding: 7.5rem 0 2rem;
+  :root {
+    --ms-topbar: 58px;
   }
 
-  .ms-member {
-    flex-wrap: wrap;
+  .ms-topbar {
+    gap: 0.45rem;
+    padding: 0.5rem 0.75rem;
   }
 
-  .ms-avatar.is-large {
-    width: 3.5rem;
-    height: 3.5rem;
-    font-size: 1.4rem;
+  .ms-brand img {
+    width: 36px;
+    height: 28px;
   }
 
-  .ms-logout {
-    width: 100%;
+  .ms-brand > span > span,
+  .ms-demo-badge span,
+  .ms-user,
+  .ms-logout span {
+    display: none;
+  }
+
+  .ms-demo-badge {
+    padding: 0.4rem 0.55rem;
+  }
+
+  .ms-topbar .ms-btn {
+    padding: 0.5rem 0.65rem;
+  }
+
+  .ms-lang button {
+    min-width: 2rem;
+    padding: 0.3rem 0.45rem;
+  }
+
+  .ms-main {
+    padding: 1.25rem 1rem 4rem;
   }
 
   .ms-stats,
