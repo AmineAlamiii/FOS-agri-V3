@@ -10,13 +10,17 @@ const ALL_TYPES = [...CONTENT_TYPES, ...STRUCTURED_TYPES];
 const GROUPS = ['Contenu', 'Prestations', 'Accueil', 'Réglages'];
 
 /** Langues complètes d'une fiche : tous les champs traduits sont remplis. */
+const LANG_MISSING = { fr: 'Français à compléter', ar: 'Arabe à compléter', zgh: 'Amazigh à compléter' };
+const LANG_ORDER = ['Traductions complètes', ...Object.values(LANG_MISSING)];
+
 function languageStatus(type, draft) {
   if (type.schemaFor) return structuredLanguageStatus(draft, type.schemaFor(draft));
   const localized = type.fields.filter((field) => field.localized);
-  return Object.fromEntries(LANGS.map(({ code }) => [
-    code,
-    localized.length === 0 || localized.every((field) => String(draft[`${field.key}_${code}`] || '').trim())
-  ]));
+  // Un champ facultatif vide dans toutes les langues n'est pas « à traduire » :
+  // une langue manque seulement si le champ est rempli dans une autre langue.
+  const filled = (field, code) => Boolean(String(draft[`${field.key}_${code}`] || '').trim());
+  const used = localized.filter((field) => field.required || LANGS.some(({ code }) => filled(field, code)));
+  return Object.fromEntries(LANGS.map(({ code }) => [code, used.every((field) => filled(field, code))]));
 }
 
 function LangDots({ status }) {
@@ -130,11 +134,27 @@ function ContentList({ type, drafts, onEdit, onAdd }) {
   // Colonne « Langues » seulement si la rubrique contient des textes traduits.
   const translated = Boolean(type.schemaFor) || type.fields.some((field) => field.localized);
   // Une valeur peut regrouper plusieurs rubriques (« Accueil, Offres bancaires »).
+  // Filtre commun à toutes les rubriques traduites : langues complètes ou à compléter.
+  const allFilters = [
+    ...(type.filters || []),
+    ...(translated ? [{
+      key: '__lang',
+      label: 'Toutes les traductions',
+      multiple: true,
+      sort: (a, b) => LANG_ORDER.indexOf(a) - LANG_ORDER.indexOf(b),
+      value: (draft) => {
+        const status = languageStatus(type, draft);
+        const missing = LANGS.filter(({ code }) => !status[code]).map(({ code }) => LANG_MISSING[code]);
+        return missing.length ? missing : ['Traductions complètes'];
+      }
+    }] : [])
+  ];
   const valuesOf = (draft, filter) => {
+    if (filter.value) return [].concat(filter.value(draft)).filter(Boolean);
     const value = String(draft[filter.key] || '').trim();
     return filter.multiple ? value.split(', ').filter(Boolean) : value ? [value] : [];
   };
-  const filterOptions = (type.filters || []).map((filter) => {
+  const filterOptions = allFilters.map((filter) => {
     const options = [...new Set(drafts.flatMap((draft) => valuesOf(draft, filter)))];
     return { ...filter, options: filter.keepOrder ? options : options.sort(filter.sort || ((a, b) => a.localeCompare(b, 'fr'))) };
   });

@@ -318,6 +318,11 @@ const SETTINGS_SCHEMAS = {
 /* ------------------------------------------------------------------ */
 /* Types exportés                                                      */
 /* ------------------------------------------------------------------ */
+/** Libellés des types de fiche, pour les filtres. */
+const FONDATION_KINDS = { message: 'Mot (Ministre, Président)', timeline: 'Histoire', values: 'Valeurs', committees: 'Gouvernance', organisation: 'Organisation' };
+const ADHESION_KINDS = { overview: 'Page d’accueil', cards: 'Cartes', groups: 'Listes de documents', fees: 'Cotisations' };
+const SETTINGS_KINDS = { menu: 'Navigation', contact: 'Coordonnées', seo: 'Référencement' };
+
 const label = (draft) => draft.label || draft.title?.fr || draft.id;
 
 export const STRUCTURED_TYPES = [
@@ -327,31 +332,39 @@ export const STRUCTURED_TYPES = [
     items: () => Object.keys(services).map(prestationDraft),
     schemaFor: () => PRESTATION_SCHEMA,
     title: (draft) => draft.title.fr,
-    columns: [{ label: 'Prestation', value: (d) => d.title.fr, wide: true }, { label: 'Sous-rubriques', value: (d) => String(d.menu.length) }]
+    columns: [{ label: 'Prestation', value: (d) => d.title.fr, wide: true }, { label: 'Sous-rubriques', value: (d) => String(d.menu.length) }],
+    filters: [{ key: 'size', label: 'Toutes les tailles de menu', value: (d) => `${d.menu.length} sous-rubrique${d.menu.length > 1 ? 's' : ''}`, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) }]
   },
   {
     id: 'fondation', group: 'Contenu', label: 'La Fondation', icon: 'fa-landmark', singular: 'une page',
     description: 'Mots du Ministre et du Président, histoire, valeurs, gouvernance et organigramme.',
     items: FONDATION_ITEMS, schemaFor: (draft) => FONDATION_SCHEMAS[draft.schema], title: label,
-    columns: [{ label: 'Page', value: label, wide: true }]
+    columns: [{ label: 'Page', value: label, wide: true }],
+    filters: [{ key: 'schema', label: 'Tous les types de page', value: (d) => FONDATION_KINDS[d.schema] || 'Autre' }]
   },
   {
     id: 'adhesion', group: 'Contenu', label: 'Adhésion', icon: 'fa-id-card', singular: 'une rubrique',
     description: 'Accueil de l’adhésion, situations des adhérents, procédure et cotisations.',
     items: ADHESION_ITEMS, schemaFor: (draft) => ADHESION_SCHEMAS[draft.schema], title: label,
-    columns: [{ label: 'Rubrique', value: label, wide: true }]
+    columns: [{ label: 'Rubrique', value: label, wide: true }],
+    filters: [{ key: 'schema', label: 'Tous les types de contenu', value: (d) => ADHESION_KINDS[d.schema] || 'Autre' }]
   },
   {
     id: 'media', group: 'Contenu', label: 'Médiathèque', icon: 'fa-images', singular: 'une galerie',
     description: 'Galeries photo par année et leurs albums (photos à ajouter).',
     items: MEDIA_ITEMS, schemaFor: (draft) => MEDIA_SCHEMAS[draft.schema], title: label,
-    columns: [{ label: 'Galerie', value: label, wide: true }, { label: 'Albums', value: (d) => String(d.albums.length) }]
+    columns: [{ label: 'Galerie', value: label, wide: true }, { label: 'Albums', value: (d) => String(d.albums.length) }],
+    filters: [
+      { key: 'year', label: 'Toutes les années' },
+      { key: 'photos', label: 'Avec et sans photos', value: (d) => (d.albums.some((album) => album.photos.length) ? 'Photos ajoutées' : 'Photos à ajouter') }
+    ]
   },
   {
     id: 'settings', group: 'Réglages', label: 'Menu, coordonnées, SEO', icon: 'fa-sliders', singular: 'un réglage',
     description: 'Menu principal, coordonnées et réseaux sociaux, titres et descriptions des pages.',
     items: SETTINGS_ITEMS, schemaFor: (draft) => SETTINGS_SCHEMAS[draft.schema], title: label,
-    columns: [{ label: 'Réglage', value: label, wide: true }]
+    columns: [{ label: 'Réglage', value: label, wide: true }],
+    filters: [{ key: 'schema', label: 'Tous les réglages', value: (d) => SETTINGS_KINDS[d.schema] || 'Autre' }]
   }
 ];
 

@@ -221,6 +221,7 @@ export const CONTENT_TYPES = [
       { label: 'Titre', value: (d) => d.title_fr },
       { label: 'Affichage', value: (d) => d.displayMode }
     ],
+    filters: [{ key: 'displayMode', label: 'Tous les affichages' }],
     fields: [
       t('eyebrow', 'Petit titre (au-dessus)'),
       t('title', 'Titre principal', { multiline: true, rows: 2, required: true }),
@@ -252,6 +253,10 @@ export const CONTENT_TYPES = [
       { label: 'Type', value: (d) => d.type },
       { label: 'Affichée', value: (d) => d.visible }
     ],
+    filters: [
+      { key: 'type', label: 'Tous les types' },
+      { key: 'visible', label: 'Affichées et masquées', value: (d) => (d.visible === 'Oui' ? 'Affichée' : 'Masquée') }
+    ],
     fields: [
       f('type', 'Type', { options: ['Vidéo', 'Image'], required: true }),
       f('src', 'Fichier (vidéo MP4 ou image)', { media: true }),
@@ -272,6 +277,7 @@ export const CONTENT_TYPES = [
       { label: 'Auteur', value: (d) => d.author_fr, wide: true },
       { label: 'Thème', value: (d) => d.category_fr }
     ],
+    filters: [{ key: 'category_fr', label: 'Tous les thèmes' }],
     fields: [
       t('quote', 'Témoignage', { multiline: true, rows: 4, required: true }),
       t('author', 'Auteur'),
@@ -311,6 +317,7 @@ export const CONTENT_TYPES = [
       { label: 'Région', value: (d) => d.name_fr, wide: true },
       { label: 'Délégué', value: (d) => d.delegate_fr }
     ],
+    filters: [{ key: 'delegate', label: 'Avec et sans délégué', value: (d) => (String(d.delegate_fr || '').trim() ? 'Délégué renseigné' : 'Délégué à renseigner') }],
     fields: [
       t('name', 'Région', { required: true }),
       t('delegate', 'Délégué / siège'),
