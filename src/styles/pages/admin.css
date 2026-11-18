@@ -130,3 +130,9 @@ body.cms-page { margin: 0; background: var(--cms-bg); color: var(--cms-text); fo
 .cms-file-text strong { overflow-wrap: anywhere; }
 .cms-search input { min-width: 180px; }
 .cms-search { flex-wrap: wrap; }
+.cms-filter { max-width: 220px; }
+.cms-filter-reset { border: 0; background: none; font: inherit; font-size: .8rem; color: var(--cms-muted); cursor: pointer; padding: .3rem .4rem; border-radius: 6px; }
+.cms-filter-reset:hover { color: inherit; background: #f1f3ee; }
+.cms-filter { max-width: 220px; }
+.cms-filter-reset { border: 0; background: none; font: inherit; font-size: .8rem; color: var(--cms-muted); cursor: pointer; padding: .3rem .4rem; border-radius: 6px; }
+.cms-filter-reset:hover { color: inherit; background: #f1f3ee; }

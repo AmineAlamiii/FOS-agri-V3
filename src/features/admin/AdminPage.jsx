@@ -130,14 +130,17 @@ function ContentList({ type, drafts, onEdit, onAdd }) {
   // Colonne « Langues » seulement si la rubrique contient des textes traduits.
   const translated = Boolean(type.schemaFor) || type.fields.some((field) => field.localized);
   // Une valeur peut regrouper plusieurs rubriques (« Accueil, Offres bancaires »).
-  const valuesOf = (draft, key) => String(draft[key] || '').split(', ').filter(Boolean);
-  const filterOptions = (type.filters || []).map((filter) => ({
-    ...filter,
-    options: [...new Set(drafts.flatMap((draft) => valuesOf(draft, filter.key)))].sort()
-  }));
+  const valuesOf = (draft, filter) => {
+    const value = String(draft[filter.key] || '').trim();
+    return filter.multiple ? value.split(', ').filter(Boolean) : value ? [value] : [];
+  };
+  const filterOptions = (type.filters || []).map((filter) => {
+    const options = [...new Set(drafts.flatMap((draft) => valuesOf(draft, filter)))];
+    return { ...filter, options: filter.keepOrder ? options : options.sort((a, b) => a.localeCompare(b, 'fr')) };
+  });
   const rows = drafts.filter((draft) =>
     (!q || Object.values(draft).some((value) => String(value).toLowerCase().includes(q)))
-    && Object.entries(filters).every(([key, value]) => !value || valuesOf(draft, key).includes(value)));
+    && filterOptions.every((filter) => !filters[filter.key] || valuesOf(draft, filter).includes(filters[filter.key])));
   const renderCell = (column, draft) => {
     if (!column.file) return column.value(draft) || '—';
     return (
@@ -170,10 +173,11 @@ function ContentList({ type, drafts, onEdit, onAdd }) {
             <select key={filter.key} className="cms-filter" aria-label={filter.label} value={filters[filter.key] || ''} onChange={(e) => setFilters({ ...filters, [filter.key]: e.target.value })}>
               <option value="">{filter.label}</option>
               {filter.options.map((option) => (
-                <option key={option} value={option}>{option} ({drafts.filter((draft) => valuesOf(draft, filter.key).includes(option)).length})</option>
+                <option key={option} value={option}>{option} ({drafts.filter((draft) => valuesOf(draft, filter).includes(option)).length})</option>
               ))}
             </select>
           ))}
+          {(q || Object.values(filters).some(Boolean)) && <button type="button" className="cms-filter-reset" onClick={() => { setQuery(''); setFilters({}); }}><i className="fa-solid fa-xmark"></i> Effacer</button>}
           {(q || Object.values(filters).some(Boolean)) && rows.length !== drafts.length && <span className="cms-count">{rows.length} résultat{rows.length > 1 ? 's' : ''}</span>}
         </div>
         <table className="cms-table">

@@ -48,6 +48,7 @@ export const CONTENT_TYPES = [
       id: item.slug,
       status: 'Publié',
       date: item.date,
+      month: item.date.split(' ').slice(1).join(' '),
       category_fr: item.fr?.category || '',
       image: item.image,
       attachments: (item.attachments || []).map((attachment) => attachment.path.split('/').pop()).join(', '),
@@ -58,6 +59,11 @@ export const CONTENT_TYPES = [
       { label: 'Titre', value: (d) => d.title_fr, wide: true },
       { label: 'Catégorie', value: (d) => d.category_fr },
       { label: 'Date', value: (d) => d.date }
+    ],
+    filters: [
+      { key: 'category_fr', label: 'Toutes les catégories' },
+      { key: 'month', label: 'Tous les mois', keepOrder: true },
+      { key: 'status', label: 'Tous les statuts' }
     ],
     fields: [
       t('title', 'Titre', { required: true }),
@@ -117,6 +123,12 @@ export const CONTENT_TYPES = [
       { label: 'Organisme', value: (d) => d.organisme || d.medecin, wide: true },
       { label: 'Ville', value: (d) => d.ville },
       { label: 'Catégorie', value: (d) => d.categorie }
+    ],
+    filters: [
+      { key: 'region', label: 'Toutes les régions' },
+      { key: 'ville', label: 'Toutes les villes' },
+      { key: 'categorie', label: 'Toutes les catégories' },
+      { key: 'statut', label: 'Tous les statuts' }
     ],
     fields: [
       f('organisme', 'Organisme', { required: true }),
@@ -339,7 +351,7 @@ CONTENT_TYPES.push({
   // Filtres affichés au-dessus du tableau (valeurs calculées à partir des fichiers).
   filters: [
     { key: 'kind', label: 'Tous les types' },
-    { key: 'usedIn', label: 'Toutes les rubriques' }
+    { key: 'usedIn', label: 'Toutes les rubriques', multiple: true }
   ],
   fields: [
     f('name', 'Nom du fichier', { required: true }),
